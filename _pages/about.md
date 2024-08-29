@@ -1,8 +1,8 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+#subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
 
 profile:
   align: right
@@ -18,8 +18,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am an upcoming Assistant Professor at Department of Electrical Engineering at the Indian Institute of Technology Roorkee as an Assistant Professor.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+Currently, I am a Postdoctoral Research Associate at Advanced Network Science Initiative (ANSI), Applied Mathematics Division, Los Alamos National Laboratory. I collaborate closely with Deepjyoti Deka, Sidhant Misra on cutting-edge research in power systems and network science.I completed my Ph.D. at the School of Electrical and Electronic Engineering, Nanyang Technological University, under the supervision of Hung D. Nguyen. Prior to NTU, I earned my M.Tech in Energy Studies from the Department of Energy Science and Engineering at the Indian Institute of Technology Delhi (IITD), where I worked with Ashu Verma.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+My research focuses on developing efficient algorithms to address challenges in power system operations under uncertainty. I specialize in applying Bayesian learning to power flow approximation, optimal power flow, and integrating empirical battery models into dispatch strategies. Notably, I introduced a novel kernel structure for learning large-scale network flows with minimal samples, enabling active and multi-task learning for managing N-1 contingencies. Currently, I am working towards establishing probabilistic guarantees for Bayesian tools and integrating prior power system knowledge into AI solutions. I'm also exploring GPU-accelerated machine learning for risk assessment in electrical markets and investigating quantum computing's potential for power system challenges.
