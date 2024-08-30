@@ -40,21 +40,12 @@ Please feel free to email me at [my_last_name@iitr.ac.in](mailto:my_last_name@ii
 
 <p>Some relevent resources:</p>
 
+- Seminar Series (e.g., [enOPTIMAL](https://wdvorkin.github.io/enoptimal/), [DTU PES Summer School](https://www.youtube.com/@dtulecturesonpowerenergysy8133/videos), …)
 
 
 
 
 
-
-<!-- <p>Some helpful resources:</p> -->
-    <li>
-        Seminar Series (e.g., 
-        <a href="https://wdvorkin.github.io/enoptimal/" rel="external nofollow noopener" target="_blank">enOPTIMAL</a>, 
-        <!-- <a href="https://sites.google.com/view/control-meets-learning/home" rel="external nofollow noopener" target="_blank">Control Meets Learning</a>,  -->
-        <!-- <a href="https://congreso.us.es/mlneedsmo/" rel="external nofollow noopener" target="_blank">NeEDS</a>,  -->
-        <a href="https://www.youtube.com/@dtulecturesonpowerenergysy8133/videos" rel="external nofollow noopener" target="_blank">DTU PES Summer School</a>, …)
-    </li>
-</ul>
 
 
 
