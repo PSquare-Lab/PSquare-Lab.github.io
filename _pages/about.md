@@ -9,7 +9,7 @@ profile:
   image: parikshit2.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p></p>
+    <p>Los Alamos, NM</p>
     <p></p>
     <p></p>
 
