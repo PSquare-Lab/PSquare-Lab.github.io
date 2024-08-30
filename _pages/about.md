@@ -18,7 +18,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am an upcoming Assistant Professor at Department of Electrical Engineering at the Indian Institute of Technology Roorkee as an Assistant Professor.
+I am an upcoming Assistant Professor at Department of Electrical Engineering at the Indian Institute of Technology Roorkee.
 
 Currently, I am a Postdoctoral Research Associate at Advanced Network Science Initiative (ANSI), Applied Mathematics Division, Los Alamos National Laboratory. I collaborate closely with Deepjyoti Deka, Sidhant Misra on cutting-edge research in power systems and network science.I completed my Ph.D. at the School of Electrical and Electronic Engineering, Nanyang Technological University, under the supervision of Hung D. Nguyen. Prior to NTU, I earned my M.Tech in Energy Studies from the Department of Energy Science and Engineering at the Indian Institute of Technology Delhi (IITD), where I worked with Ashu Verma.
 
