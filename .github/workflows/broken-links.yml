@@ -2,9 +2,9 @@ name: Check for broken links
 
 on:
   push:
-    branches:
-      - master
-      - main
+    # branches:
+    #   - master
+    #   - main
     paths:
       - "assets/**"
       - "**.html"
