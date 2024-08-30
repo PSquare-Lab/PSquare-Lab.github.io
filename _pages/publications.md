@@ -29,4 +29,9 @@ nav_order: 2
     {% bibliography --query @*[keywords=conference] %}
   </div>
 
+  <h3 style="font-weight: bold; color: #ff6600;">Thesis</h3>
+  <div class="thesis">
+    {% bibliography --query @*[keywords=thesis] %}
+  </div>
+
 </div>
