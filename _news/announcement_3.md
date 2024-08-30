@@ -6,4 +6,3 @@ related_posts: false
 published: false
 ---
 
-A simple inline announcement with Markdown emoji! :sparkles: :smile:
