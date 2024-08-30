@@ -54,7 +54,7 @@ socials_in_search: true
 bib_search: true
 
 # Dimensions
-max_width: 1200px
+max_width: 1300px
 
 # TODO: add layout settings (single page vs. multi-page)
 
@@ -332,7 +332,7 @@ scholar:
   details_dir: bibliography
   details_link: Details
 
-  # query: "@*"
+  query: "@*"
   # group_by: year
   sort_by: year
   order: descending
