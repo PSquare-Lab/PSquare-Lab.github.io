@@ -38,7 +38,7 @@ Please feel free to email me at [my_last_name@iitr.ac.in](mailto:my_last_name@ii
 
 <!-- **Additional Resources:** -->
 
-<p>Some relevent publications:</p>
+<p>Some relevent resources:</p>
 
 
 
@@ -46,25 +46,25 @@ Please feel free to email me at [my_last_name@iitr.ac.in](mailto:my_last_name@ii
 
 
 
-<p>Some helpful resources:</p>
+<!-- <p>Some helpful resources:</p> -->
 <ul>
-    <li>
-        Conferences (
+    <!-- <li> -->
+        <!-- Conferences ( -->
         <!-- <a href="https://cdc2023.ieeecss.org" rel="external nofollow noopener" target="_blank">CDC</a>,  -->
-        <a href="https://pscc-central.epfl.ch/papers-repo" rel="external nofollow noopener" target="_blank">PSCC</a>, 
+        <!-- <a href="https://pscc-central.epfl.ch/papers-repo" rel="external nofollow noopener" target="_blank">PSCC</a>, 
         <a href="https://l4dc.seas.upenn.edu" rel="external nofollow noopener" target="_blank">L4DC</a>, 
         <a href="https://www.climatechange.ai/events/neurips2023" rel="external nofollow noopener" target="_blank">CCAI</a>, 
-        <a href="https://energy.acm.org/conferences/eenergy/2023/" rel="external nofollow noopener" target="_blank">E-Energy</a>)
-    </li>
-    <li>
+        <a href="https://energy.acm.org/conferences/eenergy/2023/" rel="external nofollow noopener" target="_blank">E-Energy</a>) -->
+    <!-- </li> -->
+    <!-- <li>
         Journals  (
         <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=59" rel="external nofollow noopener" target="_blank">TPWRS</a>, 
-        <!-- <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6509490" rel="external nofollow noopener" target="_blank">CONES</a>,  -->
+         <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6509490" rel="external nofollow noopener" target="_blank">CONES</a>, 
         <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5165411" rel="external nofollow noopener" target="_blank">TSG</a>, 
         <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=9794458" rel="external nofollow noopener" target="_blank">TEMPR</a>, …)
-        <!-- <a href="https://pubsonline.informs.org/journal/opre" rel="external nofollow noopener" target="_blank">OR</a>,  -->
-        <!-- <a href="https://pubsonline.informs.org/journal/mnsc" rel="external nofollow noopener" target="_blank">MS</a>, …) -->
-    </li>
+         <a href="https://pubsonline.informs.org/journal/opre" rel="external nofollow noopener" target="_blank">OR</a>, 
+        <a href="https://pubsonline.informs.org/journal/mnsc" rel="external nofollow noopener" target="_blank">MS</a>, …) 
+    </li> -->
     <li>
         Seminar Series (e.g., 
         <a href="https://wdvorkin.github.io/enoptimal/" rel="external nofollow noopener" target="_blank">enOPTIMAL</a>, 
