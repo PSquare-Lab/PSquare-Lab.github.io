@@ -24,7 +24,6 @@ Currently, I am a Postdoctoral Research Associate at Advanced Network Science In
 
 **<span style="color: #ff6600;">Learning-Integrated Power System Operations:</span>** I work on advanced methodologies that integrate machine learning into power system operations to enhance the reliability and efficiency of energy networks under uncertainty. My special focus is on Bayesian learning for power systems.
 
-
 **<span style="color: #ff6600;">Probabilistic and Non-Parametric Methods:</span>** I work on probabilistic methods and non-parametric techniques to develop robust, interpretable models for optimal power flow and stability analysis in power grids dominated by renewable energy.
 
 **<span style="color: #ff6600;">Quantum Computing for Energy Systems:</span>** This research direction is about exploring the potential of quantum computing in solving complex optimization problems in power systems, pushing (and checking) the boundaries of what's possible in energy analytics.
