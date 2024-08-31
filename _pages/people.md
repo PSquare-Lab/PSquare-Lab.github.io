@@ -1,7 +1,7 @@
 ---
 layout: default
 permalink: /people/
-title: People
+title: Join Us!
 description: members of the lab or group
 nav: true
 nav_order: 7
@@ -26,7 +26,7 @@ nav_order: 7
 #       <p>123 your address street</p>
 #       <p>Your City, State 12345</p>
 ---
-## Join us!
+## Join Us!
 
 ---
 
