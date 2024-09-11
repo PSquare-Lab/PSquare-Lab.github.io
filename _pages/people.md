@@ -36,6 +36,8 @@ I encourage applicants with backgrounds in electrical engineering, operations re
 
 Please feel free to email me at [here](mailto:pareek@lanl.gov) with the subject line “Propective Masters/Doctoral Student Application Spring 2025 - [Your Name]”, including a brief overview of your interests and how you would contribute to our research group. Try and review a few of the resources given below before writing to me. Attach your CV and any other relevant documents. If you do not receive a response, please do not hesitate to follow up.
 
+**Existing IITR UG & PG:** If you are a current IIT Roorkee undergraduate or postgraduate student, feel free to drop by my office between XX to XX on yyyDay, or write to me. I have exciting opportunities to work on projects related to machine learning and quantum computing applications for power system analysis and optimization.
+
 **Some Relevent Resources:** 
 
 
