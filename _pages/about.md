@@ -29,7 +29,7 @@ Currently, I am a Postdoctoral Research Associate at Advanced Network Science In
 **<span style="color: #ff6600;">Probabilistic and Non-Parametric Methods:</span>** Group will focus on advancing probabilistic methods and non-parametric techniques to create robust and interpretable models for **Medium to Long Term Planning** & **Cause-Effect Studies** in renewable energy-dominated Indian power grids. By addressing the complexities introduced by renewable integration, we aim to enhance grid reliability and operational efficiency.
 
 
-**<span style="color: #ff6600;">Quantum Computing Potential Exploration:</span>** Group will **investigate the capabilities of**quantum computing in solving computationally combursome problems in grids & other engineering domains.  The aim will be to scrutinizing and advance the boundaries of what's possible using Quantum computing for **Our Favourite Problems**.
+**<span style="color: #ff6600;">Quantum Computing Potential Exploration:</span>** Group will **investigate the capabilities of** quantum computing in solving computationally combursome problems in grids & other engineering domains.  The aim will be to scrutinizing and advance the boundaries of what's possible using Quantum computing for **Our Favourite Problems**.
 
 For more details, please see my [CV](/assets/pdf/Parikshit_CV.pdf). 
 
