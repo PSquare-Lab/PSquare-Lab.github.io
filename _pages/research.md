@@ -9,7 +9,7 @@ nav_order: 6
 
 <div class="row justify-content-center">
     <div class="col-sm mt-3 mt-md-0 text-center">
-        {% include figure.liquid loading="eager" path="assets/img/RI_website.pdf" title="example image" class="img-fluid rounded z-depth-1 " %}
+        {% include figure.liquid loading="eager" path="assets/img/RI_website_light.pdf" title="Research Interest" class="img-fluid rounded z-depth-1 " %}
     </div>
 </div>
 
