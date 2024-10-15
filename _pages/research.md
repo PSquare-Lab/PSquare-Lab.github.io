@@ -2,22 +2,43 @@
 layout: page
 permalink: /research/
 title: Research
-description: Research Directions and Highlights
+description: 
 nav: true
 nav_order: 6
 ---
 
-<span style="color: #ff6600; font-size: 24px;">Fast Voltage Risk Analysis</span>
+<div class="row justify-content-center">
+    <div class="col-sm mt-3 mt-md-0 text-center">
+        {% include figure.liquid loading="eager" path="assets/img/RI_website.pdf" title="example image" class="img-fluid rounded z-depth-1 " %}
+    </div>
+</div>
 
-Details will be updated soon!
 
+<span style="color: #ff6600; font-size: 24px;">Closed-form Power Flow & Applications</span>
 
-<span style="color: #ff6600; font-size: 24px;">Demystifying Quantum Power Flow</span>
+Closed-form power flow (CFPF) framework aim to provide **explicit** mathematical expressions for solving AC power flow equations: $$V = f(\mathbf{s})$$ (Node voltage as a function of injection vector). The core idea is to bypas iterative numerical techniques like Newton-Raphson and replace these with **function evaluation**. Unlike linearizations, CFPF is a general framework which allows to tailor complexity of $$f(\mathbf{s})$$ based on target application. Desired features of CFPF are:
 
-Details coming soon!
+- **Flexible Forms** $$\implies$$ Non-linear forms with *complexity-accuracy* trade-off
+- **Easy to Evaluate Forms** $$\implies$$ Faster numerical calculations
+- **Non-parametric Forms** $$\implies$$ Works within a power injection range or hypercube
+- **Differentiability of Forms** $$\implies$$ Can be fed into optimization problems
+- **Interpretability of Forms** $$\implies$$ Should provide insights into the physical system
+
+The CFPF framework is build using **Gaussian Process** (GPs) to achieve these desired features. Beyond direct applications, **Vertex-Degree-Kernel** (VDK) design has been proposed for scaling the GPs to larger grid. Some key innovations involve designing a  *Network-Swipe Active Learning algorithm*, *Multi-Task VDK GP* and *Theoretical Learning Bounds for Risk Analysis*.
+
+**Related Papers:** 
+1) [Basic CFPF Frameworl](https://drive.google.com/file/d/1GfyVgx-ca9QEpgm7mg8yHzbKsYY3ifnE/view)
+2) [Vertex-Degree Kernel and Network-Swipe Algorithm for Fast Risk Assessment](https://arxiv.org/abs/2308.07867)
+3) [Multi-Task VDK GP for Network Contingencies](https://arxiv.org/abs/2310.00763)
+4) [Critical Prosumer Identification](https://dr.ntu.edu.sg/bitstream/10356/170911/2/Locating%20Critical%20Prosumers%20in%20P2P%20Dominant%20Grids%20Using%20State-Sensitivity%20Function.pdf)
+5) [Privacy-preserving Feasibility Assessment](https://www.researchgate.net/profile/Parikshit-Pareek-2/publication/358660003_Privacy-Preserving_Feasibility_Assessment_for_P2P_Energy_Trading_and_Storage_Integration/links/62207ee1e474e407ea1e1e6e/Privacy-Preserving-Feasibility-Assessment-for-P2P-Energy-Trading-and-Storage-Integration.pdf)
 
 
 
 <span style="color: #ff6600; font-size: 24px;">Optimal Power Flow Proxies</span>
+
+Details coming soon!
+
+<span style="color: #ff6600; font-size: 24px;">Potential Quantum Advantage Analysis in Power Systems</span>
 
 Details coming soon!

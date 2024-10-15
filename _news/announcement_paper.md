@@ -5,4 +5,5 @@ inline: true
 related_posts: false
 published: true
 ---
-**New Pre-print**: OPF Proxies under Low Data and Low Training Time: A Semi-Supervised BNN Approach
+**New Pre-print Alert**: OPF Proxies under Low Data and Low Training Time: A Semi-Supervised BNN Approach [Link](https://arxiv.org/pdf/2410.03085)
+
