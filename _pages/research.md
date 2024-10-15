@@ -13,7 +13,6 @@ nav_order: 6
     </div>
 </div>
 
-
 <span style="color: #ff6600; font-size: 24px;">Closed-form Power Flow & Applications</span>
 
 Closed-form power flow (CFPF) framework aim to provide **explicit** mathematical expressions for solving AC power flow equations: $$V = f(\mathbf{s})$$ (Node voltage as a function of injection vector). The core idea is to bypas iterative numerical techniques like Newton-Raphson and replace these with **function evaluation**. Unlike linearizations, CFPF is a general framework which allows to tailor complexity of $$f(\mathbf{s})$$ based on target application. Desired features of CFPF are:
@@ -32,7 +31,6 @@ The CFPF framework is build using **Gaussian Process** (GPs) to achieve these de
 3) [Multi-Task VDK GP for Network Contingencies](https://arxiv.org/abs/2310.00763)
 4) [Critical Prosumer Identification](https://dr.ntu.edu.sg/bitstream/10356/170911/2/Locating%20Critical%20Prosumers%20in%20P2P%20Dominant%20Grids%20Using%20State-Sensitivity%20Function.pdf)
 5) [Privacy-preserving Feasibility Assessment](https://www.researchgate.net/profile/Parikshit-Pareek-2/publication/358660003_Privacy-Preserving_Feasibility_Assessment_for_P2P_Energy_Trading_and_Storage_Integration/links/62207ee1e474e407ea1e1e6e/Privacy-Preserving-Feasibility-Assessment-for-P2P-Energy-Trading-and-Storage-Integration.pdf)
-
 
 
 <span style="color: #ff6600; font-size: 24px;">Optimal Power Flow Proxies</span>
