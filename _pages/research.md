@@ -7,13 +7,13 @@ nav: true
 nav_order: 6
 ---
 
-<div class="row justify-content-center">
-    <div class="col-sm mt-3 mt-md-0 text-center">
-        {% include figure.liquid loading="eager" path="assets/img/RI_website_light.pdf" title="Research Interest" class="img-fluid rounded z-depth-1 " %}
-    </div>
-</div>
 
-<span style="color: #ff6600; font-size: 24px;">Closed-form Power Flow & Applications</span>
+
+<!-- <span style="color: #ff6600; font-size: 24px;">Selected Research Works</span> -->
+My research interests lie in exploring solutions at the intersection of power systems, optimization, machine learning, and more recently, quantum computing, to address the challenges of modern energy networks, particularly under uncertainty. Below is a brief non-rigorous summary and the associated papers related to my three main research themes.
+
+
+<span style="color: #ff6600; font-size: 20px;">#1 Closed-form Power Flow & Applications</span>
 
 Closed-form power flow (CFPF) framework aim to provide **explicit** mathematical expressions for solving AC power flow equations: $$V = f(\mathbf{s})$$ (Node voltage as a function of injection vector). The core idea is to bypas iterative numerical techniques like Newton-Raphson and replace these with **function evaluation**. Unlike linearizations, CFPF is a general framework which allows to tailor complexity of $$f(\mathbf{s})$$ based on target application. Desired features of CFPF are:
 
@@ -23,7 +23,7 @@ Closed-form power flow (CFPF) framework aim to provide **explicit** mathematical
 - **Differentiability of Forms** $$\implies$$ Can be fed into optimization problems
 - **Interpretability of Forms** $$\implies$$ Should provide insights into the physical system
 
-The CFPF framework is build using **Gaussian Process** (GPs) to achieve these desired features. Beyond direct applications, **Vertex-Degree-Kernel** (VDK) design has been proposed for scaling the GPs to larger grid. Some key innovations involve designing a  *Network-Swipe Active Learning algorithm*, *Multi-Task VDK GP* and *Theoretical Learning Bounds for Risk Analysis*.
+The CFPF framework is build using **Gaussian Process** (GPs) to achieve these desired features. Beyond direct applications, **Vertex-Degree-Kernel** (VDK) design has been proposed for scaling the GPs to larger grid. Some key innovations involve designing a  **Network-Swipe Active Learning algorithm**, **Multi-Task VDK GP** and **Theoretical Learning Bounds for Risk Analysis**.
 
 **Related Papers:** 
 1) [Basic CFPF Frameworl](https://drive.google.com/file/d/1GfyVgx-ca9QEpgm7mg8yHzbKsYY3ifnE/view)
@@ -33,10 +33,10 @@ The CFPF framework is build using **Gaussian Process** (GPs) to achieve these de
 5) [Privacy-preserving Feasibility Assessment](https://www.researchgate.net/profile/Parikshit-Pareek-2/publication/358660003_Privacy-Preserving_Feasibility_Assessment_for_P2P_Energy_Trading_and_Storage_Integration/links/62207ee1e474e407ea1e1e6e/Privacy-Preserving-Feasibility-Assessment-for-P2P-Energy-Trading-and-Storage-Integration.pdf)
 
 
-<span style="color: #ff6600; font-size: 24px;">Optimal Power Flow Proxies</span>
+<span style="color: #ff6600; font-size: 20px;">#2 Optimal Power Flow (OPF) Proxies</span>
 
-Details coming soon!
+Details will be updated soon!
 
-<span style="color: #ff6600; font-size: 24px;">Potential Quantum Advantage Analysis in Power Systems</span>
+<span style="color: #ff6600; font-size: 20px;">#3 Potential Quantum Advantage Analysis in Power Systems</span>
 
-Details coming soon!
+Details will be updated soon!
