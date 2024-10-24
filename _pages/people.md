@@ -34,7 +34,7 @@ nav_order: 7
 
 I encourage applicants with backgrounds in electrical engineering, operations research, and applied machine learning to apply. I am particularly interested in students who are eager to develop expertise to address complex challenges in power engineering via $$\large Power+AI$$ route. In my experience, it is often more effective to teach the specifics of power engineering to individuals with strong mathematical, computational, or operational research backgrounds than vice versa.
 
-Please feel free to email me at [here](mailto:pare0001@ntu.edu.sg) with the subject line “Propective Masters/Doctoral Student Application Spring 2025 - [Your Name]”, including a brief overview of your interests and how you would contribute to our research group. Try and review a few of the resources given below before writing to me. Attach your CV and any other relevant documents. If you do not receive a response, please do not hesitate to follow up.
+Please feel free to email me at [here](mailto:pareek@ee.iitr.ac.in) with the subject line “Propective Masters/Doctoral Student Application Spring 2025 - [Your Name]”, including a brief overview of your interests and how you would contribute to our research group. Try and review a few of the resources given below before writing to me. Attach your CV and any other relevant documents. If you do not receive a response, please do not hesitate to follow up.
 
 **Existing IITR UG & PG:** If you are a current IIT Roorkee undergraduate or postgraduate student, write to me (Will update office timings soon). I have exciting opportunities to work on projects related to machine learning and quantum computing applications for power system analysis, optimization and other engineering projects.
 
