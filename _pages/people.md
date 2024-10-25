@@ -53,7 +53,12 @@ Please feel free to email me at [here](mailto:pareek@ee.iitr.ac.in) with the sub
 
 
 
+
+
+
 ## Contact Details
+
+---
 
 **Office**: Room 214A, 1st Floor, East Block, 
             Department of Electrical Engineering, 
