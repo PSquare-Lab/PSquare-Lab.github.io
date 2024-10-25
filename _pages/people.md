@@ -53,3 +53,13 @@ Please feel free to email me at [here](mailto:pareek@ee.iitr.ac.in) with the sub
 
 
 
+## Contact Details
+
+**Office**: Room 214A, 1st Floor, East Block, 
+            Department of Electrical Engineering, 
+            IIT Roorkee, Uttarakhand, India - 247667
+
+**Email**: [mylastname] [at] [ee] [dot] [iitr dot ac dot in]
+<!-- Phone: +91-XXX-XXX-XXXX -->
+
+**Website**: https://psquare-lab.github.io
