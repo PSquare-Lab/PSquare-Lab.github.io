@@ -10,7 +10,19 @@ nav_order: 6
 
 
 <!-- <span style="color: #ff6600; font-size: 24px;">Selected Research Works</span> -->
-My research interests lie in exploring solutions at the intersection of power systems, optimization, machine learning, and more recently, quantum computing, to address the challenges of modern energy networks, particularly under uncertainty. Below is a brief non-rigorous summary and the associated papers related to my three main research themes.
+My research interests lie in exploring solutions at the intersection of power systems, optimization, machine learning, and more recently, quantum computing, to address the challenges of modern energy networks, particularly under uncertainty. 
+
+**<span style="color: #ff6600;">Learning-Integrated Power System Operations:</span>** The group's research will focus on developing **physics-inspired methodologies** that leverage **machine learning (ML)** to optimize and secure power system operations and planning. We aim to enhance the **reliability**, **efficiency**, and **resilience** of energy networks operating under uncertainty by developing **problem-specific ML tools**. 
+
+
+**<span style="color: #ff6600;">Probabilistic and Non-Parametric Methods:</span>** Group will focus on advancing probabilistic methods and non-parametric techniques to create robust and interpretable models for **Medium to Long Term Planning** & **Cause-Effect Studies** in renewable energy-dominated Indian power grids. By addressing the complexities introduced by renewable integration, we aim to enhance grid reliability and operational efficiency.
+
+
+**<span style="color: #ff6600;">Quantum Computing Potential Exploration:</span>** Group will **investigate the capabilities of** quantum computing in solving computationally combursome problems in power grids & other engineering domains. The aim will be to scrutinizing and advance the boundaries of what's possible using Quantum computing for **Our Favourite Problems**.
+
+
+
+Below is a brief non-rigorous summary and the associated papers related to above mentioned three main research themes.
 
 
 <span style="color: #ff6600; font-size: 20px;">#1 Closed-form Power Flow & Applications</span>
