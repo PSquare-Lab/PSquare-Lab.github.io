@@ -30,16 +30,15 @@ nav_order: 7
 
 ---
 
-**For Prospective Students:** I am currently seeking PhD candidates for Spring 2025 through the Electrical Engineering admission process at IIT Roorkee. Please refer to the application guidelines available [here](https://iitr.ac.in/Academics/Admission%20To%20Doctoral%20Programmes.html). 
+**For Prospective Students:** I am currently seeking PhD candidates for Autumn Semester 2025 (July Intake) through the Electrical Engineering admission process at IIT Roorkee. Please refer to the application guidelines available [here](https://iitr.ac.in/Academics/Admission%20To%20Doctoral%20Programmes.html). 
 
 I encourage applicants with backgrounds in electrical engineering, operations research, and applied machine learning to apply. I am particularly interested in students who are eager to develop expertise to address complex challenges in power engineering via $$\large Power+AI$$ route. In my experience, it is often more effective to teach the specifics of power engineering to individuals with strong mathematical, computational, or operational research backgrounds than vice versa.
 
-Please feel free to email me at [here](mailto:pareek@ee.iitr.ac.in) with the subject line “Propective Masters/Doctoral Student Application Spring 2025 - [Your Name]”, including a brief overview of your interests and how you would contribute to our research group. Try and review a few of the resources given below before writing to me. Attach your CV and any other relevant documents. If you do not receive a response, please do not hesitate to follow up.
+Please feel free to email me at [here](mailto:pareek@ee.iitr.ac.in) with the subject line “Propective Masters/Doctoral Student Application Autumn 2025 - [Your Name]”, including a brief overview of your interests and how you would contribute to our research group. Try and review a few of the resources given below before writing to me. Attach your CV and any other relevant documents. If you do not receive a response, please do not hesitate to follow up.
 
-**Existing IITR UG & PG:** If you are a current IIT Roorkee undergraduate or postgraduate student, write to me [here](mailto:pareek@ee.iitr.ac.in) (Will update office timings soon). I have exciting opportunities to work on projects related to machine learning and quantum computing applications for power system analysis, optimization and other engineering projects.
+**Existing IITR UG & PG:** If you are a current IIT Roorkee undergraduate or postgraduate student, write to me [here](mailto:pareek@ee.iitr.ac.in). You can also visit me at my office: 214A, East Wing, EE Building, preferably with prior appointment. I have exciting opportunities to work on projects related to machine learning and quantum computing applications for power system analysis, optimization and other engineering projects.
 
 **Some Relevent Resources:** 
-
 
 - Seminar Series : [enOPTIMAL](https://wdvorkin.github.io/enoptimal/), [DTU PES Summer School](https://www.youtube.com/@dtulecturesonpowerenergysy8133/videos), ...
 
