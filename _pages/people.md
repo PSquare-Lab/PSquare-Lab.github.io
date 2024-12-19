@@ -38,6 +38,9 @@ Please feel free to email me at [here](mailto:pareek@ee.iitr.ac.in) with the sub
 
 **Existing IITR UG & PG:** If you are a current IIT Roorkee undergraduate or postgraduate student, write to me [here](mailto:pareek@ee.iitr.ac.in). You can also visit me at my office: 214A, East Wing, EE Building, preferably with prior appointment. I have exciting opportunities to work on projects related to machine learning and quantum computing applications for power system analysis, optimization and other engineering projects.
 
+**Internship Opportunities for External Students:** I have limited opportunities for summer internships in the upcoming summer for projects related to machine learning applications in power system analysis, optimization, and other engineering domains. Students from outside IIT Roorkee can reach out to me at [here](mailto:pareek@ee.iitr.ac.in) for more details. Early movers get priority consideration!
+
+
 **Some Relevent Resources:** 
 
 - Seminar Series : [enOPTIMAL](https://wdvorkin.github.io/enoptimal/), [DTU PES Summer School](https://www.youtube.com/@dtulecturesonpowerenergysy8133/videos), ...
