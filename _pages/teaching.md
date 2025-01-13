@@ -7,5 +7,6 @@ nav: true
 nav_order: 6
 ---
 
-This page will have description of courses. Will be updated soon!
+## SPRING SEMESTER (2024-25)
+-- [EEE 102 Basic Electrical Engineering (Partial)](/teaching/EEE_102.md)
 
