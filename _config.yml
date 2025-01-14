@@ -287,6 +287,11 @@ jekyll-minifier:
   uglifier_args:
     harmony: true
 
+# relative_links:
+#   enabled:     true
+#   collections: false
+
+
 # -----------------------------------------------------------------------------
 # Jekyll Archives
 # -----------------------------------------------------------------------------

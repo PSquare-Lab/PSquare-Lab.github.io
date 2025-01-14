@@ -1,81 +1,109 @@
 ---
 layout: page
-title: project 1
-description: with background image
-img: assets/img/12.jpg
+title: EEE 102
 importance: 1
 category: work
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+# Course Title: Advanced Topics in Energy Systems  
+**Instructor**: Dr. Parikshit  
+**Semester**: Spring 2025  
+**Department**: Electrical Engineering, IIT Roorkee  
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+---
 
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+## Course Description  
+This course explores advanced methodologies for solving complex energy system challenges. Topics include probabilistic power system operations, non-parametric methods, and the application of quantum computing to energy problems. Students will gain a deep understanding of theoretical principles and practical tools essential for modern power systems.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+---
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+## Learning Objectives  
+By the end of this course, students will be able to:  
+- Understand and apply probabilistic approaches in energy systems.  
+- Integrate machine learning techniques into power system operations.  
+- Analyze the potential and limitations of quantum computing in solving energy problems.  
+- Develop robust models for grid stability and optimal power flow.  
 
-{% raw %}
+---
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+## Prerequisites  
+- Basics of power systems (EEE 101 or equivalent).  
+- Linear Algebra and Probability.  
+- Experience with MATLAB or Python is recommended.  
 
-{% endraw %}
+---
+
+## Course Topics  
+1. **Introduction to Modern Power Systems**  
+2. **Learning-Integrated Power System Operations**  
+   - Bayesian approaches  
+   - Machine learning frameworks for uncertainty modeling  
+3. **Probabilistic and Non-Parametric Methods**  
+   - Stochastic optimization  
+   - Uncertainty quantification and contextualization  
+4. **Quantum Computing in Energy Systems**  
+   - Quantum algorithms for optimization  
+   - Current challenges and opportunities  
+
+---
+
+## Grading Breakdown  
+- **Assignments**: 30%  
+- **Midterm Exam**: 20%  
+- **Project**: 30%  
+- **Final Exam**: 20%  
+
+Late submission policy: A penalty of 10% per day will be applied to late submissions, up to a maximum of 3 days.  
+
+---
+
+## Class Schedule  
+| Week | Topic                                     | Notes/Readings                  |  
+|------|-------------------------------------------|---------------------------------|  
+| 1    | Introduction to Modern Power Systems      | Chapter 1 of Textbook          |  
+| 2    | Learning-Integrated Operations            | Lecture slides and paper [1]   |  
+| 3-4  | Probabilistic Modeling and Optimization   | Chapters 3 & 4, Paper [2]      |  
+| 5-6  | Quantum Computing for Energy Systems      | Lecture notes and paper [3]    |  
+
+---
+
+## Resources  
+- **Textbook**: _Power System Analysis and Design_ by Glover, Sarma, Overbye.  
+- **Papers**: Links to research papers will be provided on Moodle.  
+- **Tools**: Python (preferred), MATLAB, and Qiskit for quantum simulations.  
+
+---
+
+## Contact Information  
+- **Instructor**: Dr. Parikshit  
+  - Office: Room 101, Electrical Engineering Building  
+  - Email: [parikshit@iitr.ac.in](mailto:parikshit@iitr.ac.in)  
+  - Office Hours: Monday & Wednesday, 3:00 PM - 4:00 PM  
+- **Teaching Assistant**:  
+  - Name: [TA Name]  
+  - Email: [TA Email]  
+
+---
+
+## Announcements  
+Please check the course Moodle page regularly for updates on assignments, lecture notes, and deadlines.
+
+---
+
+## Policies  
+- Academic integrity is taken very seriously. Plagiarism and cheating will result in disciplinary action.  
+- Participation is expected in lectures and group discussions.
+
+---
+
+## Project Guidelines  
+- Topics will be provided by the instructor, or students can propose their own (with approval).  
+- Teams of up to 3 students are allowed.  
+- Deliverables include a project proposal, midterm progress report, and final presentation.
+
+---
+
+**Let’s make this a great semester of learning and discovery!**  

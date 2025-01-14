@@ -1,3 +1,13 @@
+---
+layout: page
+title: EEE 102
+importance: 1
+category: work
+related_publications: true
+---
+
+
+
 # Course Title: Advanced Topics in Energy Systems  
 **Instructor**: Dr. Parikshit  
 **Semester**: Spring 2025  
