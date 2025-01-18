@@ -2,7 +2,7 @@
   <span style="color: rgb(255, 255, 0);">Rajdeep</span> Rameshchandra Dwivedi
 </h3>
 
-#### (Research Scholar, Jointly with [Prof. Vishvendra Singh Poonia](https://ece.iitr.ac.in/vishvendra-singh-poonia/), ECE, IIT Roorkee)
+#### (Research Scholar, Jointly Advised with [Prof. Vishvendra Singh Poonia](https://ece.iitr.ac.in/vishvendra-singh-poonia/), ECE, IIT Roorkee)
 
 Rajdeep's academic journey combines engineering precision with the expansive realm of physics.
 He holds a Master's degree in Physics, specializing in Theoretical Physics, from IIT Delhi and a Bachelor's degree in Electronics and Communication Engineering from the Government College of Engineering, Aurangabad.
