@@ -1,6 +1,6 @@
 ---
 layout: profiles
-permalink: /profiles/
+permalink: /team/
 title: Team
 description: 
 nav: true
