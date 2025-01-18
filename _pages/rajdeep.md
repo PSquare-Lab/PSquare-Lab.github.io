@@ -1,5 +1,5 @@
 ### Rajdeep Rameshchandra Dwivedi 
-#### (Jointly with [Prof. Vishvendra Singh Poonia](https://ece.iitr.ac.in/vishvendra-singh-poonia/), ECE, IIT Roorkee)
+#### (Research Scholar, Jointly with [Prof. Vishvendra Singh Poonia](https://ece.iitr.ac.in/vishvendra-singh-poonia/), ECE, IIT Roorkee)
 
 
 Rajdeep's academic journey combines engineering precision with the expansive realm of physics.
