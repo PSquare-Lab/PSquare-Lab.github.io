@@ -27,11 +27,11 @@ nav_order: 7
 
 <div class="organizer right">
     <div class="profile">
-        <img class="photo" alt="Rajdeep R. Dwivedi" src="{{ site.baseurl }}/assets/img/snigdha.jpg" height="250px">
+        <img class="photo" alt="" src="{{ site.baseurl }}/assets/img/snigdha.jpg" height="250px">
     </div>
     <div class="bio">
         <h4 class="name" style="display: inline;">Snigdha Annavarajula</h4> 
-        <h5 style="display: inline; font-weight: normal;">, B.Tech, Third-year EE, IIT Roorkee.
+        <h5 style="display: inline; font-weight: normal;">, B.Tech, Third-Year EE, IIT Roorkee.
         </h5>
         <p>Snigdha is a third-year undergraduate student in Electrical Engineering at IIT Roorkee. She is passionate about Data Science and Machine Learning. </p> 
         <p>As a Product Development Intern at Rite Software, she gained hands-on experience in data analytics, working with SQL, AWS, and Power BI to develop and deliver a functional dashboard for a real use case. Beyond academics, she enjoys painting and playing badminton, which allow her to express my creativity and stay active. </p>
@@ -46,7 +46,7 @@ nav_order: 7
     </div>
     <div class="bio">
         <h4 class="name" style="display: inline;">Neeraj P</h4> 
-        <h5 style="display: inline; font-weight: normal;">, B.Tech, Third-year EE, IIT Roorkee.
+        <h5 style="display: inline; font-weight: normal;">, B.Tech, Third-Year EE, IIT Roorkee.
         </h5>
         <p>Neeraj is a BTech student in Electrical Engineering at IIT Roorkee, with a strong passion for technology, problem-solving, and artificial intelligence. He is excited to be joining Samsung as a developer intern, where he looks forward to applying his skills, learning from industry experts, and gaining hands-on experience.</p>
 
@@ -63,7 +63,7 @@ nav_order: 7
     </div>
     <div class="bio">
         <h4 class="name" style="display: inline;">Navaneeth Krishna Thekkeyil</h4> 
-        <h5 style="display: inline; font-weight: normal;">, B.Tech, Third-year EE, IIT Roorkee.
+        <h5 style="display: inline; font-weight: normal;">, B.Tech, Third-Year EE, IIT Roorkee.
         </h5>
         <p>He is currently pursuing a BTech in Electrical Engineering at IIT Roorkee and is in his third year of study. As he steps into the professional world, he is excited to begin his upcoming internship at Axxela Research & Analytics, a company with a strong presence in financial and commodities derivatives-related operations.</p>
 
