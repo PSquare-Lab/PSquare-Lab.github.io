@@ -1304,3 +1304,50 @@ ninja-keys::part(ninja-input-wrapper) {
   background-color: var(--global-theme-color);
   color: var(--global-text-color);
 }
+
+// Org
+/* Organizer Container */
+.organizer {
+  padding-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
+/* Profile Section */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  flex-shrink: 0;
+}
+
+/* Photo Styling */
+.photo {
+  border-radius: 4px;
+}
+
+/* Bio Section */
+.bio {
+  flex: 1;
+  text-align: justify;
+}
+
+/* Name Styling */
+.name {
+  color: #ded41c;
+  font-weight: bold;
+}
+
+/* Image on the Left */
+.organizer.left {
+  flex-direction: row;
+}
+
+/* Image on the Right */
+.organizer.right {
+  flex-direction: row-reverse;
+}
