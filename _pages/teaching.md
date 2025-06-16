@@ -5,6 +5,7 @@ layout: default
 page_title: Teaching
 description:
 nav: true
+nav_order: 6
 ---
 
 <style>
