@@ -25,7 +25,14 @@ nav_order: 7
   </div>
 </div>
 
-#### ⚡ Current Members
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 1rem;">
+  <div style="display: flex; align-items: center; gap: 0.4rem;">
+    <h5 style="color: #f8873c; font-weight: bold; margin: 0;">⚡ Current Members</h5>
+  </div>
+  <hr style="width: 40%; border: 1px solid #f8873c; margin: 0.3rem 0 1rem 1rem;" />
+</div>
+
 
 {% assign category_order = "Research Scholars|Masters Researchers|Undergraduate Researchers|Summer Interns" | split: "|" %}
 {% assign current_members = "" | split: "" %}
@@ -36,7 +43,7 @@ nav_order: 7
 
 <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
   {% for member in current_members %}
-    <div style="display: flex; align-items: center; gap: 1rem; flex: 1 1 35%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 8px;">
+    <div style="display: flex; align-items: center; gap: 1rem; flex: 1 1 33%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 8px;">
       <img src="{{ '/assets/img/' | append: member.image | relative_url }}"
            alt="{{ member.name }}"
            style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; transition: transform 0.3s ease;"
@@ -44,7 +51,7 @@ nav_order: 7
            onmouseout="this.style.transform='scale(1)'"
            onerror="this.onerror=null; this.src='{{ '/assets/img/Lab_Logo.jpg' | relative_url }}';" />
       <div>
-        <h4 style="margin: 0;">
+        <h5 style="margin: 0;">
           {% if member.url %}
             <a href="{{ member.url }}" target="_blank">{{ member.name }}</a>
           {% elsif member.github %}
@@ -52,7 +59,7 @@ nav_order: 7
           {% else %}
             {{ member.name }}
           {% endif %}
-        </h4>
+        </h5>
         {% if member.degree %}
           <p style="margin: 0;"><em>{{ member.degree }}</em></p>
         {% endif %}
@@ -69,7 +76,15 @@ nav_order: 7
 <!-- Wrapper to align everything to the left -->
 <div style="max-width: 1300px; margin: 0 auto 2rem auto; padding-left: 1rem; text-align: left;">
 
-#### 🏁 Past Team
+
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 1rem;">
+  <div style="display: flex; align-items: center; gap: 0.4rem;">
+    <h5 style="color: #f8873c; font-weight: bold; margin: 0;">🏁 Past Team Members</h5>
+  </div>
+  <hr style="width: 40%; border: 1px solid #f8873c; margin: 0.3rem 0 1rem 1rem;" />
+</div>
+
 <ul style="list-style-type: disc; padding-left: 1.5rem;">
   {% assign past_members = "" | split: "" %}
   {% for cat in category_order %}
@@ -94,7 +109,15 @@ nav_order: 7
   {% endfor %}
 </ul>
 
-#### 🤝 Collaborators
+
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 1rem;">
+  <div style="display: flex; align-items: center; gap: 0.4rem;">
+    <h5 style="color: #f8873c; font-weight: bold; margin: 0;">🤝 Collaborators</h5>
+  </div>
+  <hr style="width: 40%; border: 1px solid #f8873c; margin: 0.3rem 0 1rem 1rem;" />
+</div>
+
 <ul style="list-style-type: disc; padding-left: 1.5rem;">
   <li style="margin-bottom: 0.75rem;"><a href="https://sidhantmisra.github.io" target="_blank">Dr. Sidhant Misra</a> — Staff Scientist, Theoretical Division T-5 (Applied Mathematics), Los Alamos National Laboratory, USA</li>
   <li style="margin-bottom: 0.75rem;"><a href="https://energy.mit.edu/profile/deepjyoti-deka/" target="_blank">Dr. Deepjyoti Deka</a> — Research Scientist, MIT Energy Initiative, USA</li>
@@ -105,7 +128,14 @@ nav_order: 7
   <li style="margin-bottom: 0.75rem;"><a href="https://abudhabi.iitd.ac.in/averma" target="_blank">Prof. Ashu Verma</a> — Professor, Energy Science and Engineering, IIT Delhi</li>
 </ul>
 
-#### 🛰️ External Mentees
+
+<div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 1rem;">
+  <div style="display: flex; align-items: center; gap: 0.2rem;">
+    <h5 style="color: #f8873c; font-weight: bold; margin: 0;">🛰️ External Mentees</h5>
+  </div>
+  <hr style="width: 50%; border: 1px solid #f8873c; margin: 0.3rem 0 1rem 1rem;" />
+</div>
+
 <ul style="list-style-type: disc; padding-left: 1.5rem;">
   <li style="margin-bottom: 0.75rem;"><a href="#" target="_blank">Sonam Gupta</a> — Research Scholar, Energy Science and Engineering, IIT Delhi, India</li>
   <li style="margin-bottom: 0.75rem;"><a href="#" target="_blank">Michael A. Boateng</a> — Research Scholar, Electrical and Computer Engineering, Georgia Tech, USA</li>
