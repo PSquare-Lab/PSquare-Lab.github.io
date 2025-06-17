@@ -66,9 +66,11 @@ nav_order: 7
   {% endfor %}
 </div>
 
-#### 🏁 Past Team
+<!-- Wrapper to align everything to the left -->
+<div style="max-width: 1300px; margin: 0 auto 2rem auto; padding-left: 1rem; text-align: left;">
 
-<ul>
+#### 🏁 Past Team
+<ul style="list-style-type: disc; padding-left: 1.5rem;">
   {% assign past_members = "" | split: "" %}
   {% for cat in category_order %}
     {% assign members = site.data.team | where: "category", cat | where: "status", "past" %}
@@ -76,7 +78,7 @@ nav_order: 7
   {% endfor %}
 
   {% for member in past_members %}
-    <li>
+    <li style="margin-bottom: 0.75rem;">
       {% if member.url %}
         <a href="{{ member.url }}" target="_blank">{{ member.name }}</a>
       {% elsif member.github %}
@@ -94,23 +96,19 @@ nav_order: 7
 
 #### 🤝 Collaborators
 <ul style="list-style-type: disc; padding-left: 1.5rem;">
-  <style>
-    ul li { margin-bottom: 0.75rem; }
-  </style>
-  <li><a href="https://sidhantmisra.github.io" target="_blank">Dr. Sidhant Misra</a> — Staff Scientist, Theoretical Division T-5 (Applied Mathematics), Los Alamos National Laboratory, USA</li>
-  <li><a href="https://energy.mit.edu/profile/deepjyoti-deka/" target="_blank">Dr. Deepjyoti Deka</a> — Research Scientist, MIT Energy Initiative, USA</li>
-  <li><a href="https://biryani.github.io" target="_blank">Dr. Abhijth Jayakumar</a> — Staff Scientist, Theoretical Division T-5 (Applied Mathematics), Los Alamos National Laboratory, USA</li>
-  <li><a href="https://sites.google.com/view/vishvendra" target="_blank">Prof. Vishvendra Punia</a> — Associate Professor, Electronics and Communication Engineering, IIT Roorkee</li>
-  <li><a href="https://molzahn.github.io" target="_blank">Prof. Daniel K. Molzahn</a> — Associate Professor, Electrical and Computer Engineering, Georgia Tech, USA</li>
-  <li><a href="https://public.lanl.gov/rbent/" target="_blank">Dr. Russell Bent</a> — Staff Scientist, Theoretical Division T-5 (Applied Mathematics), Los Alamos National Laboratory, USA</li>
-  <li><a href="https://abudhabi.iitd.ac.in/averma" target="_blank">Prof. Ashu Verma</a> — Professor, Energy Science and Engineering, IIT Delhi</li>
+  <li style="margin-bottom: 0.75rem;"><a href="https://sidhantmisra.github.io" target="_blank">Dr. Sidhant Misra</a> — Staff Scientist, Theoretical Division T-5 (Applied Mathematics), Los Alamos National Laboratory, USA</li>
+  <li style="margin-bottom: 0.75rem;"><a href="https://energy.mit.edu/profile/deepjyoti-deka/" target="_blank">Dr. Deepjyoti Deka</a> — Research Scientist, MIT Energy Initiative, USA</li>
+  <li style="margin-bottom: 0.75rem;"><a href="https://biryani.github.io" target="_blank">Dr. Abhijth Jayakumar</a> — Staff Scientist, Theoretical Division T-5 (Applied Mathematics), Los Alamos National Laboratory, USA</li>
+  <li style="margin-bottom: 0.75rem;"><a href="https://sites.google.com/view/vishvendra" target="_blank">Prof. Vishvendra Punia</a> — Associate Professor, Electronics and Communication Engineering, IIT Roorkee</li>
+  <li style="margin-bottom: 0.75rem;"><a href="https://molzahn.github.io" target="_blank">Prof. Daniel K. Molzahn</a> — Associate Professor, Electrical and Computer Engineering, Georgia Tech, USA</li>
+  <li style="margin-bottom: 0.75rem;"><a href="https://public.lanl.gov/rbent/" target="_blank">Dr. Russell Bent</a> — Staff Scientist, Theoretical Division T-5 (Applied Mathematics), Los Alamos National Laboratory, USA</li>
+  <li style="margin-bottom: 0.75rem;"><a href="https://abudhabi.iitd.ac.in/averma" target="_blank">Prof. Ashu Verma</a> — Professor, Energy Science and Engineering, IIT Delhi</li>
 </ul>
-
 
 #### 🛰️ External Mentees
-
-<ul>
-  <li><a href="" target="_blank">Sonam Gupta</a> — Research Scholar, Energy Science and Engineering, IIT Delhi, India</li>
-  <li><a href="" target="_blank"> Michael A. Boateng</a> — Research Scholar, Electrical and Computer Engineering, Georgia Tech, USA</li>
-  <!-- <li><a href="https://example.com/student3" target="_blank">Tanmay Gupta</a> — MS, Energy Engineering, TU Munich</li> -->
+<ul style="list-style-type: disc; padding-left: 1.5rem;">
+  <li style="margin-bottom: 0.75rem;"><a href="#" target="_blank">Sonam Gupta</a> — Research Scholar, Energy Science and Engineering, IIT Delhi, India</li>
+  <li style="margin-bottom: 0.75rem;"><a href="#" target="_blank">Michael A. Boateng</a> — Research Scholar, Electrical and Computer Engineering, Georgia Tech, USA</li>
 </ul>
+
+</div>
