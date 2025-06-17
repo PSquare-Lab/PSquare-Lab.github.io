@@ -3,7 +3,6 @@ title: "EEE 102: Basic Electrical Engineering"
 permalink: /teaching/course-eee102/
 layout: page
 status: past
-nav_order: 6
 description: "Foundations in electrical energy: Generation, Transmission & Distribution"
 ---
 
