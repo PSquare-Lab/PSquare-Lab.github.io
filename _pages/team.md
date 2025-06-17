@@ -12,7 +12,7 @@ nav_order: 7
 <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
   <!-- Lab Logo -->
   <div>
-    <img src="{{ '/assets/img/lab_logo.png' | relative_url }}" alt="Lab Logo" style="width: 180px;" />
+    <img src="{{ '/assets/img/Lab_Logo.jpg' | relative_url }}" alt="Lab Logo" style="width: 180px;" />
   </div>
   
   <!-- PI Info -->
@@ -42,7 +42,7 @@ nav_order: 7
            style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; transition: transform 0.3s ease;"
            onmouseover="this.style.transform='scale(1)'"
            onmouseout="this.style.transform='scale(1)'"
-           onerror="this.onerror=null; this.src='{{ '/assets/img/lab_logo.png' | relative_url }}';" />
+           onerror="this.onerror=null; this.src='{{ '/assets/img/Lab_Logo.jpg' | relative_url }}';" />
       <div>
         <h4 style="margin: 0;">
           {% if member.url %}
