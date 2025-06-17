@@ -11,9 +11,9 @@ nav_order: 7
 <!-- Lab Logo + PI Info Side by Side -->
 <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
   <!-- Lab Logo -->
-  <div>
+  <!-- <div>
     <img src="{{ '/assets/img/Lab_Logo.jpg' | relative_url }}" alt="Lab Logo" style="width: 180px;" />
-  </div>
+  </div> -->
   
   <!-- PI Info -->
   <div style="display: flex; align-items: center; gap: 1rem;">
