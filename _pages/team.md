@@ -3,72 +3,114 @@ layout: page
 permalink: /Team/
 title: Team
 page_title: Team
-description:
+description: 
 nav: true
 nav_order: 7
 ---
-<div class="organizer left">
-    <div class="profile">
-        <img class="photo" alt="Rajdeep R. Dwivedi" src="{{ site.baseurl }}/assets/img/rajdeep.png" height="250px">
+
+<!-- Lab Logo + PI Info Side by Side -->
+<div style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+  <!-- Lab Logo -->
+  <div>
+    <img src="{{ '/assets/img/lab_logo.png' | relative_url }}" alt="Lab Logo" style="width: 180px;" />
+  </div>
+  
+  <!-- PI Info -->
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <img src="{{ '/assets/img/parikshit_zoomed.jpg' | relative_url }}" alt="Parikshit Pareek" style="width: 120px; border-radius: 50%;" />
+    <div>
+      <h3 style="margin: 0;"><a href="https://psquare-lab.github.io" style="text-decoration: none;">Parikshit Pareek</a></h3>
+      <p style="margin: 0;">Principal Investigator<br>Assistant Professor, Electrical Engineering<br>Indian Institute of Technology Roorkee</p>
     </div>
-    <div class="bio">
-        <h4 class="name" style="display: inline;">Rajdeep R. Dwivedi</h4> 
-        <h5 style="display: inline; font-weight: normal;">, Research Scholar, Jointly Advised with 
-            <a href="https://ece.iitr.ac.in/vishvendra-singh-poonia/" target="_blank">Prof. Vishvendra</a>, ECE, IIT Roorkee.
-        </h5>
-        <p>Rajdeep's academic journey combines engineering precision with the expansive realm of physics.
-        He holds a Master's degree in Physics, specializing in Theoretical Physics, from IIT Delhi and a Bachelor's degree in Electronics and Communication Engineering from the Government College of Engineering, Aurangabad. Rajdeep has gained valuable experience through his professional endeavors. At GenVR Labs, he explored the world of Large Language Models, developing advanced data analytics tools. At DClimate, he focused on leveraging remote sensing techniques for wildfire risk prediction, seamlessly blending data science with environmental stewardship.</p>
-        <p>Beyond his academic and professional pursuits, Rajdeep finds inspiration in the rich tapestry of Indian philosophy and the timeless wisdom of the Upanishads. He is also a national-level basketball player and an avid chess enthusiast.</p>
-        <p>Currently, Rajdeep is exploring the potential and limitations of hybrid quantum-classical algorithms for various real-world applications.</p>
-    </div>
+  </div>
 </div>
 
+#### ⚡ Current Members
 
+{% assign category_order = "Research Scholars|Masters Researchers|Undergraduate Researchers|Summer Interns" | split: "|" %}
+{% assign current_members = "" | split: "" %}
+{% for cat in category_order %}
+  {% assign members = site.data.team | where: "category", cat | where: "status", "current" %}
+  {% assign current_members = current_members | concat: members %}
+{% endfor %}
 
-<div class="organizer right">
-    <div class="profile">
-        <img class="photo" alt="" src="{{ site.baseurl }}/assets/img/snigdha.jpg" height="250px">
+<div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+  {% for member in current_members %}
+    <div style="display: flex; align-items: center; gap: 1rem; flex: 1 1 35%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 8px;">
+      <img src="{{ '/assets/img/' | append: member.image | relative_url }}"
+           alt="{{ member.name }}"
+           style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; transition: transform 0.3s ease;"
+           onmouseover="this.style.transform='scale(1)'"
+           onmouseout="this.style.transform='scale(1)'"
+           onerror="this.onerror=null; this.src='{{ '/assets/img/lab_logo.png' | relative_url }}';" />
+      <div>
+        <h4 style="margin: 0;">
+          {% if member.url %}
+            <a href="{{ member.url }}" target="_blank">{{ member.name }}</a>
+          {% elsif member.github %}
+            <a href="{{ member.github }}" target="_blank">{{ member.name }}</a>
+          {% else %}
+            {{ member.name }}
+          {% endif %}
+        </h4>
+        {% if member.degree %}
+          <p style="margin: 0;"><em>{{ member.degree }}</em></p>
+        {% endif %}
+        <p style="margin: 0;"><strong>{{ member.role }}</strong></p>
+        <p style="margin: 0;">{{ member.description }}</p>
+        {% if member.note %}
+          <p style="margin: 0; font-style: italic;">{{ member.note }}</p>
+        {% endif %}
+      </div>
     </div>
-    <div class="bio">
-        <h4 class="name" style="display: inline;">Snigdha Annavarajula</h4> 
-        <h5 style="display: inline; font-weight: normal;">, B.Tech, Third-Year EE, IIT Roorkee.
-        </h5>
-        <p>Snigdha is a third-year undergraduate student in Electrical Engineering at IIT Roorkee. She is passionate about Data Science and Machine Learning. </p> 
-        <p>As a Product Development Intern at Rite Software, she gained hands-on experience in data analytics, working with SQL, AWS, and Power BI to develop and deliver a functional dashboard for a real use case. Beyond academics, she enjoys painting and playing badminton, which allow her to express my creativity and stay active. </p>
-
-        <p>Currently, she is working with on a project exploring AutoML using Prior-data Fitted Transformer Networks.</p>
-    </div>
+  {% endfor %}
 </div>
 
-<div class="organizer">
-    <div class="profile">
-        <img class="photo" alt="" src="{{ site.baseurl }}/assets/img/NEERAJ.jpg" height="250px">
-    </div>
-    <div class="bio">
-        <h4 class="name" style="display: inline;">Neeraj P</h4> 
-        <h5 style="display: inline; font-weight: normal;">, B.Tech, Third-Year EE, IIT Roorkee.
-        </h5>
-        <p>Neeraj is a BTech student in Electrical Engineering at IIT Roorkee, with a strong passion for technology, problem-solving, and artificial intelligence. He is excited to be joining Samsung as a developer intern, where he looks forward to applying his skills, learning from industry experts, and gaining hands-on experience.</p>
+#### 🏁 Past Team
 
-        <p>Beyond academics, he has a deep interest in competitive programming and enjoys tackling complex algorithmic challenges to enhance his problem-solving skills. Apart from programming, he is also interested in chess and enjoys watching movies.</p>
+<ul>
+  {% assign past_members = "" | split: "" %}
+  {% for cat in category_order %}
+    {% assign members = site.data.team | where: "category", cat | where: "status", "past" %}
+    {% assign past_members = past_members | concat: members %}
+  {% endfor %}
 
-        <p>Currently, he is working on a project exploring AutoML using Prior-data Fitted Transformer Networks.</p>
+  {% for member in past_members %}
+    <li>
+      {% if member.url %}
+        <a href="{{ member.url }}" target="_blank">{{ member.name }}</a>
+      {% elsif member.github %}
+        <a href="{{ member.github }}" target="_blank">{{ member.name }}</a>
+      {% else %}
+        {{ member.name }}
+      {% endif %}
+      — {{ member.role }}
+      {% if member.degree %} | {{ member.degree }}{% endif %}
+      {% if member.period %} | {{ member.period }}{% endif %}
+      {% if member.now %} | Now: {{ member.now }}{% endif %}
+    </li>
+  {% endfor %}
+</ul>
 
-    </div>
-</div>
+#### 🤝 Collaborators
+<ul style="list-style-type: disc; padding-left: 1.5rem;">
+  <style>
+    ul li { margin-bottom: 0.75rem; }
+  </style>
+  <li><a href="https://sidhantmisra.github.io" target="_blank">Dr. Sidhant Misra</a> — Staff Scientist, Theoretical Division T-5 (Applied Mathematics), Los Alamos National Laboratory, USA</li>
+  <li><a href="https://energy.mit.edu/profile/deepjyoti-deka/" target="_blank">Dr. Deepjyoti Deka</a> — Research Scientist, MIT Energy Initiative, USA</li>
+  <li><a href="https://biryani.github.io" target="_blank">Dr. Abhijth Jayakumar</a> — Staff Scientist, Theoretical Division T-5 (Applied Mathematics), Los Alamos National Laboratory, USA</li>
+  <li><a href="https://sites.google.com/view/vishvendra" target="_blank">Prof. Vishvendra Punia</a> — Associate Professor, Electronics and Communication Engineering, IIT Roorkee</li>
+  <li><a href="https://molzahn.github.io" target="_blank">Prof. Daniel K. Molzahn</a> — Associate Professor, Electrical and Computer Engineering, Georgia Tech, USA</li>
+  <li><a href="https://public.lanl.gov/rbent/" target="_blank">Dr. Russell Bent</a> — Staff Scientist, Theoretical Division T-5 (Applied Mathematics), Los Alamos National Laboratory, USA</li>
+  <li><a href="https://abudhabi.iitd.ac.in/averma" target="_blank">Prof. Ashu Verma</a> — Professor, Energy Science and Engineering, IIT Delhi</li>
+</ul>
 
-<div class="organizer right">
-    <div class="profile">
-        <img class="photo" alt="" src="{{ site.baseurl }}/assets/img/Navaneeth.jpg" height="250px">
-    </div>
-    <div class="bio">
-        <h4 class="name" style="display: inline;">Navaneeth Krishna Thekkeyil</h4> 
-        <h5 style="display: inline; font-weight: normal;">, B.Tech, Third-Year EE, IIT Roorkee.
-        </h5>
-        <p>He is currently pursuing a BTech in Electrical Engineering at IIT Roorkee and is in his third year of study. As he steps into the professional world, he is excited to begin his upcoming internship at Axxela Research & Analytics, a company with a strong presence in financial and commodities derivatives-related operations.</p>
 
-        <p>Beyond academics, chess is one of his favorite hobbies, and he is an active trader and investor in the Indian stock market. He is also actively expanding his knowledge and skills in artificial intelligence and finance, building expertise in both fields.</p>
+#### 🛰️ External Mentees
 
-        <p>Currently, he is working on a project exploring AutoML using Prior-data Fitted Transformer Networks.</p>
-    </div>
-</div>
+<ul>
+  <li><a href="" target="_blank">Sonam Gupta</a> — Research Scholar, Energy Science and Engineering, IIT Delhi, India</li>
+  <li><a href="" target="_blank"> Michael A. Boateng</a> — Research Scholar, Electrical and Computer Engineering, Georgia Tech, USA</li>
+  <!-- <li><a href="https://example.com/student3" target="_blank">Tanmay Gupta</a> — MS, Energy Engineering, TU Munich</li> -->
+</ul>

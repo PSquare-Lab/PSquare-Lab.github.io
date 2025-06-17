@@ -1,0 +1,87 @@
+- name: Rajdeep R. Dwivedi
+  image: rajdeep.png
+  category: Research Scholars
+  role: Research Scholar
+  degree: Ph.D., ECE, IIT Roorkee
+  url: https://psquare-lab.github.io/Team/
+  description: Quantum-Computing, Machine Learning 
+  note: Co-advised with Prof. Vishvendra Punia (ECE Dept.)
+  status: current
+
+- name: Pulkit Girdhar
+  image: ananya.png
+  category: Undergraduate Researchers
+  role: Undergraduate Research Assistant
+  degree: B.Tech, EE, IIT Roorkee
+  url: https://psquare-lab.github.io/Team/
+  description: Machine Learning & Applied Mathematics
+  status: current
+
+- name: Manvendra Singh
+  image: ananya.png
+  category: Summer Interns
+  role: Summer Intern
+  degree: B.Tech, CE, IIT Roorkee
+  url: https://psquare-lab.github.io/Team/
+  description: Bayesian Learning for Engineering
+  status: current
+
+- name: Dhruvi Khandelwal
+  image: dhruvi.jpg
+  category: Summer Interns
+  role: Summer Intern
+  degree: B.Tech, EE, NIT Kurukshetra
+  url: https://www.linkedin.com/in/dhruvi-khandelwal05/
+  description: Machine Learning for Optimal Power Flow
+  status: current
+
+- name: Anurag Basistha
+  image: Anurag_Basistha.jpeg
+  category: Summer Interns
+  role: Summer Intern
+  degree: B.Tech, ECE, IIIT Delhi
+  url: https://www.linkedin.com/in/anurag-basistha/
+  description: Machine Learning for Optimal Power Flow
+  status: current
+
+- name: Naman Meena
+  image: naman_meena.jpeg
+  category: Summer Interns
+  role: Summer Intern
+  degree: B.Tech, EE, IIT Roorkee
+  url: https://github.com/naman-meena
+  description: Machine Learning for Power Flow
+  status: current
+
+# ------------ Past Members ------------
+
+- name: Neeraj P
+  image: NEERAJ.jpg
+  category: Undergraduate Researchers
+  role: Undergraduate Research Assistant
+  degree: B.Tech, EE, IIT Roorkee
+  github: https://psquare-lab.github.io/Team/
+  description: Industry Oriented Project (EEN-300)
+  period: Spring Semester 2024-25
+  status: past
+
+- name: Snigdha Annavarajula
+  image: snigdha.jpg
+  category: Undergraduate Researchers
+  role: Undergraduate Research Assistant
+  degree: B.Tech, EE, IIT Roorkee
+  url: https://psquare-lab.github.io/Team/
+  description: Industry Oriented Project (EEN-300)
+  period: Spring Semester 2024-25
+  status: past
+
+- name: Navaneeth Krishna Thekkeyil
+  image: navaneeth.jpg
+  category: Undergraduate Researchers
+  role: Undergraduate Research Assistant
+  degree: B.Tech, EE, IIT Roorkee
+  url: https://psquare-lab.github.io/Team/
+  description: Industry Oriented Project (EEN-300)
+  period: Spring Semester 2024-25
+  status: past
+
