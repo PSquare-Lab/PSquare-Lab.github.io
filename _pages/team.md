@@ -137,7 +137,7 @@ nav_order: 7
 </div>
 
 <ul style="list-style-type: disc; padding-left: 1.5rem;">
-  <li style="margin-bottom: 0.75rem;"><a href="#" target="_blank">Sonam Gupta</a> — Research Scholar, Energy Science and Engineering, IIT Delhi, India</li>
+  <li style="margin-bottom: 0.75rem;"><a href="https://scholar.google.co.in/citations?hl=en&user=mfYM1zEAAAAJ" target="_blank">Sonam Mittal</a> — Research Scholar, Energy Science and Engineering, IIT Delhi, India</li>
   <li style="margin-bottom: 0.75rem;"><a href="#" target="_blank">Michael A. Boateng</a> — Research Scholar, Electrical and Computer Engineering, Georgia Tech, USA</li>
 </ul>
 
