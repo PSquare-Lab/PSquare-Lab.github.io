@@ -21,7 +21,7 @@ nav: false
 
 ### 📌 Announcements
 
-- **2025‑07‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent.
+<!-- - **2025‑06‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent. -->
 <!-- - **2025‑07‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent. -->
 <!-- - **2025‑06‑20**: First assignment released! Due July 1. Check the Assignments section below. -->
 <!-- - **2025‑06‑18**: Lecture slides for Week 1 now available. -->
