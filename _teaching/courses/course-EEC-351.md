@@ -14,15 +14,15 @@ nav: false
 - **Instructor:** Parikshit Pareek (email: pareek AT ee.iitr.ac.in)  
 - **Lectures:** Tue, Thu, Fri • 11:00–11:50 AM  
 - **Venue:** To Be Decided
-- **Piazza:** (link to class Piazza)  
-- **TAs:** Rajdeep R. Dwivedi (rajdeep_rd AT ece.iitr.ac.in)
+<!-- - **Piazza:** (link to class Piazza)   -->
+<!-- - **TAs:** Rajdeep R. Dwivedi (rajdeep_rd AT ece.iitr.ac.in) -->
 
 ---
 
 ### 📌 Announcements
 
 - **2025‑07‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent.
-- **2025‑07‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent.
+<!-- - **2025‑07‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent. -->
 <!-- - **2025‑06‑20**: First assignment released! Due July 1. Check the Assignments section below. -->
 <!-- - **2025‑06‑18**: Lecture slides for Week 1 now available. -->
 
@@ -31,15 +31,15 @@ nav: false
 
 ### 🎯 Course Objectives
 
-1. Develop a solid understanding of supervised and unsupervised learning techniques.  
+<!-- 1. Develop a solid understanding of supervised and unsupervised learning techniques.  
 2. Apply ML models to real-world data.  
-3. Explore advanced topics in deep learning and reinforcement learning.
+3. Explore advanced topics in deep learning and reinforcement learning. -->
 
 ---
 
 ### 📅 Cource Content
 
-<table>
+<!-- <table>
   <thead>
     <tr><th>Week</th><th>Topic</th><th>Readings / Slides</th></tr>
   </thead>
@@ -57,17 +57,17 @@ nav: false
       </tr>
     {% endfor %}
   </tbody>
-</table>
+</table> -->
 
 ---
 
 ## 📝 Assignments
 
-- **Assignment 1**: Released Feb 4, due Feb 14 — linear regression, CNN basics.  
+<!-- - **Assignment 1**: Released Feb 4, due Feb 14 — linear regression, CNN basics.  
 - **Assignment 2**: Naïve Bayes & SVMs — released Feb 18, due Mar 17.  
 - **Assignment 3**: Gradient-based methods — released Mar 31, due Apr 10.  
 - **Assignment 4**: Deep Learning assignment — released Apr 13, due May 9.  
-- Detailed instructions and submission links are available via Piazza.
+- Detailed instructions and submission links are available via Piazza. -->
 
 ---
 
@@ -86,12 +86,12 @@ nav: false
 ## 🔍 How to Use This Page
 
 - **Updates:** Check Announcements regularly for new information.  
-- **Lectures:** Slides and recordings are updated within ~24 hours post-class.  
+<!-- - **Lectures:** Slides and recordings are updated within ~24 hours post-class.   -->
 - **Assignments:** Submit via Moodle or GitHub—as specified in each assignment.
 
 ---
 
-**Goal:** This page provides a structured, easy-to-navigate resource hub similar to Prof. Singla’s COL774 course page :contentReference[oaicite:1]{index=1}. Feel free to let me know if you'd like tabs, filters, or download links added!
-::contentReference[oaicite:2]{index=2}
+<!-- **Goal:** This page provides a structured, easy-to-navigate resource hub similar to Prof. Singla’s COL774 course page :contentReference[oaicite:1]{index=1}. Feel free to let me know if you'd like tabs, filters, or download links added! -->
+<!-- ::contentReference[oaicite:2]{index=2} -->
 
 
