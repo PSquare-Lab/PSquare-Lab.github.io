@@ -1,6 +1,6 @@
 ---
 title: "EEE 102: Basic Electrical Engineering"
-permalink: /teaching/course-eee102/
+permalink: /teaching/course_EEE102/
 layout: page
 status: past
 description: "Foundations in electrical energy: Generation, Transmission & Distribution"

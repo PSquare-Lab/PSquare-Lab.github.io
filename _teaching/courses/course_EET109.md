@@ -1,18 +1,16 @@
 ---
-title: "EEC 351: Fundamentals of AI/ML"
-permalink: /teaching/course-EEC-351/
+title: "EET 109: Power and Energy Management I"
+permalink: /teaching/course_EET109/
 layout: page
 status: current
-description:
-nav: false
 ---
-
 
 #### Course Information
 
 - **Semester:** Autumn Semester 2025  
 - **Instructor:** Parikshit Pareek (email: pareek AT ee.iitr.ac.in)  
-- **Lectures:** Tue, Thu, Fri • 11:00–11:50 AM  
+- **Lectures:**  Fri • 11:00 AM –12:50 PM  (Main Lecture)
+                 Tue • 03:00 PM –3:55 PM  (Additional Lecture)
 - **Venue:** To Be Decided
 <!-- - **Piazza:** (link to class Piazza)   -->
 <!-- - **TAs:** Rajdeep R. Dwivedi (rajdeep_rd AT ece.iitr.ac.in) -->
@@ -39,27 +37,7 @@ nav: false
 
 ### 📅 Cource Content
 
-<!-- <table>
-  <thead>
-    <tr><th>Week</th><th>Topic</th><th>Readings / Slides</th></tr>
-  </thead>
-  <tbody>
-    {% for lec in site.data.machine_learning.schedule %}
-      <tr>
-        <td>{{ lec.week }}</td>
-        <td>{{ lec.topic }}</td>
-        <td>
-          {% if lec.slides %}
-            <a href="{{ lec.slides }}">Slides</a>
-          {% endif %}
-          {% if lec.reading %} • {{ lec.reading }}{% endif %}
-        </td>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table> -->
 
----
 
 ## 📝 Assignments
 
