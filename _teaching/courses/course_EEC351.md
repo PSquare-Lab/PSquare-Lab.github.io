@@ -58,7 +58,7 @@ nav: false
 </style>
 
 <div class="table-no-hover">
-  {% assign lectures = site.data.eec351_content %}
+  {% assign lectures = site.data.Courses.eec351_content %}
 
   <table>
     <thead>

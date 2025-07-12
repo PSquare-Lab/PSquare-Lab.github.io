@@ -58,7 +58,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 </style>
 
 <div class="table-no-hover">
-  {% assign eet109 = site.data.eet109_content %}
+  {% assign eet109 = site.data.Courses.eet109_content %}
 
   <table>
     <thead>
