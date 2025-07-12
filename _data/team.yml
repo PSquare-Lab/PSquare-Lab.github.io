@@ -82,6 +82,26 @@
   description: LLM for Hyperopt
   status: current
 
+- name: Amey
+  image: amey.jpeg
+  category: Undergraduate Researchers
+  role: Undergraduate Research Assistant
+  degree: B.Tech, CH, IIT Roorkee
+  url: 
+  description: Neural Architectures Search for OPF
+  status: current
+
+- name: Arsh 
+  image: arsh.jpeg
+  category: Undergraduate Researchers
+  role: Undergraduate Research Assistant
+  degree: B.Tech, MM, IIT Roorkee
+  url: 
+  description: Neural Architectures Search for OPF
+  status: current
+
+
+
 # ------------ Past Members ------------
 
 - name: Naman Meena
