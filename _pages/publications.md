@@ -7,6 +7,10 @@ nav: true
 nav_order: 3
 ---
 
+
+
+
+
 <!-- _pages/publications.md -->
 <!-- Bibsearch Feature -->
 <!-- {% include bib_search.liquid %} -->
@@ -33,4 +37,4 @@ nav_order: 3
     {% bibliography --query @*[keywords=thesis] %}
   </div>
 
-</div>
+</div> 
