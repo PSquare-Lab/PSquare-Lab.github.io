@@ -1,0 +1,39 @@
+- lecture: [1]
+  topic: Introduction to EET109
+  resources: ""
+
+- lecture: [2]
+  topic: Derivation of Power Flow Equation
+  resources: ""
+
+- lecture: [3]
+  topic: Need for Approximations
+  resources: ""
+
+- lecture: [4]
+  topic: DC Power Flow Approximation, Linear System Solve
+  resources: "📝 Coding Task 1"
+
+- lecture: [5]
+  topic: Fast Decoupled Load Flow Formulation
+  resources: "📝 Coding Task 1.1"
+
+- lecture: [6]
+  topic: Formulation of NRLF Problem
+  resources: "📝 Coding Task 2"
+
+- lecture: [7]
+  topic: Linear Programming Premier
+  resources: ""
+
+- lecture: [8]
+  topic: Economic Dispatch Problem
+  resources: "📝 Coding Task 3"
+
+- lecture: [9]
+  topic: Data-Driven Power Flow Modeling
+  resources: ""
+
+- lecture: [10]
+  topic: Gaussian Process Premier
+  resources: "📝 Coding Task 4"

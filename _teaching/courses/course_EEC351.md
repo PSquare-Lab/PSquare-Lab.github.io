@@ -8,18 +8,19 @@ nav: false
 ---
 
 
-##### Course Information
+##### <span style="color: #0faddd;; font-weight: bold;">Course Information</span>
+
 
 - **Semester:** Autumn Semester 2025  
 - **Instructor:** Parikshit Pareek (email: pareek AT ee.iitr.ac.in)  
 - **Lectures:** Thu • 03:00–03:55 PM;  Fri • 4:05–5:00 PM; (Venue: GB205)
 - **Office Hours:** Tue • 4:05–5:00 PM;  (Venue: 214A, EE)
 - **Piazza:** [https://piazza.com/indian_institute_of_technology_roorkee/fall2025/eec351](https://piazza.com/indian_institute_of_technology_roorkee/fall2025/eec351)
-- **TA:** Rajdeep R. Dwivedi (rajdeep_rd AT ece.iitr.ac.in)
+- **TA:** Rajdeep R. Dwivedi (email: rajdeep_rd AT ece.iitr.ac.in)
 
 ---
 
-##### 📌 Announcements
+##### <span style="color: #0faddd;; font-weight: bold;"> 📌 Announcements</span>
 
 - **2025‑07‑13**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent.
 <!-- - **2025‑07‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent. -->
@@ -29,7 +30,7 @@ nav: false
 
 ---
 
-##### 🎯 Course Objectives
+##### <span style="color: #0faddd;; font-weight: bold;"> 🎯 Course Objectives</span>
 
 - Comprehend the historical evolution and foundational concepts of AI/ML. 
 - Build mathematical intuition for machine learning principles.
@@ -37,7 +38,7 @@ nav: false
 
 ---
 
-##### 📅 Cource Content
+##### <span style="color: #0faddd;; font-weight: bold;"> 📅 Cource Content</span>
 
 <style>
 .table-no-hover table * {
@@ -103,7 +104,7 @@ nav: false
 
 ---
 
-##### 📝 Assignments
+##### <span style="color: #0faddd;; font-weight: bold;"> 📝 Assignments</span>
 
 - **Python** is the default programming languages for the course. You should use it for programming your assignments unless otherwise explicitly allowed.
 - Submit via Moodle or GitHub—- as specified in each assignment. 
@@ -119,7 +120,7 @@ nav: false
 
 ---
 
-##### 📚 References & Resources
+##### <span style="color: #0faddd;; font-weight: bold;"> 📚 References & Resources</span>
 
 - **Recommended Texts:**  
   - Probabilisitic Machine Learning: An Introduction, Kevin Murphy. MIT Press, 2022/2023. 
@@ -130,3 +131,12 @@ nav: false
 
 ---
 
+##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Grading Policy</span> 
+
+- CWS (30 Marks)
+  - Announced & Surprise Quizzes
+  - Assignments & Peer Discussions
+- MTE (30 Marks)
+  - Written Exam (any format)
+- ETE (40 Marks)
+  - Written Exam (any format)

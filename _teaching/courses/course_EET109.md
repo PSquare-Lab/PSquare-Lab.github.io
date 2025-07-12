@@ -5,7 +5,7 @@ layout: page
 status: current
 ---
 
-#### Course Information
+##### <span style="color: #0faddd;; font-weight: bold;"> Course Information </span>
 
 - **Semester:** Autumn Semester 2025  
 - **Instructor:** Parikshit Pareek (email: pareek AT ee.iitr.ac.in)  
@@ -17,59 +17,110 @@ status: current
 
 ---
 
-### 📌 Announcements
+##### <span style="color: #0faddd;; font-weight: bold;"> 📌 Announcements </span>
 
 <!-- - **2025‑06‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent. -->
 <!-- - **2025‑07‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent. -->
 <!-- - **2025‑06‑20**: First assignment released! Due July 1. Check the Assignments section below. -->
-<!-- - **2025‑06‑18**: Lecture slides for Week 1 now available. -->
+- **2025‑07‑12**: Course website launched.
+
+---
+
+##### <span style="color: #0faddd;; font-weight: bold;"> 🎯 Course Objectives </span>
+
+This is not a traditional classroom-based course, nor is it a lab course focused on running experiments. This is a **TEC: Talent Enhancement Course**.
+
+Designed for individuals who are already highly capable, this course aims to challenge your thinking and expand your potential. It will be largely hands-off in terms of direct implementation, encouraging independent exploration, creative problem-solving, and pushing beyond your current limits. Briefly, our objectives in this course are:
+
+1. Develop a solid understanding of algorithms behind operations of power grid.  
+2. Implement various power flow solvers on CPU and GPU with parallelization capabilities for speed & accuracy.
+3. Explore advanced ML methods for power system operations.
+
+---
+
+##### <span style="color: #0faddd;; font-weight: bold;"> 📅 Course Content </span>
+
+<style>
+.table-no-hover table * {
+  transition: none !important;
+}
+
+.table-no-hover table tr:hover,
+.table-no-hover table td:hover,
+.table-no-hover table th:hover {
+  background: inherit !important;
+  color: inherit !important;
+  font-weight: inherit !important;
+  transform: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+</style>
+
+<div class="table-no-hover">
+  {% assign eet109 = site.data.eet109_content %}
+
+  <table>
+    <thead>
+      <tr>
+        <th>S. No.</th>
+        <th>Topic</th>
+        <th>Assignments</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lec in eet109 %}
+      <tr>
+        <td>
+          {% if lec.lecture.size %}
+            {% for num in lec.lecture %}
+              {{ num }}{% if forloop.last == false %}, {% endif %}
+            {% endfor %}
+          {% else %}
+            {{ lec.lecture }}
+          {% endif %}
+        </td>
+        <td>{{ lec.topic }}</td>
+        <td>{{ lec.resources }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+---
+##### 📝 Assignments
+- **Python** and **Julia** are default programming languages for the course. You should use any of these for programming your assignments unless otherwise explicitly allowed.
+- Submit via Moodle or GitHub—- as specified in each assignment. 
+- **Viva** will accompany each assignment — your explanation during the viva carries significant weight in grading.
+- **Honor Code:** Any cases of copying will be awarded a zero on the assignment. More severe penalties may follow.
+- **Late submissions** will incur penalties, as annouced with assignment. 
+- **Scrible Assigment** See introduction slides for details.
+
+---
+
+##### <span style="color: #0faddd;; font-weight: bold;"> 📚 References & Resources</span>
 
 
 ---
 
-### 🎯 Course Objectives
-
-<!-- 1. Develop a solid understanding of supervised and unsupervised learning techniques.  
-2. Apply ML models to real-world data.  
-3. Explore advanced topics in deep learning and reinforcement learning. -->
-
----
-
-### 📅 Cource Content
 
 
+##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Grading Policy (Tentative) </span>
 
-## 📝 Assignments
+* **PRS (50 Marks)**
+  * Individual Coding Tasks
+  * Assignments & Peer Discussions
 
-<!-- - **Assignment 1**: Released Feb 4, due Feb 14 — linear regression, CNN basics.  
-- **Assignment 2**: Naïve Bayes & SVMs — released Feb 18, due Mar 17.  
-- **Assignment 3**: Gradient-based methods — released Mar 31, due Apr 10.  
-- **Assignment 4**: Deep Learning assignment — released Apr 13, due May 9.  
-- Detailed instructions and submission links are available via Piazza. -->
+* 💻 **Coding Tasks Breakdown (Part of PRS)**
+  * **Coding Task 1**: DC Power Flow Approximation — *7 marks*
+  * **Coding Task 1.1**: Fast Decoupled Load Flow — *5 marks*
+  * **Coding Task 2**: Newton-Raphson Load Flow — *9 marks*
+  * **Coding Task 3**: Economic Dispatch Modeling — *10 marks*
+  * **Coding Task 4**: Gaussian Process for Power Flow — *9 marks*
 
----
+🔔 **Note**: Further instructions, deadlines, and submission guidelines will be shared along with each task under the [Assignments](#📝-assignments) section.
 
-## 📚 References & Resources
-
-- **Recommended Texts:**  
-  - Murphy, *Probabilistic Machine Learning* (MIT Press, 2022)  
-  - James et al., *An Introduction to Statistical Learning* (Springer, 2021)
-
-- **Supplementary Resources:**  
-  - Coursera ML (Andrew Ng)  
-  - Relevant paper links on Piazza
-
----
-
-## 🔍 How to Use This Page
-
-- **Updates:** Check Announcements regularly for new information.  
-<!-- - **Lectures:** Slides and recordings are updated within ~24 hours post-class.   -->
-- **Assignments:** Submit via Moodle or GitHub—as specified in each assignment.
-
----
-
-<!-- **Goal:** This page provides a structured, easy-to-navigate resource hub similar to Prof. Singla’s COL774 course page :contentReference[oaicite:1]{index=1}. Feel free to let me know if you'd like tabs, filters, or download links added! -->
-<!-- ::contentReference[oaicite:2]{index=2} -->
-
-
+* **PRE (50 Marks)**
+  * Term Paper
