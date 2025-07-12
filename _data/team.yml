@@ -17,19 +17,11 @@
   description: Machine Learning & Applied Mathematics
   status: current
 
-- name: Manvendra Singh
-  image: manvendra.jpeg
-  category: Summer Interns
-  role: Summer Intern
-  degree: B.Tech, CE, IIT Roorkee
-  url: https://psquare-lab.github.io/Team/
-  description: Bayesian Learning for Engineering
-  status: current
 
 - name: Dhruvi Khandelwal
   image: dhruvi.jpg
   category: Summer Interns
-  role: Summer Intern
+  role: Summer Intern + Undergraduate Research Assistant
   degree: B.Tech, EE, NIT Kurukshetra
   url: https://www.linkedin.com/in/dhruvi-khandelwal05/
   description: Machine Learning for Optimal Power Flow
@@ -38,11 +30,59 @@
 - name: Anurag Basistha
   image: Anurag_Basistha.jpeg
   category: Summer Interns
-  role: Summer Intern
+  role: Summer Intern + Undergraduate Research Assistant
   degree: B.Tech, ECE, IIIT Delhi
   url: https://www.linkedin.com/in/anurag-basistha/
   description: Machine Learning for Optimal Power Flow
   status: current
+
+
+- name: Kaustubh Sharma
+  image: Kaustubh.jpg
+  category: Undergraduate Researchers
+  role:  Undergraduate Research Assistant
+  degree: B.Tech, EE, IIT Roorkee
+  url: 
+  description: Prior-Data Fitted Networks
+  status: current
+
+- name: Simmardeep Singh
+  image: simar.jpeg
+  category: Undergraduate Researchers
+  role: Undergraduate Research Assistant
+  degree: B.Tech, MM, IIT Roorkee
+  url: 
+  description: Prior-Data Fitted Networks
+  status: current
+
+- name: Rishit Saini
+  image: rishit.jpg
+  category: Undergraduate Researchers
+  role:  Undergraduate Research Assistant
+  degree: B.Tech, EE, IIT Roorkee
+  url: 
+  description: LLM for Optimal Power Flow
+  status: current
+
+- name: Om
+  image: simar.jpeg
+  category: Undergraduate Researchers
+  role: Undergraduate Research Assistant
+  degree: B.Tech, PH, IIT Roorkee
+  url: 
+  description: LLM for Hyperopt
+  status: current
+
+- name: Satyam Bansal
+  image: simar.jpeg
+  category: Undergraduate Researchers
+  role: Undergraduate Research Assistant
+  degree: B.Tech, ME, IIT Roorkee
+  url: 
+  description: LLM for Hyperopt
+  status: current
+
+# ------------ Past Members ------------
 
 - name: Naman Meena
   image: naman_meena.jpeg
@@ -51,9 +91,20 @@
   degree: B.Tech, EE, IIT Roorkee
   url: https://github.com/naman-meena
   description: Machine Learning for Power Flow
-  status: current
+  status: past
+  period: Summer 2025
 
-# ------------ Past Members ------------
+
+- name: Manvendra Singh
+  image: manvendra.jpeg
+  category: Summer Interns
+  role: Summer Intern
+  degree: B.Tech, CE, IIT Roorkee
+  url: https://psquare-lab.github.io/Team/
+  description: Bayesian Learning for Engineering
+  status: past
+  period: Summer 2025
+
 
 - name: Neeraj P
   image: NEERAJ.jpg
