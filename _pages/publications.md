@@ -18,7 +18,7 @@ nav_order: 3
     {% bibliography --query @*[keywords=submitted] %}
   </div>
 
-  <h3 style="font-weight: bold; color: #ff6600;">Journal Papers</h3>
+  <h3 style="font-weight: bold; color: #ff6600;">Journal Papers & A* Conferences</h3>
   <div class="journal">
     {% bibliography --query @*[keywords=journal] %}
   </div>
