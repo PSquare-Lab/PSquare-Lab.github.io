@@ -51,30 +51,30 @@
   category: Undergraduate Researchers
   role: Undergraduate Research Assistant
   degree: B.Tech, MM, IIT Roorkee
-  url: 
+  url: https://www.linkedin.com/in/simardeep-singh-58a992291
   description: Prior-Data Fitted Networks
   status: current
 
 - name: Rishit Saini
-  image: rishit.jpg
+  image: rishit.jpeg
   category: Undergraduate Researchers
   role:  Undergraduate Research Assistant
   degree: B.Tech, EE, IIT Roorkee
-  url: 
+  url: https://www.linkedin.com/in/rishit-saini-67a3872b4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
   description: LLM for Optimal Power Flow
   status: current
 
-- name: Om
-  image: simar.jpeg
+- name: Om N. Naphade
+  image: om.jpeg
   category: Undergraduate Researchers
   role: Undergraduate Research Assistant
   degree: B.Tech, PH, IIT Roorkee
-  url: 
+  url:  https://github.com/code-omnitrix
   description: LLM for Hyperopt
   status: current
 
-- name: Satyam Bansal
-  image: simar.jpeg
+- name: Saksham Bansal
+  image: saksham.jpeg
   category: Undergraduate Researchers
   role: Undergraduate Research Assistant
   degree: B.Tech, ME, IIT Roorkee
@@ -82,12 +82,12 @@
   description: LLM for Hyperopt
   status: current
 
-- name: Amey
+- name: Amey Joshi
   image: amey.jpeg
   category: Undergraduate Researchers
   role: Undergraduate Research Assistant
   degree: B.Tech, CH, IIT Roorkee
-  url: 
+  url: https://www.linkedin.com/in/amey-joshi-a6bb18321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
   description: Neural Architectures Search for OPF
   status: current
 
