@@ -11,7 +11,7 @@ nav: false
 ##### <span style="color: #0faddd;; font-weight: bold;">Course Information</span>
 
 
-- **Semester:** Autumn Semester 2025  
+- **Semester:** Autumn Semester 2025-2026  
 - **Instructor:** Parikshit Pareek (email: pareek AT ee.iitr.ac.in)  
 - **Lectures:** Thu • 03:00–03:55 PM;  Fri • 4:05–5:00 PM; (Venue: GB205)
 - **Office Hours:** Tue • 4:05–5:00 PM;  (Venue: 214A, EE)
@@ -41,6 +41,27 @@ nav: false
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📅 Cource Content</span>
 
 <style>
+.table-no-hover table {
+  border-collapse: separate;
+  border-spacing: 0; /* Remove spacing if you want continuous lines */
+  width: 100%;
+  table-layout: fixed; /* Optional: keeps columns even */
+}
+
+.table-no-hover table th,
+.table-no-hover table td {
+  border: 1px solid #ccc;       /* Full continuous grid lines */
+  text-align: center;           /* Center-align column content */
+  vertical-align: middle;       /* Vertical center alignment */
+  padding: 10px;
+}
+
+/* Optional: styling for header */
+.table-no-hover table th {
+  font-weight: bold;
+}
+
+/* Disable hover effects */
 .table-no-hover table * {
   transition: none !important;
 }
@@ -60,48 +81,63 @@ nav: false
 <div class="table-no-hover">
   {% assign lectures = site.data.Courses.eec351_content %}
 
-  <table>
-    <thead>
-      <tr>
-        <th>Lecture No.</th>
-        <th>Topic</th>
-        <th>Slides</th>
-        <th>Essential Reading</th>
-        <th>Additional Reading</th>
-        <th>Homework</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for lec in lectures %}
-      <tr>
-        <td>
-          {% for num in lec.lecture %}
-            {{ num }}{% if forloop.last == false %}, {% endif %}
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Topic</th>
+      <th>Slides</th>
+      <th>Essential Reading</th>
+      <th>Additional Reading</th>
+      <th>Homework</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for lec in lectures %}
+    <tr>
+      <td>
+        {% for num in lec.lecture %}
+          {{ num }}{% if forloop.last == false %}, {% endif %}
+        {% endfor %}
+      </td>
+      <td>{{ lec.topic }}</td>
+      <td>
+        {% if lec.slides contains "http" or lec.slides contains "/" %}
+          <a href="{{ lec.slides }}">Slides</a>
+        {% else %}
+          {{ lec.slides }}
+        {% endif %}
+      </td>
+      <td>
+        {% if lec.essential %}
+          {% for item in lec.essential %}
+            <a href="{{ item.link }}">{{ item.text}}</a>{% if forloop.last == false %}, {% endif %}
           {% endfor %}
-        </td>
-        <td>{{ lec.topic }}</td>
-        <td>
-          {% if lec.slides contains "http" or lec.slides contains "/" %}
-            <a href="{{ lec.slides }}">Slides</a>
-          {% else %}
-            {{ lec.slides }}
-          {% endif %}
-        </td>
-        <td>{{ lec.essential }}</td>
-        <td>{{ lec.additional }}</td>
-        <td>
-          {% if lec.homework contains "http" or lec.homework contains "/" %}
-            <a href="{{ lec.homework }}">HW</a>
-          {% else %}
-            {{ lec.homework }}
-          {% endif %}
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+        {% else %}
+          --
+        {% endif %}
+      </td>
+      <td>
+        {% if lec.additional %}
+          {% for item in lec.additional %}
+            <a href="{{ item.link }}">{{ item.text }}</a>{% if forloop.last == false %}, {% endif %}
+          {% endfor %}
+        {% else %}
+          --
+        {% endif %}
+      </td>
+      <td>
+        {% if lec.homework contains "http" or lec.homework contains "/" %}
+          <a href="{{ lec.homework }}">HW</a>
+        {% else %}
+          {{ lec.homework }}
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 </div>
-
 ---
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📝 Assignments</span>

@@ -1,36 +1,43 @@
-- lecture: [0]
+- lecture: [1]
   topic: Kick-off
   slides: /assets/pdf/EEC351/Lec0.pdf
   essential: --
   additional: -- 
   homework: --
 
-- lecture: [1]
+- lecture: [2]
   topic: Introcuction & History
   slides: /assets/pdf/EEC351/Lec1.pdf
   essential: --
   additional: --
   homework: --
 
-- lecture: [2,3]
-  topic: Linear Algebra Review
+- lecture: [3]
+  topic:  Linear Algebra Review
   slides: --
-  essential: --
+  essential: 
+    - text: LA_review.pdf
+    - link: /assets/pdf/EEC351/Linear Algebra Review.pdf
   additional: --
   homework: --
 
 - lecture: [4]
   topic: Probability Review
-  slides: --
-  essential: --
+  slides: 
+  essential: 
+    - text: cs229-prob.pdf
+    - link: /assets/pdf/EEC351/cs229-prob.pdf
   additional: --
   homework: --
 
+- lecture: [5]
+  topic: Learning Theory
+  slides: 
+  essential:
+   - text: Concentration Inequalities
+   - link:  https://arxiv.org/pdf/1910.02884
+   - text: Learning Theory
+   - link:  https://cs229.stanford.edu/notes_archive/cs229-notes4.pdf
+  additional: --
+  homework: --
 
-
-# - lecture: [4]
-#   topic: Load Profiles and Efficiency
-#   slides: /assets/pdf/EET109/Lec4.pdf
-#   essential: Grainger – Chapter 4
-#   additional: —
-  # homework: /assets/pdf/EET109/H3.pdf

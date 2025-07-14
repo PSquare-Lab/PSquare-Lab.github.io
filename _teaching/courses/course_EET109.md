@@ -41,6 +41,40 @@ Designed for individuals who are already highly capable, this course aims to cha
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📅 Course Content </span>
 
 <style>
+.table-no-hover table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: auto;                  /* Let table size adjust to content */
+  table-layout: auto;          /* Use natural column widths */
+}
+
+.table-no-hover table th,
+.table-no-hover table td {
+  border-left: 1px solid #ccc; /* Vertical lines only */
+  border-right: 1px solid #ccc;
+  border-top: none;            /* No horizontal lines */
+  border-bottom: none;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+/* Optional: remove first/last borders for clean edges */
+.table-no-hover table th:first-child,
+.table-no-hover table td:first-child {
+  border-left: none;
+}
+.table-no-hover table th:last-child,
+.table-no-hover table td:last-child {
+  border-right: none;
+}
+
+/* Header styling */
+.table-no-hover table th {
+  font-weight: bold;
+}
+
+/* Disable hover effects */
 .table-no-hover table * {
   transition: none !important;
 }
@@ -55,6 +89,7 @@ Designed for individuals who are already highly capable, this course aims to cha
   box-shadow: none !important;
   text-decoration: none !important;
 }
+
 </style>
 
 <div class="table-no-hover">
@@ -63,7 +98,7 @@ Designed for individuals who are already highly capable, this course aims to cha
   <table>
     <thead>
       <tr>
-        <th>S. No.</th>
+        <th>Index</th>
         <th>Topic</th>
         <th>Assignments</th>
       </tr>
