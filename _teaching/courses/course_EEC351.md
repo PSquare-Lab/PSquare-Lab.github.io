@@ -159,7 +159,7 @@ nav: false
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📚 References & Resources</span>
 
 - **Recommended Texts:**  
-  - Probabilisitic Machine Learning: An Introduction, Kevin Murphy. MIT Press, 2022/2023. 
+  - Probabilistic Machine Learning: An Introduction, Kevin Murphy. MIT Press, 2022/2023. 
 
 - **Supplementary Resources:**  
   - Coursera ML (Andrew Ng)  

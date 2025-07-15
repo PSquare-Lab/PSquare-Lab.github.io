@@ -125,7 +125,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 
 ---
-##### 📝 Assignments
+##### <span style="color: #0faddd;; font-weight: bold;"> 📝 Assignments </span> 
 - **Python** and **Julia** are default programming languages for the course. You should use any of these for programming your assignments unless otherwise explicitly allowed.
 - Submit via Moodle or GitHub—- as specified in each assignment. 
 - **Viva** will accompany each assignment — your explanation during the viva carries significant weight in grading.
@@ -136,6 +136,9 @@ Designed for individuals who are already highly capable, this course aims to cha
 ---
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📚 References & Resources</span>
+
+* Numerical Analysis, L. Ridgway Scott, Princeton University Press.
+* Computational Methods for Electric Power Systems, Mariesa L. Crow, CRC Press.
 
 
 ---
