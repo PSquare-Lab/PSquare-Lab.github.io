@@ -18,6 +18,7 @@ nav: false
 - **Piazza:** [https://piazza.com/indian_institute_of_technology_roorkee/fall2025/eec351](https://piazza.com/indian_institute_of_technology_roorkee/fall2025/eec351)
 - **TA:** Rajdeep R. Dwivedi (email: rajdeep_rd AT ece.iitr.ac.in)
 
+
 ---
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📌 Announcements</span>
