@@ -1,9 +1,9 @@
-- lecture: [1]
-  topic: Kick-off
-  slides: /assets/pdf/EEC351/Lec0.pdf
-  essential: --
-  additional: -- 
-  homework: /assets/pdf/EEC351/H1.pdf
+# - lecture: [1]
+#   topic: Kick-off
+#   slides: /assets/pdf/EEC351/Lec0.pdf
+#   essential: --
+#   additional: -- 
+#   homework: /assets/pdf/EEC351/H1.pdf
 
 # - lecture: [2]
 #   topic: Introcuction & History
