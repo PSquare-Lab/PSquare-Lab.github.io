@@ -89,7 +89,7 @@ nav: false
       <th>Topic</th>
       <th>Slides</th>
       <th>Essential Reading</th>
-      <th>Additional Reading</th>
+      <th>Additional</th>
       <th>Homework</th>
     </tr>
   </thead>

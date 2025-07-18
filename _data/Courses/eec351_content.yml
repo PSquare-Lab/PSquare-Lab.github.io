@@ -5,19 +5,25 @@
   additional: -- 
   homework: /assets/pdf/EEC351/H1.pdf
 
-# - lecture: [2]
-#   topic: Introcuction & History
-#   slides: /assets/pdf/EEC351/Lec1.pdf
-#   essential: --
-#   additional: --
-#   homework: --
+- lecture: [2]
+  topic: Introcuction & History
+  slides: /assets/pdf/EEC351/Lec1.pdf
+  essential: 
+     - text: Trends in Compute
+       link: /assets/pdf/EEC351/ER1.pdf
+  additional: 
+     - text: Watch "Imitation Game"
+       link: https://www.youtube.com/watch?v=8m0z1a2d9j4
+     - text: Watch "AlphaGo"
+       link: https://www.youtube.com/watch?v=WXuK6gekU1Y
+  homework: --
 
 # - lecture: [3]
 #   topic:  Linear Algebra Review
 #   slides: --
 #   essential: 
 #     - text: LA_review.pdf
-#     - link: /assets/pdf/EEC351/Linear Algebra Review.pdf
+#       link: /assets/pdf/EEC351/Linear Algebra Review.pdf
 #   additional: --
 #   homework: --
 

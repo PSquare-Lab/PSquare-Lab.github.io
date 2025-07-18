@@ -116,7 +116,11 @@ Designed for individuals who are already highly capable, this course aims to cha
           {% endif %}
         </td>
         <td>{{ lec.topic }}</td>
-        <td>{{ lec.resources }}</td>
+        <td>{% if lec.slides contains "http" or lec.slides contains "/" %}
+          <a href="{{ lec.slides }}">Slides</a>
+        {% else %}
+          {{ lec.slides }}
+        {% endif %}</td>
       </tr>
       {% endfor %}
     </tbody>
@@ -142,7 +146,6 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 
 ---
-
 
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Grading Policy (Tentative) </span>
