@@ -8,6 +8,16 @@
   note: Co-advised with Prof. Vishvendra Punia (ECE Dept.)
   status: current
 
+- name: Ayushi Jolotia
+  image: ayushi.png
+  category: Research Scholars
+  role: Research Scholar
+  degree: Ph.D., EE, IIT Roorkee
+  url: https://psquare-lab.github.io/Team/
+  description: Machine Learning for Critical Grid Infrastructure
+  note:
+  status: current
+
 - name: Pulkit Girdhar
   image: pulkit.jpeg
   category: Undergraduate Researchers
@@ -38,11 +48,11 @@
 
 
 - name: Kaustubh Sharma
-  image: Kaustubh.jpg
+  image: kaustubh.jpg
   category: Undergraduate Researchers
   role:  Undergraduate Research Assistant
   degree: B.Tech, EE, IIT Roorkee
-  url: 
+  url: https://psquare-lab.github.io/Team/
   description: Prior-Data Fitted Networks
   status: current
 
