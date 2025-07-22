@@ -9,9 +9,9 @@ status: current
 
 - **Semester:** Autumn Semester 2025  
 - **Instructor:** Parikshit Pareek (email: pareek AT ee.iitr.ac.in)  
-- **Lectures:**  Fri • 11:00 AM –12:50 PM  (Main Lecture)
-                 Tue • 03:00 PM –3:55 PM  (Additional Lecture)
-- **Venue:** To Be Decided
+- **Lectures:**  Wed • 02:00 PM – 4:00 PM  (Main Lecture)
+                 Tue • 03:00 PM –3:55 PM  (Additional Lecture- When Needed)
+- **Venue:** EED 109
 <!-- - **Piazza:** (link to class Piazza)   -->
 <!-- - **TAs:** Rajdeep R. Dwivedi (rajdeep_rd AT ece.iitr.ac.in) -->
 
