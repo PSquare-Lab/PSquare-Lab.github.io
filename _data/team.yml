@@ -65,14 +65,7 @@
   description: Prior-Data Fitted Networks
   status: current
 
-- name: Rishit Saini
-  image: rishit.jpeg
-  category: Undergraduate Researchers
-  role:  Undergraduate Research Assistant
-  degree: B.Tech, EE, IIT Roorkee
-  url: https://www.linkedin.com/in/rishit-saini-67a3872b4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
-  description: LLM for Optimal Power Flow
-  status: current
+
 
 - name: Om N. Naphade
   image: om.jpeg
@@ -110,7 +103,14 @@
   description: Neural Architectures Search for OPF
   status: current
 
-
+- name: Rishit Saini
+  image: rishit.jpeg
+  category: Undergraduate Researchers
+  role:  Undergraduate Research Assistant
+  degree: B.Tech, EE, IIT Roorkee
+  url: https://www.linkedin.com/in/rishit-saini-67a3872b4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
+  description: LLM for Optimal Power Flow
+  status: current
 
 # ------------ Past Members ------------
 
