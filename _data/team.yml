@@ -15,7 +15,7 @@
   degree: Ph.D., EE, IIT Roorkee
   url: https://psquare-lab.github.io/Team/
   description: Machine Learning for Critical Grid Infrastructure
-  note:
+  # note:
   status: current
 
 - name: Pulkit Girdhar
