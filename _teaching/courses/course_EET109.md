@@ -100,7 +100,7 @@ Designed for individuals who are already highly capable, this course aims to cha
       <tr>
         <th>Index</th>
         <th>Topic</th>
-        <th>Assignments</th>
+        <th>Material</th>
       </tr>
     </thead>
     <tbody>
@@ -117,7 +117,7 @@ Designed for individuals who are already highly capable, this course aims to cha
         </td>
         <td>{{ lec.topic }}</td>
         <td>{% if lec.slides contains "http" or lec.slides contains "/" %}
-          <a href="{{ lec.slides }}">Slides</a>
+          <a href="{{ lec.slides }}">PDF</a>
         {% else %}
           {{ lec.slides }}
         {% endif %}</td>

@@ -2,9 +2,9 @@
   topic: Introduction to EET109
   slides: /assets/pdf/EET109/Lec0.pdf
 
-# - lecture: [2]
-#   topic: Derivation of Power Flow Equation
-#   resources: ""
+- lecture: [2]
+  topic: Derivation of Power Flow Equation
+  slides: /assets/pdf/EET109/Handout1.pdf
 
 # - lecture: [3]
 #   topic: Need for Approximations
