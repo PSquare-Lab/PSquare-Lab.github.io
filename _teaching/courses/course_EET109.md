@@ -12,7 +12,7 @@ status: current
 - **Lectures:**  Wed • 02:00 PM – 4:00 PM  (Main Lecture)
                  Tue • 03:00 PM –3:55 PM  (Additional Lecture- When Needed)
 - **Venue:** EED 109
-<!-- - **Piazza:** (link to class Piazza)   -->
+- **Piazza:** [https://piazza.com/indian_institute_of_technology_roorkee/summer2025/eet109](https://piazza.com/indian_institute_of_technology_roorkee/summer2025/eet109)
 <!-- - **TAs:** Rajdeep R. Dwivedi (rajdeep_rd AT ece.iitr.ac.in) -->
 
 ---
@@ -21,7 +21,7 @@ status: current
 
 <!-- - **2025‑06‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent. -->
 <!-- - **2025‑07‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent. -->
-<!-- - **2025‑06‑20**: First assignment released! Due July 1. Check the Assignments section below. -->
+- **2025‑07‑23**: First handout released, Piazza link shared.
 - **2025‑07‑12**: Course website launched.
 
 ---
