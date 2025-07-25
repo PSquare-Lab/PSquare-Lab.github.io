@@ -155,11 +155,14 @@ Designed for individuals who are already highly capable, this course aims to cha
   * Assignments & Peer Discussions
 
 * 💻 **Coding Tasks Breakdown (Part of PRS)**
-  * **Coding Task 1**: DC Power Flow Approximation — *7 marks*
-  * **Coding Task 1.1**: Fast Decoupled Load Flow — *5 marks*
-  * **Coding Task 2**: Newton-Raphson Load Flow — *9 marks*
-  * **Coding Task 3**: Economic Dispatch Modeling — *10 marks*
-  * **Coding Task 4**: Gaussian Process for Power Flow — *9 marks*
+  * **Coding Task 1**: DC Power Flow Approximation — * ~7 marks*
+  * **Coding Task 1.1**: Fast Decoupled Load Flow — * ~5 marks*
+  * **Coding Task 2**: Newton-Raphson Load Flow — * ~9 marks*
+  * **Coding Task 3**: Economic Dispatch Modeling — * ~10 marks*
+  * **Coding Task 4**: Gaussian Process for Power Flow — * ~9 marks*
+  * Each task can be subdivided into several different tasks. 
+
+
 
 🔔 **Note**: Further instructions, deadlines, and submission guidelines will be shared along with each task under the [Assignments](#📝-assignments) section.
 
