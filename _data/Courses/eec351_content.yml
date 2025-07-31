@@ -18,14 +18,16 @@
        link: https://www.youtube.com/watch?v=WXuK6gekU1Y
   homework: --
 
-# - lecture: [3]
-#   topic:  Linear Algebra Review
-#   slides: --
-#   essential: 
-#     - text: LA_review.pdf
-#       link: /assets/pdf/EEC351/Linear Algebra Review.pdf
-#   additional: --
-#   homework: --
+- lecture: [3]
+  topic:  Linear Algebra Review
+  slides: --
+  essential: 
+    - text: Norm.pdf
+      link: /assets/pdf/EEC351/norms.pdf
+    # - text: Linear Algebra Review
+    #   link: /assets/pdf/EEC351/Linear-Algebra-Review.pdf
+  additional: --
+  homework: /assets/pdf/EEC351/H2.pdf
 
 # - lecture: [4]
 #   topic: Probability Review
