@@ -9,8 +9,8 @@ status: current
 
 - **Semester:** Autumn Semester 2025  
 - **Instructor:** Parikshit Pareek (email: pareek AT ee.iitr.ac.in)  
-- **Lectures:**  Wed • 02:00 PM – 4:00 PM  (Main Lecture)
-                 Tue • 03:00 PM –3:55 PM  (Additional Lecture- When Needed)
+- **Lectures:**  Wed • 02:00 PM – 4:00 PM  (Main Lecture, @ AKB 504)
+                 Tue • 03:00 PM –3:55 PM  (Additional Lecture- When Needed @ AKB 303)
 - **Venue:** EED 109
 - **Piazza:** [https://piazza.com/indian_institute_of_technology_roorkee/summer2025/eet109](https://piazza.com/indian_institute_of_technology_roorkee/summer2025/eet109)
 <!-- - **TAs:** Rajdeep R. Dwivedi (rajdeep_rd AT ece.iitr.ac.in) -->
@@ -19,7 +19,7 @@ status: current
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📌 Announcements </span>
 
-<!-- - **2025‑06‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent. -->
+- **2025‑07-31**: Class room change for main and additional lectures. 
 - **2025‑07‑23**: First Coding Quiz: Friday 11AM  Room EED 109. Team of Two, Bring Charged Laptops. -- Update (25th July) _Quiz & Assignment Material is Available on Piazza_
 - **2025‑07‑23**: First handout released, Piazza link shared.
 - **2025‑07‑12**: Course website launched.
