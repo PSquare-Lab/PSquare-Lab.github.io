@@ -10,8 +10,8 @@ status: current
 - **Semester:** Autumn Semester 2025  
 - **Instructor:** Parikshit Pareek (email: pareek AT ee.iitr.ac.in)  
 - **Lectures:**  Wed • 02:00 PM – 4:00 PM  (Main Lecture, @ AKB 504)
-                 Tue • 03:00 PM –3:55 PM  (Additional Lecture- When Needed @ AKB 303)
-- **Venue:** EED 109
+                 Wed • 10:00 AM – 11:00 AM  (Additional Lecture- When Needed @ AKB-301)
+<!-- - **Venue:** EED 109 -->
 - **Piazza:** [https://piazza.com/indian_institute_of_technology_roorkee/summer2025/eet109](https://piazza.com/indian_institute_of_technology_roorkee/summer2025/eet109)
 <!-- - **TAs:** Rajdeep R. Dwivedi (rajdeep_rd AT ece.iitr.ac.in) -->
 
