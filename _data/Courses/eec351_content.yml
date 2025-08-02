@@ -24,8 +24,8 @@
   essential: 
     - text: Norm.pdf
       link: /assets/pdf/EEC351/norms.pdf
-    # - text: Linear Algebra Review
-    #   link: /assets/pdf/EEC351/Linear-Algebra-Review.pdf
+    - text: Linear Algebra Review
+      link: /assets/pdf/EEC351/Linear-Algebra-Review.pdf
   additional: --
   homework: /assets/pdf/EEC351/H2.pdf
 
