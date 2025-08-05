@@ -26,17 +26,21 @@
       link: /assets/pdf/EEC351/norms.pdf
     - text: Linear Algebra Review
       link: /assets/pdf/EEC351/Linear-Algebra-Review.pdf
-  additional: --
+    - text: Quadratic Functions
+      link: /assets/pdf/EEC351/Quadratic-Form.pdf
+  additional:     
+    - text: Matrix Calculus
+      link: /assets/pdf/EEC351/Matrix Calculus.pdf
   homework: /assets/pdf/EEC351/H2.pdf
 
-# - lecture: [4]
-#   topic: Probability Review
-#   slides: 
-#   essential: 
-#     - text: cs229-prob.pdf
-#     - link: /assets/pdf/EEC351/cs229-prob.pdf
-#   additional: --
-#   homework: --
+- lecture: [4]
+  topic: Probability Review (Self Study)
+  slides: --
+  essential: 
+    - text: Probability Review
+      link: /assets/pdf/EEC351/Probability-Review.pdf
+  additional: --
+  homework: --
 
 # - lecture: [5]
 #   topic: Learning Theory

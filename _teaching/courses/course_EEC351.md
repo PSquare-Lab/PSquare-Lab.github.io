@@ -44,20 +44,51 @@ nav: false
 <style>
 .table-no-hover table {
   border-collapse: separate;
-  border-spacing: 0; /* Remove spacing if you want continuous lines */
+  border-spacing: 0;
   width: 100%;
-  table-layout: fixed; /* Optional: keeps columns even */
+  table-layout: fixed;
 }
 
 .table-no-hover table th,
 .table-no-hover table td {
-  border: 1px solid #ccc;       /* Full continuous grid lines */
-  text-align: center;           /* Center-align column content */
-  vertical-align: middle;       /* Vertical center alignment */
-  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px;
 }
 
-/* Optional: styling for header */
+/* Set specific column widths */
+.table-no-hover table th:nth-child(1),
+.table-no-hover table td:nth-child(1) {
+  width: 4%;
+}
+
+.table-no-hover table th:nth-child(2),
+.table-no-hover table td:nth-child(2) {
+  width: 20%;
+}
+
+.table-no-hover table th:nth-child(3),
+.table-no-hover table td:nth-child(3) {
+  width: 8%;
+}
+
+.table-no-hover table th:nth-child(4),
+.table-no-hover table td:nth-child(4) {
+  width: 30%;
+}
+
+.table-no-hover table th:nth-child(5),
+.table-no-hover table td:nth-child(5) {
+  width: 26%;
+}
+
+.table-no-hover table th:nth-child(6),
+.table-no-hover table td:nth-child(6) {
+  width: 8%;
+}
+
+/* Optional: header styling */
 .table-no-hover table th {
   font-weight: bold;
 }
@@ -78,6 +109,7 @@ nav: false
   text-decoration: none !important;
 }
 </style>
+
 
 <div class="table-no-hover">
   {% assign lectures = site.data.Courses.eec351_content %}
