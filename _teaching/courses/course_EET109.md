@@ -19,6 +19,7 @@ status: current
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📌 Announcements </span>
 
+- **2025‑08-07**: Assignment#1 is Annouced: Deadline 18th August 11AM. 
 - **2025‑07-31**: Class room change for main and additional lectures. 
 - **2025‑07‑23**: First Coding Quiz: Friday 11AM  Room EED 109. Team of Two, Bring Charged Laptops. -- Update (25th July) _Quiz & Assignment Material is Available on Piazza_
 - **2025‑07‑23**: First handout released, Piazza link shared.
@@ -130,6 +131,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 ---
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📝 Assignments </span> 
+- **Assignment #1** is due on **18th August,11AM**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#1](/assets/pdf/EET109/Assignment_1.zip)
 - **Python** and **Julia** are default programming languages for the course. You should use any of these for programming your assignments unless otherwise explicitly allowed.
 - Submit via Moodle or GitHub—- as specified in each assignment. 
 - **Viva** will accompany each assignment — your explanation during the viva carries significant weight in grading.
