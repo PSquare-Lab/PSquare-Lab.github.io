@@ -193,7 +193,7 @@ nav: false
 
 - **Recommended Texts:**  
   - Probabilistic Machine Learning: An Introduction, Kevin Murphy. MIT Press, 2022/2023. 
-  - earning from Data: A Short Course, Yaser S. Abu-Mostafa, Malik Magdon-Ismail, Hsuan-Tien Lin. AMLBook, 2017.
+  - Learning from Data: A Short Course, Yaser S. Abu-Mostafa, Malik Magdon-Ismail, Hsuan-Tien Lin. AMLBook, 2017.
 
 - **Supplementary Resources:**  
   - Coursera ML (Andrew Ng)  
