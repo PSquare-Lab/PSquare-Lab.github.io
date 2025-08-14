@@ -42,14 +42,14 @@
   additional: --
   homework: --
 
-# - lecture: [5]
-#   topic: Learning Theory
-#   slides: 
-#   essential:
-#    - text: Concentration Inequalities
-#    - link:  https://arxiv.org/pdf/1910.02884
-#    - text: Learning Theory
-#    - link:  https://cs229.stanford.edu/notes_archive/cs229-notes4.pdf
-#   additional: --
-#   homework: --
+- lecture: [5]
+  topic: Learning Theory
+  slides: --
+  essential:
+   - text: Concentration Inequalities
+     link: /assets/pdf/EEC351/Concentration_ineq.pdf
+  #  - text: Learning Problem
+  #    link:  https://cs229.stanford.edu/notes_archive/cs229-notes4.pdf
+  additional: --
+  homework: --
 

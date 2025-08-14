@@ -160,7 +160,7 @@ nav: false
         {% endif %}
       </td>
       <td>
-        {% if lec.homework contains "http" or lec.homework contains "/" %}
+        {% if lec.homework contains "https" or lec.homework contains "/" %}
           <a href="{{ lec.homework }}">HW</a>
         {% else %}
           {{ lec.homework }}
@@ -193,6 +193,7 @@ nav: false
 
 - **Recommended Texts:**  
   - Probabilistic Machine Learning: An Introduction, Kevin Murphy. MIT Press, 2022/2023. 
+  - earning from Data: A Short Course, Yaser S. Abu-Mostafa, Malik Magdon-Ismail, Hsuan-Tien Lin. AMLBook, 2017.
 
 - **Supplementary Resources:**  
   - Coursera ML (Andrew Ng)  
