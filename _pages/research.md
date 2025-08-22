@@ -38,7 +38,7 @@ Closed-form power flow (CFPF) framework aim to provide **explicit** mathematical
 The CFPF framework is build using **Gaussian Process** (GPs) to achieve these desired features. Beyond direct applications, **Vertex-Degree-Kernel** (VDK) design has been proposed for scaling the GPs to larger grid. Some key innovations involve designing a  **Network-Swipe Active Learning algorithm**, **Multi-Task VDK GP** and **Theoretical Learning Bounds for Risk Analysis**.
 
 **Related Papers:** 
-1) [Basic CFPF Frameworl](https://drive.google.com/file/d/1GfyVgx-ca9QEpgm7mg8yHzbKsYY3ifnE/view)
+1) [Basic CFPF Framework](https://drive.google.com/file/d/1GfyVgx-ca9QEpgm7mg8yHzbKsYY3ifnE/view)
 2) [Vertex-Degree Kernel and Network-Swipe Algorithm for Fast Risk Assessment](https://arxiv.org/abs/2308.07867)
 3) [Multi-Task VDK GP for Network Contingencies](https://arxiv.org/abs/2310.00763)
 4) [Critical Prosumer Identification](https://dr.ntu.edu.sg/bitstream/10356/170911/2/Locating%20Critical%20Prosumers%20in%20P2P%20Dominant%20Grids%20Using%20State-Sensitivity%20Function.pdf)
