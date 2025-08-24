@@ -51,7 +51,7 @@
   slides: --
   essential:
    - text: Concentration Inequalities
-     link: /assets/pdf/EEC351/Concentration_ineq.pdf
+     link: /assets/pdf/EEC351/Concentration_Ineq.pdf
    - text: Learning Problem
      link:  https://cs229.stanford.edu/notes_archive/cs229-notes4.pdf
    - text: Learning Theory Notes
