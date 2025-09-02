@@ -42,8 +42,6 @@
     - text: Probability Review
       link: /assets/pdf/EEC351/Probability-Review.pdf
   additional: 
-    - text: --
-      link: --
   homework: --
 
 - lecture: [5]
@@ -56,6 +54,14 @@
      link:  https://cs229.stanford.edu/notes_archive/cs229-notes4.pdf
    - text: Learning Theory Notes
      link:  /assets/pdf/EEC351/LearningTheory.pdf
-  additional: --
+  additional:
   homework: --
 
+- lecture: [6]
+  topic: Energy & Loss Functions
+  slides: --
+  essential:
+   - text: EBM Tutorial
+     link: /assets/pdf/EEC351/EBL_Tutorial.pdf
+  additional:
+  homework: --
