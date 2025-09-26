@@ -132,8 +132,9 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 ---
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📝 Assignments </span> 
-- **Assignment #1** is due on **18th August,11AM**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#1](/assets/pdf/EET109/Assignment_1.zip)
+- **Assignment #1** is due on **18th August,11 AM**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#1](/assets/pdf/EET109/Assignment_1.zip)
 - **Assignment #2** is due on **1st September, 12 Noon**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#2](/assets/pdf/EET109/Assignment_2.zip)
+- **Assignment #3** is due on **8st October, 12 Noon**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#3](/assets/pdf/EET109/Assignment_3.pdf)
 - **Python** and **Julia** are default programming languages for the course. You should use any of these for programming your assignments unless otherwise explicitly allowed.
 - Submit via Moodle or GitHub—- as specified in each assignment. 
 - **Viva** will accompany each assignment — your explanation during the viva carries significant weight in grading.

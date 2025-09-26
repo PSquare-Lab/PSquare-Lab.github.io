@@ -22,7 +22,7 @@ nav: false
 ---
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📌 Announcements</span>
-
+- **2025‑09-26**: First Assignement will be live next week.
 - **2025‑08-22**: Additional Class on 26th August, Wednesday.
 - **2025‑07‑13**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent.
 <!-- - **2025‑07‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent. -->
