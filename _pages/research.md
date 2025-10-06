@@ -8,7 +8,6 @@ nav_order: 6
 ---
 
 
-
 <!-- <span style="color: #ff6600; font-size: 24px;">Selected Research Works</span> -->
 My research interests lie in exploring solutions at the intersection of power systems, optimization, machine learning, and more recently, quantum computing, to address the challenges of modern energy networks, particularly under uncertainty. 
 

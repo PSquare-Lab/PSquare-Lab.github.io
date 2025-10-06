@@ -65,3 +65,13 @@
      link: /assets/pdf/EEC351/EBL_Tutorial.pdf
   additional:
   homework: --
+
+- lecture: [7]
+  topic: Linear Models
+  slides: --
+  essential:
+   - text: PLA
+     link: /assets/pdf/EEC351/PLA.pdf
+  additional:
+  homework: --
+

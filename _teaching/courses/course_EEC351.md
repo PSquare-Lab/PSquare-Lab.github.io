@@ -22,7 +22,7 @@ nav: false
 ---
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📌 Announcements</span>
-- **2025‑09-26**: First Assignement will be live next week.
+- **2025‑09-26**: **Assignment #1** is due on **Thursday, 9th October, 5 PM**.
 - **2025‑08-22**: Additional Class on 26th August, Wednesday.
 - **2025‑07‑13**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent.
 <!-- - **2025‑07‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent. -->
@@ -175,9 +175,9 @@ nav: false
 ---
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📝 Assignments</span>
-
+- **Assignment #1** is due on **Thursday, 9th October, 5 PM**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#1](/assets/pdf/EEC351/Assignment_1.pdf)-- [Boilerplate Code](/assets/pdf/EEC351/EEC351_Assignment_BoilerCode.zip)
 - **Python** is the default programming languages for the course. You should use it for programming your assignments unless otherwise explicitly allowed.
-- Submit via Moodle or GitHub—- as specified in each assignment. 
+- Submit via Moodle, Google Form or GitHub—- as specified in each assignment. 
 - **Honor Code:** Any cases of copying will be awarded a zero on the assignment. More severe penalties may follow.
 - **Late submissions** will incur penalties, as annouced with assignment. 
 
