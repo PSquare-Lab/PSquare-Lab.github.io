@@ -13,7 +13,7 @@ status: current
                  Wed • 10:00 AM – 11:00 AM  (Additional Lecture- When Needed @ AKB-301)
 <!-- - **Venue:** EED 109 -->
 - **Piazza:** [https://piazza.com/indian_institute_of_technology_roorkee/summer2025/eet109](https://piazza.com/indian_institute_of_technology_roorkee/summer2025/eet109)
-<!-- - **TAs:** Rajdeep R. Dwivedi (rajdeep_rd AT ece.iitr.ac.in) -->
+- **TA:** Ayushi Jolotia(ayushi_j AT ee.iitr.ac.in)
 
 ---
 
