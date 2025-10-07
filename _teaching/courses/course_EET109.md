@@ -19,6 +19,7 @@ status: current
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📌 Announcements </span>
 
+- **2025‑10-07**: Next round of _Term Paper_ presentations are on 15th and 17th October. 
 - **2025‑09-26**: Assignment#3 is Annouced: Deadline 8th October 2 PM. 
 - **2025‑08-29**: Assignment#2 is Annouced: Deadline 1st September 12 Noon. 
 - **2025‑08-07**: Assignment#1 is Annouced: Deadline 18th August 11 AM. 
