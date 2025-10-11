@@ -31,7 +31,7 @@ nav_order: 8
 ---
 ##### <span style="color: #0faddd;; font-weight: bold;"> Before You Read Below: </span>
 
-I am glad you’re interested enough to reach this part of the website. However, before you read further and consider applying to work with us at IIT Roorkee ore remotely, I’d like to offer a gentle warning.
+I am glad you’re interested enough to reach this part of the website. However, before you read further and consider applying to work with us at IIT Roorkee or remotely, I’d like to offer a gentle warning.
 
 We are a group of individuals obsessed with research, progress, outcomes, and Vyaktitva Nirman (व्यक्तित्व निर्माण) — the continuous development of one’s character and capabilities. Every member of $$\mathcal{P}^2$$ Lab works tirelessly to build a _culture of excellence_ that pushes beyond personal limits. _We politely but firmly refuse to be just another place for collecting degrees or certificates_. We ask the most obvious yet overlooked research questions, take on difficult but pertinent problems, acknowledge our current limitations, and work relentlessly to overcome them. We follow a simple but strict code of ethics, and _every member_ is held to the same standards of performance and behavior. No one works _under anyone_ here — we all work _with_ each other, each carrying different responsibilities within our projects.
 
