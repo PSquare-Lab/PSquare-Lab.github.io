@@ -49,7 +49,7 @@ Please feel free to email me at [here](mailto:pareek@ee.iitr.ac.in) with the sub
 
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> Existing IITR UG & PG: </span>
- **<span style="color:rgba(223, 172, 21, 1);"> I will not able to be able to accomodate more undergraduate or postgraduate researchers from IITR at this time, though we greatly appreciate the enthusiasm.</span>**
+ **<span style="color:rgba(223, 172, 21, 1);"> I will not to be able to accomodate more undergraduate or postgraduate researchers from IITR at this time, though we greatly appreciate the enthusiasm.</span>**
 
 <!-- If you are a current IIT Roorkee undergraduate or postgraduate student, write to me [here](mailto:pareek@ee.iitr.ac.in). You can also visit me at my office: 214A, East Wing, EE Building, preferably with prior appointment. I have exciting opportunities to work on projects related to machine learning and quantum computing applications for power system analysis, optimization and other engineering projects. Note that candidates may be required to complete a _test project_ as part of the selection process. **Important:** Any email that does not clearly mention _Research Internship Inquiry IITR Student_ in the subject line will not be entertained and will be discarded. -->
 
