@@ -3,7 +3,7 @@ title: Teaching
 permalink: /teaching/
 layout: default
 page_title: Teaching
-description:
+description: Details about teaching activities of present and past semesters
 nav: true
 nav_order: 6
 ---
