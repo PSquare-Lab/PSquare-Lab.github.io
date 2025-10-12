@@ -2,7 +2,7 @@
 layout: default
 permalink: /people/
 title: Join Us!
-description: members of the lab or group
+description: Explore ways to get involved and join the lab.
 nav: true
 nav_order: 8
 
@@ -29,7 +29,7 @@ nav_order: 8
 ## Join Us!
 
 ---
-##### <span style="color: #0faddd;; font-weight: bold;"> Before You Read Below: </span>
+##### <span style="color: #0faddd;; font-weight: bold;"> Before You Read Further: </span>
 
 I am glad you’re interested enough to reach this part of the website. However, before you read further and consider applying to work with us at IIT Roorkee or remotely, I’d like to offer a gentle warning.
 
