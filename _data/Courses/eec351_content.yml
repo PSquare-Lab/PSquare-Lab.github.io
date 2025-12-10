@@ -67,11 +67,13 @@
   homework: --
 
 - lecture: [7]
-  topic: Linear Models
+  topic: Linear Models,GD
   slides: --
   essential:
    - text: PLA
      link: /assets/pdf/EEC351/PLA.pdf
+   - text: Learning from Data Chapter 3
+     link: 
   additional:
   homework: --
 
