@@ -1,12 +1,12 @@
-- name: Rajdeep R. Dwivedi
-  image: rajdeep.png
-  category: Research Scholars
-  role: Research Scholar
-  degree: Ph.D., ECE, IIT Roorkee
-  url: https://psquare-lab.github.io/Team/
-  description: Quantum-Computing, Machine Learning 
-  note: Co-advised with Prof. Vishvendra Punia (ECE Dept.)
-  status: current
+# - name: Rajdeep R. Dwivedi
+#   image: rajdeep.png
+#   category: Research Scholars
+#   role: Research Scholar
+#   degree: Ph.D., ECE, IIT Roorkee
+#   url: https://psquare-lab.github.io/Team/
+#   description: Quantum-Computing, Machine Learning 
+#   note: Co-advised with Prof. Vishvendra Punia (ECE Dept.)
+#   status: current
 
 - name: Ayushi Jolotia
   image: ayushi.png
