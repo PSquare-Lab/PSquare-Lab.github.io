@@ -37,14 +37,14 @@
   description: Machine Learning for Optimal Power Flow
   status: current
 
-- name: Anurag Basistha
-  image: Anurag_Basistha.jpeg
-  category: Summer Interns
-  role: Summer Intern + Undergraduate Research Assistant
-  degree: B.Tech, ECE, IIIT Delhi
-  url: https://www.linkedin.com/in/anurag-basistha/
-  description: Machine Learning for Optimal Power Flow
-  status: current
+# - name: Anurag Basistha
+#   image: Anurag_Basistha.jpeg
+#   category: Summer Interns
+#   role: Summer Intern + Undergraduate Research Assistant
+#   degree: B.Tech, ECE, IIIT Delhi
+#   url: https://www.linkedin.com/in/anurag-basistha/
+#   description: Machine Learning for Optimal Power Flow
+#   status: current
 
 
 - name: Kaustubh Sharma
