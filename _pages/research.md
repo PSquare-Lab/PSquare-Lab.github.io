@@ -2,52 +2,68 @@
 layout: page
 permalink: /research/
 title: Research
-description: Details about our research projects and areas of focus.
+description: AI + Optimization + Physics for Resilient Energy Grids
 nav: true
 nav_order: 6
 ---
 
+At **$$\mathcal{P}^2$$-LAB**, we explore solutions at the intersection of power systems, optimization, and machine learning to address the challenges of modern energy networks. Our work focuses on developing "thoughtful AI"—physics-inspired methodologies that optimize and secure power system operations and planning under the volatility of decentralized, renewable-heavy grids.
 
-<!-- <span style="color: #ff6600; font-size: 24px;">Selected Research Works</span> -->
-My research interests lie in exploring solutions at the intersection of power systems, optimization, machine learning, and more recently, quantum computing, to address the challenges of modern energy networks, particularly under uncertainty. 
+---
 
-**<span style="color: #ff6600;">Learning-Integrated Power System Operations:</span>** The group's research will focus on developing **physics-inspired methodologies** that leverage **machine learning (ML)** to optimize and secure power system operations and planning. We aim to enhance the **reliability**, **efficiency**, and **resilience** of energy networks operating under uncertainty by developing **problem-specific ML tools**. 
+### <span style="color: #ff6600; font-size: 20px;">#1 Foundational Models for EV-Rich Distribution Grids</span>
 
+Traditional machine learning applications in power systems often suffer from "topology-dependence," requiring expensive retraining whenever the grid structure changes or new charging stations are added. We are shifting this paradigm by developing **Foundational Models for Power Systems** based on **Prior-Data Fitted Networks (PFNs)**. By leveraging a novel **Decoupled-Value Attention (DVA)** mechanism, our models perform **In-Context Learning**, allowing them to solve power flow and security problems for entirely new network configurations instantly, without any gradient updates. 
 
-**<span style="color: #ff6600;">Probabilistic and Non-Parametric Methods:</span>** Group will focus on advancing probabilistic methods and non-parametric techniques to create robust and interpretable models for **Medium to Long Term Planning** & **Cause-Effect Studies** in renewable energy-dominated Indian power grids. By addressing the complexities introduced by renewable integration, we aim to enhance grid reliability and operational efficiency.
+This foundational approach is the cornerstone of our onging work on **Secure EV-Rich Distribution Grid Operations** (supported by **ANRF PMECRG 2025-2028**). Here, we apply these generalizable surrogates to manage the stochastic volatility of high-penetration EV charging in unbalanced multiphase networks. By extending these models to handle the complexities of distribution grid physics, we aim to provide real-time stability and feasibility assessments for the evolving Indian prosumer landscape.
 
+<div style="border-top: 1px solid #e0e0e0; margin-top: 15px; padding-top: 10px;">
+  <strong>Related Materials:</strong> 
+  <a href="https://arxiv.org/abs/2509.20950">[Decoupled-Value Attention for PFNs (2025)]</a> | 
+  <a href="/assets/pdf/PFN_NITJ.pdf">[Bayesian Inference via PFNs (NITJ 2025)]</a> | 
+</div>
 
-**<span style="color: #ff6600;">Quantum Computing Potential Exploration:</span>** Group will **investigate the capabilities of** quantum computing in solving computationally combursome problems in power grids & other engineering domains. The aim will be to scrutinizing and advance the boundaries of what's possible using Quantum computing for **Our Favourite Problems**.
+---
 
+### <span style="color: #ff6600; font-size: 20px;">#2 Optimal Power Flow (OPF): From Data-Efficiency to AC Feasibility</span>
 
+While Optimal Power Flow (OPF) is the backbone of grid operations, its non-convex nature makes real-time implementation difficult. Our research seeks to bridge the gap between "fast" optimization and "physical" feasibility. We address the data-hunger of modern ML-solvers by using **Semi-Supervised Bayesian Neural Networks** that learn the underlying physical manifold of the grid from limited labeled data. This ensures that our **Optimization Proxies** (as presented at **ICML 2025**) remain accurate even when optimal training samples are scarce.
 
-Below is a brief non-rigorous summary and the associated papers related to above mentioned three main research themes.
+Beyond just speed, we focus on the **AC Feasibility** of dispatch decisions. This involves developing frameworks that ensure linear approximations (like DCOPF) do not lead to voltage or thermal violations in the actual AC network. This holistic view of optimization extends to the **TSO-DSO interface**, where we use convexification techniques to identify flexibility areas. This allows for the risk-averse integration of prosumers and storage into multimarket environments while ensuring that the physical limits of the grid are never compromised.
 
+<div style="border-top: 1px solid #e0e0e0; margin-top: 15px; padding-top: 10px;">
+  <strong>Related Materials:</strong> 
+  <a href="https://arxiv.org/abs/2410.03085">[Data-Efficient Proxies (ICML 2025)]</a> | 
+  <a href="https://arxiv.org/abs/2511.14725">[AC Feasibility of DCOPF (2025)]</a> | 
+  <a href="https://doi.org/10.1109/TIA.2024.3481350">[Convexified Flexibility Area (IEEE TIA)]</a> | 
+  <a href="https://doi.org/10.1016/j.energy.2024.133422">[Storage Participation (Energy 2024)]</a> |
+  <a href="https://arxiv.org/abs/1911.12001">[Stability Constrained OPF (IEEE TCNS)]</a>
+</div>
 
-<span style="color: #ff6600; font-size: 20px;">#1 Closed-form Power Flow & Applications</span>
+---
 
-Closed-form power flow (CFPF) framework aim to provide **explicit** mathematical expressions for solving AC power flow equations: $$V = f(\mathbf{s})$$ (Node voltage as a function of injection vector). The core idea is to bypas iterative numerical techniques like Newton-Raphson and replace these with **function evaluation**. Unlike linearizations, CFPF is a general framework which allows to tailor complexity of $$f(\mathbf{s})$$ based on target application. Desired features of CFPF are:
+### <span style="color: #ff6600; font-size: 20px;">#3 Closed-form Surrogates & Network Sensitivity Analysis</span>
 
-- **Flexible Forms** $$\implies$$ Non-linear forms with *complexity-accuracy* trade-off
-- **Easy to Evaluate Forms** $$\implies$$ Faster numerical calculations
-- **Non-parametric Forms** $$\implies$$ Works within a power injection range or hypercube
-- **Differentiability of Forms** $$\implies$$ Can be fed into optimization problems
-- **Interpretability of Forms** $$\implies$$ Should provide insights into the physical system
+A core pillar of our work is the **Closed-form Power Flow (CFPF)** framework, which replaces iterative numerical solvers with explicit mathematical expressions: $$V = f(\mathbf{s})$$. By utilizing **Gaussian Processes** with specialized **Vertex-Degree Kernels (VDK)**, we turn the power grid into a differentiable function. This shift from numerical black-boxes to analytical surrogates allows us to scale probabilistic analysis to large-scale networks without the computational cost of traditional Monte Carlo simulations.
 
-The CFPF framework is build using **Gaussian Process** (GPs) to achieve these desired features. Beyond direct applications, **Vertex-Degree-Kernel** (VDK) design has been proposed for scaling the GPs to larger grid. Some key innovations involve designing a  **Network-Swipe Active Learning algorithm**, **Multi-Task VDK GP** and **Theoretical Learning Bounds for Risk Analysis**.
+Once the grid is represented as a differentiable surrogate, we can perform advanced **Network Sensitivity Analysis**. This enables the **Network-Swipe Active Learning** algorithm to identify "worst-case" contingencies and critical voltage risks in seconds. Furthermore, these analytical forms provide explicit state-sensitivity functions that are instrumental in identifying critical prosumers and establishing privacy-preserving feasibility boundaries for Peer-to-Peer (P2P) energy trading.
 
-**Related Papers:** 
-1) [Basic CFPF Framework](https://drive.google.com/file/d/1GfyVgx-ca9QEpgm7mg8yHzbKsYY3ifnE/view)
-2) [Vertex-Degree Kernel and Network-Swipe Algorithm for Fast Risk Assessment](https://arxiv.org/abs/2308.07867)
-3) [Multi-Task VDK GP for Network Contingencies](https://arxiv.org/abs/2310.00763)
-4) [Critical Prosumer Identification](https://dr.ntu.edu.sg/bitstream/10356/170911/2/Locating%20Critical%20Prosumers%20in%20P2P%20Dominant%20Grids%20Using%20State-Sensitivity%20Function.pdf)
-5) [Privacy-preserving Feasibility Assessment](https://www.researchgate.net/profile/Parikshit-Pareek-2/publication/358660003_Privacy-Preserving_Feasibility_Assessment_for_P2P_Energy_Trading_and_Storage_Integration/links/62207ee1e474e407ea1e1e6e/Privacy-Preserving-Feasibility-Assessment-for-P2P-Energy-Trading-and-Storage-Integration.pdf)
+<div style="border-top: 1px solid #e0e0e0; margin-top: 15px; padding-top: 10px;">
+  <strong>Related Materials:</strong> 
+  <a href="https://arxiv.org/abs/2308.07867">[VDK for Risk Assessment (2025)]</a> | 
+  <a href="https://arxiv.org/abs/2310.00763">[Multi-Task GP for Contingencies (SEGAN 2025)]</a> | 
+  <a href="https://doi.org/10.1109/TSG.2023.3323080">[Critical Prosumer Identification (IEEE TSG)]</a> | 
+  <a href="https://arxiv.org/abs/2504.21260">[Multiphase Power Flow (PESGM 2025)]</a>|
+  <a href="https://dr.ntu.edu.sg/handle/10356/164950">[PhD Thesis (NTU)]</a>
+</div>
 
+---
 
-<span style="color: #ff6600; font-size: 20px;">#2 Optimal Power Flow (OPF) Proxies</span>
+### <span style="color: #ff6600; font-size: 20px;">#4 Demystifying the Quantum Advantage in Power Systems</span>
 
-Details will be updated soon!
+Quantum computing offers a theoretical leap for grid problems, yet its practical utility remains a subject of intense scrutiny. We take a **realist’s approach** to this emerging field by investigating the scalability of quantum linear system solvers when applied to the non-linearities of power systems. By comparing fault-tolerant quantum algorithms against state-of-the-art classical sparse solvers, our work identifies the true crossover points where quantum speedups might actually be realized. Rather than following the hype, we aim to scrutinize and advance the boundaries of what is possible, ensuring that quantum research in our domain is grounded in rigorous complexity analysis and classical benchmarking.
 
-<span style="color: #ff6600; font-size: 20px;">#3 Potential Quantum Advantage Analysis in Power Systems</span>
-
-Details will be updated soon!
+<div style="border-top: 1px solid #e0e0e0; margin-top: 15px; padding-top: 10px;">
+  <strong>Related Materials:</strong> 
+  <a href="https://arxiv.org/abs/2402.08617">[Limitations of Quantum Solvers for Power Flow (IEEE TPWRS 2025)]</a> | 
+</div>

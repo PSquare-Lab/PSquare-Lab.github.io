@@ -2,7 +2,7 @@
 title: "EEC 351: Fundamentals of AI/ML"
 permalink: /teaching/course_EEC351/
 layout: page
-status: current
+status: past
 description:
 nav: false
 ---
@@ -211,3 +211,8 @@ nav: false
   - Written Exam (any format)
 - ETE (40 Marks)
   - Written Exam (any format)
+
+##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Exam Papers</span> 
+
+- [Mid-Term Examination Autumn 2025](/assets/pdf/EEC351/MTE.pdf)
+- [End-Term Examination Autumn 2025](/assets/pdf/EEC351/ETE.pdf)

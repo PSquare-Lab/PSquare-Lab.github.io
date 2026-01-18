@@ -2,7 +2,7 @@
 title: "EET 109: Power and Energy Management I"
 permalink: /teaching/course_EET109/
 layout: page
-status: current
+status: past
 ---
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> Course Information </span>

@@ -16,7 +16,7 @@ nav_order: 6
 }
 </style>
 
-##### 📘 Current Courses: Autumn 2025-26
+##### 📘 Current Courses: Spring 2025-26
 {% assign current_courses = site.teaching | where: "status", "current" %}
 <ul>
   {% for course in current_courses %}
