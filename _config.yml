@@ -198,6 +198,9 @@ collections:
   teaching:
     output: true
     permalink: /teaching/:path/
+  blogs:
+    output: true
+    permalink: /blogs/:year/:title/
 
 announcements:
   enabled: true
