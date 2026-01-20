@@ -123,12 +123,12 @@ Designed for individuals who are already highly capable, this course aims to cha
         </td>
         <td>{{ lec.topic }}</td>
         <td>{% if lec.slides contains "http" or lec.slides contains "/" %}
-          <a href="{{ lec.slides }}">PDF</a>
+          <a href="{{ lec.slides }}">Slides</a>
         {% else %}
           {{ lec.slides }}
         {% endif %}</td>
         <td>{% if lec.homework contains "http" or lec.homework contains "/" %}
-          <a href="{{ lec.homework }}">Link</a>
+          <a href="{{ lec.homework }}">PDF</a>
         {% else %}
           {{ lec.homework }}
         {% endif %}</td>

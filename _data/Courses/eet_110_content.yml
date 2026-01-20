@@ -3,9 +3,10 @@
   slides: /assets/pdf/EET110/L0_Annotated.pdf
   homework: "Find The Term Paper Topic"
 
-# - lecture: [2]
-#   topic: Derivation of Power Flow Equation
-#   slides: /assets/pdf/EET109/Handout1.pdf
+- lecture: [1]
+  topic: Introduction to Optimization
+  slides: /assets/pdf/EET110/L1.pdf
+  homework: /assets/pdf/EET110/H1.pdf
 
 # - lecture: [3]
 #   topic: Need for Approximations
