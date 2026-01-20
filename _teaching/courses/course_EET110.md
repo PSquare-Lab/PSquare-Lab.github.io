@@ -9,11 +9,9 @@ status: current
 
 - **Semester:** Spring Semester 2025  
 - **Instructor:** Parikshit Pareek (email: pareek AT ee.iitr.ac.in)  
-- **Lectures:** TBA
- <!-- Wed • 02:00 PM – 4:00 PM  (Main Lecture, @ AKB 504)
-                 Wed • 10:00 AM – 11:00 AM  (Additional Lecture- When Needed @ AKB-301) -->
-<!-- - **Venue:** EED 109 -->
-- **Piazza:** TBA
+- **Lectures:** Tue • 09:00 AM – 11:00 AM; 05:00 PM – 07:00 PM  @ EED 109 
+- **Venue:** EED 109
+- **Piazza:** Same as EET 109 Course
 <!-- [https://piazza.com/indian_institute_of_technology_roorkee/summer2025/eet109](https://piazza.com/indian_institute_of_technology_roorkee/summer2025/eet109) -->
 - **TA:** Ayushi Jolotia(ayushi_j AT ee.iitr.ac.in)
 
@@ -160,21 +158,15 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Grading Policy (Tentative) </span>
 
-<!-- * **PRS (50 Marks)**
-  * Individual Coding Tasks
-  * Assignments & Peer Discussions
+- **CWS+PRE+PRS (50 Marks)**
+  - Lab Assignments — 20 Marks
+  - Term Paper / Project — 30 Marks
+- **Mid Term (20 Marks)** — Exam
+- **End Term (30 Marks)** — Exam
 
-* 💻 **Coding Tasks Breakdown (Part of PRS)**
-  * **Coding Task 1**: DC Power Flow Approximation — * ~7 marks* -- **Done**
-  * **Coding Task 1.1**: Fast Decoupled Load Flow — * ~5 marks* -- **Announced**
-  * **Coding Task 2**: Newton-Raphson Load Flow — * ~9 marks*
-  * **Coding Task 3**: Economic Dispatch Modeling — * ~10 marks*
-  * **Coding Task 4**: Gaussian Process for Power Flow — * ~9 marks*
-  * Each task can be subdivided into several different tasks.  -->
-
-
-
-<!-- 🔔 **Note**: Further instructions, deadlines, and submission guidelines will be shared along with each task under the [Assignments](#📝-assignments) section. -->
-
-<!-- * **PRE (50 Marks)**
-  * Term Paper -->
+**Lab Assignments (Coding Tasks):**
+- **Lab 1:** Linear Programming (Dispatch)
+- **Lab 2:** MILP (Unit Commitment)
+- **Lab 3:** NLP (AC-OPF)
+- **Lab 4:** Relaxations (SOCP/SDP)
+- **Lab 5:** Optimization Proxies
