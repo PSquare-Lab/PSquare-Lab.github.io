@@ -24,8 +24,8 @@ status: current
 - **2025‑08-29**: Assignment#2 is Annouced: Deadline 1st September 12 Noon. 
 - **2025‑08-07**: Assignment#1 is Annouced: Deadline 18th August 11 AM. 
 - **2025‑07-31**: Class room change for main and additional lectures. 
-- **2025‑07‑23**: First Coding Quiz: Friday 11 AM  Room EED 109. Team of Two, Bring Charged Laptops. -- Update (25th July) _Quiz & Assignment Material is Available on Piazza_
-- **2025‑07‑23**: First handout released, Piazza link shared. -->
+- **2025‑07‑23**: First Coding Quiz: Friday 11 AM  Room EED 109. Team of Two, Bring Charged Laptops. -- Update (25th July) _Quiz & Assignment Material is Available on Piazza_-->
+- **2026‑01‑20**: Term paper form is available on Piazza. Submission deadline: next Tuesday.
 - **2025‑12‑10**: Initial Course website launched.
 
 ---
@@ -43,7 +43,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 ---
 
-##### <span style="color: #0faddd;; font-weight: bold;"> 📅 Course Content </span>
+##### <span style="color: #0faddd;; font-weight: bold;">  Course Content </span>
 
 <style>
 .table-no-hover table {
@@ -98,18 +98,19 @@ Designed for individuals who are already highly capable, this course aims to cha
 </style>
 
 <div class="table-no-hover">
-  {% assign eet109 = site.data.Courses.eet110_content %}
+  {% assign eet110 = site.data.Courses.eet_110_content %}
 
   <table>
     <thead>
       <tr>
         <th>Index</th>
-        <th>Topic</th>
-        <th>Material</th>
+        <th>Topics</th>
+        <th>Slides</th>
+        <th>Homeworks</th>
       </tr>
     </thead>
     <tbody>
-      {% for lec in eet109 %}
+      {% for lec in eet110 %}
       <tr>
         <td>
           {% if lec.lecture.size %}
@@ -125,6 +126,11 @@ Designed for individuals who are already highly capable, this course aims to cha
           <a href="{{ lec.slides }}">PDF</a>
         {% else %}
           {{ lec.slides }}
+        {% endif %}</td>
+        <td>{% if lec.homework contains "http" or lec.homework contains "/" %}
+          <a href="{{ lec.homework }}">Link</a>
+        {% else %}
+          {{ lec.homework }}
         {% endif %}</td>
       </tr>
       {% endfor %}
@@ -149,8 +155,12 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📚 References & Resources</span>
 
-<!-- * Numerical Analysis, L. Ridgway Scott, Princeton University Press. -->
-<!-- * Computational Methods for Electric Power Systems, Mariesa L. Crow, CRC Press. -->
+> **Course Material:** There is **no required textbook** for this class. Slides will be shared.
+
+**Reference Books:**
+- **S. Boyd and L. Vandenberghe.** *Convex Optimization*. Cambridge University Press, 2004.
+  - Available for free: [stanford.edu/~boyd/cvxbook/](http://stanford.edu/~boyd/cvxbook/)
+- **H.P. Williams.** *Model Building in Mathematical Programming*, 5th Edition. Wiley, 2013.
 
 
 ---
