@@ -23,8 +23,8 @@ status: current
 - **2025‑09-26**: Assignment#3 is Annouced: Deadline 8th October 2 PM. 
 - **2025‑08-29**: Assignment#2 is Annouced: Deadline 1st September 12 Noon. 
 - **2025‑08-07**: Assignment#1 is Annouced: Deadline 18th August 11 AM. 
-- **2025‑07-31**: Class room change for main and additional lectures. 
-- **2025‑07‑23**: First Coding Quiz: Friday 11 AM  Room EED 109. Team of Two, Bring Charged Laptops. -- Update (25th July) _Quiz & Assignment Material is Available on Piazza_-->
+- **2025‑07-31**: Class room change for main and additional lectures. -->
+- **2025‑02‑02**: The Term Paper timeline and deliverables are published in the final section of this webpage.
 - **2026‑01‑20**: Term paper form is available on Piazza. Submission deadline: next Tuesday.
 - **2025‑12‑10**: Initial Course website launched.
 
@@ -180,3 +180,24 @@ Designed for individuals who are already highly capable, this course aims to cha
 - **Lab 3:** NLP (AC-OPF)
 - **Lab 4:** Relaxations (SOCP/SDP)
 - **Lab 5:** Optimization Proxies
+
+
+---
+
+
+##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Term Paper Timeline and Deliverables </span>
+
+| Week (Date) | Milestone | Requirement |
+| :--- | :--- | :--- |
+| Week 4 (Feb 10, 2026) | Proposal | 1-page abstract + Selected “Base Paper” |
+| Week 8 (Mar 10, 2026) | Update | Mathematical formulation finalized (LaTeX) |
+| Week 10 (Mar 24, 2026) | Code Check | Working code (in a notebook; will be made public) |
+| Week 12 (Apr 7, 2026) | Final | Final report + 10-minute presentation |
+
+---
+
+
+
+##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Exam Papers</span> 
+
+- [Quiz 1](/assets/pdf/EET110/Q1.pdf)
