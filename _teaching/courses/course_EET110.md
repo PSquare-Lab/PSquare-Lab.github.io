@@ -95,6 +95,22 @@ Designed for individuals who are already highly capable, this course aims to cha
   text-decoration: none !important;
 }
 
+/* Disable hover effects for ALL tables on this page */
+table tr:hover,
+table td:hover,
+table th:hover {
+  background: inherit !important;
+  color: inherit !important;
+  font-weight: inherit !important;
+  transform: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+table * {
+  transition: none !important;
+}
+
 </style>
 
 <div class="table-no-hover">
@@ -194,10 +210,38 @@ Designed for individuals who are already highly capable, this course aims to cha
 | Week 10 (Mar 24, 2026) | Code Check | Working code (in a notebook; will be made public) |
 | Week 12 (Apr 7, 2026) | Final | Final report + 10-minute presentation |
 
----
 
+<br>
+
+###### <span style="color: #0faddd;; font-weight: bold;"> 📂 Student Submissions of Term Paper</span>
+
+<style>
+.student-submissions a {
+  color: #0fdd19 !important;
+  text-decoration: underline;
+}
+.student-submissions a:hover {
+  color: #0fdd19 !important;
+  text-decoration: underline;
+}
+</style>
+
+{% assign submissions = site.static_files | where_exp: "file", "file.path contains '/assets/pdf/EET110/student_assignments/'" %}
+{% assign teams_data = site.data.Courses.eet_110_teams %}
+
+<div class="student-submissions" markdown="1">
+
+| S.No. | Team Name | Members | Submissions |
+| :---: | :--- | :--- | :--- |
+{% for team in teams_data %}{% assign team_id_str = team.team_id | append: "" %}| {{ forloop.index }} | {{ team.name }} | {{ team.members }} | {% for file in submissions %}{% assign filename = file.name | remove: file.extname %}{% assign parts = filename | split: "_" %}{% assign file_team = parts | last %}{% if file_team == team_id_str %}{% assign doc_type = parts | first | replace: "Abstract", "Abstract" | replace: "Code", "Code" | replace: "Proposal", "Proposal" | replace: "FinalReport", "Final Report" | replace: "MathFormulation", "Math Formulation" | replace: "Presentation", "Presentation" %}[{{ doc_type }}]({{ file.path }}) {% endif %}{% endfor %}|
+{% endfor %}
+
+</div>
+
+<!-- > **Naming Convention:** Add PDFs as `Type_TeamNumber.pdf` (e.g., `Abstract_1.pdf`, `Code_1.pdf`, `Proposal_2.pdf`) -->
+---
 
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Exam Papers</span> 
 
-- [Quiz 1](/assets/pdf/EET110/Q1.pdf)
+ [Quiz 1](/assets/pdf/EET110/Q1.pdf)

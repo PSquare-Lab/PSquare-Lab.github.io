@@ -1,0 +1,46 @@
+# EET 110 Team Information
+# Team ID should match the number used in file names (e.g., Abstract_1.pdf for team_id: 1)
+
+- team_id: 1
+  name: "Aletheia"
+  members: "Reenav Ray, Aryan Mehra, Sachin Saini, Rahul, Nischay Sanjay Jiwankar"
+
+- team_id: 2
+  name: "OptiML"
+  members: "Chirag Bundela, Ayush Bairwa"
+
+- team_id: 3
+  name: "Khoji"
+  members: "Adithya Jaiswal, Aditi, Naman Meena, Swastic Keshari"
+
+- team_id: 4
+  name: "Sleeping Pizza"
+  members: "Medha Bhutani"
+
+- team_id: 5
+  name: "Onyttig"
+  members: "Kaustubh Sharma"
+
+- team_id: 6
+  name: "Optimus Primes"
+  members: "Anushree Gupta, Daiwik Vohra, Jaineel Lakesh Dalsania, Rishit Saini"
+
+- team_id: 7
+  name: "UC DecompX Lab"
+  members: "Sreemayi Yavvari, Annam Sai Sumanjali"
+
+- team_id: 8
+  name: "Black KAPSS"
+  members: "Shashank Shekhar, Abhinav Karn, Shivam Bansal, Kris Keshav, Lakhote Pranad Nilesh"
+
+- team_id: 9
+  name: "Vanguard"
+  members: "Akshat Odiya, Aniruddh Yadav, Harendra"
+
+- team_id: 10
+  name: "NearOptimal"
+  members: "Mahankali Vinoothna"
+
+- team_id: 11
+  name: "OptiML-2"
+  members: "Tharun Rathod, Ayush Bairwa, Chirag Bundela"

@@ -1,12 +1,3 @@
-# - name: Rajdeep R. Dwivedi
-#   image: rajdeep.png
-#   category: Research Scholars
-#   role: Research Scholar
-#   degree: Ph.D., ECE, IIT Roorkee
-#   url: https://psquare-lab.github.io/Team/
-#   description: Quantum-Computing, Machine Learning 
-#   note: Co-advised with Prof. Vishvendra Punia (ECE Dept.)
-#   status: current
 
 - name: Ayushi Jolotia
   image: ayushi.jpg
@@ -35,16 +26,16 @@
   degree: B.Tech, EE, NIT Kurukshetra
   url: https://www.linkedin.com/in/dhruvi-khandelwal05/
   description: Machine Learning for Optimal Power Flow
-  status: current
+  status: past
 
-# - name: Anurag Basistha
-#   image: Anurag_Basistha.jpeg
-#   category: Summer Interns
-#   role: Summer Intern + Undergraduate Research Assistant
-#   degree: B.Tech, ECE, IIIT Delhi
-#   url: https://www.linkedin.com/in/anurag-basistha/
-#   description: Machine Learning for Optimal Power Flow
-#   status: current
+- name: Anurag Basistha
+  image: Anurag_Basistha.jpeg
+  category: Summer Interns
+  role: Summer Intern + Undergraduate Research Assistant
+  degree: B.Tech, ECE, IIIT Delhi
+  url: https://www.linkedin.com/in/anurag-basistha/
+  description: Machine Learning for Optimal Power Flow
+  status: past
 
 
 - name: Kaustubh Sharma
@@ -80,7 +71,7 @@
   role: Undergraduate Research Assistant
   degree: B.Tech, PH, IIT Roorkee
   url:  https://github.com/code-omnitrix
-  description: LLM for Hyperopt
+  description: LLM Applications to Engineering
   status: current
 
 - name: Saksham Bansal
@@ -89,7 +80,7 @@
   role: Undergraduate Research Assistant
   degree: B.Tech, ME, IIT Roorkee
   url: 
-  description: LLM for Hyperopt
+  description: LLM Applications to Engineering
   status: current
 
 - name: Amey Joshi
@@ -110,14 +101,14 @@
   description: Neural Architectures Search for OPF
   status: current
 
-# - name: Rishit Saini
-#   image: rishit.jpeg
-#   category: Undergraduate Researchers
-#   role:  Undergraduate Research Assistant
-#   degree: B.Tech, EE, IIT Roorkee
-#   url: https://www.linkedin.com/in/rishit-saini-67a3872b4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
-#   description: LLM for Optimal Power Flow
-#   status: current
+- name: Nishant Padmanabhan
+  image: nishant.jpeg
+  category: Undergraduate Researchers
+  role:  Undergraduate Research Assistant
+  degree: B.Tech, ME, IIT Roorkee
+  url: https://psquare-lab.github.io/Team/
+  description: LLM for Optimal Power Flow
+  status: current
 
 # - name: Adhiraj Chattopadhyay
 #   image: adhi.jpeg
