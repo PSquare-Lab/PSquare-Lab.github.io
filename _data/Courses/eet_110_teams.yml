@@ -7,7 +7,7 @@
 
 - team_id: 2
   name: "OptiML"
-  members: "Chirag Bundela, Ayush Bairwa"
+  members: "Tharun Rathod, Ayush Bairwa, Chirag Bundela"
 
 - team_id: 3
   name: "Khoji"
@@ -41,6 +41,3 @@
   name: "NearOptimal"
   members: "Mahankali Vinoothna"
 
-- team_id: 11
-  name: "OptiML-2"
-  members: "Tharun Rathod, Ayush Bairwa, Chirag Bundela"
