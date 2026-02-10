@@ -23,7 +23,7 @@ status: current
 - **2025‑09-26**: Assignment#3 is Annouced: Deadline 8th October 2 PM. 
 - **2025‑08-29**: Assignment#2 is Annouced: Deadline 1st September 12 Noon. 
 - **2025‑08-07**: Assignment#1 is Annouced: Deadline 18th August 11 AM.  -->
-- **2026‑02-10**: Homeworks for lecture 2 are released: PDF and Notebook.
+- **2026‑02-10**: Homeworks for Lecture 2 have been released: PDF and Notebook.
 - **2026‑02‑02**: The Term Paper timeline and deliverables are published in the final section of this webpage.
 - **2026‑01‑20**: Term paper form is available on Piazza. Submission deadline: next Tuesday.
 - **2025‑12‑10**: Initial Course website launched.
@@ -167,7 +167,7 @@ table * {
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📚 References & Resources</span>
 
-> **Course Material:** There is **no required textbook** for this class. Slides will be shared.
+> **Course Resources:** [Linear Programming](https://sites.math.washington.edu/~burke/crs/407/index.html)
 
 **Reference Books:**
 - **S. Boyd and L. Vandenberghe.** *Convex Optimization*. Cambridge University Press, 2004.
@@ -191,7 +191,7 @@ table * {
 - **Lab 2:** MILP (Unit Commitment)
 - **Lab 3:** NLP (AC-OPF)
 - **Lab 4:** Relaxations (SOCP/SDP)
-- **Lab 5:** Optimization Proxies
+
 
 
 ---
