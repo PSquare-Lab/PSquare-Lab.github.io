@@ -241,3 +241,5 @@ table * {
 ##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Exam Papers</span> 
 
  [Quiz 1](/assets/pdf/EET110/Q1.pdf)
+ - [Mid Term Spring 2024](/assets/pdf/EET110/MidTerm_Spring_2024.pdf)
+ - [End Term Spring 2024](/assets/pdf/EET110/EndTerm_Spring_2024.pdf)
