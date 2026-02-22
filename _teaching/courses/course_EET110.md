@@ -242,5 +242,4 @@ table * {
 
  [Quiz 1](/assets/pdf/EET110/Q1.pdf)
  [Quiz 2](/assets/pdf/EET110/Q2.pdf)
- <!-- - [Mid Term Spring 2024](/assets/pdf/EET110/MidTerm_Spring_2024.pdf)
- - [End Term Spring 2024](/assets/pdf/EET110/EndTerm_Spring_2024.pdf) -->
+
