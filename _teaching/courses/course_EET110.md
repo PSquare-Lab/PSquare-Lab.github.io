@@ -240,6 +240,7 @@ table * {
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Exam Papers</span> 
 
- [Quiz 1](/assets/pdf/EET110/Q1.pdf)
- [Quiz 2](/assets/pdf/EET110/Q2.pdf)
+ -- [Quiz 1](/assets/pdf/EET110/Q1.pdf)
+
+ -- [Quiz 2](/assets/pdf/EET110/Q2.pdf)
 
