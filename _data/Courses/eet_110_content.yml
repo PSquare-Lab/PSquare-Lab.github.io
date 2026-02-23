@@ -21,14 +21,14 @@
 #   resources: ""
 
 
-- lecture: [4,5]
-  topic: Polyhedral, Convexity, LP Bounds, Dual
-  slides:
+- lecture: [4,5,6]
+  topic: Polyhedral, Convexity, LP Bounds, Dual, Simplex (Self-Learning)
+  slides: https://web.stanford.edu/class/msande310/lecture09.pdf
   homework: /assets/pdf/EET110/L5_examples.pdf
 
-# - lecture: [6]
-#   topic: Formulation of NRLF Problem
-#   resources: "📝 Coding Task 2"
+- lecture: [7]
+  topic: DCOPF Lab
+  slides: 
 
 # - lecture: [7]
 #   topic: Linear Programming Premier
