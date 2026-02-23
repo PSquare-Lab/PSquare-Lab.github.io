@@ -20,13 +20,11 @@
   slides: /assets/pdf/EET110/L3.pdf
 #   resources: ""
 
-# - lecture: [4]
-#   topic: DC Power Flow Approximation, Linear System Solve
-#   resources: "📝 Coding Task 1"
 
-# - lecture: [5]
-#   topic: Fast Decoupled Load Flow Formulation
-#   resources: "📝 Coding Task 1.1"
+- lecture: [4,5]
+  topic: Polyhedral, Convexity, LP Bounds, Dual
+  slides:
+  homework: /assets/pdf/EET110/L5_examples.pdf
 
 # - lecture: [6]
 #   topic: Formulation of NRLF Problem
