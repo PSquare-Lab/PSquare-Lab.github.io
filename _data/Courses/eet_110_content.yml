@@ -23,12 +23,13 @@
 
 - lecture: [4,5,6]
   topic: Polyhedral, Convexity, LP Bounds, Dual, Simplex (Self-Learning)
-  slides: https://web.stanford.edu/class/msande310/lecture09.pdf
+  slides: 
   homework: /assets/pdf/EET110/L5_examples.pdf
 
 - lecture: [7]
   topic: DCOPF Lab
-  slides: /assets/pdf/EET110/Lab_Ex_1.pdf
+  slides: /assets/pdf/EET110/DCOPF_Lab.pdf
+  homework: /assets/pdf/EET110/Lab_Ex_1.pdf
 
 # - lecture: [7]
 #   topic: Linear Programming Premier

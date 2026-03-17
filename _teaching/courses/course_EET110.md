@@ -167,7 +167,11 @@ table * {
 
 ##### <span style="color: #0faddd;; font-weight: bold;"> 📚 References & Resources</span>
 
-> **Course Resources:** [Linear Programming](https://sites.math.washington.edu/~burke/crs/407/index.html)
+> **Course Resources:** 
+
+-- [Linear Programming](https://sites.math.washington.edu/~burke/crs/407/index.html)
+
+-- [Simplex Algorithm](https://web.stanford.edu/class/msande310/lecture09.pdf)
 
 **Reference Books:**
 - **S. Boyd and L. Vandenberghe.** *Convex Optimization*. Cambridge University Press, 2004.
