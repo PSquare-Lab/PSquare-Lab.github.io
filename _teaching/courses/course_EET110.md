@@ -244,3 +244,5 @@ table * {
 
  -- [Quiz 2](/assets/pdf/EET110/Q2.pdf)
 
+ -- [Lab Exercise #1](/assets/pdf/EET110/Lab_Exam_1.pdf)
+
