@@ -83,23 +83,23 @@
   description: LLM Applications to Engineering
   status: current
 
-- name: Amey Joshi
-  image: amey.jpeg
-  category: Undergraduate Researchers
-  role: Undergraduate Research Assistant
-  degree: B.Tech, CH, IIT Roorkee
-  url: https://www.linkedin.com/in/amey-joshi-a6bb18321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
-  description: Neural Architectures Search for OPF
-  status: current
+# - name: Amey Joshi
+#   image: amey.jpeg
+#   category: Undergraduate Researchers
+#   role: Undergraduate Research Assistant
+#   degree: B.Tech, CH, IIT Roorkee
+#   url: https://www.linkedin.com/in/amey-joshi-a6bb18321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
+#   description: Neural Architectures Search for OPF
+#   status: current
 
-- name: Arsh Vats 
-  image: arsh.jpeg
-  category: Undergraduate Researchers
-  role: Undergraduate Research Assistant
-  degree: B.Tech, MM, IIT Roorkee
-  url: https://www.linkedin.com/in/arsh-vats-304248298/
-  description: Neural Architectures Search for OPF
-  status: current
+# - name: Arsh Vats 
+#   image: arsh.jpeg
+#   category: Undergraduate Researchers
+#   role: Undergraduate Research Assistant
+#   degree: B.Tech, MM, IIT Roorkee
+#   url: https://www.linkedin.com/in/arsh-vats-304248298/
+#   description: Neural Architectures Search for OPF
+#   status: current
 
 - name: Nishant Padmanabhan
   image: nishant.jpeg
@@ -127,9 +127,9 @@
   role: Summer Intern
   degree: B.Tech, EE, IIT Roorkee
   url: https://github.com/naman-meena
-  description: Machine Learning for Power Flow
-  status: past
-  period: Summer 2025
+  description: Industry Oriented Project; Machine Learning for Power Flow
+  status: current
+  period: Spring Semester 2025-26; Summer 2025
 
 
 - name: Manvendra Singh
