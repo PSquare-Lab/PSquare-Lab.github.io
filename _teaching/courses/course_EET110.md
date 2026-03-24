@@ -208,7 +208,7 @@ table * {
 | Week 4 (Feb 10, 2026) | Proposal | 1-page abstract + Selected “Base Paper” |
 | Week 8 (Mar 10, 2026) | Update | Mathematical formulation finalized (LaTeX) |
 | Week 10 (Mar 24, 2026) | Code Check | Working code (in a notebook; will be made public) |
-| Week 12 (Apr 7, 2026) | Final | Final report + 10-minute presentation |
+| Week 12 (Apr 14, 2026) | Final | Final report + 10-minute presentation | 
 
 
 <br>
@@ -233,7 +233,7 @@ table * {
 
 | S.No. | Team Name | Members | Submissions |
 | :---: | :--- | :--- | :--- |
-{% for team in teams_data %}{% assign team_id_str = team.team_id | append: "" %}| {{ forloop.index }} | {{ team.name }} | {{ team.members }} | {% for file in submissions %}{% assign filename = file.name | remove: file.extname %}{% assign parts = filename | split: "_" %}{% assign file_team = parts | last %}{% if file_team == team_id_str %}{% assign doc_type = parts | first | replace: "Abstract", "Abstract" | replace: "Code", "Code" | replace: "Proposal", "Proposal" | replace: "FinalReport", "Final Report" | replace: "MathFormulation", "Math Formulation" | replace: "Presentation", "Presentation" %}[{{ doc_type }}]({{ file.path }}) {% endif %}{% endfor %}|
+{% for team in teams_data %}{% assign team_id_str = team.team_id | append: "" %}| {{ forloop.index }} | {{ team.name }} | {{ team.members }} | {% for file in submissions %}{% assign filename = file.name | remove: file.extname %}{% assign parts = filename | split: "_" %}{% assign file_team = parts | last %}{% if file_team == team_id_str %}{% assign doc_type = parts | first | replace: "Abstract", "Abstract" | replace: "Code", "Code" | replace: "Math", "Math" | replace: "FinalReport", "Final Report" | replace: "MathFormulation", "Math Formulation" | replace: "Presentation", "Presentation" %}[{{ doc_type }}]({{ file.path }}) {% endif %}{% endfor %}|
 {% endfor %}
 
 </div>
@@ -248,5 +248,12 @@ table * {
 
  -- [Quiz 2](/assets/pdf/EET110/Q2.pdf)
 
+<<<<<<< Updated upstream
  -- [Lab Exercise #1](/assets/pdf/EET110/Lab_Exam_1.pdf)
+=======
+ -- [MTE Spring 2025](/assets/pdf/EET110/MTE.pdf)
+
+
+
+>>>>>>> Stashed changes
 
