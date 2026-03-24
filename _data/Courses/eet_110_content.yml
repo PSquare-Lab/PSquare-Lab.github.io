@@ -31,9 +31,9 @@
   slides: /assets/pdf/EET110/DCOPF_Lab.pdf
   homework: /assets/pdf/EET110/Lab_Ex_1.pdf
 
-# - lecture: [7]
-#   topic: Linear Programming Premier
-#   resources: ""
+- lecture: [8,9]
+  topic: Least Square, Equality Constrained LS, Regression
+  homework: /assets/pdf/EET110/Lab_Convex_1.pdf
 
 # - lecture: [8]
 #   topic: Economic Dispatch Problem
