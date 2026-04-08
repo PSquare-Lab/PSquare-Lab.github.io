@@ -37,9 +37,9 @@
     - /assets/pdf/EET110/Lab_Convex_1.pdf
     - /assets/pdf/EET110/Lab_Convex_2.pdf
 
-# - lecture: [8]
-#   topic: Economic Dispatch Problem
-#   resources: "📝 Coding Task 3"
+- lecture: [10]
+  topic: Second-Order Cone Programming
+  slides: /assets/pdf/EET110/SoCP_SDP_lecture5-gondzio.pdf
 
 # - lecture: [9]
 #   topic: Data-Driven Power Flow Modeling
