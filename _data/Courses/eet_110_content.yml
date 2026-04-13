@@ -40,7 +40,9 @@
 - lecture: [10]
   topic: Second-Order Cone Programming
   slides: /assets/pdf/EET110/SoCP_SDP_lecture5-gondzio.pdf
-  homework: /assets/pdf/EET110/Lab_SOCP.pdf
+  homework: 
+   - /assets/pdf/EET110/Lab_SOCP.pdf
+   - /assets/pdf/EET110/Lab_Robust_LP.pdf
 
 # - lecture: [9]
 #   topic: Data-Driven Power Flow Modeling
