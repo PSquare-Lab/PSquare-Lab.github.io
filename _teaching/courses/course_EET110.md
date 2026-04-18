@@ -21,8 +21,8 @@ status: current
 
 <!-- - **2025‑10-07**: Next round of _Term Paper_ presentations are on 15th and 17th October. 
 - **2025‑09-26**: Assignment#3 is Annouced: Deadline 8th October 2 PM. 
-- **2025‑08-29**: Assignment#2 is Annouced: Deadline 1st September 12 Noon. 
-- **2025‑08-07**: Assignment#1 is Annouced: Deadline 18th August 11 AM.  -->
+- **2025‑08-29**: Assignment#2 is Annouced: Deadline 1st September 12 Noon. -->
+- **2026‑04-18**: ACOPF Notes and videos link added. Video link is a playlist where first eight videos are part of the course. Rest are optional.
 - **2026‑02-10**: Homeworks for Lecture 2 have been released: PDF and Notebook.
 - **2026‑02‑02**: The Term Paper timeline and deliverables are published in the final section of this webpage.
 - **2026‑01‑20**: Term paper form is available on Piazza. Submission deadline: next Tuesday.
@@ -143,7 +143,7 @@ table * {
         {% else %}
           {{ lec.slides }}
         {% endif %}</td>
-        <td>{% if lec.homework.first %}{% for hw in lec.homework %}{% if hw contains "http" or hw contains "/" %}{% if hw contains ".ipynb" %}<a href="{{ hw }}">Notebook{{ forloop.index }}</a>{% elsif hw contains ".pdf" %}<a href="{{ hw }}">PDF{{ forloop.index }}</a>{% else %}<a href="{{ hw }}">File{{ forloop.index }}</a>{% endif %}{% else %}{{ hw }}{% endif %}{% unless forloop.last %} · {% endunless %}{% endfor %}{% elsif lec.homework %}{% if lec.homework contains "http" or lec.homework contains "/" %}{% if lec.homework contains ".ipynb" %}<a href="{{ lec.homework }}">Notebook</a>{% elsif lec.homework contains ".pdf" %}<a href="{{ lec.homework }}">PDF</a>{% else %}<a href="{{ lec.homework }}">File</a>{% endif %}{% else %}{{ lec.homework }}{% endif %}{% endif %}</td>
+        <td>{% if lec.homework.first %}{% for hw in lec.homework %}{% if hw contains "http" or hw contains "/" %}{% if hw contains ".ipynb" %}<a href="{{ hw }}">Notebook{{ forloop.index }}</a>{% elsif hw contains ".pdf" %}<a href="{{ hw }}">PDF{{ forloop.index }}</a>{% else %}<a href="{{ hw }}">Video Link{{ forloop.index }}</a>{% endif %}{% else %}{{ hw }}{% endif %}{% unless forloop.last %} · {% endunless %}{% endfor %}{% elsif lec.homework %}{% if lec.homework contains "http" or lec.homework contains "/" %}{% if lec.homework contains ".ipynb" %}<a href="{{ lec.homework }}">Notebook</a>{% elsif lec.homework contains ".pdf" %}<a href="{{ lec.homework }}">PDF</a>{% else %}<a href="{{ lec.homework }}">Video Link</a>{% endif %}{% else %}{{ lec.homework }}{% endif %}{% endif %}</td>
       </tr>
       {% endfor %}
     </tbody>

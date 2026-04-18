@@ -37,12 +37,18 @@
     - /assets/pdf/EET110/Lab_Convex_1.pdf
     - /assets/pdf/EET110/Lab_Convex_2.pdf
 
-- lecture: [10]
-  topic: Second-Order Cone Programming
+- lecture: [10,11]
+  topic: Second-Order Cone Programming, SDP
   slides: /assets/pdf/EET110/SoCP_SDP_lecture5-gondzio.pdf
   homework: 
    - /assets/pdf/EET110/Lab_SOCP.pdf
    - /assets/pdf/EET110/Lab_Robust_LP.pdf
+
+- lecture: [12]
+  topic: ACOPF Formulation & Relaxation (Self-Study)
+  slides: https://arxiv.org/pdf/1811.00943
+  homework: https://youtu.be/gB43TmcoUpA?si=e8t7noIYpoJyFrbL
+
 
 # - lecture: [9]
 #   topic: Data-Driven Power Flow Modeling
