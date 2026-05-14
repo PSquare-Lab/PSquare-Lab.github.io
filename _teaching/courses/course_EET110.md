@@ -248,5 +248,7 @@ table * {
 
  -- [Quiz 2](/assets/pdf/EET110/Q2.pdf)
 
- -- [MTE Spring 2025](/assets/pdf/EET110/MTE.pdf)
+ -- [MTE Spring 2025-26](/assets/pdf/EET110/MTE.pdf)
+
+ -- [ETE Spring 2025-26](/assets/pdf/EET110/ETE.pdf)
 
