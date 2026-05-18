@@ -1,0 +1,17 @@
+# Gallery entries — add a new block for each photo.
+# - image: filename inside assets/img/gallery/ (e.g., "lab_trip_2025.jpg")
+# - caption: text shown below the photo
+# - title: short event/album label shown as a card header (optional)
+# - date: display date string (optional)
+
+- title: "Lab Orientation 2025"
+  image: "placeholder.jpg"
+  date: "January 2025"
+  caption: >
+    Welcome session for new lab members joining P² Lab in 2025.
+
+- title: "Research Retreat"
+  image: "placeholder.jpg"
+  date: "March 2025"
+  caption: >
+    Annual research retreat — brainstorming sessions and project updates.
