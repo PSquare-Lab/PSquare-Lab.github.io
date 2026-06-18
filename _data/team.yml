@@ -26,7 +26,16 @@
   degree: B.Tech, EE, NIT Kurukshetra
   url: https://www.linkedin.com/in/dhruvi-khandelwal05/
   description: Machine Learning for Optimal Power Flow
-  status: past
+  status: current
+
+- name: Tanishq Ahuja
+  image: tanishq.jpeg
+  category: Summer Interns
+  role: SPARK Summer Intern
+  degree: B.Tech, CSE, IIT (BHU) Varanasi
+  url: https://psquare-lab.github.io/Team/
+  description: Prior-Data Fitted Networks
+  status: current
 
 - name: Anurag Basistha
   image: Anurag_Basistha.jpeg
@@ -62,6 +71,15 @@
   role: Undergraduate Research Assistant
   degree: B.Tech, MM, IIT Roorkee
   url: https://www.linkedin.com/in/ojasva-nema-ba3415278/
+  description: Prior-Data Fitted Networks
+  status: current
+
+- name: Srijan Tiwari
+  image: srijan.jpeg
+  category: Undergraduate Researchers
+  role: Research Intern + Undergraduate Research Assistant
+  degree: B.Tech, EE, IIT Roorkee
+  url: https://psquare-lab.github.io/Team/
   description: Prior-Data Fitted Networks
   status: current
 
@@ -141,6 +159,7 @@
   description: Bayesian Learning for Engineering
   status: past
   period: Summer 2025
+  now: Placed at Eternal
 
 
 - name: Neeraj P
@@ -162,6 +181,7 @@
   description: Industry Oriented Project (EEN-300)
   period: Spring Semester 2024-25
   status: past
+  now: MS at Stony Brook University
 
 - name: Navaneeth Krishna Thekkeyil
   image: navaneeth.jpg
