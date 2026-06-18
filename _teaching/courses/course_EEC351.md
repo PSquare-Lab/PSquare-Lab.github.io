@@ -52,7 +52,7 @@ nav: false
 </style>
 
 <div class="course-hero">
-  <a class="quick-link" href="/teaching/course_EEC351_2025/">↩ Previous offering · Autumn 2025-26</a>
+  <a class="quick-link" href="/teaching/course_EEC351_2025/">Previous offering · Autumn 2025-26</a>
 </div>
 
 <h4 class="course-section">Course information</h4>
@@ -66,17 +66,17 @@ nav: false
   <span class="k">Teaching assistant</span><span class="v">TBA</span>
 </div>
 
-<h4 class="course-section">📌 Announcements</h4>
+<h4 class="course-section">Announcements</h4>
 
 - **2026‑06‑18** — Course website for the Autumn 2026-27 offering is live. Announcements are posted here regularly; email is sent **only** when something is urgent.
 
-<h4 class="course-section">🎯 Course objectives</h4>
+<h4 class="course-section">Course objectives</h4>
 
 - Comprehend the historical evolution and foundational concepts of AI/ML.
 - Build mathematical intuition for machine-learning principles.
 - Explore core theoretical frameworks and evaluation strategies.
 
-<h4 class="course-section">📅 Course content</h4>
+<h4 class="course-section">Course content</h4>
 
 <div class="table-no-hover">
 {% assign lectures = site.data.Courses.eec351_content %}
@@ -110,7 +110,7 @@ nav: false
 <div class="course-note">The weekly schedule will appear here as the term begins. Material from the previous run is on the <a href="/teaching/course_EEC351_2025/">Autumn 2025-26 page</a>.</div>
 {% endunless %}
 
-<h4 class="course-section">📝 Assignments</h4>
+<h4 class="course-section">Assignments</h4>
 
 - Assignments will be posted here as they are released. _TBA._
 - **Python** is the default programming language for the course; use it unless a task explicitly allows otherwise.
@@ -118,7 +118,7 @@ nav: false
 - **Honor code:** any copying earns a zero on the assignment; more severe penalties may follow.
 - **Late submissions** incur penalties as announced with each assignment.
 
-<h4 class="course-section">📚 References & resources</h4>
+<h4 class="course-section">References & resources</h4>
 
 **Recommended texts**
 
@@ -130,13 +130,13 @@ nav: false
 - Coursera ML (Andrew Ng)
 - Relevant paper links shared on Piazza
 
-<h4 class="course-section">🧾 Grading policy</h4>
+<h4 class="course-section">Grading policy</h4>
 
 - **CWS — 30 marks:** announced & surprise quizzes; assignments & peer discussions.
 - **MTE — 30 marks:** written exam (any format).
 - **ETE — 40 marks:** written exam (any format).
 
-<h4 class="course-section">🧾 Exam papers</h4>
+<h4 class="course-section">Exam papers</h4>
 
 - Papers for this offering will be posted here after the exams. _TBA._
 - Past papers: see the [Autumn 2025-26 offering](/teaching/course_EEC351_2025/).

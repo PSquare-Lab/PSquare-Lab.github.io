@@ -34,7 +34,7 @@ Welcome to the Student Blogs page! This section hosts articles written by studen
       {{ post.date | date: "%B %-d, %Y" }}{% if post.author %} · {{ post.author }}{% endif %}{% if post.course %} · {{ post.course }}{% elsif post.category %} · {{ post.category }}{% endif %}
     </div>
     <p class="bc-summary">{% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | truncatewords: 30 }}{% endif %}</p>
-    <a class="bc-more" href="{{ post.url | relative_url }}">{% if post.category == "Term Paper" %}View paper →{% else %}Read →{% endif %}</a>
+    <a class="bc-more" href="{{ post.url | relative_url }}">{% if post.category == "Term Paper" %}View paper{% else %}Read{% endif %}</a>
   </li>
 {% endfor %}
 </ul>

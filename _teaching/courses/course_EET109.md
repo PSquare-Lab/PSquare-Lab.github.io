@@ -18,7 +18,7 @@ semester: "Autumn 2025"
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 📌 Announcements </span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Announcements </span>
 
 - **2025‑11-03**: Final _Term Paper_ presentations are on 12th November, 12PM Onwards. Link for Upload [Link](https://forms.gle/aHa1faxBLabEarLm8)
 - **2025‑10-07**: Next round of _Term Paper_ presentations are on 15th and 17th October. 
@@ -32,7 +32,7 @@ semester: "Autumn 2025"
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 🎯 Course Objectives </span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Course Objectives </span>
 
 This is not a traditional classroom-based course, nor is it a lab course focused on running experiments. This is a **TEC: Talent Enhancement Course**.
 
@@ -44,7 +44,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 📅 Course Content </span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Course Content </span>
 
 <style>
 .table-no-hover table {
@@ -135,7 +135,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 
 ---
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 📝 Assignments </span> 
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Assignments </span> 
 - **Assignment #3** is due on **8st October, 12 Noon**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#3](/assets/pdf/EET109/Assignment_3.pdf)
 - **Assignment #2** is due on **1st September, 12 Noon**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#2](/assets/pdf/EET109/Assignment_2.zip)
 - **Assignment #1** is due on **18th August,11 AM**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#1](/assets/pdf/EET109/Assignment_1.zip)
@@ -148,7 +148,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 📚 References & Resources</span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> References & Resources</span>
 
 * Numerical Analysis, L. Ridgway Scott, Princeton University Press.
 * Computational Methods for Electric Power Systems, Mariesa L. Crow, CRC Press.
@@ -157,13 +157,13 @@ Designed for individuals who are already highly capable, this course aims to cha
 ---
 
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 🧾 Grading Policy (Tentative) </span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Grading Policy (Tentative) </span>
 
 * **PRS (50 Marks)**
   * Individual Coding Tasks
   * Assignments & Peer Discussions
 
-* 💻 **Coding Tasks Breakdown (Part of PRS)**
+* **Coding Tasks Breakdown (Part of PRS)**
   * **Coding Task 1**: DC Power Flow Approximation — * ~7 marks* -- **Done**
   * **Coding Task 1.1**: Fast Decoupled Load Flow — * ~5 marks* -- **Announced**
   * **Coding Task 2**: Newton-Raphson Load Flow — * ~9 marks*
@@ -173,7 +173,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 
 
-🔔 **Note**: Further instructions, deadlines, and submission guidelines will be shared along with each task under the [Assignments](#📝-assignments) section.
+**Note**: Further instructions, deadlines, and submission guidelines will be shared along with each task under the [Assignments](#-assignments) section.
 
 * **PRE (50 Marks)**
   * Term Paper

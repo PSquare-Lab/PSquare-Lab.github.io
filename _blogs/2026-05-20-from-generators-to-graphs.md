@@ -49,7 +49,7 @@ published: true
   <strong>Student term paper · unreviewed.</strong> This is a course term paper written by the author as part of <strong>EET 110</strong>. It has only passed a basic sanity check, is <em>not</em> peer-reviewed, and may contain errors. Spotted a bug? Please email the author, Medha — <a href="mailto:medha_b@ee.iitr.ac.in">medha_b@ee.iitr.ac.in</a> — with a copy to me, so we can fix it.
 </div>
 
-<a class="pdf-btn" href="{{ page.pdf | relative_url }}" target="_blank" rel="noopener">⬇ Download / open full PDF</a>
+<a class="pdf-btn" href="{{ page.pdf | relative_url }}" target="_blank" rel="noopener">Download / open full PDF</a>
 
 <div class="pdf-frame-wrap">
   <iframe src="{{ page.pdf | relative_url }}" title="From Generators to Graphs — term paper PDF" loading="lazy"></iframe>

@@ -8,7 +8,7 @@ semester: "Autumn 2025-26"
 nav: false
 ---
 
-> 📌 This is the **archived page for the Autumn 2025-26 offering**. For the current offering, see [EEC 351: Fundamentals of AI/ML](/teaching/course_EEC351/).
+> This is the **archived page for the Autumn 2025-26 offering**. For the current offering, see [EEC 351: Fundamentals of AI/ML](/teaching/course_EEC351/).
 
 
 ##### <span style="color: var(--global-theme-color);; font-weight: bold;">Course Information</span>
@@ -24,7 +24,7 @@ nav: false
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 📌 Announcements</span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Announcements</span>
 - **2025‑09-26**: **Assignment #1** is due on **Thursday, 9th October, 5 PM**.
 - **2025‑08-22**: Additional Class on 26th August, Wednesday.
 - **2025‑07‑13**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent.
@@ -35,7 +35,7 @@ nav: false
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 🎯 Course Objectives</span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Course Objectives</span>
 
 - Comprehend the historical evolution and foundational concepts of AI/ML. 
 - Build mathematical intuition for machine learning principles.
@@ -43,7 +43,7 @@ nav: false
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 📅 Cource Content</span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Cource Content</span>
 
 <style>
 .table-no-hover table {
@@ -177,7 +177,7 @@ nav: false
 </div>
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 📝 Assignments</span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Assignments</span>
 - **Assignment #1** is due on **Thursday, 9th October, 5 PM**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#1](/assets/pdf/EEC351/Assignment_1.pdf)-- [Boilerplate Code](/assets/pdf/EEC351/EEC351_Assignment_BoilerCode.zip)
 - **Python** is the default programming languages for the course. You should use it for programming your assignments unless otherwise explicitly allowed.
 - Submit via Moodle, Google Form or GitHub—- as specified in each assignment. 
@@ -193,7 +193,7 @@ nav: false
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 📚 References & Resources</span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> References & Resources</span>
 
 - **Recommended Texts:**  
   - Probabilistic Machine Learning: An Introduction, Kevin Murphy. MIT Press, 2022/2023. 
@@ -205,7 +205,7 @@ nav: false
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 🧾 Grading Policy</span> 
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Grading Policy</span> 
 
 - CWS (30 Marks)
   - Announced & Surprise Quizzes
@@ -215,7 +215,7 @@ nav: false
 - ETE (40 Marks)
   - Written Exam (any format)
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 🧾 Exam Papers</span> 
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Exam Papers</span> 
 
 - [Mid-Term Examination Autumn 2025](/assets/pdf/EEC351/MTE.pdf)
 - [End-Term Examination Autumn 2025](/assets/pdf/EEC351/ETE.pdf)

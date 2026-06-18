@@ -21,7 +21,7 @@ nav_order: 6
 }
 </style>
 
-##### 📘 Current Courses
+##### Current Courses
 {% assign current_courses = site.teaching | where: "status", "current" %}
 <ul>
   {% for course in current_courses %}
@@ -31,7 +31,7 @@ nav_order: 6
 
 <div style="margin-top: 2rem;"></div>  <!-- Spacer -->
 
-#### 📕 Past Courses
+#### Past Courses
 {% assign past_courses = site.teaching | where: "status", "past" %}
 <ul>
   {% for course in past_courses %}
