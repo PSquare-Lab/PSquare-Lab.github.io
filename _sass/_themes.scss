@@ -69,23 +69,23 @@
 // }
 
 // Light "cream" theme — a single consistent palette applied site-wide.
-// Accent: deep teal (--global-theme-color) used for every link, heading, and hover.
+// Accent: indigo (--global-theme-color) used for every link, heading, and hover.
 :root {
   --global-bg-color: #faf9f4; // soft warm white (less creamy)
   --global-code-bg-color: #f0ede4; // light warm code surface
   --global-text-color: #1a1a18; // sharp near-black body text
   --global-text-color-light: #57534a; // darker muted grey
-  --global-theme-color: #0e7490; // deep teal accent
-  --global-hover-color: #0c6076; // darker teal on hover
+  --global-theme-color: #4338ca; // indigo accent
+  --global-hover-color: #3730a3; // darker indigo on hover
   --global-hover-text-color: #ffffff;
   --global-footer-bg-color: #f2efe7; // soft warm footer
   --global-footer-text-color: #45413a;
-  --global-footer-link-color: #0e7490;
+  --global-footer-link-color: #4338ca;
   --global-distill-app-color: #57534a;
   --global-divider-color: #e7e3d9; // warm hairline
   --global-card-bg-color: #ffffff; // crisp white card
-  --global-back-to-top-bg-color: rgba(14, 116, 144, 0.12);
-  --global-back-to-top-text-color: #0e7490;
+  --global-back-to-top-bg-color: rgba(67, 56, 202, 0.12);
+  --global-back-to-top-text-color: #4338ca;
   --global-newsletter-bg-color: #f2efe7;
   --global-newsletter-text-color: #1a1a18;
 

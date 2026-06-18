@@ -15,7 +15,7 @@ nav: false
   border: 1px solid var(--global-divider-color); border-radius: 999px;
   padding: 5px 14px; text-decoration: none; transition: background 0.15s ease;
 }
-.quick-link:hover { background: rgba(14, 116, 144, 0.10); text-decoration: none; }
+.quick-link:hover { background: rgba(67, 56, 202, 0.10); text-decoration: none; }
 
 .course-section {
   color: var(--global-theme-color); font-weight: 600; font-size: 1.18rem;

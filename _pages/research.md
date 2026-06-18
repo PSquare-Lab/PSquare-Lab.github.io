@@ -7,7 +7,7 @@ nav: true
 nav_order: 6
 ---
 
-At **$$\mathcal{P}^2$$-LAB**, we explore solutions at the intersection of power systems, optimization, and machine learning to address the challenges of modern energy networks. Our work focuses on developing "thoughtful AI"—physics-inspired methodologies that optimize and secure power system operations and planning under the volatility of decentralized, renewable-heavy grids.
+At $$\mathcal{P}^2-$$**LAB**, we explore solutions at the intersection of power systems, optimization, and machine learning to address the challenges of modern energy networks. Our work focuses on developing "thoughtful AI"—physics-inspired methodologies that optimize and secure power system operations and planning under the volatility of decentralized, renewable-heavy grids.
 
 ---
 
