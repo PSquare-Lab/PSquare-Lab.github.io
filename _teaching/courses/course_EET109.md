@@ -6,7 +6,7 @@ status: past
 semester: "Autumn 2025"
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Course Information </span>
+<h4 class="course-section">Course Information</h4>
 
 - **Semester:** Autumn Semester 2025  
 - **Instructor:** Parikshit Pareek (email: pareek AT ee.iitr.ac.in)  
@@ -18,7 +18,7 @@ semester: "Autumn 2025"
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Announcements </span>
+<h4 class="course-section">Announcements</h4>
 
 - **2025‑11-03**: Final _Term Paper_ presentations are on 12th November, 12PM Onwards. Link for Upload [Link](https://forms.gle/aHa1faxBLabEarLm8)
 - **2025‑10-07**: Next round of _Term Paper_ presentations are on 15th and 17th October. 
@@ -32,7 +32,7 @@ semester: "Autumn 2025"
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Course Objectives </span>
+<h4 class="course-section">Course Objectives</h4>
 
 This is not a traditional classroom-based course, nor is it a lab course focused on running experiments. This is a **TEC: Talent Enhancement Course**.
 
@@ -44,7 +44,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Course Content </span>
+<h4 class="course-section">Course Content</h4>
 
 <style>
 .table-no-hover table {
@@ -135,7 +135,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 
 ---
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Assignments </span> 
+<h4 class="course-section">Assignments</h4>
 - **Assignment #3** is due on **8st October, 12 Noon**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#3](/assets/pdf/EET109/Assignment_3.pdf)
 - **Assignment #2** is due on **1st September, 12 Noon**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#2](/assets/pdf/EET109/Assignment_2.zip)
 - **Assignment #1** is due on **18th August,11 AM**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#1](/assets/pdf/EET109/Assignment_1.zip)
@@ -148,7 +148,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 ---
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> References & Resources</span>
+<h4 class="course-section">References & Resources</h4>
 
 * Numerical Analysis, L. Ridgway Scott, Princeton University Press.
 * Computational Methods for Electric Power Systems, Mariesa L. Crow, CRC Press.
@@ -157,7 +157,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 ---
 
 
-##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Grading Policy (Tentative) </span>
+<h4 class="course-section">Grading Policy (Tentative)</h4>
 
 * **PRS (50 Marks)**
   * Individual Coding Tasks

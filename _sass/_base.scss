@@ -46,6 +46,16 @@ h6 {
   font-weight: 600;
 }
 
+// Unified section heading for every teaching/course page (teal, underlined) — matches the current course.
+.course-section {
+  color: var(--global-theme-color);
+  font-weight: 600;
+  font-size: 1.18rem;
+  margin: 2.4rem 0 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid var(--global-divider-color);
+}
+
 hr {
   border-top: 1px solid var(--global-divider-color);
 }

@@ -7,7 +7,7 @@ description: "Foundations in electrical energy: Generation, Transmission & Distr
 semester: "Spring 2025"
 ---
 
-#### Course Overview
+<h4 class="course-section">Course Overview</h4>
 
 This page contains notes, homeworks, practice problems, etc., for **EEE 102 Basic Electrical Engineering** (Spring 2025). This is **not the complete course website**, only the modules covered by Dr. Parikshit Pareek.
 
@@ -17,7 +17,7 @@ This page contains notes, homeworks, practice problems, etc., for **EEE 102 Basi
 
 ---
 
-### Course Topics
+<h4 class="course-section">Course Topics</h4>
 
 - Generation  
 - Transmission  
@@ -27,7 +27,7 @@ This page contains notes, homeworks, practice problems, etc., for **EEE 102 Basi
 
 ---
 
-### Evaluation Policy (Full Course)
+<h4 class="course-section">Evaluation Policy (Full Course)</h4>
 
 - **Continuous Assessment (CWS):** 15%  
 - **Practical (PRS):** 20%  
@@ -38,7 +38,7 @@ Refer to Lecture #1 slides for more detailed breakdowns.
 
 ---
 
-### Class Schedule
+<h4 class="course-section">Class Schedule</h4>
 
 | Lecture No. | Topic                    | Slides                                           | Homework                                      | Tutorial |
 |-------------|--------------------------|--------------------------------------------------|-----------------------------------------------|----------|
@@ -52,7 +52,7 @@ Refer to Lecture #1 slides for more detailed breakdowns.
 
 ---
 
-### Resources
+<h4 class="course-section">Resources</h4>
 
 - **Textbook**: _Power System Analysis and Design_ by Glover, Sarma, Overbye  
 - **Tools**: Python (preferred), MATLAB, Qiskit (for quantum simulation)  
@@ -60,14 +60,14 @@ Refer to Lecture #1 slides for more detailed breakdowns.
 
 ---
 
-### Contact Information (This Part)
+<h4 class="course-section">Contact Information (This Part)</h4>
 
 **Instructor**: Dr. Parikshit Pareek  
 - Office: Room 214A, Electrical Engineering Building  
 - Email: [pareek@ee.iitr.ac.in](mailto:pareek@ee.iitr.ac.in)  
 - Office Hours: Friday 14:00–15:00 hrs
 
-#### Course Coordinator
+<h4 class="course-section">Course Coordinator</h4>
 
 **Prof. Anubrata Dey**  
 - Office: Room 222, EE Building  
@@ -75,20 +75,20 @@ Refer to Lecture #1 slides for more detailed breakdowns.
 
 ---
 
-### Announcements
+<h4 class="course-section">Announcements</h4>
 
 All announcements will be made in the classroom and/or shared via email or Teams Group.
 
 ---
 
-### Policies
+<h4 class="course-section">Policies</h4>
 
 - Academic integrity is strictly enforced. Plagiarism/cheating will lead to disciplinary action as per IIT Roorkee guidelines.  
 - Active participation is expected in lectures and group discussions.
 
 ---
 
-### Homework Guidelines
+<h4 class="course-section">Homework Guidelines</h4>
 
 - Homeworks reinforce concepts and are part of the examination scope.  
 - **Note**: You are **not required to submit them**, but are strongly encouraged to attempt them seriously.
