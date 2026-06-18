@@ -27,9 +27,14 @@ route scholarly through a proxy (see scholarly docs: ProxyGenerator).
 Usage
 -----
     pip install -r scripts/requirements.txt
-    python scripts/update_publications.py            # fetch + append new stubs
-    python scripts/update_publications.py --dry-run   # print, write nothing
-    python scripts/update_publications.py --id XXXX   # override Scholar id
+    python scripts/update_publications.py             # fetch + append new stubs
+    python scripts/update_publications.py --dry-run    # print, write nothing
+    python scripts/update_publications.py --since 2024 # only papers from 2024 onward
+    python scripts/update_publications.py --id XXXX    # override Scholar id
+
+Note: papers.bib is whatever YOU have curated. Anything on Scholar but not in
+papers.bib is reported as "new" — including old papers. Use --since to focus on
+recent work, or do one full import (then later runs go quiet).
 """
 
 from __future__ import annotations
@@ -151,6 +156,8 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Append new Google Scholar papers to papers.bib")
     ap.add_argument("--id", default=scholar_id_from_config(), help="Google Scholar user id")
     ap.add_argument("--dry-run", action="store_true", help="print new entries, write nothing")
+    ap.add_argument("--since", type=int, default=None, metavar="YEAR",
+                    help="only consider papers from YEAR onward (e.g. --since 2024)")
     args = ap.parse_args()
 
     if not args.id:
@@ -180,12 +187,17 @@ def main() -> int:
 
     today = _dt.date.today().isoformat()
     used_keys = set(existing_keys)
-    new_entries, skipped = [], 0
+    new_entries, skipped, skipped_year = [], 0, 0
 
     for pub in pubs:
         title = (pub.get("bib", {}).get("title") or "").strip()
         if not title or normalise_title(title) in existing_titles:
             skipped += 1
+            continue
+        # Cheap year filter before the expensive per-paper fetch, when year is already known.
+        prelim_year = str(pub.get("bib", {}).get("pub_year", "")).strip()
+        if args.since and prelim_year.isdigit() and int(prelim_year) < args.since:
+            skipped_year += 1
             continue
         try:
             filled = scholarly.fill(pub)            # extra request — only for NEW papers
@@ -193,15 +205,23 @@ def main() -> int:
             print(f"  ! could not fill '{title[:50]}…' ({exc}); skipping", file=sys.stderr)
             continue
         bib = filled.get("bib", {})
-        key = make_key(bib.get("author", ""), str(bib.get("pub_year", "")), title, used_keys)
+        year = str(bib.get("pub_year", "")).strip()
+        if args.since and year.isdigit() and int(year) < args.since:
+            skipped_year += 1
+            continue
+        key = make_key(bib.get("author", ""), year, title, used_keys)
         urls = {"pub_url": filled.get("pub_url", ""), "eprint_url": filled.get("eprint_url", "")}
         new_entries.append(build_stub(bib, urls, key, today))
         existing_titles.add(normalise_title(title))
-        print(f"  + NEW: {title[:70]}")
+        print(f"  + NEW [{year or '????'}]: {title[:66]}")
 
+    summary = f"{skipped} already in papers.bib"
+    if args.since:
+        summary += f", {skipped_year} older than {args.since}"
     if not new_entries:
-        print(f"\nNothing new. ({skipped} already in papers.bib.)")
+        print(f"\nNothing to add. ({summary}.)")
         return 0
+    print(f"\n{len(new_entries)} to add ({summary}).")
 
     block = "\n\n" + f"% ===== {len(new_entries)} new entr{'y' if len(new_entries)==1 else 'ies'} added {today} — review & tag =====" + "\n\n" + "\n\n".join(new_entries) + "\n"
 
