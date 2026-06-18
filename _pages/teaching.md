@@ -57,7 +57,7 @@ nav_order: 6
 
 <div style="margin-top: 2.5rem;"></div>
 
-#### Self-study resources
+#### Self-Study Resources
 
 <div class="selfml-card">
   <div class="selfml-head">
