@@ -11,16 +11,21 @@ nav_order: 6
 <style>
 .course-link {
   font-size: 1.2rem;
-  color: #0faddd;
+  color: var(--global-theme-color);
   text-decoration: none;
+}
+.course-sem {
+  font-size: 0.95rem;
+  color: var(--global-text-color-light);
+  margin-left: 0.4rem;
 }
 </style>
 
-##### 📘 Current Courses: Spring 2025-26
+##### 📘 Current Courses
 {% assign current_courses = site.teaching | where: "status", "current" %}
 <ul>
   {% for course in current_courses %}
-    <li><a class="course-link" href="{{ course.url }}">{{ course.title }}</a></li>
+    <li><a class="course-link" href="{{ course.url }}">{{ course.title }}</a>{% if course.semester %}<span class="course-sem">{{ course.semester }}</span>{% endif %}</li>
   {% endfor %}
 </ul>
 
@@ -30,6 +35,6 @@ nav_order: 6
 {% assign past_courses = site.teaching | where: "status", "past" %}
 <ul>
   {% for course in past_courses %}
-    <li><a class="course-link" href="{{ course.url }}">{{ course.title }}</a></li>
+    <li><a class="course-link" href="{{ course.url }}">{{ course.title }}</a>{% if course.semester %}<span class="course-sem">{{ course.semester }}</span>{% endif %}</li>
   {% endfor %}
 </ul>

@@ -5,7 +5,7 @@ inline: true
 related_posts: false
 published: true
 ---
-**Paper Alert**: <span style="color:white">A brief paper accepted for poster at NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty</span>  [Link](https://openreview.net/pdf?id=E03lKqFNcu)
+**Paper Alert**: <span style="color:inherit">A brief paper accepted for poster at NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty</span>  [Link](https://openreview.net/pdf?id=E03lKqFNcu)
 
 
 

@@ -38,7 +38,7 @@ nav_order: 10
   .gallery-card-title {
     font-weight: 700;
     font-size: 0.95rem;
-    color: #0faddd;
+    color: var(--global-theme-color);
     margin: 0 0 0.2rem;
   }
   .gallery-card-date {

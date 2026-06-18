@@ -5,5 +5,5 @@ inline: true
 related_posts: false
 published: false
 ---
-**Talk**: <span style="color:white">Delivered an online talk during the Faculty Development Program (FDP) organized by the Department of Electrical Engineering, NIT Warangal, on ‘Introduction to Quantum Computing and An Application for Power Systems' </span> [Slides of Part 1](/assets/pdf/NITW.pdf)
+**Talk**: <span style="color:inherit">Delivered an online talk during the Faculty Development Program (FDP) organized by the Department of Electrical Engineering, NIT Warangal, on ‘Introduction to Quantum Computing and An Application for Power Systems' </span> [Slides of Part 1](/assets/pdf/NITW.pdf)
 

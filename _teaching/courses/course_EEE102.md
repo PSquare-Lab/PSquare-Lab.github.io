@@ -4,6 +4,7 @@ permalink: /teaching/course_EEE102/
 layout: page
 status: past
 description: "Foundations in electrical energy: Generation, Transmission & Distribution"
+semester: "Spring 2025"
 ---
 
 #### 📘 Course Overview

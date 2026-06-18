@@ -6,6 +6,6 @@ related_posts: false
 published: true
 ---
 
-**Paper Alert**: <span style="color:white"> A new paper "Degradation-Infused Energy Portfolio Allocation Framework: Risk-Averse Fair Storage Participation
+**Paper Alert**: <span style="color:inherit"> A new paper "Degradation-Infused Energy Portfolio Allocation Framework: Risk-Averse Fair Storage Participation
 Energy" accepted for publication in Energy. </span>  [Link](/assets/pdf/Facilitator.pdf)
 

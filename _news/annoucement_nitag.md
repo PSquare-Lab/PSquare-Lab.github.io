@@ -5,5 +5,5 @@ inline: true
 related_posts: false
 published: true
 ---
-**Talk**: <span style="color:white">Delivered an online talk during the Faculty Development Program (FDP) organized by the Department of Electrical Engineering, NIT Patna and NIT Agartala, on ‘Bayesian Learning Applications in Power System Operations' </span> [Slides](/assets/pdf/NITP.pdf)
+**Talk**: <span style="color:inherit">Delivered an online talk during the Faculty Development Program (FDP) organized by the Department of Electrical Engineering, NIT Patna and NIT Agartala, on ‘Bayesian Learning Applications in Power System Operations' </span> [Slides](/assets/pdf/NITP.pdf)
 

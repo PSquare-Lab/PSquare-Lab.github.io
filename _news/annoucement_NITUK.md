@@ -5,5 +5,5 @@ inline: true
 related_posts: false
 published: false
 ---
-**Talk**: <span style="color:white">Delivered an online talk during the NITUK short term course on “Renewable Energy and Electric Vehicle", on ‘Bayesian Learning for Power Flow Analysis and Applications' </span> [Slides](/assets/pdf/NITUK.pdf)
+**Talk**: <span style="color:inherit">Delivered an online talk during the NITUK short term course on “Renewable Energy and Electric Vehicle", on ‘Bayesian Learning for Power Flow Analysis and Applications' </span> [Slides](/assets/pdf/NITUK.pdf)
 

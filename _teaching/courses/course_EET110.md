@@ -2,10 +2,11 @@
 title: "EET 110: Power and Energy Management II"
 permalink: /teaching/course_EET110/
 layout: page
-status: current
+status: past
+semester: "Spring 2025"
 ---
 
-##### <span style="color: #0faddd;; font-weight: bold;"> Course Information </span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> Course Information </span>
 
 - **Semester:** Spring Semester 2025  
 - **Instructor:** Parikshit Pareek (email: pareek AT ee.iitr.ac.in)  
@@ -17,7 +18,7 @@ status: current
 
 ---
 
-##### <span style="color: #0faddd;; font-weight: bold;"> 📌 Announcements </span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 📌 Announcements </span>
 
 <!-- - **2025‑10-07**: Next round of _Term Paper_ presentations are on 15th and 17th October. 
 - **2025‑09-26**: Assignment#3 is Annouced: Deadline 8th October 2 PM. 
@@ -30,7 +31,7 @@ status: current
 
 ---
 
-##### <span style="color: #0faddd;; font-weight: bold;"> 🎯 Course Objectives </span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 🎯 Course Objectives </span>
 
 This is not a traditional classroom-based course, nor is it a lab course focused on running experiments. This is a **TEC: Talent Enhancement Course**, Part II.
 
@@ -43,7 +44,7 @@ Designed for individuals who are already highly capable, this course aims to cha
 
 ---
 
-##### <span style="color: #0faddd;; font-weight: bold;">  Course Content </span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;">  Course Content </span>
 
 <style>
 .table-no-hover table {
@@ -152,7 +153,7 @@ table * {
 
 
 ---
-##### <span style="color: #0faddd;; font-weight: bold;"> 📝 Assignments </span> 
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 📝 Assignments </span> 
 <!-- - **Assignment #3** is due on **8st October, 12 Noon**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#3](/assets/pdf/EET109/Assignment_3.pdf)
 - **Assignment #2** is due on **1st September, 12 Noon**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#2](/assets/pdf/EET109/Assignment_2.zip)
 - **Assignment #1** is due on **18th August,11 AM**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#1](/assets/pdf/EET109/Assignment_1.zip) -->
@@ -165,7 +166,7 @@ table * {
 
 ---
 
-##### <span style="color: #0faddd;; font-weight: bold;"> 📚 References & Resources</span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 📚 References & Resources</span>
 
 > **Course Resources:** 
 
@@ -182,7 +183,7 @@ table * {
 ---
 
 
-##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Grading Policy (Tentative) </span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 🧾 Grading Policy (Tentative) </span>
 
 - **CWS+PRE+PRS (50 Marks)**
   - Lab Assignments — 20 Marks
@@ -201,7 +202,7 @@ table * {
 ---
 
 
-##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Term Paper Timeline and Deliverables </span>
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 🧾 Term Paper Timeline and Deliverables </span>
 
 | Week (Date) | Milestone | Requirement |
 | :--- | :--- | :--- |
@@ -213,7 +214,7 @@ table * {
 
 <br>
 
-###### <span style="color: #0faddd;; font-weight: bold;"> 📂 Student Submissions of Term Paper</span>
+###### <span style="color: var(--global-theme-color);; font-weight: bold;"> 📂 Student Submissions of Term Paper</span>
 
 <style>
 .student-submissions a {
@@ -242,7 +243,7 @@ table * {
 ---
 
 
-##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Exam Papers</span> 
+##### <span style="color: var(--global-theme-color);; font-weight: bold;"> 🧾 Exam Papers</span> 
 
  -- [Quiz 1](/assets/pdf/EET110/Q1.pdf)
 

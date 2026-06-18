@@ -2,126 +2,91 @@
 title: "EEC 351: Fundamentals of AI/ML"
 permalink: /teaching/course_EEC351/
 layout: page
-status: past
-description:
+status: current
+description: "Autumn 2026-27 · Department of Electrical Engineering, IIT Roorkee"
+semester: "Autumn 2026-27"
 nav: false
 ---
 
-
-##### <span style="color: #0faddd;; font-weight: bold;">Course Information</span>
-
-
-- **Semester:** Autumn Semester 2025-2026  
-- **Instructor:** Parikshit Pareek (email: pareek AT ee.iitr.ac.in)  
-- **Lectures:** Thu • 03:00–03:55 PM;  Fri • 4:05–5:00 PM; (Venue: GB205)
-- **Office Hours:** Tue • 4:05–5:00 PM;  (Venue: 214A, EE)
-- **Piazza:** [https://piazza.com/indian_institute_of_technology_roorkee/fall2025/eec351](https://piazza.com/indian_institute_of_technology_roorkee/fall2025/eec351)
-- **TA:** Rajdeep R. Dwivedi (email: rajdeep_rd AT ece.iitr.ac.in)
-
-
----
-
-##### <span style="color: #0faddd;; font-weight: bold;"> 📌 Announcements</span>
-- **2025‑09-26**: **Assignment #1** is due on **Thursday, 9th October, 5 PM**.
-- **2025‑08-22**: Additional Class on 26th August, Wednesday.
-- **2025‑07‑13**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent.
-<!-- - **2025‑07‑01**: Course Announcements will be posted here regularly. Email notifications will **only** be sent if information is urgent. -->
-<!-- - **2025‑06‑20**: First assignment released! Due July 1. Check the Assignments section below. -->
-- **2025‑07‑12**: Course website launched.
-
-
----
-
-##### <span style="color: #0faddd;; font-weight: bold;"> 🎯 Course Objectives</span>
-
-- Comprehend the historical evolution and foundational concepts of AI/ML. 
-- Build mathematical intuition for machine learning principles.
-- Explore core theoretical frameworks and evaluation strategies.
-
----
-
-##### <span style="color: #0faddd;; font-weight: bold;"> 📅 Cource Content</span>
-
 <style>
-.table-no-hover table {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-  table-layout: fixed;
+.course-hero { display: flex; flex-wrap: wrap; gap: 10px; margin: 0.2rem 0 1.6rem; }
+.quick-link {
+  font-size: 0.85rem; font-weight: 500; color: var(--global-theme-color);
+  border: 1px solid var(--global-divider-color); border-radius: 999px;
+  padding: 5px 14px; text-decoration: none; transition: background 0.15s ease;
+}
+.quick-link:hover { background: rgba(14, 116, 144, 0.10); text-decoration: none; }
+
+.course-section {
+  color: var(--global-theme-color); font-weight: 600; font-size: 1.18rem;
+  margin: 2.4rem 0 1rem; padding-bottom: 0.45rem;
+  border-bottom: 2px solid var(--global-divider-color);
 }
 
-.table-no-hover table th,
-.table-no-hover table td {
-  border: 1px solid #ccc;
-  text-align: center;
-  vertical-align: middle;
-  padding: 5px;
+.course-meta { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.4rem; margin: 0; }
+.course-meta .k { color: var(--global-text-color-light); font-weight: 600; }
+.course-meta .v { color: var(--global-text-color); }
+
+.course-note {
+  background: var(--global-card-bg-color); border: 1px solid var(--global-divider-color);
+  border-left: 3px solid var(--global-theme-color); border-radius: 6px;
+  padding: 0.75rem 1rem; margin: 0.9rem 0; font-size: 0.95rem;
 }
 
-/* Set specific column widths */
-.table-no-hover table th:nth-child(1),
-.table-no-hover table td:nth-child(1) {
-  width: 4%;
+.table-no-hover table { border-collapse: separate; border-spacing: 0; width: 100%; table-layout: fixed; }
+.table-no-hover table th, .table-no-hover table td {
+  border: 1px solid var(--global-divider-color); text-align: center; vertical-align: middle; padding: 8px;
 }
-
-.table-no-hover table th:nth-child(2),
-.table-no-hover table td:nth-child(2) {
-  width: 20%;
-}
-
-.table-no-hover table th:nth-child(3),
-.table-no-hover table td:nth-child(3) {
-  width: 8%;
-}
-
-.table-no-hover table th:nth-child(4),
-.table-no-hover table td:nth-child(4) {
-  width: 30%;
-}
-
-.table-no-hover table th:nth-child(5),
-.table-no-hover table td:nth-child(5) {
-  width: 26%;
-}
-
-.table-no-hover table th:nth-child(6),
-.table-no-hover table td:nth-child(6) {
-  width: 8%;
-}
-
-/* Optional: header styling */
-.table-no-hover table th {
-  font-weight: bold;
-}
-
-/* Disable hover effects */
-.table-no-hover table * {
-  transition: none !important;
-}
-
-.table-no-hover table tr:hover,
-.table-no-hover table td:hover,
-.table-no-hover table th:hover {
-  background: inherit !important;
-  color: inherit !important;
-  font-weight: inherit !important;
-  transform: none !important;
-  box-shadow: none !important;
-  text-decoration: none !important;
+.table-no-hover table th { font-weight: 600; }
+.table-no-hover table th:nth-child(1), .table-no-hover table td:nth-child(1) { width: 5%; }
+.table-no-hover table th:nth-child(2), .table-no-hover table td:nth-child(2) { width: 21%; }
+.table-no-hover table th:nth-child(3), .table-no-hover table td:nth-child(3) { width: 9%; }
+.table-no-hover table th:nth-child(4), .table-no-hover table td:nth-child(4) { width: 29%; }
+.table-no-hover table th:nth-child(5), .table-no-hover table td:nth-child(5) { width: 27%; }
+.table-no-hover table th:nth-child(6), .table-no-hover table td:nth-child(6) { width: 9%; }
+.table-no-hover table * { transition: none !important; }
+.table-no-hover table tr:hover, .table-no-hover table td:hover, .table-no-hover table th:hover {
+  background: inherit !important; color: inherit !important; font-weight: inherit !important;
+  transform: none !important; box-shadow: none !important; text-decoration: none !important;
 }
 </style>
 
+<div class="course-hero">
+  <a class="quick-link" href="/teaching/course_EEC351_2025/">↩ Previous offering · Autumn 2025-26</a>
+</div>
+
+<h4 class="course-section">Course information</h4>
+
+<div class="course-meta">
+  <span class="k">Semester</span><span class="v">Autumn 2026–27</span>
+  <span class="k">Instructor</span><span class="v">Parikshit Pareek · pareek [at] ee.iitr.ac.in</span>
+  <span class="k">Lectures</span><span class="v">TBA</span>
+  <span class="k">Office hours</span><span class="v">TBA · 214A, EE</span>
+  <span class="k">Piazza</span><span class="v">TBA</span>
+  <span class="k">Teaching assistant</span><span class="v">TBA</span>
+</div>
+
+<h4 class="course-section">📌 Announcements</h4>
+
+- **2026‑06‑18** — Course website for the Autumn 2026-27 offering is live. Announcements are posted here regularly; email is sent **only** when something is urgent.
+
+<h4 class="course-section">🎯 Course objectives</h4>
+
+- Comprehend the historical evolution and foundational concepts of AI/ML.
+- Build mathematical intuition for machine-learning principles.
+- Explore core theoretical frameworks and evaluation strategies.
+
+<h4 class="course-section">📅 Course content</h4>
 
 <div class="table-no-hover">
-  {% assign lectures = site.data.Courses.eec351_content %}
-
+{% assign lectures = site.data.Courses.eec351_content %}
 <table>
   <thead>
     <tr>
-      <th>Index</th>
+      <th>#</th>
       <th>Topic</th>
-      <th>Content</th>
-      <th>Essential Reading</th>
+      <th>Slides</th>
+      <th>Essential reading</th>
       <th>Additional</th>
       <th>Homework</th>
     </tr>
@@ -129,90 +94,49 @@ nav: false
   <tbody>
     {% for lec in lectures %}
     <tr>
-      <td>
-        {% for num in lec.lecture %}
-          {{ num }}{% if forloop.last == false %}, {% endif %}
-        {% endfor %}
-      </td>
+      <td>{% for num in lec.lecture %}{{ num }}{% unless forloop.last %}, {% endunless %}{% endfor %}</td>
       <td>{{ lec.topic }}</td>
-      <td>
-        {% if lec.slides contains "http" or lec.slides contains "/" %}
-          <a href="{{ lec.slides }}">Slides</a>
-        {% else %}
-          {{ lec.slides }}
-        {% endif %}
-      </td>
-      <td>
-        {% if lec.essential %}
-          {% for item in lec.essential %}
-            <a href="{{ item.link }}">{{ item.text}}</a>{% if forloop.last == false %}, {% endif %}
-          {% endfor %}
-        {% else %}
-          --
-        {% endif %}
-      </td>
-      <td>
-        {% if lec.additional %}
-          {% for item in lec.additional %}
-            <a href="{{ item.link }}">{{ item.text }}</a>{% if forloop.last == false %}, {% endif %}
-          {% endfor %}
-        {% else %}
-          --
-        {% endif %}
-      </td>
-      <td>
-        {% if lec.homework contains "https" or lec.homework contains "/" %}
-          <a href="{{ lec.homework }}">HW</a>
-        {% else %}
-          {{ lec.homework }}
-        {% endif %}
-      </td>
+      <td>{% if lec.slides contains "http" or lec.slides contains "/" %}<a href="{{ lec.slides }}">Slides</a>{% else %}{{ lec.slides }}{% endif %}</td>
+      <td>{% if lec.essential %}{% for item in lec.essential %}<a href="{{ item.link }}">{{ item.text }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}--{% endif %}</td>
+      <td>{% if lec.additional %}{% for item in lec.additional %}<a href="{{ item.link }}">{{ item.text }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}--{% endif %}</td>
+      <td>{% if lec.homework contains "https" or lec.homework contains "/" %}<a href="{{ lec.homework }}">HW</a>{% else %}{{ lec.homework }}{% endif %}</td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
 </div>
----
 
-##### <span style="color: #0faddd;; font-weight: bold;"> 📝 Assignments</span>
-- **Assignment #1** is due on **Thursday, 9th October, 5 PM**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#1](/assets/pdf/EEC351/Assignment_1.pdf)-- [Boilerplate Code](/assets/pdf/EEC351/EEC351_Assignment_BoilerCode.zip)
-- **Python** is the default programming languages for the course. You should use it for programming your assignments unless otherwise explicitly allowed.
-- Submit via Moodle, Google Form or GitHub—- as specified in each assignment. 
-- **Honor Code:** Any cases of copying will be awarded a zero on the assignment. More severe penalties may follow.
-- **Late submissions** will incur penalties, as annouced with assignment. 
+{% unless lectures and lectures.size > 0 %}
+<div class="course-note">The weekly schedule will appear here as the term begins. Material from the previous run is on the <a href="/teaching/course_EEC351_2025/">Autumn 2025-26 page</a>.</div>
+{% endunless %}
 
+<h4 class="course-section">📝 Assignments</h4>
 
-<!-- - **Assignment 1**: Released Feb 4, due Feb 14 — linear regression, CNN basics.  
-- **Assignment 2**: Naïve Bayes & SVMs — released Feb 18, due Mar 17.  
-- **Assignment 3**: Gradient-based methods — released Mar 31, due Apr 10.  
-- **Assignment 4**: Deep Learning assignment — released Apr 13, due May 9.  
-- Detailed instructions and submission links are available via Piazza. -->
+- Assignments will be posted here as they are released. _TBA._
+- **Python** is the default programming language for the course; use it unless a task explicitly allows otherwise.
+- Submit via Moodle, Google Form, or GitHub — as specified in each assignment.
+- **Honor code:** any copying earns a zero on the assignment; more severe penalties may follow.
+- **Late submissions** incur penalties as announced with each assignment.
 
----
+<h4 class="course-section">📚 References & resources</h4>
 
-##### <span style="color: #0faddd;; font-weight: bold;"> 📚 References & Resources</span>
+**Recommended texts**
 
-- **Recommended Texts:**  
-  - Probabilistic Machine Learning: An Introduction, Kevin Murphy. MIT Press, 2022/2023. 
-  - Learning from Data: A Short Course, Yaser S. Abu-Mostafa, Malik Magdon-Ismail, Hsuan-Tien Lin. AMLBook, 2017.
+- *Probabilistic Machine Learning: An Introduction* — Kevin Murphy, MIT Press, 2022/2023.
+- *Learning from Data: A Short Course* — Yaser S. Abu-Mostafa, Malik Magdon-Ismail & Hsuan-Tien Lin, AMLBook, 2017.
 
-- **Supplementary Resources:**  
-  - Coursera ML (Andrew Ng)  
-  - Relevant paper links on Piazza
+**Supplementary**
 
----
+- Coursera ML (Andrew Ng)
+- Relevant paper links shared on Piazza
 
-##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Grading Policy</span> 
+<h4 class="course-section">🧾 Grading policy</h4>
 
-- CWS (30 Marks)
-  - Announced & Surprise Quizzes
-  - Assignments & Peer Discussions
-- MTE (30 Marks)
-  - Written Exam (any format)
-- ETE (40 Marks)
-  - Written Exam (any format)
+- **CWS — 30 marks:** announced & surprise quizzes; assignments & peer discussions.
+- **MTE — 30 marks:** written exam (any format).
+- **ETE — 40 marks:** written exam (any format).
 
-##### <span style="color: #0faddd;; font-weight: bold;"> 🧾 Exam Papers</span> 
+<h4 class="course-section">🧾 Exam papers</h4>
 
-- [Mid-Term Examination Autumn 2025](/assets/pdf/EEC351/MTE.pdf)
-- [End-Term Examination Autumn 2025](/assets/pdf/EEC351/ETE.pdf)
+- Papers for this offering will be posted here after the exams. _TBA._
+- Past papers: see the [Autumn 2025-26 offering](/teaching/course_EEC351_2025/).

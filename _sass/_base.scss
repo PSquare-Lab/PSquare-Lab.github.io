@@ -4,6 +4,11 @@
 
 // Typography
 
+// Base font size for the whole site — type and spacing are rem-based, so this scales all text up uniformly.
+html {
+  font-size: 18px;
+}
+
 p,
 h1,
 h2,
@@ -17,6 +22,28 @@ li,
 span,
 strong {
   color: var(--global-text-color);
+}
+
+// Site font — Inter, a clean humanist sans (replaces Roboto from MDB/Bootstrap).
+body,
+.navbar,
+button,
+input,
+textarea,
+select {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+// Sharper headings: Inter, tighter tracking, a touch heavier.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  letter-spacing: -0.015em;
+  font-weight: 600;
 }
 
 hr {

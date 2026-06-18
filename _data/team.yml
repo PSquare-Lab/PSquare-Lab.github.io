@@ -72,7 +72,7 @@
   degree: B.Tech, PH, IIT Roorkee
   url:  https://github.com/code-omnitrix
   description: LLM Applications to Engineering
-  status: current
+  status: past
 
 - name: Saksham Bansal
   image: saksham.jpeg
@@ -81,7 +81,7 @@
   degree: B.Tech, ME, IIT Roorkee
   url: 
   description: LLM Applications to Engineering
-  status: current
+  status: past
 
 # - name: Amey Joshi
 #   image: amey.jpeg
@@ -108,7 +108,7 @@
   degree: B.Tech, ME, IIT Roorkee
   url: https://psquare-lab.github.io/Team/
   description: LLM for Optimal Power Flow
-  status: current
+  status: past
 
 # - name: Adhiraj Chattopadhyay
 #   image: adhi.jpeg
@@ -128,7 +128,7 @@
   degree: B.Tech, EE, IIT Roorkee
   url: https://github.com/naman-meena
   description: Industry Oriented Project; Machine Learning for Power Flow
-  status: current
+  status: past
   period: Spring Semester 2025-26; Summer 2025
 
 

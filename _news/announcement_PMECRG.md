@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 published: true
 ---
-**New Project**: <span style="color:white">Awarded the [PM Early Career Research Grant](https://anrfonline.in/ANRF/ecrg_anrf?HomePage=New) for a three-year project titled: **"Secure EV-Rich Distribution Grid Operations via Prior-data Fitted Networks."** If you're interested in joining the project as a Doctoral Researcher, feel free to email me!</span>
+**New Project**: <span style="color:inherit">Awarded the [PM Early Career Research Grant](https://anrfonline.in/ANRF/ecrg_anrf?HomePage=New) for a three-year project titled: **"Secure EV-Rich Distribution Grid Operations via Prior-data Fitted Networks."** If you're interested in joining the project as a Doctoral Researcher, feel free to email me!</span>

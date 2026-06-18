@@ -28,9 +28,9 @@ nav_order: 7
 
 <div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 1rem;">
   <div style="display: flex; align-items: center; gap: 0.4rem;">
-    <h4 style="color: #0faddd; font-weight: bold; margin: 0;">⚡ Current Members</h4>
+    <h4 style="color: var(--global-theme-color); font-weight: bold; margin: 0;">⚡ Current Members</h4>
   </div>
-  <!-- <hr style="width: 40%; border: 1px solid #0faddd; margin: 0.3rem 0 1rem 1rem;" /> -->
+  <!-- <hr style="width: 40%; border: 1px solid var(--global-theme-color); margin: 0.3rem 0 1rem 1rem;" /> -->
 </div>
 
 
@@ -80,9 +80,9 @@ nav_order: 7
 
 <div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 1rem;">
   <div style="display: flex; align-items: center; gap: 0.4rem;">
-    <h4 style="color: #0faddd; font-weight: bold; margin: 0;">🏁 Past Team Members</h4>
+    <h4 style="color: var(--global-theme-color); font-weight: bold; margin: 0;">🏁 Past Team Members</h4>
   </div>
-  <!-- <hr style="width: 40%; border: 1px solid #0faddd; margin: 0.3rem 0 1rem 1rem;" /> -->
+  <!-- <hr style="width: 40%; border: 1px solid var(--global-theme-color); margin: 0.3rem 0 1rem 1rem;" /> -->
 </div>
 
 <ul style="list-style-type: disc; padding-left: 1.5rem;">
@@ -113,9 +113,9 @@ nav_order: 7
 
 <div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 1rem;">
   <div style="display: flex; align-items: center; gap: 0.4rem;">
-    <h4 style="color: #0faddd; font-weight: bold; margin: 0;">🤝 Collaborators</h4>
+    <h4 style="color: var(--global-theme-color); font-weight: bold; margin: 0;">🤝 Collaborators</h4>
   </div>
-  <!-- <hr style="width: 40%; border: 1px solid #0faddd; margin: 0.3rem 0 1rem 1rem;" /> -->
+  <!-- <hr style="width: 40%; border: 1px solid var(--global-theme-color); margin: 0.3rem 0 1rem 1rem;" /> -->
 </div>
 
 <ul style="list-style-type: disc; padding-left: 1.5rem;">
@@ -131,9 +131,9 @@ nav_order: 7
 
 <div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 1rem;">
   <div style="display: flex; align-items: center; gap: 0.2rem;">
-    <h4 style="color: #0faddd; font-weight: bold; margin: 0;">🛰️ External Mentees</h4>
+    <h4 style="color: var(--global-theme-color); font-weight: bold; margin: 0;">🛰️ External Mentees</h4>
   </div>
-  <!-- <hr style="width: 50%; border: 1px solid #0faddd; margin: 0.3rem 0 1rem 1rem;" /> -->
+  <!-- <hr style="width: 50%; border: 1px solid var(--global-theme-color); margin: 0.3rem 0 1rem 1rem;" /> -->
 </div>
 
 <ul style="list-style-type: disc; padding-left: 1.5rem;">
