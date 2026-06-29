@@ -1184,6 +1184,20 @@ ninja-keys::part(ninja-input-wrapper) {
   background: var(--global-bg-color);
 }
 
+// news list: keep text readable on the cream background
+.news {
+  color: var(--global-text-color);
+
+  table,
+  th,
+  td,
+  span,
+  strong,
+  em {
+    color: var(--global-text-color);
+  }
+}
+
 // newsletter
 .newsletter-form-container {
   margin-bottom: 20px;
