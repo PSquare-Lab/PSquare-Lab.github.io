@@ -60,14 +60,15 @@ nav: false
 <div class="course-meta">
   <span class="k">Semester</span><span class="v">Autumn 2026–27</span>
   <span class="k">Instructor</span><span class="v">Parikshit Pareek · pareek [at] ee.iitr.ac.in</span>
-  <span class="k">Lectures</span><span class="v">TBA</span>
-  <span class="k">Office hours</span><span class="v">TBA · 214A, EE</span>
+  <span class="k">Lectures</span><span class="v">Mon &amp; Tue · 16:05 – 17:00 @ GB005 · Fri 17:05 – 18:00 is a backup slot if needed</span>
+  <span class="k">Office hours</span><span class="v">Fri · 17:05 – 18:00 @ 214A, EE (instructor's office)</span>
   <span class="k">Piazza</span><span class="v">TBA</span>
-  <span class="k">Teaching assistant</span><span class="v">TBA</span>
+  <span class="k">Teaching assistant</span><span class="v">Ayushi Jolotia · ayushi_j [at] ee.iitr.ac.in</span>
 </div>
 
 <h4 class="course-section">Announcements</h4>
 
+- **2026‑07‑08** — First class is on **Thursday, 16 July 2026**.
 - **2026‑06‑18** — Course website for the Autumn 2026-27 offering is live. Announcements are posted here regularly; email is sent **only** when something is urgent.
 
 <h4 class="course-section">Course objectives</h4>
