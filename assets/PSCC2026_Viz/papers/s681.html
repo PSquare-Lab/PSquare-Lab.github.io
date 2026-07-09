@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>PSCC 2026 Proceedings – ISBN 978-9963-697-58-8</title>
+<link href="openconf.css" rel="stylesheet" type="text/css"/>
+<link href="openconf-rtl.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="conf">Proceedings of the Power Systems Computation Conference 2026</div>
+<div class="menuoc"> OpenConf Peer Review and Submission Management System</div>
+<div class="mainbody">
+<br/>
+<a href="../index.html">← Cluster Map</a> »
+<br/>
+<div id="oc_proceedings_summary_main"><h1 style="text-align:center">Successive Fixing for Large-Scale SCUC Using First-Order Methods</h1>
+<p>Security-Constrained Unit Commitment is a fundamental
+optimization problem in power systems operations. The
+primary computational bottleneck arises from the need to solve
+large-scale Linear Programming (LP) relaxations within branchand-
+cut. Conventional simplex and barrier methods become
+computationally prohibitive at this scale due to their reliance
+on expensive matrix factorizations. While matrix-free first-order
+methods present a promising alternative, their tendency to
+converge to non-vertex solutions renders them incompatible
+with standard branch-and-cut procedures. To bridge this gap,
+we propose a successive fixing framework that leverages a
+customized GPU-accelerated first-order LP solver to guide a
+logic-driven variable-fixing strategy. Each iteration produces a
+reduced Mixed-Integer Linear Programming (MILP) problem,
+which is subsequently tightened via presolving. This iterative
+cycle of relaxation, fixing, and presolving progressively reduces
+problem complexity, producing a highly tractable final MILP
+model. When evaluated on public benchmarks exceeding 13,000
+buses, our approach achieves a tenfold speedup over state-of-theart
+methods without compromising solution quality.</p>
+<div id="oc_proceedings_summary_authors"><p><strong>Jinxin Xiong</strong><br/>
+The Chinese University of Hong Kong, Shenzhen<br/>
+China</p><p><strong>Linxin Yang</strong><br/>
+The Chinese University of Hong Kong, Shenzhen<br/>
+China</p><p><strong>Jianghua Wu</strong><br/>
+Shenzhen Research Institute of Big Data<br/>
+China</p><p><strong>Shunbo Lei</strong><br/>
+The Chinese University of Hong Kong, Shenzhen<br/>
+China</p><p><strong>Akang Wang</strong><br/>
+Shenzhen Research Institute of Big Data<br/>
+China</p></div></div></div></body></html>
