@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>PSCC 2026 Proceedings – ISBN 978-9963-697-58-8</title>
+<link href="openconf.css" rel="stylesheet" type="text/css"/>
+<link href="openconf-rtl.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="conf">Proceedings of the Power Systems Computation Conference 2026</div>
+<div class="menuoc"> OpenConf Peer Review and Submission Management System</div>
+<div class="mainbody">
+<br/>
+<a href="../index.html">← Cluster Map</a> »
+<br/>
+<div id="oc_proceedings_summary_main"><h1 style="text-align:center">Maximal Load Shedding Verification for Neural Network Models of AC Line Switching</h1>
+<p>Solving for globally optimal line switching decisions
+in AC transmission grids can be intractably slow. Machine
+learning (ML) models, meanwhile, can be trained to predict
+near-optimal decisions at a fraction of the speed. Verifying
+the performance and impact of these ML models on network
+operation, however, is a critically important step prior to their
+actual deployment. In this paper, we train a Neural Network
+(NN) to solve the optimal power shutoff line switching problem.
+To assess the worst-case load shedding induced by this model,
+we propose a bilevel attacker-defender verification approach that
+finds the NN line switching decisions that cause the highest
+quantity of network load shedding. Solving this problem to
+global optimality is challenging (due to AC power flow and NN
+nonconvexities), so our approach exploits a convex relaxation
+of the AC physics, combined with a local NN search, to find
+a guaranteed lower bound on worst–case load shedding. These
+under-approximation bounds are solved via MathOptAI.jl. We
+benchmark against a random sampling approach, and we find
+that our optimization-based approach always finds larger load
+shedding, by an average margin of 33% in the largest test case.
+Test results are collected on multiple PGLib test cases and on
+trained NN models which contain more than 10 million model
+parameters.</p>
+<div id="oc_proceedings_summary_authors"><p><strong>Samuel Chevalier</strong><br/>
+University of Vermont<br/>
+United States</p><p><strong>Robert Parker</strong><br/>
+Los Alamos National Laboratory<br/>
+United States</p><p><strong>Noah Rhodes</strong><br/>
+Los Alamos National Laboratory<br/>
+United States</p></div></div></div></body></html>

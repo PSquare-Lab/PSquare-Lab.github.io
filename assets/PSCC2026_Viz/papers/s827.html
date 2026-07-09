@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>PSCC 2026 Proceedings – ISBN 978-9963-697-58-8</title>
+<link href="openconf.css" rel="stylesheet" type="text/css"/>
+<link href="openconf-rtl.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="conf">Proceedings of the Power Systems Computation Conference 2026</div>
+<div class="menuoc"> OpenConf Peer Review and Submission Management System</div>
+<div class="mainbody">
+<br/>
+<a href="../index.html">← Cluster Map</a> »
+<br/>
+<div id="oc_proceedings_summary_main"><h1 style="text-align:center">Learning Power Flow with Confidence: A Probabilistic Guarantee Framework for Voltage Risk</h1>
+<p>The absence of formal performance guarantees in
+machine learning (ML) has limited its adoption for safety-critical
+power system applications, where confidence and interpretability
+are as vital as accuracy. In this work, we present a probabilistic
+guarantee for power flow learning and voltage risk estimation,
+derived through the framework of Gaussian Process (GP) regression.
+Specifically, we establish a bound on the expected estimation
+error that connects the GP’s predictive variance to confidence
+in voltage risk estimates, ensuring statistical equivalence with
+Monte Carlo–based ACPF risk quantification. To enhance model
+learnability in the low-data regime, we first design the Vertex-
+Degree Kernel (VDK), a topology-aware additive kernel that
+decomposes voltage–load interactions into local neighborhoods
+for efficient large-scale learning. Building on this, we introduce
+a network-swipe active learning (AL) algorithm that adaptively
+samples informative operating points and provides a principled
+stopping criterion without requiring out-of-sample validation.
+Together, these developments mitigate the principal bottleneck
+of ML-based power flow—its lack of guaranteed reliability—by
+combining data efficiency with analytical assurance. Empirical
+evaluations across IEEE 118-, 500-, and 1354-bus systems confirm
+that the proposed VDK-GP achieves mean absolute voltage errors
+below 1E-03 p.u., reproduces Monte Carlo–level voltage risk
+estimates with 15× fewer ACPF computations, and achieves over
+120× reduction in evaluation time while conservatively bounding
+violation probabilities.</p>
+<div id="oc_proceedings_summary_authors"><p><strong>Parikshit Pareek</strong><br/>
+Indian Institute of Technology Roorkee<br/>
+India</p><p><strong>Deepjyoti Deka</strong><br/>
+MIT Energy Initiative<br/>
+United States</p><p><strong>Sidhant Misra</strong><br/>
+Los Alamos National Laboratory<br/>
+United States</p></div></div></div></body></html>

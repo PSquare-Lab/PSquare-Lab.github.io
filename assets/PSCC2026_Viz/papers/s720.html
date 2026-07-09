@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>PSCC 2026 Proceedings – ISBN 978-9963-697-58-8</title>
+<link href="openconf.css" rel="stylesheet" type="text/css"/>
+<link href="openconf-rtl.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="conf">Proceedings of the Power Systems Computation Conference 2026</div>
+<div class="menuoc"> OpenConf Peer Review and Submission Management System</div>
+<div class="mainbody">
+<br/>
+<a href="../index.html">← Cluster Map</a> »
+<br/>
+<div id="oc_proceedings_summary_main"><h1 style="text-align:center">DiffOPF: Diffusion Solver for Optimal Power Flow</h1>
+<p>The optimal power flow (OPF) is a multi-valued,
+non-convex mapping from loads to dispatch setpoints. The
+variability of system parameters (e.g., admittances, topology)
+further contributes to the multiplicity of dispatch setpoints for a
+given load. Existing deep learning OPF solvers are single-valued
+and thus fail to capture the variability of system parameters
+unless fully represented in the feature space, which is prohibitive.
+To solve this problem, we introduce a diffusion-based OPF solver,
+termed DiffOPF, that treats OPF as a conditional sampling problem.
+The solver learns the joint distribution of loads and dispatch
+setpoints from operational history, and returns the marginal
+dispatch distributions conditioned on loads. Unlike single-valued
+solvers, DiffOPF enables sampling statistically credible warm
+starts with favorable cost and constraint satisfaction trade-offs.
+We explore the sample complexity of DiffOPF to ensure the
+OPF solution within a prescribed distance from the optimizationbased
+solution, and verify this experimentally on power system
+benchmarks.</p>
+<div id="oc_proceedings_summary_authors"><p><strong>Milad Hoseinpour</strong><br/>
+University of Michigan<br/>
+United States</p><p><strong>Vladimir Dvorkin</strong><br/>
+University of Michigan<br/>
+United States</p></div></div></div></body></html>

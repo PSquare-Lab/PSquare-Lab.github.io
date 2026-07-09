@@ -1,0 +1,131 @@
+/* +----------------------------------------------------------------------+ */
+/* | OpenConf                                                             | */
+/* +----------------------------------------------------------------------+ */
+/* | Copyright (c) 2002-2025 Zakon Group LLC.  All Rights Reserved.       | */
+/* +----------------------------------------------------------------------+ */
+/* | This source file is subject to the OpenConf License, available on    | */
+/* | the OpenConf web site: www.OpenConf.com                              | */
+/* +----------------------------------------------------------------------+ */
+
+
+BODY { font-family: verdana,arial,helvetica,sans-serif; font-size: 10pt; background-color: #fff; color: #000; margin: 0; }
+TD { font-family: verdana,arial,helvetica,sans-serif; font-size: 10pt; }
+TH { font-family: verdana,arial,helvetica,sans-serif; font-weight: bold; font-size: 10pt; }
+A { text-decoration: none; color: #0000ff; }
+A:link { color: #0000ff; }
+A:visited { color: #0000ff; }
+A:hover { color: #ff0000; }
+A.confName:link { color: #000000; }	
+A.confName:visited { color: #000000; }
+A.confName:hover { color: #666666; }
+A.confName img { max-width: 100%; }
+em { font-style: italic; }
+strong { font-weight: bold; }
+h1 { font-family: arial,helvetica,sans-serif; font-size: 1.2em; font-weight: bold; text-align: center; }
+
+.mainbody { margin-left: 30px; margin-right: 30px; }
+.conf { font-family: arial,helvetica,sans-serif; font-size: 14pt; font-weight: bold; margin-top: 10px; margin-left: 10px; margin-right: 10px;margin-bottom: 10px; }
+.header { font-family: arial,helvetica,sans-serif; font-size: 12pt; font-weight: bold; text-align: center; }
+.HEADER2 { font-family: arial,helvetica,sans-serif; font-size: 12pt; font-weight: bold; }
+.chairHeader { font-weight: bold; margin: 0.5em 0; }
+.footerBorder { border-top: 1px solid black; border-bottom: 1px solid black; background-color: #99ccff; font-size: 9pt; font-family: arial, helvetica, sans-serif; padding: 3px; }
+.menu { background-color: #99ccff; border-bottom: 1px solid black; width: 100%; clear: both; }
+.menuoc { font-family: verdana,helvetica,sans-serif; font-size: 9pt; border-top: 1px solid black; border-bottom: 1px solid black; padding-top: 0.3em; padding-bottom: 0.3em; width: 100%; background-color: #99ccff; color: #000033; clear: both; }
+.menufiller { background-color: #99ccff; padding-top: 0.3em; padding-bottom: 0.3em; font-size: 9pt; text-align: right; }
+.menuitem { background-color: #eeeeee; border-right: 1px solid black; font-weight: bold; font-size: 9pt; float: left; padding: 0.3em; }
+.linkHighlight { font-weight: bold; }
+.cat { font-weight: bold; font-size: 10pt; }
+.note { font-size: 9pt; font-weight: normal; font-style: italic; color: #006600; }
+.note2 { font-weight: bold; color: #006600; }
+.note3 { font-weight: bold; color: #800080; font-size: 9pt; font-style: italic; }
+.item { font-weight: bold; }
+.item2 { font-weight: bold; background-color: #eeeeee; }
+.box { border: solid; border-color: black; border-width: 1px; }
+.sep { background-color: #cccccc; }
+.err { color: #990000; font-weight: bold; }
+.warn { color: #800080; font-weight: bold; }
+.rowheader { background-color: #ccdddd; }
+.row1 { background-color: #eeeeee; }
+.row2 { background-color: #dddddd; }
+.rowselect:hover { background-color: #fc9; }
+.linfo { float: right; text-align: center; padding-top: 0; }
+.del { background-color: #ccccff; }
+.sel { background-color: #cdd; }
+
+#processing { font-weight: bold; font-size: 120%; }
+#tracks li { margin-bottom: 0.5em; }
+
+.popup { position: relative; }
+.popup a { text-decoration: none; color: #000; background-color: inherit; }
+.popup a:hover { text-indent: 0; background-color: #eee; }
+.popup a span { display: none;  }
+.popup a:hover span { display:block; text-align: left; font-weight: normal; font-size: 0.9em; color: #000; position:absolute; top: 1em; left: 6em; z-index: 100; background-color: #F7EFC1; border: 2px solid #cc9; padding:5px; text-decoration: none; white-space: pre;}
+
+
+.ocform fieldset { padding: 10px; border:1px solid #ddd; margin-bottom: 2em; background-color: #fafafa; }
+.ocform fieldset fieldset { background-color: #f5f5f5; }
+.ocform label { float: left; width: 12em; margin-right: 1em; text-align: right; color: #333; background-color: inherit; }
+.ocform label.plain { float: none; width: auto; margin: auto; text-align: left; display: block; }
+.ocform legend { color: #47f; font-size: 1.1em; }
+.ocform legend span { font-size: 0.8em; color: #555; }
+.ocform legend span { cursor: pointer; }
+.ocform div.field { margin: 0.5em 0; clear: both; }
+.ocform input, .ocform textarea, .ocform select { background-color: #fff; border: 1px solid #ccc; }
+.ocform fieldset.radio, .ocform fieldset.checkbox { border: 0; margin-bottom: 0; padding: 0; background-color: #fafafa; }
+.ocform fieldset.radio label, .ocform fieldset.checkbox label { float: none; margin-right: 0; width: auto; color: #000; background-color: inherit; }
+.ocform fieldset.radio input, .ocform fieldset.checkbox input { background-color: #fafafa; border: none; }
+.ocform fieldset div.fieldnote { margin-left: 14.6em; }
+.ocform fieldset div.fieldsetnote { margin-bottom: 1em; }
+.submit, .ocform .submit { border:1px solid #ccc; background-color: #9cf; color: inherit; padding: 5px; border-radius:0.4em; }
+.submit:hover, .ocform .submit:hover { background-color: #ddd; cursor:pointer; }
+.submit:disabled, .ocform .submit:hover, .submit:disabled:hover, .ocform .submit:disabled:hover { background-color: #eee; }
+.ocform #addauthor a { text-decoration: underline; }
+.ocform #fs_authors fieldset fieldset.radio { background-color: #f5f5f5; }
+
+.occonfigform label { width: 14em; font-weight: bold; color: #555; }
+.occonfigform .subfieldset { margin-left: 15.0em; }
+.occonfigform fieldset div.fieldnote { margin-left: 16.6em; }
+.occonfigform div.field { margin: 0.5em 0 1em 0; }
+.occonfigform fieldset.radio label, .ocform fieldset.checkbox label { font-weight: normal; color: #000; }
+.occonfigform .submit { background-color: #9cf; color: inherit; padding: 2px; border-radius:0.4em; display: block; clear: left; }
+.occonfigform .submit:disabled { background-color: #eee; }
+.occonfigform fieldset legend { cursor: pointer; }
+
+.ocstatusform label { width: 14em; color: #555; background-color: inherit; font-weight: bold; }
+.ocstatusform fieldset fieldset label { color: #000; background-color: inherit; font-weight: normal; }
+.ocstatusform fieldset div.fieldnote { margin-left: 17em; }
+.ocstatusform fieldset div.event { margin-left: 26em; color: #555; }
+.ocstatusform div.field { margin: 0.5em 0 1em 0; }
+.ocstatusform .submit { background-color: #9cf; color: inherit; padding: 2px; border-radius:0.4em; display: block; clear: left; }
+.ocstatusform .submit:disabled { background-color: #eee; }
+
+.ocreviewform label { float: none; width: auto; margin: auto; text-align: left; display: block; font-weight: bold; }
+.ocreviewform fieldset.radio label, .ocform fieldset.checkbox label { float: none; margin-right: 0; width: auto; color: #000; background-color: inherit; font-weight: normal; display: inline; }
+.ocreviewform fieldset.radio label { font-weight: normal; }
+.ocreviewform input, .ocreviewform textarea, .ocreviewform select { margin-left: 10px; }
+.ocreviewform fieldset div.fieldnote { margin: 0.5em 0 0 10px; }
+.ocreviewform div.field { margin-bottom: 2.5em; }
+
+.ocsubauthorutil span { font-size: 0.9em; margin-right: 20px; color: #00f;}
+.ocsubauthorutil span:hover { cursor: pointer; }
+
+table.ocfields { border: none; padding: 0; margin: 0; }
+table.ocfields th { width: 10em; text-align: right; color: #36f; vertical-align: top; padding: 0 7px 6px 0; font-weight: normal; }
+table.ocfields td { vertical-align: top; padding: 0px 0px 6px 0px; }
+table.ocfields table.ocfields th { width: auto; text-align: left; }
+table.rowhighlight tbody tr:hover { background-color: #def; }
+
+.oclanguage { float: right; }
+.oclanguage img { vertical-align: text-bottom; }
+.oclanguage select { background-color: #eee; color: inherit; }
+
+.ocskip a { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+.ocskip a:focus { position:static; width:auto; height:auto; }
+
+.ocprivacy { margin-top: 1em; text-align: center; }
+
+#oc_submit_emailConfirmInner { display: none; }
+#oc_submit_emailConfirm { margin: 1em 0 1.5em 30px; font-size: 1.2em; color: #000; font-weight: bold; }
+
+/* DO NOT CHANGE OR HIDE */#powered {text-align: center;font-size: 9pt;font-family: arial, helvetica, sans-serif;padding: 3px;color: #000;background-color: inherit;margin-bottom: 20px;}/* DO NOT CHANGE OR HIDE */
+

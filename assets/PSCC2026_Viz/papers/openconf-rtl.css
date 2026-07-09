@@ -1,0 +1,17 @@
+/* +----------------------------------------------------------------------+ */
+/* | OpenConf                                                             | */
+/* +----------------------------------------------------------------------+ */
+/* | Copyright (c) 2002-2025 Zakon Group LLC.  All Rights Reserved.       | */
+/* +----------------------------------------------------------------------+ */
+/* | This source file is subject to the OpenConf License, available on    | */
+/* | the OpenConf web site: www.OpenConf.com                              | */
+/* +----------------------------------------------------------------------+ */
+
+.menuitem { float: right; }
+.menufiller { text-align: left; }
+.linfo { float: left; }
+.ocform label { float: right; margin-right: 0; margin-left: 1em; text-align: left; }
+.ocform label.plain { text-align: right; }
+.ocform fieldset.radio label, .ocform fieldset.checkbox label { margin-left: 0; }
+.ocform fieldset div.fieldnote { margin-left: 0; margin-right: 13.6em; }
+.oclanguage { float: left; }
