@@ -9,7 +9,7 @@ _site
 Gemfile.lock
 assets/libs/
 node_modules/
-vendor
+/vendor
 .idea
 .venv/
 __pycache__/
