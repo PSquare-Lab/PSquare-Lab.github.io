@@ -1,18 +1,18 @@
 - lecture: [1]
   topic: Kick-off
-  slides: /assets/pdf/EEC351/Lec0.pdf
+  slides: /assets/pdf/EEC351/2025-26/Lec0.pdf
   essential:     
     - text: --
       link: --
   additional: 
-  homework: /assets/pdf/EEC351/H1.pdf
+  homework: /assets/pdf/EEC351/2025-26/H1.pdf
 
 - lecture: [2]
   topic: Introcuction & History
-  slides: /assets/pdf/EEC351/Lec1.pdf
+  slides: /assets/pdf/EEC351/2025-26/Lec1.pdf
   essential: 
      - text: Trends in Compute
-       link: /assets/pdf/EEC351/ER1.pdf
+       link: /assets/pdf/EEC351/notes/ER1.pdf
   additional: 
      - text: Watch "Imitation Game"
        link: https://www.youtube.com/watch?v=8m0z1a2d9j4
@@ -25,22 +25,22 @@
   slides: --
   essential: 
     - text: Norm.pdf
-      link: /assets/pdf/EEC351/norms.pdf
+      link: /assets/pdf/EEC351/notes/norms.pdf
     - text: Linear Algebra Review
-      link: /assets/pdf/EEC351/Linear-Algebra-Review.pdf
+      link: /assets/pdf/EEC351/notes/Linear-Algebra-Review.pdf
     - text: Quadratic Functions
-      link: /assets/pdf/EEC351/Quadratic-Form.pdf
+      link: /assets/pdf/EEC351/notes/Quadratic-Form.pdf
   additional:     
     - text: Matrix Calculus
-      link: /assets/pdf/EEC351/Matrix Calculus.pdf
-  homework: /assets/pdf/EEC351/H2.pdf
+      link: /assets/pdf/EEC351/notes/Matrix Calculus.pdf
+  homework: /assets/pdf/EEC351/2025-26/H2.pdf
 
 - lecture: [4]
   topic: Probability Review (Self Study)
   slides: --
   essential: 
     - text: Probability Review
-      link: /assets/pdf/EEC351/Probability-Review.pdf
+      link: /assets/pdf/EEC351/notes/Probability-Review.pdf
   additional: 
   homework: --
 
@@ -49,11 +49,11 @@
   slides: --
   essential:
    - text: Concentration Inequalities
-     link: /assets/pdf/EEC351/Concentration_Ineq.pdf
+     link: /assets/pdf/EEC351/notes/Concentration_Ineq.pdf
    - text: Learning Problem
      link:  https://cs229.stanford.edu/notes_archive/cs229-notes4.pdf
    - text: Learning Theory Notes
-     link:  /assets/pdf/EEC351/LearningTheory.pdf
+     link:  /assets/pdf/EEC351/notes/LearningTheory.pdf
   additional:
   homework: --
 
@@ -62,7 +62,7 @@
   slides: --
   essential:
    - text: EBM Tutorial
-     link: /assets/pdf/EEC351/EBL_Tutorial.pdf
+     link: /assets/pdf/EEC351/notes/EBL_Tutorial.pdf
   additional:
   homework: --
 
@@ -71,7 +71,7 @@
   slides: --
   essential:
    - text: PLA
-     link: /assets/pdf/EEC351/PLA.pdf
+     link: /assets/pdf/EEC351/notes/PLA.pdf
    - text: Learning from Data Chapter 3
      link: 
   additional:

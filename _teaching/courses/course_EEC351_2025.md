@@ -178,7 +178,7 @@ nav: false
 ---
 
 <h4 class="course-section">Assignments</h4>
-- **Assignment #1** is due on **Thursday, 9th October, 5 PM**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#1](/assets/pdf/EEC351/Assignment_1.pdf)-- [Boilerplate Code](/assets/pdf/EEC351/EEC351_Assignment_BoilerCode.zip)
+- **Assignment #1** is due on **Thursday, 9th October, 5 PM**. Please read the instructions carefully—the required links are embedded within the PDF. Make sure to _explore all available resources_ and _troubleshoot thoroughly before reaching out to the instructor or TA_. [Assignment#1](/assets/pdf/EEC351/2025-26/Assignment_1.pdf)-- [Boilerplate Code](/assets/pdf/EEC351/2025-26/EEC351_Assignment_BoilerCode.zip)
 - **Python** is the default programming languages for the course. You should use it for programming your assignments unless otherwise explicitly allowed.
 - Submit via Moodle, Google Form or GitHub—- as specified in each assignment. 
 - **Honor Code:** Any cases of copying will be awarded a zero on the assignment. More severe penalties may follow.
@@ -217,5 +217,5 @@ nav: false
 
 <h4 class="course-section">Exam Papers</h4>
 
-- [Mid-Term Examination Autumn 2025](/assets/pdf/EEC351/MTE.pdf)
-- [End-Term Examination Autumn 2025](/assets/pdf/EEC351/ETE.pdf)
+- [Mid-Term Examination Autumn 2025](/assets/pdf/EEC351/2025-26/MTE.pdf)
+- [End-Term Examination Autumn 2025](/assets/pdf/EEC351/2025-26/ETE.pdf)
