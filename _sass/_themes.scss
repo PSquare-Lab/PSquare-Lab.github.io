@@ -71,6 +71,7 @@
 // Light "cream" theme — a single consistent palette applied site-wide.
 // Accent: indigo (--global-theme-color) used for every link, heading, and hover.
 :root {
+  color-scheme: light; // this theme has no dark variant; stop browsers auto-darkening it
   --global-bg-color: #faf9f4; // soft warm white (less creamy)
   --global-code-bg-color: #f0ede4; // light warm code surface
   --global-text-color: #1a1a18; // sharp near-black body text

@@ -1,6 +1,10 @@
 <!-- Metadata, OpenGraph and Schema.org -->
 {% include metadata.liquid %}
 
+<!-- Site is light-only: opt out of browser/OS forced dark mode (e.g. Android Chrome's
+     auto-dark heuristic mis-inverts table text to white on an unchanged light background). -->
+<meta name="color-scheme" content="light">
+
 <!-- Bootstrap & MDB -->
 <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url | bust_file_cache }}">
 <link
