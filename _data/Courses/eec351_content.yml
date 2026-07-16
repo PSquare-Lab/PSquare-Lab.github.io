@@ -1,15 +1,40 @@
 # Lecture content for EEC 351 — Autumn 2026-27 (current offering).
-# The table is empty for now; add one entry per lecture row using this template:
+# Add one entry per lecture row using this template:
 #
 # - lecture: [1]
 #   topic: Topic name
-#   slides: /assets/pdf/EEC351/LecX.pdf      # or  --
+#   slides: /assets/pdf/EEC351/2026-27/LecX.pdf      # or  --
 #   essential:
 #     - text: Reading name
-#       link: /assets/pdf/EEC351/file.pdf
+#       link: /assets/pdf/EEC351/notes/file.pdf      # reusable notes live in notes/
 #   additional:
 #     - text: Resource name
 #       link: https://...
-#   homework: /assets/pdf/EEC351/HX.pdf       # or  --
+#   homework: /assets/pdf/EEC351/2026-27/HX.pdf      # or  --
+#
+# Asset layout:
+#   notes/     reference notes reused across offerings (linear algebra, probability, ...)
+#   2026-27/   slides, homework and exams for THIS offering
+#   2025-26/   archived — linked from the Autumn 2025-26 page only
 
-[]
+- lecture: [0]
+  topic: Kick-off
+  slides: /assets/pdf/EEC351/2026-27/Lec0.pdf
+  essential:
+  additional:
+    - text: "The Course in One Picture"
+      link: /assets/pdf/EEC351/2026-27/EEC351_Course_Map.html
+  homework: --
+
+# - lecture: [1]
+#   topic: History of AI and Machine Learning
+#   slides: /assets/pdf/EEC351/2026-27/Lec1.pdf
+#   essential:
+#     - text: "Kolter & Do, Linear Algebra Review & Reference (CS229) §1–2"
+#       link: /assets/pdf/EEC351/notes/Linear-Algebra-Review.pdf
+#     - text: "Boyd & Vandenberghe, Introduction to Applied Linear Algebra (VMLS) Ch. 1–3"
+#       link: https://web.stanford.edu/~boyd/vmls/vmls.pdf
+#   additional:
+#     - text: "EEC 351 Explainers app (macOS, Apple Silicon)"
+#       link: /assets/pdf/EEC351/2026-27/EEC351_Course_Intro_AppleSilicon.zip
+#   homework: --
