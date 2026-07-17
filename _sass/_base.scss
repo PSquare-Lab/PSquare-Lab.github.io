@@ -86,8 +86,21 @@ table.table a {
   }
 }
 
+// theme.js still adds Bootstrap's .table-dark when the OS prefers dark mode, but this
+// site is light-only — so neutralise both the dark background and its white text,
+// otherwise tables render white-on-cream after sunset.
 .table-dark {
   background-color: transparent;
+  color: var(--global-text-color);
+
+  th,
+  td,
+  thead th,
+  tbody + tbody {
+    color: var(--global-text-color);
+    border-color: var(--global-divider-color);
+  }
+
   &.table-bordered {
     border: 1px solid var(--global-divider-color) !important;
   }
