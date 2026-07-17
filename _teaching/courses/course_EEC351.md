@@ -60,7 +60,7 @@ nav: false
 <div class="course-meta">
   <span class="k">Semester</span><span class="v">Autumn 2026–27</span>
   <span class="k">Instructor</span><span class="v">Parikshit Pareek · pareek [at] ee.iitr.ac.in</span>
-  <span class="k">Lectures</span><span class="v">Mon &amp; Tue · 16:05 – 17:00 @ GB005 · Fri 17:05 – 18:00 is a backup slot if needed</span>
+  <span class="k">Lectures</span><span class="v">Mon &amp; Thu · 16:05 – 17:00 @ GB005 · Fri 17:05 – 18:00 is a backup slot if needed</span>
   <span class="k">Office hours</span><span class="v">Fri · 17:05 – 18:00 @ 214A, EE (instructor's office)</span>
   <span class="k">Piazza</span><span class="v"><a href="https://piazza.com/indian_institute_of_technology_roorkee/fall2026/eec351">Join the class</a> · access code <code>eec351</code></span>
   <span class="k">Teaching assistants</span><span class="v">Ayushi Jolotia · ayushi_j [at] ee.iitr.ac.in<br>Kaustubh Sharma · kaustubh_s [at] ee.iitr.ac.in</span>
