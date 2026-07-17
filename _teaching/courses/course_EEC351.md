@@ -98,8 +98,8 @@ nav: false
       <td>{% for num in lec.lecture %}{{ num }}{% unless forloop.last %}, {% endunless %}{% endfor %}</td>
       <td>{{ lec.topic }}</td>
       <td>{% if lec.slides contains "http" or lec.slides contains "/" %}<a href="{{ lec.slides }}">Slides</a>{% else %}{{ lec.slides }}{% endif %}</td>
-      <td>{% if lec.essential %}{% for item in lec.essential %}<a href="{{ item.link }}">{{ item.text }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}--{% endif %}</td>
-      <td>{% if lec.additional %}{% for item in lec.additional %}<a href="{{ item.link }}">{{ item.text }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}{% else %}--{% endif %}</td>
+      <td>{% if lec.essential %}{% for item in lec.essential %}<a href="{{ item.link }}">{{ item.text }}</a>{% unless forloop.last %}<br>{% endunless %}{% endfor %}{% else %}--{% endif %}</td>
+      <td>{% if lec.additional %}{% for item in lec.additional %}<a href="{{ item.link }}">{{ item.text }}</a>{% unless forloop.last %}<br>{% endunless %}{% endfor %}{% else %}--{% endif %}</td>
       <td>{% if lec.homework contains "https" or lec.homework contains "/" %}<a href="{{ lec.homework }}">HW</a>{% else %}{{ lec.homework }}{% endif %}</td>
     </tr>
     {% endfor %}

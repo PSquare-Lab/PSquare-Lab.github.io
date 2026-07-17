@@ -26,15 +26,17 @@
       link: /assets/pdf/EEC351/2026-27/EEC351_Course_Map.html
   homework: --
 
-# - lecture: [1]
-#   topic: History of AI and Machine Learning
-#   slides: /assets/pdf/EEC351/2026-27/Lec1.pdf
-#   essential:
-#     - text: "Kolter & Do, Linear Algebra Review & Reference (CS229) §1–2"
-#       link: /assets/pdf/EEC351/notes/Linear-Algebra-Review.pdf
-#     - text: "Boyd & Vandenberghe, Introduction to Applied Linear Algebra (VMLS) Ch. 1–3"
-#       link: https://web.stanford.edu/~boyd/vmls/vmls.pdf
-#   additional:
-#     - text: "EEC 351 Explainers app (macOS, Apple Silicon)"
-#       link: /assets/pdf/EEC351/2026-27/EEC351_Course_Intro_AppleSilicon.zip
-#   homework: --
+- lecture: [1]
+  topic: History of AI and Machine Learning
+  slides: /assets/pdf/EEC351/2026-27/Lec1.pdf
+  essential:
+    - text: "Kolter & Do, Linear Algebra Review & Reference (CS229) §1–2"
+      link: /assets/pdf/EEC351/notes/Linear-Algebra-Review.pdf
+    - text: "Boyd & Vandenberghe, Introduction to Applied Linear Algebra (VMLS) Ch. 1–3"
+      link: https://web.stanford.edu/~boyd/vmls/vmls.pdf
+  additional: 
+    - text: "Watch Imitation Game"
+      link: https://www.imdb.com/title/tt2084970/
+    - text: "Turing Machine-- Short"
+      link: https://www.youtube.com/shorts/Wcg06obKCrw
+  homework: --
