@@ -44,24 +44,28 @@
 # --- Linear Algebra Review module (self-contained, not tied to a lecture slot) ---
 
 - lecture: [LA1]
-  topic: "Notation & basic objects; vector/matrix products (inner, outer, column view); properties of matrix multiplication"
+  topic: "Notation & basic objects; vector/matrix products; properties of matrix multiplication"
   slides: --
   essential:
     - text: "Kolter & Do §1–2"
       link: https://cs229.stanford.edu/section/cs229-linalg.pdf
   additional:
+    - text: "3Blue1Brown, Essence of Linear Algebra"
+      link: https://www.3blue1brown.com/topics/linear-algebra
+    - text: "Deisenroth, Faisal & Ong, Mathematics for Machine Learning (Ch. 2–4)"
+      link: https://mml-book.github.io
   homework: --
 
 - lecture: [LA2]
-  topic: "Transpose, symmetric matrices, trace; norms (ℓ1/ℓ2/ℓ∞, unit balls), Cauchy–Schwarz & cosine similarity"
+  topic: "Transpose, symmetric matrices, trace; norms, Cauchy–Schwarz & cosine similarity"
   slides: --
   essential:
     - text: "Kolter & Do §3.2–3.5"
       link: https://cs229.stanford.edu/section/cs229-linalg.pdf
   additional:
-    - text: "Demo: ℓₚ Unit Balls"
+    - text: "EEC_351_Demo: ℓₚ Unit Balls"
       link: /assets/pdf/EEC351/2026-27/LA/norm_balls_explainer.html
-    - text: "Demo: Cosine Similarity"
+    - text: "EEC_351_Demo: Cosine Similarity"
       link: /assets/pdf/EEC351/2026-27/LA/cosine_similarity_explainer.html
   homework: --
 
@@ -75,18 +79,18 @@
   homework: --
 
 - lecture: [LA4]
-  topic: "Linear projection & least squares (OLS geometry, normal equations)"
+  topic: "Linear projection & least squares"
   slides: --
   essential:
     - text: "Kolter & Do §3.9, §4.4"
       link: https://cs229.stanford.edu/section/cs229-linalg.pdf
   additional:
-    - text: "Demo: Least Squares Line Fitting"
+    - text: "EEC_351_Demo: Least Squares Line Fitting"
       link: /assets/pdf/EEC351/2026-27/LA/ols_explainer.html
   homework: --
 
 - lecture: [LA5]
-  topic: "Determinant (signed volume); condition number & numerical sensitivity"
+  topic: "Determinant; condition number & numerical sensitivity"
   slides: --
   essential:
     - text: "Kolter & Do §3.10 (condition number: supplementary — see Trefethen & Bau, Numerical Linear Algebra)"
@@ -104,25 +108,31 @@
   homework: --
 
 - lecture: [LA7]
-  topic: "Eigenvalues & eigenvectors; diagonalization & the spectral theorem; eigenvalues as optimization (Rayleigh quotient)"
+  topic: "Eigenvalues & eigenvectors; Diagonalization & the spectral theorem; eigenvalues as optimization"
   slides: --
   essential:
     - text: "Kolter & Do §3.12–3.13, §4.6"
       link: https://cs229.stanford.edu/section/cs229-linalg.pdf
   additional:
-    - text: "Demo: Eigenvectors as Fixed Directions"
+    - text: "EEC_351_Demo: Eigenvectors as Fixed Directions"
       link: /assets/pdf/EEC351/2026-27/LA/eigenvector_explainer.html
-    - text: "Demo: Rotate · Scale · Rotate"
+    - text: "EEC_351_Demo: Rotate · Scale · Rotate"
       link: /assets/pdf/EEC351/2026-27/LA/rotation_explainer.html
+    - text: "Setosa, Eigenvectors & Eigenvalues, Explained Visually"
+      link: https://setosa.io/ev/eigenvectors-and-eigenvalues/
   homework: --
 
 - lecture: [LA8]
-  topic: "Singular Value Decomposition; PCA; matrix calculus (gradients, Hessian)"
+  topic: "SVD; PCA; Matrix calculus (Self)"
   slides: --
   essential:
-    - text: "Kolter & Do §4.1–4.3 (matrix calculus; SVD/PCA: see Additional resources below)"
+    - text: "Kolter & Do §4.1–4.3"
       link: https://cs229.stanford.edu/section/cs229-linalg.pdf
   additional:
-    - text: "Demo: PCA Playground"
+    - text: "EEC_351_Demo: PCA Playground"
       link: /assets/pdf/EEC351/2026-27/LA/pca_explainer.html
+    - text: "Setosa, Principal Component Analysis, Explained Visually"
+      link: https://setosa.io/ev/principal-component-analysis/
+    - text: "Petersen & Pedersen, The Matrix Cookbook"
+      link: https://www2.imm.dtu.dk/pubdb/edoc/imm3274.pdf
   homework: --

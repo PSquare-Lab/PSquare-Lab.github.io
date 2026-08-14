@@ -49,6 +49,8 @@ nav: false
   background: inherit !important; color: inherit !important; font-weight: inherit !important;
   transform: none !important; box-shadow: none !important; text-decoration: none !important;
 }
+.table-no-hover table td .cell-item { display: block; padding: 3px 0; }
+.table-no-hover table td .cell-sep { display: block; width: 36%; border: none; border-top: 2px solid var(--global-divider-color); margin: 4px auto; }
 </style>
 
 <div class="course-hero">
@@ -60,14 +62,16 @@ nav: false
 <div class="course-meta">
   <span class="k">Semester</span><span class="v">Autumn 2026–27</span>
   <span class="k">Instructor</span><span class="v">Parikshit Pareek · pareek [at] ee.iitr.ac.in</span>
-  <span class="k">Lectures</span><span class="v">Mon &amp; Thu · 16:05 – 17:00 @ GB005 · Fri 17:05 – 18:00 is a backup slot if needed</span>
-  <span class="k">Office hours</span><span class="v">Fri · 17:05 – 18:00 @ 214A, EE (instructor's office)</span>
+  <span class="k">Lectures</span><span class="v">Thu · 16:05 – 17:00 @ GB005 · Fri · 17:05 – 18:00 @ GB005</span>
+  <span class="k">Office hours</span><span class="v">Mon · 16:05 – 17:00 @ 214A, EE (instructor's office)</span>
   <span class="k">Piazza</span><span class="v"><a href="https://piazza.com/indian_institute_of_technology_roorkee/fall2026/eec351">Join the class</a> · access code <code>eec351</code></span>
   <span class="k">Teaching assistants</span><span class="v">Ayushi Jolotia · ayushi_j [at] ee.iitr.ac.in<br>Kaustubh Sharma · kaustubh_s [at] ee.iitr.ac.in</span>
 </div>
 
 <h4 class="course-section">Announcements</h4>
 
+- **2026‑08‑14** — The **Linear Algebra Review** module is live under Course content (rows LA1–LA8), with readings and interactive demos. You can browse all of our demos via <a href="/assets/pdf/EEC351/2026-27/LA/index.html">explainer hub</a>.
+- **2026‑08‑14** — Lecture schedule updated; see Course information above.
 - **2026‑07‑08** — First class is on **Thursday, 16 July 2026**.
 - **2026‑06‑18** — Course website for the Autumn 2026-27 offering is live. Announcements are posted here regularly; email is sent **only** when something is urgent.
 
@@ -98,8 +102,8 @@ nav: false
       <td>{% for num in lec.lecture %}{{ num }}{% unless forloop.last %}, {% endunless %}{% endfor %}</td>
       <td>{{ lec.topic }}</td>
       <td>{% if lec.slides contains "http" or lec.slides contains "/" %}<a href="{{ lec.slides }}">Slides</a>{% else %}{{ lec.slides }}{% endif %}</td>
-      <td>{% if lec.essential %}{% for item in lec.essential %}<a href="{{ item.link }}">{{ item.text }}</a>{% unless forloop.last %}<br>{% endunless %}{% endfor %}{% else %}--{% endif %}</td>
-      <td>{% if lec.additional %}{% for item in lec.additional %}<a href="{{ item.link }}">{{ item.text }}</a>{% unless forloop.last %}<br>{% endunless %}{% endfor %}{% else %}--{% endif %}</td>
+      <td>{% if lec.essential %}{% for item in lec.essential %}<span class="cell-item"><a href="{{ item.link }}">{{ item.text }}</a></span>{% unless forloop.last %}<hr class="cell-sep">{% endunless %}{% endfor %}{% else %}--{% endif %}</td>
+      <td>{% if lec.additional %}{% for item in lec.additional %}<span class="cell-item"><a href="{{ item.link }}">{{ item.text }}</a></span>{% unless forloop.last %}<hr class="cell-sep">{% endunless %}{% endfor %}{% else %}--{% endif %}</td>
       <td>{% if lec.homework contains "https" or lec.homework contains "/" %}<a href="{{ lec.homework }}">HW</a>{% else %}{{ lec.homework }}{% endif %}</td>
     </tr>
     {% endfor %}
@@ -110,18 +114,6 @@ nav: false
 {% unless lectures and lectures.size > 0 %}
 <div class="course-note">The weekly schedule will appear here as the term begins. Material from the previous run is on the <a href="/teaching/course_EEC351_2025/">Autumn 2025-26 page</a>.</div>
 {% endunless %}
-
-<p>The Linear Algebra Review (rows <strong>LA1–LA8</strong> above) is a self-contained module following Kolter &amp; Do's <a href="https://cs229.stanford.edu/section/cs229-linalg.pdf">Linear Algebra Review and Reference</a> (CS229), with interactive, fully offline explainers linked from the Additional column — open the <a href="/assets/pdf/EEC351/2026-27/LA/index.html">explainer hub</a> to browse all of them.</p>
-
-<p><strong>Additional resources</strong></p>
-
-- <a href="https://cs229.stanford.edu/section/cs229-linalg.pdf">Kolter &amp; Do, Linear Algebra Review and Reference (CS229)</a>
-- <a href="https://www.3blue1brown.com/topics/linear-algebra">3Blue1Brown, Essence of Linear Algebra (video series)</a>
-- <a href="https://mml-book.github.io">Deisenroth, Faisal &amp; Ong, Mathematics for Machine Learning (free book; Ch. 2–4 cover this module)</a>
-- <a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/">MIT OCW 18.06, Gilbert Strang, Linear Algebra</a>
-- <a href="https://setosa.io/ev/eigenvectors-and-eigenvalues/">Eigenvectors &amp; Eigenvalues, Explained Visually (interactive)</a>
-- <a href="https://setosa.io/ev/principal-component-analysis/">Principal Component Analysis, Explained Visually (interactive)</a>
-- <a href="https://www2.imm.dtu.dk/pubdb/edoc/imm3274.pdf">Petersen &amp; Pedersen, The Matrix Cookbook (reference for matrix identities and derivatives)</a>
 
 <h4 class="course-section">Assignments</h4>
 
