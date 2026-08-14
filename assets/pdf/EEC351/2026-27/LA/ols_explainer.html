@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Least Squares Line Fitting · Fundamentals of AI/ML</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0; background: #f9f8f4; color: #1a1a1a; line-height: 1.55; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+  header { border-bottom: 2px solid #143C78; padding-bottom: 10px; margin-bottom: 18px; }
+  header h1 { margin: 0; color: #143C78; font-size: 26px; }
+  .subtitle { color: #555; font-size: 13px; margin-top: 4px; }
+  header { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .head-left { min-width: 260px; }
+  .seal { display: flex; align-items: center; gap: 14px; padding-bottom: 2px; }
+  .seal .lab-unit { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .seal img { height: 40px; width: auto; display: block; }
+  .seal .cap { font-size: 10px; color: #666; letter-spacing: .03em; white-space: nowrap; }
+  .seal .lab-div { width: 1px; height: 34px; background: #ddd; }
+
+  .intro { font-size: 15px; max-width: 850px; margin-bottom: 16px; }
+  .eqn { background: #f0f4fa; border: 1px solid #143C78; border-radius: 4px;
+    padding: 12px 16px; margin: 14px 0; font-size: 17px; text-align: center; font-family: Georgia, serif; }
+  .eqn b { color: #143C78; }
+  .toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
+  .btn { background: #143C78; color: #fff; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 600; }
+  .btn:hover { background: #0d2a55; }
+  .btn-alt { background: #fff; color: #143C78; border: 1px solid #143C78; }
+  .btn-alt:hover { background: #eef2f9; }
+  .layout { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+  .viz { background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 8px; }
+  .viz svg { width: 100%; height: auto; display: block; cursor: crosshair; }
+  .panel { background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 12px 14px; margin-bottom: 12px; }
+  .panel h4 { margin: 0 0 8px; color: #143C78; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .info-row { font-size: 14px; margin: 4px 0; }
+  .info-row b { color: #143C78; }
+  .info-row .key { font-family: "SF Mono", Consolas, monospace; color: #B42828; }
+  .matrix-box { display: inline-grid; grid-template-columns: auto auto; gap: 4px 16px;
+    font-family: "SF Mono", Consolas, monospace; font-size: 13px;
+    padding: 4px 10px; border-left: 2px solid #143C78; border-right: 2px solid #143C78; }
+  .matrix-box span { text-align: right; }
+  .vec-box { display: inline-grid; grid-template-columns: auto; gap: 4px;
+    font-family: "SF Mono", Consolas, monospace; font-size: 13px;
+    padding: 4px 10px; border-left: 2px solid #143C78; border-right: 2px solid #143C78; text-align: right; }
+  .checkbox-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 6px 0; font-size: 14px; }
+  .checkbox-row label { cursor: pointer; user-select: none; }
+  .checkbox-row input { margin-right: 4px; vertical-align: middle; }
+  .legend { font-size: 12px; color: #666; padding: 6px 8px 0; }
+  .legend .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: middle; margin-right: 4px; margin-left: 8px; }
+  .footer { margin-top: 20px; padding-top: 12px; border-top: 1px solid #ddd; font-size: 12px; color: #777; }
+  .hint { font-size: 12px; color: #777; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="head-left">
+    <h1>Least Squares Line Fitting</h1>
+    <div class="subtitle">Fundamentals of AI/ML · Prof. Parikshit Pareek &amp; Prof. Jitin Singla · IIT Roorkee</div>
+  </div>
+  <div class="seal">
+    <div class="lab-unit"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAABgCAIAAABaGO0eAAAdQUlEQVR42u1deVhUR7ave3ujgaabRRAFQQRcMCCu7QJiFP0giookSIKoiTGjcZKMmowT9ct8zpjFGMcFlzGTkKhRo3FDUVA0BlRkERFkEREFWhQEuoHel3vfH+dZ76bpbprW5DVO6g8+7u1761adU3XqnN85p4qgaRr1zkLTNEVRRu0nSZIkyV7UC6KXMsBgMLBYLJM/URQFnOgVHWH3Xurr9foTJ06cP3/+wYMHBEEMGDBALBZHRkYGBwdb5tAfM+A5UP/IkSNr1qyhaXr48OFCobC5ubmoqEgqlSKEZs+evXbt2jFjxvQOHtC9quj1epqm161b5+HhcfDgQVgDoOh0uiNHjvTv3x8hxOFwtm3bhp+354J6HfV37dolEokkEgkswnq9XqfTYULX1dWBCEIIpaam2j8Peg0DDAYDRVH19fUODg43btygaVqj0TAfoCgK7ty4cYPL5ZIkyWKxysrKKIoyGAx/MOBZi06no2n6zTffnDt3Lk3TWq3W5GNwf8GCBTAJEhMT7XwS9A4GgKxXq9W+vr5lZWUwIcyJKYqiLly4gBAiCMLFxaWlpQXXYIeFfF4rOdWT0lPVC56/e/duW1vbhg0bNm/ebK4SkiQJghg+fLiTkxNN0x0dHeXl5dg4eHHsADwwEUIsFosgCIIgbFAoaZomCAKo1i0DGhsblUrl0aNHjx49KhQK3377bb1ez2ab6IJIJHJzc1MoFAihx48f4xpeBAbAEGaz2UA4uKlSqaRSaWdnp1qtttBVgiA4HI6zs7NIJHJxcWEq6Xq9vlsUgcPh0DTN5/NVKtW9e/csWTc2DQi7ZgCMd/JpMRgMt2/fzsvLKywsrKiokEgkbW1tKpXKmoHG4/GEQqG3t3dwcPDo0aMnTZo0atQoHo8Hc4LJV6ZgoWl63LhxM2bMyM7ODg4OXrRoEU3T5hjW0dEBRhlCqG/fvsCSXmyIMbWI69evr169evjw4eaMTJIkOV0Km81msVjm6BUYGLhy5crS0tKunzNah2marq6uViqV5tZVePfq1atQs/0vwqhb9QMktV6vP3ToUFRUlMmh1K0QN5JCwA82mw2i7H8nI5udkpJy//79bnlggaCgrf7973+Hb82ZM8fO1VBLWBDGUk6dOrVx48bCwkK47+zs7Ovr6+Pj07dvXy8vr2PHjt2/fx9GN0VRISEhCQkJIK9AMW9vb29qampoaKirq2tubv4/8cdmA3dBrOn1eoSQm5vbrl27EhMTzSE5FEWZE/GYNyEhIXfv3qVpOicnJyIiwq5BIcuGz6NHjxITE+FJDw+PJUuWHD9+vK6ujjmmxo8fD7oQKCQrV640V6dMJsvPz//qq6+mTZvG4XCgWiZpsEqzc+dOG0YutPnQoUO9xQozK4KgJ5cvX/b19YXOLF++vKGhwUja6nQ6pVLp7+8PUgjIt2nTJp1Op1KpdIwC9hHz9YqKilWrVgkEAiMeAISAELpw4UKPyAe4kEqlAizI19f3yZMnBoPBnnEI0wwA6v/0008wSAmC2Lx5M/5Jr9cDLAMEbWlpEYlE8BgQ7siRI7gSkyuKTqfDRLl7925cXJwRD+D/wMBAlUqFP9RtARBizZo1CCFHR8f8/PxeiYZCizMzM2EkkiQZFxcH3TMaSnB5584dkP5YLlvZc+AE/L927VqTPDh69Kg5XpocNBcuXCAIgsfjZWRkWPmifTEAhnZdXZ2rqyuoKwih69evw+w2yapffvmFqQXx+XwAiq2c+JgN7733HpMHoB0tXLjQGjrCt+rr6/v06cPlctPT03sL9Y0ZADQFmcDn8xFCISEh5sQo9PDAgQNAL5gHAwcOBFFgvd6NMf1hw4ZhKww4MX78+G6rgkGjUCjCwsLYbHZWVlYvov6vGADULywsJEkS7FIej/fLL7+YkyfQyQ0bNgADgGRTpkyxfvgbVfXdd99h0gMbwsLCrGEeTdMzZsxACGVnZ1tAqu0dDQWDYPv27eDZCA8Pv3TpUmRkJEVRFpRojMmACBo8eLAN0CNYDNHR0Xw+H9AIqM3R0dECjgacZrFYCxcuzMrKys7Onjp1qk6nwwouVrLtGQsijdY9Z2fnhISEH3/8saCgYMKECWBPmXwTngcG4E4OHz7clsgAgiAIwsvLy8fHh7me+/n5WWAnQKFr1qzZt2/fhQsXpk6dqtfrmdTvHahct4ubBQ+JSqUCkmEg89KlS8+i/L300ktMk2LLli3mBDrIma1btyKEQO6blDwdHR1yubw3qaEgVbvaTSZ5U1NTA5SyTQWywE5YjcvLy03WBiz58ccfEULnzp0zSX14ZvHixWCX2K1BYKNLEpsLzOE/dOhQ28xObFIAO0EHjYiIsED9y5cvI4ROnz5tbuwDUyMiIgoLC20YE79bsd0jhhAqKyvDGgtFUcOHDwdXQU+RL8DXcnJyQKxDyz788MOuK7DBYGCz2SUlJdOnTz9y5MjMmTNVKhWHwwEgj9k8kiQ7Ojra29sDAwPt2R/wTKGJt27dYl6OHj3aNucfyJwffvgB/tdqtZMnT541a5aRAgaXDx8+XLBgwdmzZ6dOnYrtFZPl8uXLer1eJBKB4/OFYgCLxaJpGmYA1lKAAT3tqsFgIEmyqKgoJyeHxWIZDAYul7tz586uc44kSaVSGRsby+FwiouLL168aNIhrNfrlUqlTCbLzMyMiIjA8+bFCU0E8fro0SMnJycsggQCQXNzsw2+J5Dp06dPRwg5ODiYjGgDFE+pVIKVbn3ZsGGDnRvGyOYVODs7m4kejxs3zgbqw/q5b98+TP2lS5d2JRl88cyZMz0dXgcPHrRzBrBtXoELCgqYYfhisbinkx3spvLy8nfffZfL5arV6vj4+D179nRdxuErYrE4Nze3R8ZtWFiYEc76IoggJmbHYrGgez/99FOPxhqM/bq6uoCAAKBvQkICuArs1oFuFyIIG00QCA60c3BwqK+vt1LdNhgMwMKysrKgoCDsccPhdZahtx4V++clsm3437hxg+kFGzVqVLcLACYfXB44cMDd3R0w1x07dmBgmf4vKz1mAAiZ7du3g8nKdMQz5Q+MZRjszPh9mqZv3ryZkJAAAz88PDwvL49+GlRL//cVG2dAfHw80w+DXYDMMW5U5HL52bNn58+fDzxzcnJav349hFj1Iv/Jcy89yxEDk1KpVAYGBj569AjsJpFIdO/ePVdXV5oRK6hSqVQqVVtbW0NDw+3bt/Pz8/Py8mpra+HX+fPnr127FrBrC4j3f0WxYfhfuXKFCRrHxMTgB9LT05OTk1966SUfHx83Nzcul2sUFZqYmHj16lVc23+n2LHdDoDpgk0wuAlGrEQiWbp06blz50y+GBwcHB8fn5ycHBISgtGLXpFG+luXnokgEBcTJ068du0ai8UCFLO6uprH440YMaK1tZX5MJ/PHzJkSGRk5CuvvDJp0iRAzewti9pgMIA69//VJHZPqV9fX19cXIwnRGho6KBBg3Jzc0NDQ52cnBwcHLy8vAYOHDh06NBhw4ZB0Jz1GQAmMzgsYKjPTjU8C61BTI1Ab8tOVivnd88YQBDExYsX1Wo1xhtmz54Nfo9Lly6ZazSMLxvwyN9URgHFCwsL29vbPTw8RowY0S0PetoFa1wjPagRHNzp6em4doIg4uLiCIIAKhMEgYEauLSN7pg6x44dy87OxtY1sxlOTk5LliwJCQmxTYkC0qxatWrLli1wZ+vWre+//745koHKsGfPHiMEvivD+Hy+v7//hAkTxGIxaInd8KBHCERbW5urqysem8OGDfstNBmguEQisUzEyMhI25y90GCFQuHu7g6hjBBQY84Uh09A5qX1RSwWWxNfTPZIHF+6dEkqlUJWHkJozpw5wOTnrBgQBE3TQqFwwoQJXC4XEjqYhcfjOTo6Tp482bb6YfxWVFS0tbUhhLRaLUEQDx48aGhoIAiiaxQMtMff3z8gIMBke5gFv3X9+vXo6Ojt27d3Q6IeWQBJSUkEQYDTnCCI4uLi3yjgAEaiTqerqKiorKycM2cOtPavf/1rZWVlWVkZJNLYVsDwTk1NxTF9MKGPHTtm2SyXyWRVVVUQwYcQGjJkSOXTUlFRUVFRUV5enpeXt2PHDrAxIUjp1KlTFqiErCeHVCoF+Az4PGLECOtjx5+xvPnmm9Dn7du3G7XKZjg9KSkJgu+io6NhQq9atcoCA/DncALayJEjzX1CqVTCoCFJ0tfXVy6Xm6MVab38uXDhQmtrK15S5s+fTxDEc5c/RrNTq9UCjAp34BL+2uZnp2ka9hoqKioCSGr+/Pmwwl+/ft2CjQK6BkVRKpUKizKTRafT8fn8ffv2eXt70zTd0NCQkZFhjlak9frP4cOH4R/wm7/66qu/tUkFehQzAxDfsfm7QOva2tr79+8jhDw9PWNiYlxcXBBC5eXlra2tEKhquT1GtohR4XA4Op1OIBBAjhRBED///HP3saGWh0xTU9P58+dxy6KiogICAnojjgZrbGFhIcyqoKAgb2/vgIAAhJBMJistLUXPY18DWLcBd6FpuqmpyVy8CGmN/IGVRC6XQzQKTdOLFi1CdrwBQ7fFSI6PGjUKqy7o+e1rANgMQRCQCmey2u4ZAGN8//79UJfBYPDy8po5c2YvRdOgzfn5+XA5ZswYgiAmTJgAl9euXUPPHEb3v0A/QZw6dQouJ06caKMlDEIGtCvcrMTERIFAYG6jDDuXPyRJNjY2VlVVIYScnZ0hbGLMmDEkSVIUdfPmTZVKxefzrYGGwGY0acNzOJy0tDQgmru7e0JCAkjyHs8AEDL79++HeBNwubz11luo9+wL2XUFLi4uViqVYP2CohIUFASB2Zg31kghbEMwC9z8+uuvly9fDivBnj173NzczKlt7G6XX7VaDanPLBZLp9NNnjw5NDS0l7qxgKwgZ2Dgg2rr4OAQFhYGgR0FBQXh4eHddpAgCKlUCvHhuCiVyqqqqtOnT8Nawmazd+/ePW/ePAuIENvy8stms8+fPy+RSDgcjlqt7t+/P+Sw99K1F2ial5cHl5DjD90Ri8WnT5+G9fmdd96xRs+pra2NiYkx+Sufz58zZ86nn37q7+9vlDXVAxEEYnHTpk1gXMydO/fatWshISG0+X1i7Hz4kyTZ3t4OuiZJkhBNDGNz7Nix8FhRUdGzB/OqVKqOjo5r164B9S2oi2zLzdXr9QMGDAgKCkpJSZkyZQrqzT50iG4vLS0FDG7AgAGQOgAMCA0NFQgEnZ2dNTU1EK9nuac0Tffr1w/Sm5lFrVZXV1dnZ2dnZGRkZGTs2bNn//79fn5+ZmvrEUr8+/vQAZlZuHAhtParr76yOYwF3tq0aRNUNWfOHIPBoNFocOQStgbM7bYAIBJ2PUE4msnS0tLy5z//GR4LDAxsamoyl25NWjNw4GXrNwWyzwKNxybYjBkzSJLkcrlYdYmKijIy0ywXCyGR7u7u27dvX7JkCUKopqZmxYoV5hAOtpULV28vWKMDhzZBEGlpaWfOnAG1Hf4+ePAAlj0w07o1MwGZN6e/EATx5Zdfnjx5sq2t7ejRo6WlpSa1RzZ64Qr2jzK7CiS+c+eORCIBikN4vclZUl5e/uTJkz59+tic2wSAq0gkio2NheyH9PR0kwx4AUPSTO5PB3pIQUEBKBcsFkskErn+ugiFQpjxnZ2dkP72jGAXTdMjR46E/8G+sxGO7i1ChqZptVq9bt26119/HUwhIwqCcKcoatmyZXfu3CkvL696WsrLy6urq2NjY+EVsBWe3eLBcgzA167z6cURQaBlXr16dePGjQihpqamixcvYgpCGBlsewcpaZ6enl0refnllzMyMrC1/IzrH0EQsJwQBAHpFF05+qKJoM7OTtBqtFotHnGAw9TV1dXU1CCEAHgwSicBFRObYyUlJQqFwoJzxvJc1Gq1bDb7wYMHJ0+ehEoiIyNNzgC7ZgBzbzTcN8u7UgNgzgxhA42eoqiioiLgSmBgYL9+/QCfIZ4WmCIhISEQd/P48ePKykqAAJjYp9Ge1V0bAFTmcrlSqTQpKUkulxME4evrGx0dbRJBsGsGsFgsOAkAa3twCX+7OgLxTkdGcoDH45EkiTG4yMhIoxAS9DSY0NXVFRA6hBBsnYQDvIGsJElCNicy449ECLW0tBw8eFAsFl+/fp3H4xkMhs8++8zR0dEkIGqnZ8iAWNi8eXNmZiZN01VVVeDVCwgI8PHxMQftEgTR2tpaVVVFUdTEiRNzcnIoipJKpevWrauurr5161ZbWxtBEIMGDQoICIiLi1u2bBlTef3000+vXLlSVVXV2NiIEOrXr9/gwYNHjx79ySef8Hg8hUKxdu3asrIymUwGOpKzs3N4eLhRsxUKRX19fUtLCwbT3n///a1bt5oFRO0wZB7vAfcsLITtzmiaBl+eydLe3o6lf0VFhbnHIKHBhixlR0fHzz77zHImhD1qQWAoeXp6JicnX758GdMIWb1HMpfLXbx4MXrqDpwwYUJdXR1IcGwoxMXFwRkDsEj6+vrGx8fn5+cD9AICkCTJsLCwIUOGUBQVHh4eFRUFG/JindKkmsTlcn19fadMmbJgwYKgoCDLW47Z+zFWCoXCBmuIy+UaLQawbRNzdYH90Cx/jiAIZ2dnxAheN6rHZOFwOHid6DY4164Z8CzQN37XHJzQtXKTT+Jgb/yPlWsYwJfdtt/eZ4DNzTOiVNd6zG3/3dN6rPl6L2bAC19Ic3oRnqd/cOi3hQ67Uh+mj0ajAesG38SWHnOiwR5lXfHInsoZZiVYdBrlZLHZ7K5tsPA5ZorZczzmFtrwvCr8lQgCQt+/f//27dtOTk6gt40ePdrd3d2ed/36HZb031DnZsIsBEHcunWrtrZ21qxZMLpbWlqysrKioqJ8fHwuX76ck5MDwe/Af7FYLBaLU1NTORyOXC6HSvr27fvOO+84OjpawzMgSmVl5ffff+/g4MDhcDo6OiIiImbOnCmXy7ds2aJSqVxcXGQymaen56pVq27evHn69GmVSuXk5KTVajUaTb9+/ZYuXWoylm3Xrl1SqVShUPB4vLi4uPDwcOYzJrWarjfxKwBDsVisnJyc7Ozs+Ph4yJCAXy1Xa+E+yfy5ra2tqqpq7ty5p0+fPnHixNmzZxUKRXJyck5Ojlar5fP5Bw4cyM3N9fDwEIlEjx8/Xr58OUmSd+7cSU1NdXd3FwqFrq6uK1euvHPnTo8UGBaL5e7uXlBQkJaW5uHhAUo0QRBubm4Gg+Ef//iHi4sLRJBv2bLlxIkTHh4e27Ztq6qq8vDw+OCDDwDjNJrKwN0NGzY4OjqqVKqZM2dCeD3IJXwOClP04V2TmSsfkAx+Aj8Xn88vLi5OS0vDD2Cy4hrop4es4XW06+d+teRCs7Kzs6VS6bFjx3CuSGpq6rFjx0pLS0tKSmiafvvtt3ft2oWTQGBHtszMzJkzZ2Lb+osvvsBHnfYIgdi3b19KSorRzfb2dmYiyg8//AA7dL/yyisAE23cuLGxsZE2dcSPUqmEGDfo2tChQ5kQ9MOHDzs7O/Ed+NvR0fHw4UPmrlJKpRJq0Gq1UqkU7h8+fPiDDz6gKKqjo8NgMMD5XVCDSqWCCDujvJr6+np4zIgsJJPPKpVKJBLt378fUoLYbLafn196ejoEVsD31Go1Quj48eMymWz9+vWQOqnRaBBCRUVFubm5H330ETgfrF8zICpEJpMpFAq9Xg+gMVj8zc3NarVaLpdD915//XXYI1qj0bS2tur1+o8//tjb29vk51pbW6Eq8M9g21gul7/66qsJCQmTJ09OTU2F8CeSJP/1r39FRUXNmzcvKSkJTuHbtGlTVFRUQkLCzp07X3755TFjxnzyyScURTU1NXG5XIlEMmPGjP79+y9atAh0ltTU1LFjx7722msTJ068d+8eDPzbt2+PHz/+tddeGzt2bFpamnEeIJNRZ8+eNRgMsbGxEokE1vrMzMwVK1bodDrYIXjp0qVDhgyB7KeLFy9C5MyZM2fc3Nzi4+P79Onz7rvv6nQ6o4Nmrc+agyhiuIQm1dbWhoSE4LFjMBhgr7Po6OjDhw/TNK3RaLpONbjT3Nzcr1+/t956a968ee7u7rAxEWSHLViwQKPR3L1719fX9+zZszRNnzx50s/Pr7a2Vq1WJyYmwlxUKBRwFKVYLL5//35RUREEUqSmpn788ccajWbQoEEbNmyQyWRAh0GDBsF03Lp1a1RUFEypIUOGwN6BdXV1fn5+lZWVzInIZi41MBDgxFIYxW1tbRCGDvqDWq2ePHnyG2+8odfrhUIh6H8ajcbPz+8vf/mLn59f//79IYia6T95jgFFXV1UOGfW5ArP4XBGjBihUqlKSkpAY25tbS0sLLx58yaXyw0MDFy9evXevXtjYmL27t37t7/9beDAgQih3bt3jxs3TiaTwZmULi4uhw4d8vf3xzsvwC7ZY8eOjY+PX79+PajL33zzzahRo/Ly8kBxuHLlilarvXLlilwud3R0/P77711cXLhc7pkzZwDdA5L+SoP28fEpLy9fu3btP//5z+DgYMjkl8vlJSUlnp6ekB0XHh4eERExbtw4kiSfPHni7u6u0Wj69OkzadKkiRMn6vX6jo4ONpuNtSBrkjiYgC38gzF6fIwcQCtMBd+kTWAk2ZydnZctW8ZisSQSybfffjt27Fi1Wg3xPDqdjsViCQQCkDZKpVIgEEDNYP2o1WqDwSCTyXx8fDw9PXU6HbAQenfw4MHly5fn5+e3tbU5OzvDXFQqlT///LNGo+HxeJs3bwaljiTJ3Nzczs5OkiRTUlJmzZrF9DaTzJEVGhp6+/ZtZ2fnL7/8sqGhQSaTbd68+cMPP4SzoUiSFAgE0Dgul8tmsxMSEpqbm319fYHKkJjw+eefw4ZmEKF3/PhxLNMtwIdsNtvFxYXP57PZbHBCAZngWBhnZ2ejI34cHBxEIpFlvd7NzQ0IDZPYzc3t8OHDAoFAKBT+5z//AQ9aampqdHQ0QmjatGmQVM1ms7/++muhUOjl5cVisby8vLhcrqOjI4fDAYAaaPWnP/1p27ZtU6dOXbFiBZfLJQhi+vTpCoVix44de/fu3bFjh0QikcvlkyZN0uv177333r///e/du3d7eHjU1dWZdsjAAJTJZEeOHCkuLm5vb+/o6KipqcnJyfnuu+8ePnx45swZb2/vsLCw5OTkN954Izk5WSAQwLkVQqEwOTk5KSkpJSXFx8cHvBA0TR88eBAhBHvymQzohBFXWFi4YMGCkSNHent7Jycn79u3D1qybNmy2bNnOzg4JCUlrVmzBiaHTqdbs2aNSCQaP358RkaGyRPLoS8fffQRh8NZt24d7BEIp//JZLKSkhI/P7/FixdPmTIlNjZWq9Xq9Xq1Wj19+vRp06YtWrRo4MCBkIO+Z8+euLg4Pp+flJS0evVqmBPp6emjRo0KDAz85ptvwM0ZExNTXV1NUVRiYmJoaOjSpUtDQ0NhF074tI+PT0pKyty5c/39/cFhh9tswhIG9xB47zgcjlAo9Pf3d3BwqKqqqqmpgURZeKxv377Dhg27evUql8vt7OyEYevo6CgWiz08PAAKnzVrVkhIyOeff24ypQm+2NjYmJubC4ZYZ2fn4MGDR4wYodFozp07p9PpwBATiUTTp0+H72ZlZcE5KyEhIcHBweYsvkuXLoH5ApsafPvtt0FBQbCbdGtr64kTJzw9PWH3U1zDqVOnWlpa5s6d6+bmhhAqKCioq6sTCoVSqVQgEMyYMYPFYlVWVsLhXbArWHV1tVwuj4qKgleuXr1aVlY2ePBgZjC5RCLJyspycHCIj483thnN5YNbed9yNvoXX3wxcuTIxsbG3y2n3nqXp1G/jJr3LAchGFVotEmB0YdMw9FGXiGmLd5VLTF5E168ceOGv79/t1CSUc3Y1WdkN+JlAN+3rF9hExRDe1gpAGJ11RGgZlytERiM38XhJ1ipZ74CZjazZvxK1wb/Hv6AFwDI+139Ac8XgPyD+n94xOy6/A8zXxDE+yLfrgAAAABJRU5ErkJggg==" alt="P-squared Lab logo"></div>
+    <div class="lab-div"></div>
+    <div class="lab-unit"><img src="data:image/png;base64,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" alt="Integral Lab logo"></div>
+  </div>
+</header>
+
+<p class="intro">
+Given <i>n</i> points (<i>x<sub>i</sub></i>, <i>y<sub>i</sub></i>), the <b>ordinary least squares (OLS) line</b> minimises the sum of squared vertical distances from each point to the line. The minimiser has a closed form: <b>β̂ = (X<sup>⊤</sup>X)<sup>−1</sup>X<sup>⊤</sup>y</b>. Click to add data points and watch the line — and the matrix arithmetic — update live.
+</p>
+
+<div class="eqn">
+β̂ = arg min<sub>β</sub> ‖y − Xβ‖<sub>2</sub><sup>2</sup>,&nbsp;&nbsp;
+X = [x | 1],&nbsp;&nbsp;
+β̂ = (X<sup>⊤</sup>X)<sup>−1</sup>X<sup>⊤</sup>y
+</div>
+
+<div class="toolbar">
+  <span style="font-weight:600;color:#143C78;font-size:13px;">Preset:</span>
+  <button class="btn" data-preset="linear">Noisy linear</button>
+  <button class="btn" data-preset="quadratic">Quadratic (line fails)</button>
+  <button class="btn" data-preset="outlier">Linear + outlier</button>
+  <button class="btn" data-preset="anscombe">Anscombe-like</button>
+  <button class="btn btn-alt" id="clear-btn">Clear all</button>
+</div>
+
+<div class="layout">
+  <div>
+    <div class="viz">
+      <svg id="canvas" viewBox="-220 -160 440 320" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="legend">
+        <span class="swatch" style="background:#143C78"></span>data points
+        <span class="swatch" style="background:#B42828"></span>OLS fit
+        <span class="swatch" style="background:#f4a261"></span>residuals
+        <span class="swatch" style="background:#2a9d8f"></span>mean (x̄, ȳ)
+      </div>
+    </div>
+    <div class="hint">Click anywhere to add a point. Click on an existing point to remove it.</div>
+
+    <div class="panel" style="margin-top:12px;">
+      <h4>Display options</h4>
+      <div class="checkbox-row">
+        <label><input type="checkbox" id="show-residuals" checked> Residuals</label>
+        <label><input type="checkbox" id="show-mean" checked> Mean (line passes through)</label>
+        <label><input type="checkbox" id="show-squares"> Squared residuals (boxes)</label>
+        <label><input type="checkbox" id="show-confidence"> Confidence band (±1σ)</label>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="panel">
+      <h4>Fitted line</h4>
+      <div class="info-row"><b>n</b> = <span class="key" id="n-val">0</span> points</div>
+      <div class="info-row" id="line-eq" style="font-size:16px;">—</div>
+      <div class="info-row">Slope <b>m</b> = <span class="key" id="m-val">—</span></div>
+      <div class="info-row">Intercept <b>c</b> = <span class="key" id="c-val">—</span></div>
+    </div>
+
+    <div class="panel">
+      <h4>Error metrics</h4>
+      <div class="info-row">SSR = Σr<sub>i</sub><sup>2</sup> = <span class="key" id="ssr-val">—</span></div>
+      <div class="info-row">RMSE = √(SSR/n) = <span class="key" id="rmse-val">—</span></div>
+      <div class="info-row">R<sup>2</sup> = 1 − SSR/SST = <span class="key" id="r2-val">—</span></div>
+    </div>
+
+    <div class="panel">
+      <h4>Normal equations</h4>
+      <div class="info-row"><b>X<sup>⊤</sup>X</b> =</div>
+      <div id="xtx"></div>
+      <div class="info-row" style="margin-top:8px;"><b>X<sup>⊤</sup>y</b> =</div>
+      <div id="xty"></div>
+      <div class="info-row" style="margin-top:8px;"><b>β̂</b> = (X<sup>⊤</sup>X)<sup>−1</sup>X<sup>⊤</sup>y =</div>
+      <div id="beta-display"></div>
+    </div>
+  </div>
+</div>
+
+<div class="panel" style="margin-top:12px;">
+  <h4>What to notice during class</h4>
+  <ul style="margin:6px 0 0; padding-left:20px; font-size:14px;">
+    <li><b>The OLS line passes through the centroid (x̄, ȳ).</b> Always. This is a one-line consequence of the normal equation for the intercept.</li>
+    <li><b>Residuals are vertical, not perpendicular.</b> OLS minimises vertical distance — that's why it changes if you swap x and y. (Total least squares would minimise perpendicular distance — different problem.)</li>
+    <li><b>One outlier destroys the fit.</b> Try the "Linear + outlier" preset. The single far-away point swings the entire line because squared error penalises it enormously.</li>
+    <li><b>R<sup>2</sup> doesn't mean the model is correct.</b> Try the "Quadratic" preset: R<sup>2</sup> may still be high, but the line is wrong — the residuals show a U-shape, not random scatter. This is the visual diagnostic.</li>
+    <li><b>The matrix formulation generalises.</b> The same β̂ = (X<sup>⊤</sup>X)<sup>−1</sup>X<sup>⊤</sup>y holds for multivariate regression, polynomial fitting, and beyond. Only the design matrix X changes.</li>
+    <li><b>Connection to projection.</b> X(X<sup>⊤</sup>X)<sup>−1</sup>X<sup>⊤</sup> is the hat matrix H — the projection onto the column space of X. This is exactly the MTE Q7 idempotent matrix.</li>
+  </ul>
+</div>
+
+<div class="footer">
+  Standalone classroom visualizer · works fully offline · Fundamentals of AI/ML · IIT Roorkee
+</div>
+
+</div>
+
+<script>
+"use strict";
+const SVG_NS = "http://www.w3.org/2000/svg";
+const svg = document.getElementById("canvas");
+const SCALE = 35;
+const VB_X = -220, VB_Y = -160, VB_W = 440, VB_H = 320;
+
+let points = [];
+
+function el(tag, attrs) {
+  const e = document.createElementNS(SVG_NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  return e;
+}
+function toSvg(p) { return [p[0]*SCALE, -p[1]*SCALE]; }
+
+function computeOLS(pts) {
+  const n = pts.length;
+  if (n < 2) return null;
+  let sx = 0, sy = 0, sxx = 0, sxy = 0, syy = 0;
+  for (const [x, y] of pts) {
+    sx += x; sy += y; sxx += x*x; sxy += x*y; syy += y*y;
+  }
+  const denom = n * sxx - sx * sx;
+  if (Math.abs(denom) < 1e-12) return null;  // all x's the same
+  const m = (n * sxy - sx * sy) / denom;
+  const c = (sy - m * sx) / n;
+  // SSR
+  let ssr = 0;
+  for (const [x, y] of pts) {
+    const r = y - (m*x + c);
+    ssr += r*r;
+  }
+  // SST
+  const ybar = sy / n;
+  const sst = syy - n * ybar * ybar;
+  const r2 = sst > 1e-12 ? 1 - ssr / sst : 1;
+  return {n, m, c, ssr, sst, r2, sx, sy, sxx, sxy, mean: [sx/n, sy/n]};
+}
+
+function render() {
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  // grid
+  for (let i = -5; i <= 5; i++) {
+    if (i === 0) continue;
+    svg.appendChild(el("line", {x1: i*SCALE, y1: -160, x2: i*SCALE, y2: 160, stroke: "#eee", "stroke-width": 1}));
+    svg.appendChild(el("line", {x1: -220, y1: i*SCALE, x2: 220, y2: i*SCALE, stroke: "#eee", "stroke-width": 1}));
+  }
+  svg.appendChild(el("line", {x1: -220, y1: 0, x2: 220, y2: 0, stroke: "#bbb", "stroke-width": 1.5}));
+  svg.appendChild(el("line", {x1: 0, y1: -160, x2: 0, y2: 160, stroke: "#bbb", "stroke-width": 1.5}));
+  // axis labels
+  svg.appendChild(Object.assign(el("text", {x: 210, y: 16, fill: "#888", "font-size": 13, "font-style":"italic"}), {textContent: "x"}));
+  svg.appendChild(Object.assign(el("text", {x: 8, y: -150, fill: "#888", "font-size": 13, "font-style":"italic"}), {textContent: "y"}));
+
+  const fit = computeOLS(points);
+  const opts = {
+    showResiduals: document.getElementById("show-residuals").checked,
+    showMean: document.getElementById("show-mean").checked,
+    showSquares: document.getElementById("show-squares").checked,
+    showConfidence: document.getElementById("show-confidence").checked,
+  };
+
+  if (fit) {
+    const {m, c, mean, ssr, n} = fit;
+    // confidence band
+    if (opts.showConfidence && n > 1) {
+      const sigma = Math.sqrt(ssr / Math.max(n - 2, 1));
+      const xLeft = -6, xRight = 6;
+      const pts = [];
+      pts.push([xLeft, m*xLeft + c + sigma]);
+      pts.push([xRight, m*xRight + c + sigma]);
+      pts.push([xRight, m*xRight + c - sigma]);
+      pts.push([xLeft, m*xLeft + c - sigma]);
+      let path = "M ";
+      for (let i = 0; i < pts.length; i++) {
+        const [sx, sy] = toSvg(pts[i]);
+        path += `${sx.toFixed(2)},${sy.toFixed(2)} `;
+        if (i < pts.length - 1) path += "L ";
+      }
+      path += "Z";
+      svg.appendChild(el("path", {d: path, fill: "rgba(180,40,40,0.08)", stroke: "none"}));
+    }
+    // residual squares
+    if (opts.showSquares) {
+      for (const [x, y] of points) {
+        const yhat = m*x + c;
+        const r = y - yhat;
+        if (Math.abs(r) < 1e-6) continue;
+        const side = Math.abs(r);
+        const x0 = x, y0 = Math.min(y, yhat);
+        const [sx0, sy0] = toSvg([x0, y0 + side]);
+        svg.appendChild(el("rect", {x: sx0, y: sy0, width: side*SCALE, height: side*SCALE,
+          fill: "rgba(244,162,97,0.18)", stroke: "#f4a261", "stroke-width": 1}));
+      }
+    }
+    // residual lines
+    if (opts.showResiduals) {
+      for (const [x, y] of points) {
+        const yhat = m*x + c;
+        const [sx1, sy1] = toSvg([x, y]);
+        const [sx2, sy2] = toSvg([x, yhat]);
+        svg.appendChild(el("line", {x1: sx1, y1: sy1, x2: sx2, y2: sy2,
+          stroke: "#f4a261", "stroke-width": 1.5, "stroke-dasharray": "3,2"}));
+      }
+    }
+    // the OLS line
+    const xLeft = -7, xRight = 7;
+    const [lx1, ly1] = toSvg([xLeft, m*xLeft + c]);
+    const [lx2, ly2] = toSvg([xRight, m*xRight + c]);
+    svg.appendChild(el("line", {x1: lx1, y1: ly1, x2: lx2, y2: ly2,
+      stroke: "#B42828", "stroke-width": 2.5}));
+    // mean
+    if (opts.showMean) {
+      const [mx, my] = toSvg(mean);
+      svg.appendChild(el("circle", {cx: mx, cy: my, r: 8, fill: "#fff",
+        stroke: "#2a9d8f", "stroke-width": 2.5}));
+      svg.appendChild(el("circle", {cx: mx, cy: my, r: 2, fill: "#2a9d8f"}));
+    }
+  }
+
+  // points
+  for (let i = 0; i < points.length; i++) {
+    const [sx, sy] = toSvg(points[i]);
+    const dot = el("circle", {cx: sx, cy: sy, r: 5.5, fill: "#143C78", stroke: "#0d2a55", "stroke-width": 1.5});
+    dot.style.cursor = "pointer";
+    dot.dataset.idx = i;
+    dot.addEventListener("click", e => {
+      e.stopPropagation();
+      points.splice(parseInt(dot.dataset.idx), 1);
+      render();
+    });
+    svg.appendChild(dot);
+  }
+
+  updatePanels(fit);
+}
+
+function fmt(x, d) { return (Math.abs(x) < 1e-10 ? 0 : x).toFixed(d || 3); }
+
+function updatePanels(fit) {
+  document.getElementById("n-val").textContent = points.length;
+  if (!fit) {
+    document.getElementById("line-eq").textContent = (points.length < 2) ? "(add at least 2 points)" : "(degenerate — all x identical)";
+    document.getElementById("m-val").textContent = "—";
+    document.getElementById("c-val").textContent = "—";
+    document.getElementById("ssr-val").textContent = "—";
+    document.getElementById("rmse-val").textContent = "—";
+    document.getElementById("r2-val").textContent = "—";
+    document.getElementById("xtx").innerHTML = "—";
+    document.getElementById("xty").innerHTML = "—";
+    document.getElementById("beta-display").innerHTML = "—";
+    return;
+  }
+  const {m, c, ssr, r2, n, sx, sy, sxx, sxy} = fit;
+  const eqHtml = `ŷ = <span class="key">${fmt(m, 3)}</span>&thinsp;x ${c >= 0 ? "+" : "−"} <span class="key">${fmt(Math.abs(c), 3)}</span>`;
+  document.getElementById("line-eq").innerHTML = eqHtml;
+  document.getElementById("m-val").textContent = fmt(m, 4);
+  document.getElementById("c-val").textContent = fmt(c, 4);
+  document.getElementById("ssr-val").textContent = fmt(ssr);
+  document.getElementById("rmse-val").textContent = fmt(Math.sqrt(ssr/n));
+  document.getElementById("r2-val").textContent = fmt(r2, 4);
+  // X^T X, X^T y, beta
+  document.getElementById("xtx").innerHTML =
+    `<div class="matrix-box"><span>${fmt(sxx)}</span><span>${fmt(sx)}</span><span>${fmt(sx)}</span><span>${n}</span></div>`;
+  document.getElementById("xty").innerHTML =
+    `<div class="vec-box"><span>${fmt(sxy)}</span><span>${fmt(sy)}</span></div>`;
+  document.getElementById("beta-display").innerHTML =
+    `<div class="vec-box"><span>${fmt(m, 4)}</span><span>${fmt(c, 4)}</span></div>` +
+    ` <span style="font-size:12px;color:#666;">(slope, intercept)</span>`;
+}
+
+// --- Click handling ---
+function svgPointToData(evt) {
+  const rect = svg.getBoundingClientRect();
+  const sx = (evt.clientX - rect.left) / rect.width * VB_W + VB_X;
+  const sy = (evt.clientY - rect.top) / rect.height * VB_H + VB_Y;
+  return [sx/SCALE, -sy/SCALE];
+}
+svg.addEventListener("click", e => {
+  if (e.target.tagName === "circle" && e.target.dataset.idx !== undefined) return;
+  const [x, y] = svgPointToData(e);
+  points.push([x, y]);
+  render();
+});
+
+// --- Presets ---
+function randn() {
+  let u = 0, v = 0;
+  while (u === 0) u = Math.random();
+  while (v === 0) v = Math.random();
+  return Math.sqrt(-2*Math.log(u)) * Math.cos(2*Math.PI*v);
+}
+document.querySelectorAll("[data-preset]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    points = [];
+    const N = 15;
+    switch (btn.dataset.preset) {
+      case "linear":
+        for (let i = 0; i < N; i++) {
+          const x = (i / (N-1)) * 10 - 5;
+          points.push([x, 0.7 * x + 0.5 + randn() * 0.6]);
+        }
+        break;
+      case "quadratic":
+        for (let i = 0; i < N; i++) {
+          const x = (i / (N-1)) * 10 - 5;
+          points.push([x, 0.18 * x * x - 2 + randn() * 0.3]);
+        }
+        break;
+      case "outlier":
+        for (let i = 0; i < N - 1; i++) {
+          const x = (i / (N-2)) * 8 - 4;
+          points.push([x, 0.6 * x + randn() * 0.3]);
+        }
+        points.push([4.5, -3.5]);  // big outlier
+        break;
+      case "anscombe":
+        // mimic Anscombe quartet 2 - a curve with linear regression fitting
+        const xs = [-4,-3,-2,-1,0,1,2,3,4,5];
+        for (const x of xs) points.push([x, -0.12*x*x + 0.5*x + 2 + randn()*0.2]);
+        break;
+    }
+    render();
+  });
+});
+document.getElementById("clear-btn").addEventListener("click", () => { points = []; render(); });
+
+// Display toggles
+["show-residuals","show-mean","show-squares","show-confidence"]
+  .forEach(id => document.getElementById(id).addEventListener("change", render));
+
+// init
+document.querySelector('[data-preset="linear"]').click();
+</script>
+</body>
+</html>

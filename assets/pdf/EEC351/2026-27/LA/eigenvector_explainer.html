@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eigenvectors as Fixed Directions · Fundamentals of AI/ML</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0; background: #f9f8f4; color: #1a1a1a; line-height: 1.55; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+  header { border-bottom: 2px solid #143C78; padding-bottom: 10px; margin-bottom: 18px; }
+  header h1 { margin: 0; color: #143C78; font-size: 26px; }
+  .subtitle { color: #555; font-size: 13px; margin-top: 4px; }
+  header { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .head-left { min-width: 260px; }
+  .seal { display: flex; align-items: center; gap: 14px; padding-bottom: 2px; }
+  .seal .lab-unit { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .seal img { height: 40px; width: auto; display: block; }
+  .seal .cap { font-size: 10px; color: #666; letter-spacing: .03em; white-space: nowrap; }
+  .seal .lab-div { width: 1px; height: 34px; background: #ddd; }
+
+  .intro { font-size: 15px; max-width: 850px; margin-bottom: 16px; }
+  .eqn { background: #f0f4fa; border: 1px solid #143C78; border-radius: 4px;
+    padding: 12px 16px; margin: 14px 0; font-size: 20px; text-align: center; font-family: Georgia, serif; }
+  .eqn b { color: #143C78; }
+  .matrix-controls { background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 12px 14px; margin: 12px 0; }
+  .matrix-controls h4 { margin: 0 0 8px; color: #143C78; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .entry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: center; }
+  @media (max-width: 700px) { .entry-grid { grid-template-columns: repeat(2, 1fr); } }
+  .entry-grid label { font-size: 12px; font-weight: 600; color: #143C78; display: block; margin-bottom: 4px; }
+  .entry-grid input[type=range] { width: 100%; accent-color: #143C78; }
+  .entry-grid .v { font-family: "SF Mono", Consolas, monospace; color: #B42828; font-size: 13px; }
+  .presets { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .btn { background: #143C78; color: #fff; border: none; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600; }
+  .btn:hover { background: #0d2a55; }
+  .btn-alt { background: #fff; color: #143C78; border: 1px solid #143C78; }
+  .btn-alt:hover { background: #eef2f9; }
+  .btn-red { background: #B42828; }
+  .btn-red:hover { background: #7a1a1a; }
+  .layout { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+  .viz { background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 8px; }
+  .viz svg { width: 100%; height: auto; display: block; }
+  .panel { background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 12px 14px; margin-bottom: 12px; }
+  .panel h4 { margin: 0 0 8px; color: #143C78; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .info-row { font-size: 14px; margin: 4px 0; }
+  .info-row b { color: #143C78; }
+  .info-row .key { font-family: "SF Mono", Consolas, monospace; color: #B42828; }
+  .matrix-box { display: inline-grid; grid-template-columns: auto auto; gap: 4px 16px;
+    font-family: "SF Mono", Consolas, monospace; font-size: 14px;
+    padding: 6px 12px; border-left: 2px solid #143C78; border-right: 2px solid #143C78; }
+  .matrix-box span { text-align: right; }
+  .alignment-indicator { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 12px; font-weight: 600; }
+  .aligned { background: #d4edda; color: #155724; }
+  .not-aligned { background: #f8d7da; color: #721c24; }
+  .complex-warning { background: #fff8e1; border-left: 4px solid #B42828;
+    padding: 10px 14px; margin: 10px 0; font-size: 14px; color: #555; }
+  .legend { font-size: 12px; color: #666; padding: 6px 8px 0; }
+  .legend .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: middle; margin-right: 4px; margin-left: 8px; }
+  .footer { margin-top: 20px; padding-top: 12px; border-top: 1px solid #ddd; font-size: 12px; color: #777; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="head-left">
+    <h1>Eigenvectors as Fixed Directions</h1>
+    <div class="subtitle">Fundamentals of AI/ML · Prof. Parikshit Pareek &amp; Prof. Jitin Singla · IIT Roorkee</div>
+  </div>
+  <div class="seal">
+    <div class="lab-unit"><img src="data:image/png;base64,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" alt="P-squared Lab logo"></div>
+    <div class="lab-div"></div>
+    <div class="lab-unit"><img src="data:image/png;base64,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" alt="Integral Lab logo"></div>
+  </div>
+</header>
+
+<p class="intro">
+A vector <b>v</b> is an <b>eigenvector</b> of <i>A</i> if multiplying by <i>A</i> doesn't change its direction — only its length. The scaling factor λ is the <b>eigenvalue</b>. Drag the blue arrow <b>v</b> around: usually <i>A</i><b>v</b> points somewhere else. But when <b>v</b> lies on one of the dashed eigen-lines, <i>A</i><b>v</b> stays on the same line. Press <b>Iterate</b> to watch power iteration drag <i>any</i> starting <b>v</b> toward the dominant eigenvector.
+</p>
+
+<div class="eqn"><b>A v = λ v</b></div>
+
+<div class="matrix-controls">
+  <h4>Matrix A (drag sliders)</h4>
+  <div class="entry-grid">
+    <div>
+      <label>A<sub>11</sub> = <span class="v" id="a00-val">2.0</span></label>
+      <input type="range" id="a00" min="-3" max="3" value="2" step="0.1">
+    </div>
+    <div>
+      <label>A<sub>12</sub> = <span class="v" id="a01-val">1.0</span></label>
+      <input type="range" id="a01" min="-3" max="3" value="1" step="0.1">
+    </div>
+    <div>
+      <label>A<sub>21</sub> = <span class="v" id="a10-val">1.0</span></label>
+      <input type="range" id="a10" min="-3" max="3" value="1" step="0.1">
+    </div>
+    <div>
+      <label>A<sub>22</sub> = <span class="v" id="a11-val">2.0</span></label>
+      <input type="range" id="a11" min="-3" max="3" value="2" step="0.1">
+    </div>
+  </div>
+  <div class="presets">
+    <span style="font-weight:600;color:#143C78;font-size:12px;align-self:center;">Presets:</span>
+    <button class="btn" data-preset="symmetric">Symmetric</button>
+    <button class="btn" data-preset="diagonal">Diagonal</button>
+    <button class="btn" data-preset="shear">Shear</button>
+    <button class="btn" data-preset="rotation">Rotation (complex!)</button>
+    <button class="btn" data-preset="reflection">Reflection</button>
+    <button class="btn" data-preset="projection">Rank-1 (projection-like)</button>
+  </div>
+</div>
+
+<div class="layout">
+  <div>
+    <div class="viz">
+      <svg id="canvas" viewBox="-220 -180 440 360" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="legend">
+        <span class="swatch" style="background:#143C78"></span>vector v (drag tip)
+        <span class="swatch" style="background:#B42828"></span>A v
+        <span class="swatch" style="background:#2a9d8f"></span>eigen-directions
+        <span class="swatch" style="background:#f4a261"></span>iteration trail
+      </div>
+    </div>
+    <div style="margin-top:10px; display: flex; gap: 8px; flex-wrap: wrap;">
+      <button class="btn btn-red" id="iter-btn">▶ Power iteration</button>
+      <button class="btn btn-alt" id="iter-step">Step once: v ← Av/‖Av‖</button>
+      <button class="btn btn-alt" id="reset-v">Reset v</button>
+      <button class="btn btn-alt" id="clear-trail">Clear trail</button>
+    </div>
+  </div>
+
+  <div>
+    <div class="panel">
+      <h4>Vector data</h4>
+      <div class="info-row"><b>v</b> = (<span class="key" id="v-display">—</span>) &nbsp; ‖v‖ = <span class="key" id="v-norm">—</span></div>
+      <div class="info-row"><b>Av</b> = (<span class="key" id="av-display">—</span>) &nbsp; ‖Av‖ = <span class="key" id="av-norm">—</span></div>
+      <div class="info-row" style="margin-top:8px;">‖Av‖ / ‖v‖ = <span class="key" id="ratio">—</span></div>
+      <div class="info-row">Angle between v and Av: <span class="key" id="angle">—</span></div>
+      <div class="info-row" style="margin-top:6px;">Eigenvector test: <span id="eig-test" class="alignment-indicator not-aligned">not aligned</span></div>
+    </div>
+
+    <div class="panel">
+      <h4>Matrix A</h4>
+      <div id="A-display"></div>
+      <div class="info-row" style="margin-top:8px;">tr(A) = <span class="key" id="trA">—</span>, &nbsp; det(A) = <span class="key" id="detA">—</span></div>
+    </div>
+
+    <div class="panel">
+      <h4>Eigendecomposition</h4>
+      <div id="eig-info">—</div>
+    </div>
+  </div>
+</div>
+
+<div class="panel" style="margin-top:12px;">
+  <h4>What to notice during class</h4>
+  <ul style="margin:6px 0 0; padding-left:20px; font-size:14px;">
+    <li><b>The eigen-lines are special.</b> Drag <b>v</b> to land on a green dashed line; <i>A</i><b>v</b> snaps to that same line. Off the line, <i>A</i><b>v</b> rotates away.</li>
+    <li><b>Symmetric A has perpendicular eigenvectors.</b> Try the Symmetric preset: the two green lines are at right angles. Spectral theorem made visible.</li>
+    <li><b>Shear (A = [[1,1],[0,1]]) has only one eigen-line.</b> The y-axis. Every other vector picks up a horizontal component. Defective matrix — cannot be diagonalized.</li>
+    <li><b>Rotation has complex eigenvalues.</b> Try the Rotation preset: no real direction is preserved (except trivially when the rotation is by 0 or π). The eigenvectors live in ℂ².</li>
+    <li><b>Power iteration always works (almost).</b> Click "Power iteration" with any starting <b>v</b>. After a few steps it lands on the dominant eigen-line. This is how Google's PageRank was computed.</li>
+    <li><b>tr(A) = λ<sub>1</sub> + λ<sub>2</sub>, det(A) = λ<sub>1</sub>λ<sub>2</sub>.</b> Quick sanity check — useful for ETE problems.</li>
+  </ul>
+</div>
+
+<div class="footer">
+  Standalone classroom visualizer · works fully offline · Fundamentals of AI/ML · IIT Roorkee
+</div>
+
+</div>
+
+<script>
+"use strict";
+const SVG_NS = "http://www.w3.org/2000/svg";
+const svg = document.getElementById("canvas");
+const SCALE = 50;
+const VB_X = -220, VB_Y = -180, VB_W = 440, VB_H = 360;
+
+let A = [[2, 1], [1, 2]];
+let v = [1.5, 0.3];
+let trail = [];      // history of v during power iteration
+let iterating = false;
+let iterTimer = null;
+
+function el(tag, attrs) {
+  const e = document.createElementNS(SVG_NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  return e;
+}
+function toSvg(p) { return [p[0]*SCALE, -p[1]*SCALE]; }
+function matVec(M, x) { return [M[0][0]*x[0]+M[0][1]*x[1], M[1][0]*x[0]+M[1][1]*x[1]]; }
+
+// 2x2 eigendecomposition — returns either real {real:true, lams, vecs} or complex {real:false, ...}
+function eig2(A) {
+  const a = A[0][0], b = A[0][1], c = A[1][0], d = A[1][1];
+  const tr = a + d;
+  const det = a*d - b*c;
+  const disc = tr*tr - 4*det;
+  if (disc < -1e-10) {
+    // complex
+    const real = tr/2;
+    const imag = Math.sqrt(-disc)/2;
+    return {real: false, lamR: real, lamI: imag};
+  }
+  const s = Math.sqrt(Math.max(disc, 0));
+  const lam1 = (tr + s) / 2;
+  const lam2 = (tr - s) / 2;
+  // eigenvector for lam1: (A - lam1 I) v = 0
+  let v1, v2;
+  if (Math.abs(b) > 1e-9) {
+    v1 = [b, lam1 - a];
+    v2 = [b, lam2 - a];
+  } else if (Math.abs(c) > 1e-9) {
+    v1 = [lam1 - d, c];
+    v2 = [lam2 - d, c];
+  } else {
+    // diagonal: eigenvectors are e1, e2 in some order
+    v1 = (a >= d) ? [1, 0] : [0, 1];
+    v2 = (a >= d) ? [0, 1] : [1, 0];
+  }
+  // normalize
+  const n1 = Math.hypot(v1[0], v1[1]) || 1;
+  v1 = [v1[0]/n1, v1[1]/n1];
+  const n2 = Math.hypot(v2[0], v2[1]) || 1;
+  v2 = [v2[0]/n2, v2[1]/n2];
+  // degenerate (repeated lam): check if vectors are parallel
+  const cross = v1[0]*v2[1] - v1[1]*v2[0];
+  const defective = Math.abs(lam1 - lam2) < 1e-9 && Math.abs(cross) < 1e-9;
+  return {real: true, lams: [lam1, lam2], vecs: [v1, v2], defective};
+}
+
+function render() {
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  // grid
+  for (let i = -4; i <= 4; i++) {
+    if (i === 0) continue;
+    svg.appendChild(el("line", {x1: i*SCALE, y1: -180, x2: i*SCALE, y2: 180, stroke: "#eee", "stroke-width": 1}));
+    svg.appendChild(el("line", {x1: -220, y1: i*SCALE, x2: 220, y2: i*SCALE, stroke: "#eee", "stroke-width": 1}));
+  }
+  svg.appendChild(el("line", {x1: -220, y1: 0, x2: 220, y2: 0, stroke: "#bbb", "stroke-width": 1.5}));
+  svg.appendChild(el("line", {x1: 0, y1: -180, x2: 0, y2: 180, stroke: "#bbb", "stroke-width": 1.5}));
+
+  // eigen-lines
+  const E = eig2(A);
+  if (E.real) {
+    for (const ev of E.vecs) {
+      // extend the line through origin both ways across the viewBox
+      const L = 6;
+      const p1 = [-L*ev[0], -L*ev[1]];
+      const p2 = [ L*ev[0],  L*ev[1]];
+      const [x1, y1] = toSvg(p1);
+      const [x2, y2] = toSvg(p2);
+      svg.appendChild(el("line", {x1, y1, x2, y2, stroke: "#2a9d8f", "stroke-width": 1.5,
+        "stroke-dasharray": "5,5", opacity: 0.7}));
+    }
+  }
+
+  // trail
+  for (let i = 0; i < trail.length; i++) {
+    const [tx, ty] = toSvg(trail[i]);
+    svg.appendChild(el("circle", {cx: tx, cy: ty, r: 3, fill: "#f4a261",
+      opacity: 0.3 + 0.7 * (i / Math.max(trail.length-1, 1))}));
+  }
+
+  // v and Av
+  const av = matVec(A, v);
+  drawArrow([0,0], v, "#143C78", "v");
+  drawArrow([0,0], av, "#B42828", "Av");
+
+  // tip handle for v
+  const [vx, vy] = toSvg(v);
+  const handle = el("circle", {cx: vx, cy: vy, r: 11, fill: "#143C78", "fill-opacity": 0.001,
+    stroke: "#143C78", "stroke-opacity": 0.4, "stroke-width": 1});
+  handle.style.cursor = "grab";
+  svg.appendChild(handle);
+
+  updatePanels(av, E);
+}
+
+function drawArrow(from, to, color, label) {
+  const [x1, y1] = toSvg(from);
+  const [x2, y2] = toSvg(to);
+  svg.appendChild(el("line", {x1, y1, x2, y2, stroke: color, "stroke-width": 2.6, "stroke-linecap": "round"}));
+  const dx = x2-x1, dy = y2-y1, L = Math.hypot(dx, dy) || 1;
+  const ux = dx/L, uy = dy/L, head = 11, wing = 6;
+  const p2 = [x2 - head*ux + wing*uy, y2 - head*uy - wing*ux];
+  const p3 = [x2 - head*ux - wing*uy, y2 - head*uy + wing*ux];
+  svg.appendChild(el("polygon", {points: `${x2},${y2} ${p2[0]},${p2[1]} ${p3[0]},${p3[1]}`, fill: color}));
+  if (label) {
+    const t = el("text", {x: x2 + 14*ux, y: y2 + 14*uy + 5, fill: color,
+      "font-family": "Georgia, serif", "font-style": "italic", "font-weight": "bold", "font-size": 17, "text-anchor": "middle"});
+    t.textContent = label;
+    svg.appendChild(t);
+  }
+}
+
+function fmt(x, d) { return (Math.abs(x) < 1e-10 ? 0 : x).toFixed(d || 3); }
+
+function updatePanels(av, E) {
+  const vn = Math.hypot(v[0], v[1]);
+  const avn = Math.hypot(av[0], av[1]);
+  document.getElementById("v-display").textContent = `${v[0].toFixed(2)}, ${v[1].toFixed(2)}`;
+  document.getElementById("v-norm").textContent = vn.toFixed(3);
+  document.getElementById("av-display").textContent = `${av[0].toFixed(2)}, ${av[1].toFixed(2)}`;
+  document.getElementById("av-norm").textContent = avn.toFixed(3);
+  document.getElementById("ratio").textContent = vn > 1e-6 ? (avn / vn).toFixed(3) : "—";
+
+  // angle between v and Av
+  const cos = (v[0]*av[0] + v[1]*av[1]) / (vn * avn || 1);
+  const ang = Math.acos(Math.max(-1, Math.min(1, cos))) * 180 / Math.PI;
+  document.getElementById("angle").textContent = isFinite(ang) ? ang.toFixed(1) + "°" : "—";
+
+  // eigenvector test
+  const t = document.getElementById("eig-test");
+  if (ang < 2 || ang > 178) {
+    t.className = "alignment-indicator aligned";
+    t.textContent = "✓ EIGENVECTOR (Av ∥ v)";
+  } else {
+    t.className = "alignment-indicator not-aligned";
+    t.textContent = "Av ≠ λv (not aligned)";
+  }
+
+  // A display
+  document.getElementById("A-display").innerHTML =
+    `<div class="matrix-box"><span>${fmt(A[0][0])}</span><span>${fmt(A[0][1])}</span><span>${fmt(A[1][0])}</span><span>${fmt(A[1][1])}</span></div>`;
+  document.getElementById("trA").textContent = fmt(A[0][0] + A[1][1]);
+  document.getElementById("detA").textContent = fmt(A[0][0]*A[1][1] - A[0][1]*A[1][0]);
+
+  // Eigeninfo
+  let html;
+  if (E.real) {
+    if (E.defective) {
+      html = `<div class="info-row">λ<sub>1</sub> = λ<sub>2</sub> = <span class="key">${fmt(E.lams[0])}</span> (repeated)</div>` +
+             `<div class="info-row">Eigenvector: (<span class="key">${fmt(E.vecs[0][0])}, ${fmt(E.vecs[0][1])}</span>)</div>` +
+             `<div class="info-row" style="margin-top:4px;color:#B42828;"><b>Defective</b> — only one eigen-direction. Not diagonalizable.</div>`;
+    } else {
+      html = `<div class="info-row">λ<sub>1</sub> = <span class="key">${fmt(E.lams[0])}</span>, &nbsp; <b>v<sub>1</sub></b> = (<span class="key">${fmt(E.vecs[0][0])}, ${fmt(E.vecs[0][1])}</span>)</div>` +
+             `<div class="info-row">λ<sub>2</sub> = <span class="key">${fmt(E.lams[1])}</span>, &nbsp; <b>v<sub>2</sub></b> = (<span class="key">${fmt(E.vecs[1][0])}, ${fmt(E.vecs[1][1])}</span>)</div>`;
+      const sym = Math.abs(A[0][1] - A[1][0]) < 1e-9;
+      if (sym) html += `<div class="info-row" style="margin-top:4px;color:#155724;">✓ Symmetric → eigenvectors perpendicular (spectral theorem).</div>`;
+    }
+  } else {
+    html = `<div class="info-row">λ = <span class="key">${fmt(E.lamR)} ± ${fmt(E.lamI)}i</span> (complex conjugate pair)</div>` +
+           `<div class="complex-warning" style="margin-top:6px;">No real eigenvector direction. A rotates every real vector; no real line is preserved.</div>`;
+  }
+  document.getElementById("eig-info").innerHTML = html;
+}
+
+// --- Matrix sliders ---
+function bindMat(id, i, j) {
+  const sld = document.getElementById(id);
+  const val = document.getElementById(id + "-val");
+  sld.addEventListener("input", () => {
+    A[i][j] = parseFloat(sld.value);
+    val.textContent = A[i][j].toFixed(1);
+    render();
+  });
+}
+bindMat("a00", 0, 0); bindMat("a01", 0, 1); bindMat("a10", 1, 0); bindMat("a11", 1, 1);
+
+function setA(newA) {
+  A = newA;
+  document.getElementById("a00").value = A[0][0]; document.getElementById("a00-val").textContent = A[0][0].toFixed(1);
+  document.getElementById("a01").value = A[0][1]; document.getElementById("a01-val").textContent = A[0][1].toFixed(1);
+  document.getElementById("a10").value = A[1][0]; document.getElementById("a10-val").textContent = A[1][0].toFixed(1);
+  document.getElementById("a11").value = A[1][1]; document.getElementById("a11-val").textContent = A[1][1].toFixed(1);
+  trail = [];
+  render();
+}
+document.querySelectorAll("[data-preset]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    switch (btn.dataset.preset) {
+      case "symmetric": setA([[2, 1], [1, 2]]); break;
+      case "diagonal":  setA([[2, 0], [0, 0.5]]); break;
+      case "shear":     setA([[1, 1], [0, 1]]); break;
+      case "rotation":  setA([[0.5, -0.87], [0.87, 0.5]]); break;  // rotation by 60°
+      case "reflection":setA([[0.87, 0.5], [0.5, -0.87]]); break;  // reflection
+      case "projection":setA([[1, 1], [1, 1]]); break;  // rank 1
+    }
+  });
+});
+
+// --- Drag v ---
+let dragging = false;
+function svgPointToData(evt) {
+  const rect = svg.getBoundingClientRect();
+  const sx = (evt.clientX - rect.left) / rect.width * VB_W + VB_X;
+  const sy = (evt.clientY - rect.top) / rect.height * VB_H + VB_Y;
+  return [sx/SCALE, -sy/SCALE];
+}
+svg.addEventListener("mousedown", e => {
+  const [dx, dy] = svgPointToData(e);
+  if (Math.hypot(dx-v[0], dy-v[1]) < 0.7) dragging = true;
+});
+window.addEventListener("mousemove", e => {
+  if (!dragging) return;
+  const [dx, dy] = svgPointToData(e);
+  v = [dx, dy];
+  trail = [];
+  render();
+});
+window.addEventListener("mouseup", () => dragging = false);
+svg.addEventListener("touchstart", e => {
+  if (!e.touches[0]) return;
+  const [dx, dy] = svgPointToData(e.touches[0]);
+  if (Math.hypot(dx-v[0], dy-v[1]) < 0.7) { dragging = true; e.preventDefault(); }
+}, {passive: false});
+window.addEventListener("touchmove", e => {
+  if (!dragging || !e.touches[0]) return;
+  const [dx, dy] = svgPointToData(e.touches[0]);
+  v = [dx, dy];
+  trail = [];
+  render();
+}, {passive: false});
+window.addEventListener("touchend", () => dragging = false);
+
+// --- Power iteration ---
+function iterStep() {
+  trail.push([v[0], v[1]]);
+  if (trail.length > 40) trail.shift();
+  const av = matVec(A, v);
+  const an = Math.hypot(av[0], av[1]);
+  if (an < 1e-10) return;  // shrunk to zero
+  // keep length 2 for visibility
+  v = [2 * av[0] / an, 2 * av[1] / an];
+  render();
+}
+document.getElementById("iter-step").addEventListener("click", iterStep);
+
+const iterBtn = document.getElementById("iter-btn");
+iterBtn.addEventListener("click", () => {
+  if (iterating) {
+    clearInterval(iterTimer);
+    iterating = false;
+    iterBtn.textContent = "▶ Power iteration";
+  } else {
+    iterating = true;
+    iterBtn.textContent = "❚❚ Stop";
+    iterTimer = setInterval(iterStep, 400);
+  }
+});
+document.getElementById("reset-v").addEventListener("click", () => {
+  v = [1.5, 0.3]; trail = []; render();
+});
+document.getElementById("clear-trail").addEventListener("click", () => {
+  trail = []; render();
+});
+
+render();
+</script>
+</body>
+</html>
