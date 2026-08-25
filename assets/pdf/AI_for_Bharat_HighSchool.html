@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI & AI for Bharat — What it means for your career</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1A3A;      /* deep indigo, chalkboard base */
+    --ink2:#16264F;
+    --chalk:#F7F3EA;    /* off-white */
+    --saffron:#F4A300;  /* accent */
+    --teal:#27B19E;     /* "do this" */
+    --rose:#E5573F;     /* "avoid this" */
+    --mute:#9AA5C4;
+    --line:rgba(247,243,234,.14);
+    --display:'Fraunces',Georgia,serif;
+    --body:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--ink);color:var(--chalk);font-family:var(--body);overflow:hidden}
+  button{font:inherit;cursor:pointer}
+
+  /* ---------- deck chrome ---------- */
+  #deck{position:relative;width:100vw;height:100vh}
+  .slide{position:absolute;inset:0;display:none;padding:clamp(28px,5vh,64px) clamp(28px,6vw,96px);flex-direction:column;justify-content:center;gap:clamp(14px,2.4vh,28px)}
+  .slide.active{display:flex;animation:fade .45s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.slide.active{animation:none}.bar i{transition:none!important}}
+  #progress{position:fixed;left:0;top:0;height:4px;background:var(--saffron);width:0;transition:width .3s;z-index:5}
+  #counter{position:fixed;right:22px;bottom:18px;font-family:var(--mono);font-size:13px;color:var(--mute);z-index:5}
+  #hint{position:fixed;left:22px;bottom:18px;font-family:var(--mono);font-size:12px;color:var(--mute);z-index:5}
+  .nav{position:fixed;top:0;bottom:0;width:12vw;z-index:4;cursor:pointer;opacity:0}
+  .nav.prev{left:0}.nav.next{right:0}
+
+  /* ---------- type ---------- */
+  .eyebrow{font-family:var(--mono);font-size:clamp(12px,1.3vw,15px);letter-spacing:.14em;text-transform:uppercase;color:var(--saffron)}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,7.2vw,104px);line-height:.98;letter-spacing:-.02em}
+  h2{font-family:var(--display);font-weight:600;font-size:clamp(30px,4.4vw,62px);line-height:1.04;letter-spacing:-.015em;max-width:16ch}
+  h2 em,h1 em{font-style:italic;color:var(--saffron)}
+  p,li{font-size:clamp(16px,1.75vw,24px);line-height:1.45;color:#E6E1D6}
+  .lead{max-width:42ch}
+  .small{font-size:clamp(13px,1.2vw,16px);color:var(--mute)}
+  .mono{font-family:var(--mono)}
+  .big{font-family:var(--display);font-size:clamp(56px,10vw,150px);font-weight:800;line-height:1;color:var(--saffron)}
+
+  /* ---------- layout helpers ---------- */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,64px);align-items:center}
+  .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px)}
+  .card{border:1px solid var(--line);border-radius:14px;padding:clamp(14px,2vw,26px);background:rgba(255,255,255,.03)}
+  .card h3{font-family:var(--display);font-size:clamp(20px,2.2vw,30px);font-weight:600;margin-bottom:.4em}
+  .card.do{border-color:var(--teal)} .card.dont{border-color:var(--rose)}
+  .tag{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:4px 9px;border-radius:999px;margin-bottom:10px}
+  .tag.do{background:var(--teal);color:var(--ink)} .tag.dont{background:var(--rose);color:#fff}
+  ul{list-style:none} li{padding-left:1.4em;position:relative;margin:.35em 0}
+  li::before{content:"—";position:absolute;left:0;color:var(--saffron)}
+  .quote{font-family:var(--display);font-size:clamp(26px,3.6vw,52px);line-height:1.15;max-width:24ch;font-weight:400}
+  .quote b{color:var(--saffron);font-weight:600}
+  .kicker{font-family:var(--display);font-style:italic;font-size:clamp(18px,2vw,28px);color:var(--mute)}
+  svg text{font-family:var(--body)}
+  .ill{font-family:var(--mono);font-size:12px;color:var(--mute);margin-top:6px}
+
+
+  /* ---------- journey slide ---------- */
+  .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.6vw,22px);align-items:stretch;position:relative}
+  .journey::before{content:"";position:absolute;left:10%;right:10%;top:54px;height:2px;background:linear-gradient(90deg,var(--teal),var(--saffron));z-index:0}
+  .stop{position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .logo{width:clamp(72px,8.5vw,120px);height:clamp(72px,8.5vw,120px);border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;border:3px solid var(--ink);box-shadow:0 0 0 3px var(--saffron)}
+  .logo img{width:86%;height:86%;object-fit:contain}
+  .logo.badge{font-family:var(--display);font-weight:800;color:var(--ink);font-size:clamp(18px,2.2vw,30px);letter-spacing:-.02em}
+  .stop .yr{font-family:var(--mono);font-size:12px;color:var(--saffron);letter-spacing:.1em}
+  .stop h3{font-family:var(--display);font-size:clamp(16px,1.7vw,23px);font-weight:600;line-height:1.15}
+  .stop p{font-size:clamp(12px,1.15vw,15px);color:var(--mute);line-height:1.35}
+  .stop.here .logo{box-shadow:0 0 0 3px var(--teal),0 0 24px rgba(39,177,158,.5)}
+  @media (max-width:820px){.journey{grid-template-columns:1fr 1fr}.journey::before{display:none}}
+
+
+  /* ---------- click-to-build choreography ---------- */
+  .slide.active > *{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .build{opacity:0;transform:translateY(18px);transition:opacity .45s cubic-bezier(.2,.7,.2,1),transform .45s cubic-bezier(.2,.7,.2,1)}
+  .build.in{opacity:1;transform:none}
+  .build.in .big{animation:count .7s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes count{from{opacity:0;transform:translateY(30px) scale(.9)}to{opacity:1;transform:none}}
+  .journey::before{transform:scaleX(0);transform-origin:left;transition:transform 1s ease}
+  .slide.active .journey.line::before{transform:scaleX(1)}
+  .draw{stroke-dasharray:1000;stroke-dashoffset:1000}
+  .draw.in{animation:draw 2s ease-out forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .remain{margin-left:8px;color:var(--saffron)}
+  @media (prefers-reduced-motion:reduce){.build,.slide.active > *{transition:none;animation:none!important}.draw.in{animation:none;stroke-dashoffset:0}}
+
+  /* ---------- pipeline animation ---------- */
+  .pipe{display:grid;grid-template-columns:1.1fr auto 1fr auto 1.1fr;gap:clamp(8px,1.5vw,22px);align-items:center}
+  .pipe .arrow{font-size:clamp(22px,3vw,40px);color:var(--saffron);opacity:.2;transition:opacity .3s}
+  .pipe .arrow.on{opacity:1}
+  .pbox{border:1px solid var(--line);border-radius:14px;padding:clamp(12px,1.6vw,22px);background:rgba(255,255,255,.03);min-height:180px;transition:border-color .3s,box-shadow .3s}
+  .pbox.on{border-color:var(--saffron);box-shadow:0 0 0 1px var(--saffron),0 0 30px rgba(244,163,0,.15)}
+  .pbox .lbl{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--mute);text-transform:uppercase;margin-bottom:10px}
+  .ptok{display:flex;flex-wrap:wrap;gap:6px}
+  .ptok span{font-family:var(--mono);font-size:clamp(14px,1.5vw,20px);padding:5px 9px;border-radius:6px;background:rgba(255,255,255,.06);opacity:.3;transform:scale(.94);transition:all .3s}
+  .ptok span.on{opacity:1;transform:none;background:rgba(244,163,0,.25);border:1px solid var(--saffron)}
+  .ptok span.out{opacity:1;transform:none;background:var(--saffron);color:var(--ink);font-weight:600;animation:pop .4s ease}
+  .net{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(6px,1vw,12px);justify-items:center}
+  .net i{width:clamp(10px,1.3vw,16px);height:clamp(10px,1.3vw,16px);border-radius:50%;background:var(--mute);opacity:.25;display:block}
+  .net.on i{animation:pulse .7s ease-in-out infinite alternate}
+  .net i:nth-child(odd){animation-delay:.15s}.net i:nth-child(3n){animation-delay:.3s}
+  @keyframes pulse{from{opacity:.25;transform:scale(.8);background:var(--mute)}to{opacity:1;transform:scale(1.25);background:var(--teal)}}
+  .pbars .cand{margin:5px 0}
+  .pbars .bar i{transition:width .7s cubic-bezier(.2,.7,.2,1)}
+
+  /* ---------- demo sampling animation ---------- */
+  .cand{transition:background .15s;border-radius:8px;padding:2px 6px;margin-left:-6px}
+  .cand.scan{background:rgba(244,163,0,.18)}
+  .cand.pick{background:rgba(244,163,0,.12)}
+  .fly{position:fixed;font-family:var(--mono);font-size:20px;color:var(--saffron);font-weight:600;pointer-events:none;z-index:9;transition:all .55s cubic-bezier(.2,.7,.2,1)}
+  #brain{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--mute);margin-left:10px;vertical-align:middle;opacity:.4}
+  #brain.on{animation:pulse .35s ease-in-out infinite alternate}
+
+  /* ---------- paper cards ---------- */
+  .papers{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.5vw,20px)}
+  .paper{background:#FBF8F1;color:#1b1b1b;border-radius:6px;padding:14px 14px 12px;box-shadow:0 10px 30px rgba(0,0,0,.45);position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;gap:6px;transform:rotate(-.6deg)}
+  .paper:nth-child(even){transform:rotate(.5deg)}
+  .paper img{width:100%;display:block;border-radius:3px;border:1px solid #ddd}
+  .paper .venue{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7a1f1f}
+  .paper h4{font-family:var(--display);font-size:clamp(13px,1.25vw,17px);line-height:1.2;font-weight:600}
+  .paper .au{font-size:11px;color:#555;line-height:1.3}
+  .paper .ab{font-size:11px;color:#444;line-height:1.35;columns:2;column-gap:8px;border-top:1px solid #ddd;padding-top:6px;font-family:Georgia,serif}
+  .paper .fin{margin-top:auto;background:#F4A300;color:#0E1A3A;font-size:12px;font-weight:600;padding:6px 8px;border-radius:4px;line-height:1.3}
+  @media (max-width:820px){.papers{grid-template-columns:1fr 1fr}.pipe{grid-template-columns:1fr}.pipe .arrow{text-align:center}}
+
+  /* ---------- LM demo ---------- */
+  #demo{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(16px,3vw,40px);align-items:start}
+  .context{font-family:var(--display);font-size:clamp(22px,2.8vw,40px);line-height:1.3;min-height:3.2em;border-bottom:1px solid var(--line);padding-bottom:14px}
+  .context .new{color:var(--saffron);animation:pop .35s ease}
+  @keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .cand{display:grid;grid-template-columns:minmax(90px,auto) 1fr 70px;gap:12px;align-items:center;margin:8px 0;font-size:clamp(15px,1.6vw,21px)}
+  .cand .w{font-family:var(--mono)}
+  .bar{height:22px;background:rgba(255,255,255,.06);border-radius:6px;overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:var(--teal);transition:width .5s ease;border-radius:6px}
+  .cand.pick .bar i{background:var(--saffron)} .cand.pick .w{color:var(--saffron);font-weight:600}
+  .cand .p{font-family:var(--mono);text-align:right;color:var(--mute)}
+  .ctrl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}
+  .btn{background:var(--saffron);color:var(--ink);border:0;border-radius:10px;padding:10px 18px;font-weight:600;font-size:15px}
+  .btn.ghost{background:transparent;color:var(--chalk);border:1px solid var(--line)}
+  .btn:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--saffron);outline-offset:2px}
+  select{background:var(--ink2);color:var(--chalk);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px}
+  .formula{font-family:var(--mono);font-size:clamp(13px,1.3vw,17px);background:rgba(0,0,0,.25);border-radius:10px;padding:12px 14px;line-height:1.6;margin-top:12px}
+  .formula b{color:var(--saffron)}
+  label.t{font-family:var(--mono);font-size:13px;color:var(--mute);display:flex;gap:8px;align-items:center}
+  input[type=range]{accent-color:var(--saffron)}
+
+  /* ---------- tokenizer demo ---------- */
+  .tok{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+  .tok span{font-family:var(--mono);font-size:clamp(14px,1.5vw,20px);padding:4px 8px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid var(--line)}
+  .tok.hi span{background:rgba(229,87,63,.25);border-color:var(--rose)}
+
+  @media (max-width:820px){
+    .cols,.cols3,#demo{grid-template-columns:1fr}
+    .slide{justify-content:flex-start;overflow-y:auto}
+    h2{max-width:none}
+  }
+#credit{position:fixed;left:0;right:0;bottom:14px;text-align:center;font-family:var(--mono);font-size:13px;color:#0E1A3A;background:#F7F3EA;padding:7px 16px;z-index:6;letter-spacing:.01em;box-shadow:0 2px 14px rgba(0,0,0,.25)}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="nav prev" aria-hidden="true"></div>
+<div class="nav next" aria-hidden="true"></div>
+<div id="hint">→ reveals next · ← undoes · F fullscreen</div>
+<div id="counter"></div>
+<div id="credit">Prepared by Parikshit Pareek, Assistant Professor, IIT Roorkee, for school students · free to use with attribution · pareek@ee.iitr.ac.in</div>
+
+<div id="deck">
+
+<!-- 1 TITLE -->
+<section class="slide">
+  <div class="eyebrow">IIT Roorkee · Department of Electrical Engineering · PSquare Lab</div>
+  <h1>AI, and <em>AI for Bharat</em>.<br>What it means for your career.</h1>
+  <p class="lead">A few rules that I believe will make you thank yourself in 2036.</p> <p> </p>
+  <p class="lead">Parikshit Pareek · Assistant Professor, EE, IIT Roorkee</p> <p> </p> <p> </p>
+  <h3>Parts of this slide deck were prepared using Fable 5</h3>
+</section>
+
+
+<!-- 2 ABOUT ME -->
+<section class="slide">
+  <div class="eyebrow">Who is talking to you</div>
+  <h2>Parikshit Pareek — the <em>journey</em> so far.</h2>
+  <div class="journey">
+    <div class="stop "><div class="logo"><img src="logos/rtu.png" alt="" onerror="this.parentNode.classList.add('badge');this.replaceWith(document.createTextNode('RTU'))"></div><div class="yr">B.TECH</div><h3>University College of Engineering, Kota (RTU)</h3><p>Electrical Engineering. The start: a state college, not an IIT.</p></div>
+    <div class="stop "><div class="logo"><img src="logos/iitd.png" alt="" onerror="this.parentNode.classList.add('badge');this.replaceWith(document.createTextNode('IITD'))"></div><div class="yr">M.TECH</div><h3>IIT Delhi</h3><p>Energy Studies. Gold Medal, POSOCO Award.</p></div>
+    <div class="stop "><div class="logo"><img src="logos/ntu.png" alt="" onerror="this.parentNode.classList.add('badge');this.replaceWith(document.createTextNode('NTU'))"></div><div class="yr">PH.D.</div><h3>Nanyang Technological University, Singapore</h3><p>Machine learning for power systems.</p></div>
+    <div class="stop "><div class="logo"><img src="logos/lanl.png" alt="" onerror="this.parentNode.classList.add('badge');this.replaceWith(document.createTextNode('LANL'))"></div><div class="yr">POSTDOC</div><h3>Los Alamos National Laboratory, USA</h3><p>Theoretical Division. Where the atom bomb was built; now, AI for physics.</p></div>
+    <div class="stop here"><div class="logo badge">IITR</div><div class="yr">2024 →</div><h3>IIT Roorkee</h3><p>Assistant Professor, Electrical Engineering. Leads PSquare Lab: AI for applied mathematics in power engineering.</p></div>
+  </div>
+  <div>
+  <p class="stop">Point of this slide: none of these doors needed a famous school to open the first one. They needed maths, stubbornness, and one good problem at a time.</p>
+  </div>
+</section>
+
+<!-- 3 WHAT YOU THINK AI IS -->
+<section class="slide">
+  <div class="eyebrow">Start here</div>
+  <h2>When someone says "AI", they mean <em>this</em>.</h2>
+  <div class="cols">
+    <div>
+      <p class="lead">ChatGPT. Gemini. Claude. Meta AI in WhatsApp. You type, it talks back, and it sounds like it knows everything.</p> <p> </p>
+      <p class="lead" style="margin-top:.8em">These are <em style="color:var(--saffron);font-style:italic">large language models</em>. They are one kind of AI, and the kind that will touch your career most.</p>
+      <p class="lead" style="margin-top:.8em"> So let's open them up! </p>
+    </div>
+    <div class="card">
+      <!-- <div class="eyebrow" style="margin-bottom:8px">One honest sentence</div> -->
+      <p class="quote" style="font-size:clamp(22px,2.6vw,36px)">A language model is a machine that has read a very large amount of text and learnt to guess <b>the next word</b>.</p>
+      <!-- <p class="small" style="margin-top:10px">That is not an insult. That is the whole engineering trick. Let us build one.</p> -->
+    </div>
+  </div>
+</section>
+
+
+<!-- HOW IT WORKS (animated) -->
+<section class="slide" data-onshow="pipeline">
+  <div class="eyebrow">How it works, in one loop</div>
+  <h2 style="font-size:clamp(24px,3.2vw,44px)">Chop. Score. Pick. <em>Repeat.</em></h2>
+  <div class="pipe">
+    <div class="pbox" id="pb1"><div class="lbl">1 · Chop text into tokens</div><div class="ptok" id="ptok"></div></div>
+    <div class="arrow" id="pa1">→</div>
+    <div class="pbox" id="pb2"><div class="lbl">2 · A network scores every possible next token</div><div class="net" id="pnet"></div><p class="small" style="margin-top:10px">Billions of numbers, tuned so that the correct next token gets a high score across trillions of examples.</p></div>
+    <div class="arrow" id="pa2">→</div>
+    <div class="pbox pbars" id="pb3"><div class="lbl">3 · Pick one, append, go again</div><div id="pbars"></div></div>
+  </div>
+  <p class="kicker" id="pmsg">&nbsp;</p>
+</section>
+
+<!-- 3 LIVE DEMO -->
+<section class="slide">
+  <div class="eyebrow">Live experiment · a real (tiny) language model running in this page</div>
+  <h2 style="font-size:clamp(24px,3.2vw,44px)">Watch it guess the next word.</h2>
+  <div id="demo">
+    <div>
+      <div class="context" id="ctx"></div>
+      <div class="ctrl">
+        <select id="start" aria-label="Starting words"></select>
+        <button class="btn" id="step">Predict next word</button>
+        <button class="btn ghost" id="auto">Auto-run</button>
+        <button class="btn ghost" id="reset">Start over</button>
+      </div>
+      <div class="ctrl">
+        <label class="t">Randomness (temperature) <input type="range" id="temp" min="0.2" max="2" step="0.1" value="1"> <span id="tempv">1.0</span></label>
+      </div>
+      <div class="formula">
+        P(next word | last two words) = <b>count</b>(last two words + next word) ÷ <b>count</b>(last two words)<br>
+        <span class="small">This model has read only <span id="nwords">…</span> words. ChatGPT-class models have read trillions, and use a neural network instead of a counting table. The idea is the same: predict, pick, repeat.</span>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow" style="margin-bottom:8px">Top candidates and their probabilities <span id="brain"></span></div>
+      <div id="cands"></div>
+      <p class="small" id="status" style="margin-top:10px"></p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 WHAT WE LEARNT -->
+<section class="slide">
+  <div class="eyebrow">Three things you just saw</div>
+  <div class="cols3">
+    <div class="card">
+      <h3>It predicts. It does not know.</h3>
+      <p>The model never checked whether a sentence is true. It only checked whether the words are <i>likely</i>. Truth is a side effect of reading a lot of mostly-true text.</p>
+    </div>
+    <div class="card">
+      <h3>It is fluent even when wrong.</h3>
+      <p>Turn up randomness and the sentences stay grammatical but drift into nonsense. Big models do this too, just more rarely. This is called a <b>hallucination</b>: a confident, fluent, false answer.</p>
+    </div>
+    <div class="card">
+      <h3>It learns what it reads.</h3>
+      <p>Our model knew "Roorkee" and "monsoon" because they were in its text. It knew nothing else. A model that has read little about Bharat will be weak on Bharat. Hold that thought.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 SCALE -->
+<section class="slide">
+  <div class="eyebrow">Why does it feel so smart, then?</div>
+  <div class="cols">
+    <div>
+      <div class="big">10<sup style="font-size:.45em">12</sup></div>
+      <p>words of text, roughly, read during training by a frontier model. A human reading a book a week for 80 years reads about 4×10<sup>8</sup> words.</p>
+    </div>
+    <div>
+      <div class="big">10<sup style="font-size:.45em">11</sup></div>
+      <p>adjustable numbers ("parameters") inside the network that store the patterns. Our demo had a few thousand counts.</p>
+      <p class="small" style="margin-top:10px">Orders of magnitude only. Exact figures for the newest models are not public.</p>
+    </div>
+  </div>
+  <p class="kicker">Scale makes the guesses astonishingly good. It does not change what the machine is doing.</p>
+</section>
+
+<!-- 6 SECTION: YOUR BRAIN -->
+<section class="slide">
+  <div class="eyebrow">Part two</div>
+  <h1>Your brain is the <em>asset</em>.<br>Do not outsource its workout.</h1>
+  <p class="lead">The single biggest career risk for your generation is not "AI will take my job". It is "I never built the skills because AI did my homework".</p>
+</section>
+
+<!-- 7 OFFLOADING CURVE -->
+<section class="slide">
+  <div class="eyebrow">How skill is built</div>
+  <div class="cols">
+    <div>
+      <h2>Struggle is not a bug. It is the <em>mechanism</em>.</h2>
+      <p class="lead">Learning science calls it <b>desirable difficulty</b>: you remember and understand what you had to work to produce. Retrieving an answer from your own head strengthens the memory. Reading the answer does not.</p>
+      <p class="lead" style="margin-top:.7em">You cannot pay someone to lift weights for you and expect your arms to grow. Cognition works the same way.</p>
+    </div>
+    <div>
+      <svg viewBox="0 0 520 340" width="100%" role="img" aria-label="Illustrative curves: skill grows with effortful practice, stalls when answers are outsourced">
+        <line x1="60" y1="290" x2="500" y2="290" stroke="#9AA5C4" stroke-width="1.2"/>
+        <line x1="60" y1="290" x2="60" y2="30" stroke="#9AA5C4" stroke-width="1.2"/>
+        <text x="280" y="322" fill="#9AA5C4" font-size="14" text-anchor="middle">Years of practice (Class 9 → career)</text>
+        <text x="22" y="160" fill="#9AA5C4" font-size="14" transform="rotate(-90 22 160)" text-anchor="middle">Skill you own</text>
+        <path class="draw build" d="M60 280 C 160 270, 230 200, 300 130 S 440 50, 500 40" fill="none" stroke="#27B19E" stroke-width="4"/>
+        <path class="draw build" d="M60 280 C 160 250, 240 240, 320 238 S 440 236, 500 236" fill="none" stroke="#E5573F" stroke-width="4"/>
+        <text x="330" y="105" fill="#27B19E" font-size="15" font-weight="600">Attempt first, then check with AI</text>
+        <text x="330" y="262" fill="#E5573F" font-size="15" font-weight="600">Ask AI first, copy, move on</text>
+        <text x="140" y="232" fill="#F4A300" font-size="13">Looks the same early on ↑</text>
+      </svg>
+      <div class="ill">Illustrative shape, not measured data. The early-years overlap is the trap: both paths feel fine until one of them stops.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EVIDENCE -->
+<section class="slide">
+  <div class="eyebrow">This is not a teacher's opinion. It is being measured.</div>
+  <h2 style="font-size:clamp(24px,3.2vw,44px)">Four studies, 2025.</h2>
+  <div class="papers">
+    <div class="paper"><img src="papers/bastani.png" alt="" onerror="this.remove()"><div class="venue">PNAS · 2025 · randomised trial, ~1,000 students</div><h4>Generative AI without guardrails can harm learning: evidence from high school mathematics</h4><div class="au">Bastani, Bastani, Sungu, Ge, Kabakcı, Mariman · Wharton / Penn</div><div class="ab">High-school students in Classes 9–11 practised maths with a ChatGPT-like tool, a guarded tutor, or nothing. Then everyone sat a closed-book exam.</div><div class="fin">With plain ChatGPT: better in practice, worse on the exam than students with no AI. Guarded tutor: no harm, no gain.</div></div>
+    <div class="paper"><img src="papers/kosmyna.png" alt="" onerror="this.remove()"><div class="venue">MIT Media Lab · arXiv 2506.08872 · EEG study</div><h4>Your Brain on ChatGPT: accumulation of cognitive debt when using an AI assistant for essay writing</h4><div class="au">Kosmyna, Hauptmann, Yuan, Situ, Liao, Beresnitzky, Braunstein, Maes</div><div class="ab">54 participants wrote essays over four months with ChatGPT, with search, or with brain only, while brain activity was recorded.</div><div class="fin">Weakest brain connectivity in the ChatGPT group; poorer recall of their own essays. Preprint; sample is small and critiques exist.</div></div>
+    <div class="paper"><img src="papers/gerlich.png" alt="" onerror="this.remove()"><div class="venue">Societies · 2025 · survey + interviews, 666 people</div><h4>AI tools in society: impacts on cognitive offloading and the future of critical thinking</h4><div class="au">Gerlich · SBS Swiss Business School</div><div class="ab">Measured AI use, "cognitive offloading" (letting the tool think for you), and critical-thinking scores across age groups.</div><div class="fin">Heavier AI use went with lower critical-thinking scores, strongest in the youngest group. Correlation, not proof of cause.</div></div>
+    <div class="paper"><img src="papers/lee.png" alt="" onerror="this.remove()"><div class="venue">CHI · 2025 · survey of 319 knowledge workers</div><h4>The impact of generative AI on critical thinking: self-reported reductions in cognitive effort and confidence effects</h4><div class="au">Lee, Sarkar, Tankelevitch, Drosos, Rintel, Banks, Wilson · Microsoft Research / CMU</div><div class="ab">Professionals described 900+ real tasks done with AI and how much they thought for themselves.</div><div class="fin">The more they trusted the AI, the less they checked it. Critical thinking shifted from doing the work to verifying it, when it happened at all.</div></div>
+  </div>
+  <p class="small">Read them yourself: pnas.org/doi/10.1073/pnas.2422633122 · arxiv.org/abs/2506.08872 · doi.org/10.3390/soc15010006 · Lee et al., CHI 2025. One rigorous finding beats four headlines: the PNAS trial is the one to remember.</p>
+</section>
+
+<!-- 8 KEEP vs OFFLOAD -->
+<section class="slide">
+  <div class="eyebrow">The dividing line</div>
+  <h2>Offload the <em>chores</em>. Keep the <em>thinking</em>.</h2>
+  <div class="cols">
+    <div class="card dont">
+      <span class="tag dont">Never outsource</span>
+      <ul>
+        <li>Your first attempt at any problem</li>
+        <li>Writing to figure out what you think</li>
+        <li>Mental maths and estimation ("is 2,300 × 48 about 100k?")</li>
+        <li>Core facts and vocabulary of a subject (you cannot reason with words you do not own)</li>
+        <li>Reading a whole chapter, not its summary</li>
+        <li>Deciding what is true</li>
+      </ul>
+    </div>
+    <div class="card do">
+      <span class="tag do">Outsource freely</span>
+      <ul>
+        <li>Formatting, boilerplate, repetitive code</li>
+        <li>Finding and translating sources</li>
+        <li>A second opinion <i>after</i> your own attempt</li>
+        <li>Generating practice questions for yourself</li>
+        <li>Explaining one concept five different ways</li>
+        <li>Tidying up grammar once the idea is yours</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 9 PROTOCOL -->
+<section class="slide">
+  <div class="eyebrow">A rule you can actually follow</div>
+  <h2>The <em>Attempt-First</em> protocol.</h2>
+  <div class="cols3" style="grid-template-columns:repeat(4,1fr)">
+    <div class="card"><div class="eyebrow">Step 1</div><h3>Attempt</h3><p>Close the chatbot. Write your answer, even a bad one. Ten minutes, no help.</p></div>
+    <div class="card"><div class="eyebrow">Step 2</div><h3>Ask</h3><p>Now ask the AI. Paste <i>your</i> attempt and ask where it is wrong, not for the answer.</p></div>
+    <div class="card"><div class="eyebrow">Step 3</div><h3>Compare</h3><p>Find the exact line where you diverged. That line is the lesson. Everything else you already knew.</p></div>
+    <div class="card"><div class="eyebrow">Step 4</div><h3>Explain back</h3><p>Shut the screen and explain the solution to a friend or a wall. If you cannot, you have not learnt it yet.</p></div>
+  </div>
+  <p class="kicker">The order is the whole point. Step 2 before Step 1 is how you end up with a degree and no skill.</p>
+</section>
+
+<!-- 10 USING IT WELL -->
+<section class="slide">
+  <div class="eyebrow">Using it like a professional</div>
+  <h2>Good prompts come from <em>good thinking</em>, not the other way round.</h2>
+  <div class="cols">
+    <ul>
+      <li><b>Be specific.</b> "Explain Newton's third law using a cricket ball hitting a bat, for a Class 10 student" beats "explain physics".</li>
+      <li><b>Make it quiz you.</b> "Ask me 5 questions on this chapter, one at a time, and grade my answers."</li>
+      <li><b>Ask for the disagreement.</b> "What would a strict examiner mark wrong in this?"</li>
+      <li><b>Demand sources, then open them.</b> Models invent references. Click before you trust.</li>
+      <li><b>Never paste an answer you cannot defend.</b> In an exam, a viva, an interview: you are the one in the room.</li>
+    </ul>
+    <div class="card">
+      <div class="eyebrow" style="margin-bottom:8px">Try this tonight</div>
+      <p class="mono" style="font-size:clamp(14px,1.4vw,18px);line-height:1.6">"Here is my solution to [problem]. Do not give me the correct answer. Tell me the first step where my reasoning breaks, and ask me a question that would help me find it myself."</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 SECTION: CAREERS -->
+<section class="slide">
+  <div class="eyebrow">Part three</div>
+  <h1>AI takes <em>tasks</em>,<br>not jobs.</h1>
+  <p class="lead">A job is a bundle of tasks. AI removes some tasks from the bundle, makes others cheap, and makes a few far more valuable. Your career is deciding which tasks you will be known for.</p>
+</section>
+
+<!-- 12 TASK BUNDLE -->
+<section class="slide">
+  <div class="eyebrow">Example: a doctor in 2036</div>
+  <div class="cols">
+    <svg viewBox="0 0 520 360" width="100%" role="img" aria-label="A job as a bundle of tasks, with some shrinking and some growing">
+      <defs><style>.tk{font-size:14px;fill:#F7F3EA}.sm{font-size:12px;fill:#9AA5C4}</style></defs>
+      <rect x="20" y="20" width="220" height="320" rx="14" fill="none" stroke="#9AA5C4" stroke-dasharray="6 5"/>
+      <text x="130" y="48" text-anchor="middle" class="sm">THE JOB TODAY</text>
+      <rect x="40" y="65" width="180" height="44" rx="8" fill="#E5573F" opacity=".85"/><text x="130" y="92" text-anchor="middle" class="tk">Writing reports, notes</text>
+      <rect x="40" y="118" width="180" height="44" rx="8" fill="#E5573F" opacity=".85"/><text x="130" y="145" text-anchor="middle" class="tk">Searching literature</text>
+      <rect x="40" y="171" width="180" height="44" rx="8" fill="#F4A300" opacity=".9"/><text x="130" y="198" text-anchor="middle" class="tk" fill="#0E1A3A">Reading scans, tests</text>
+      <rect x="40" y="224" width="180" height="44" rx="8" fill="#27B19E"/><text x="130" y="251" text-anchor="middle" class="tk">Deciding under uncertainty</text>
+      <rect x="40" y="277" width="180" height="44" rx="8" fill="#27B19E"/><text x="130" y="304" text-anchor="middle" class="tk">Trust, empathy, judgement</text>
+      <path d="M255 180 L 290 180" stroke="#F4A300" stroke-width="3" marker-end="url(#a)"/>
+      <defs><marker id="a" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8z" fill="#F4A300"/></marker></defs>
+      <text x="410" y="48" text-anchor="middle" class="sm">WITH AI</text>
+      <rect x="320" y="65" width="60" height="20" rx="6" fill="#E5573F" opacity=".6"/><text x="390" y="80" class="sm">shrinks</text>
+      <rect x="320" y="95" width="60" height="20" rx="6" fill="#E5573F" opacity=".6"/><text x="390" y="110" class="sm">shrinks</text>
+      <rect x="320" y="125" width="110" height="36" rx="8" fill="#F4A300" opacity=".9"/><text x="440" y="148" class="sm">AI-assisted</text>
+      <rect x="320" y="175" width="180" height="60" rx="8" fill="#27B19E"/><text x="410" y="210" text-anchor="middle" class="tk">grows</text>
+      <rect x="320" y="245" width="180" height="80" rx="8" fill="#27B19E"/><text x="410" y="290" text-anchor="middle" class="tk">grows</text>
+    </svg>
+    <div>
+      <h2 style="font-size:clamp(24px,3.2vw,44px)">The premium moves to what AI cannot be <em>held responsible</em> for.</h2>
+      <ul>
+        <li>Framing the problem correctly</li>
+        <li>Checking that an answer is actually right</li>
+        <li>Deep domain knowledge to spot the subtle error</li>
+        <li>Taking responsibility for the decision</li>
+        <li>Explaining it to a human who is scared</li>
+      </ul>
+      <p class="small">Replace "doctor" with engineer, lawyer, civil servant, farmer, founder. The shape is the same.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 13 INDIAN CAREERS -->
+<section class="slide">
+  <div class="eyebrow">What changes, field by field</div>
+  <h2>Every path you are considering <em>still exists</em>. The entry ticket changed.</h2>
+  <div class="cols3">
+    <div class="card"><h3>Engineering</h3><p>Writing code is cheap. Knowing <i>which</i> system to build, why it fails, and how to verify it is the job. Maths and physics matter more, not less.</p></div>
+    <div class="card"><h3>Medicine</h3><p>AI reads the scan. The doctor decides, under uncertainty, with a family watching. Biology depth plus judgement.</p></div>
+    <div class="card"><h3>Law &amp; civil services</h3><p>Drafting and search get automated. Argument, ethics, and knowing the ground reality of a district do not.</p></div>
+    <div class="card"><h3>Agriculture &amp; rural enterprise</h3><p>Weather, price, pest and soil advice in your own language on a ₹8,000 phone. The farmer who can use it out-earns the one who cannot.</p></div>
+    <div class="card"><h3>Design, media, teaching</h3><p>Generation is free; taste and trust are scarce. The teacher who uses AI to give each child a different exercise wins.</p></div>
+    <div class="card"><h3>Building AI itself</h3><p>Linear algebra, probability, calculus, programming, and a domain you care about. This is the path we will come back to.</p></div>
+  </div>
+</section>
+
+<!-- 14 SECTION: AI FOR BHARAT -->
+<section class="slide">
+  <div class="eyebrow">Part four</div>
+  <h1>AI for <em>Bharat</em><br>will be built by whoever shows up.</h1>
+  <p class="lead">Models learn what they are shown. If Bharat's languages, problems, and people are not in the data and not on the team, the model will not serve Bharat. That is not a prediction. That is arithmetic.</p>
+</section>
+
+<!-- 15 THE DATA GAP -->
+<section class="slide">
+  <div class="eyebrow">The gap, in numbers</div>
+  <div class="cols">
+    <div>
+      <div class="big">22</div>
+      <p>scheduled languages. Over 1.4 billion people. A few hundred million speak English comfortably; most do not.</p>
+    </div>
+    <div>
+      <div class="big">&lt;1%</div>
+      <p>of text on the public internet, roughly, is in Hindi, and the other Indian languages are far smaller. English is around half.</p>
+      <p class="small" style="margin-top:10px">Web-content surveys vary by method; the order of magnitude is what matters.</p>
+    </div>
+  </div>
+  <p class="kicker">Remember the demo: a model that has barely read a language is guessing blind in that language.</p>
+</section>
+
+<!-- 16 SARVAM -->
+<section class="slide" style="gap:clamp(10px,1.6vh,18px)">
+  <div class="eyebrow">Proof it is needed, and that it can be done here: Sarvam AI, Bengaluru</div>
+  <!-- let the heading span the full width, one or two lines -->
+  <h2 style="max-width:none;font-size:clamp(24px,3.2vw,44px)">Global models made Bharat pay <em>4× more</em> per word. Sarvam fixed the plumbing.</h2>
+  <div class="cols" style="align-items:start">
+    <div>
+      <svg viewBox="0 0 520 250" width="100%" role="img" aria-label="Tokens per word: English 1.4; Indian languages in global tokenizers 4 to 8; Sarvam tokenizer 1.4 to 2.1">
+        <g font-size="14" fill="#F7F3EA">
+          <text x="10" y="48">English, any tokenizer</text>
+          <text x="10" y="118">Hindi/Tamil/Bengali, global tokenizers</text>
+          <text x="10" y="188">Same languages, Sarvam-1 tokenizer</text>
+        </g>
+        <rect class="build" x="10" y="58" width="70" height="26" rx="6" fill="#27B19E"/><text class="build" x="88" y="77" fill="#9AA5C4" font-size="13">≈1.4 tokens / word</text>
+        <rect class="build" x="10" y="128" width="400" height="26" rx="6" fill="#E5573F"/><text class="build" x="418" y="147" fill="#9AA5C4" font-size="13">4 – 8</text>
+        <rect class="build" x="10" y="198" width="105" height="26" rx="6" fill="#F4A300"/><text class="build" x="123" y="217" fill="#9AA5C4" font-size="13">1.4 – 2.1</text>
+      </svg>
+      <div class="ill">Tokens per word ("fertility"), as reported by Sarvam for Sarvam-1, Oct 2024. Bars drawn to the midpoint of each range. More tokens = slower, costlier, and a model that sees your language in fragments.</div>
+    </div>
+    <!-- smaller text on the dense column -->
+    <div style="font-size:clamp(14px,1.4vw,19px)">
+      <ul style="font-size:inherit">
+        <li style="font-size:inherit"><b>The problem.</b> English-first tokenizers know English words whole and shred Indian scripts, so every Indian-language user pays more and gets less.</li>
+        <li style="font-size:inherit"><b>What they did.</b> Own tokenizer for Indian scripts, ~2 trillion tokens of curated Indian-language text, a 2-billion-parameter model trained from scratch: Sarvam-1.</li>
+        <li style="font-size:inherit"><b>Result.</b> Beat much larger global models on Indian-language tests, several times faster. Small, because the plumbing was right.</li>
+        <li style="font-size:inherit"><b>Since then.</b> Sarvam-M (2025); in 2026 open 30B and 105B models with a tokenizer for all 22 scheduled languages, plus speech, translation and document models.</li>
+      </ul>
+      <p class="kicker" style="margin-top:10px;font-size:clamp(15px,1.6vw,22px)">Founded by Indian researchers, solving a problem the giants had not bothered with. That is the template.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 17 WHAT BHARAT NEEDS -->
+<section class="slide">
+  <div class="eyebrow">Problems only we will solve, because only we have them</div>
+  <div class="cols3">
+    <div class="card"><h3>Voice, not text</h3><p>Hundreds of millions of first-time internet users type poorly and speak fluently, often in a mix of languages. AI for Bharat must listen.</p></div>
+    <div class="card"><h3>Public infrastructure</h3><p>Aadhaar, UPI, ONDC: India builds digital public goods at population scale. Bhashini (language translation) and the IndiaAI Mission are the same idea applied to AI.</p></div>
+    <div class="card"><h3>Frugal compute</h3><p>Models that run on a cheap phone with patchy network, in a clinic without a data centre. Efficiency is a research field, not a compromise.</p></div>
+    <div class="card"><h3>Agriculture &amp; energy</h3><p>Monsoon forecasts, crop disease from a photo, power grids with rooftop solar and batteries. Physics plus AI, both needed.</p></div>
+    <div class="card"><h3>Health at the last mile</h3><p>One doctor per thousand people. An assistant that helps an ASHA worker in Garhwali is worth more than one that writes English poetry.</p></div>
+    <div class="card"><h3>Education in mother tongue</h3><p>A patient tutor for every child, in every language, that strengthens thinking instead of replacing it. You are the first users. You could be the builders.</p></div>
+  </div>
+</section>
+
+
+<!-- SCIENCE & TECH -->
+<section class="slide">
+  <div class="eyebrow">AI for Bharat · science and technology</div>
+  <h2>The next <em>lab instrument</em> is a model.</h2>
+  <div class="cols3">
+    <div class="card"><h3>Weather &amp; climate</h3><p>Monsoon onset, cloudbursts in the Himalaya, district-level forecasts. Models trained on physics plus decades of IMD and satellite data; India's own data is the asset nobody else has.</p></div>
+    <div class="card"><h3>Materials &amp; energy</h3><p>Search millions of candidate compounds for batteries, solar cells and catalysts before touching a furnace. The power grid itself, with rooftop solar and storage, needs AI that respects physics: that is our lab's work.</p></div>
+    <div class="card"><h3>Biology &amp; medicine</h3><p>Protein structure prediction changed drug discovery. India's disease burden, genetic diversity and hospital records are unstudied at scale. Whoever builds on them decides what the medicines of 2040 target.</p></div>
+    <div class="card"><h3>Space &amp; earth observation</h3><p>ISRO's satellites produce terabytes a day. Crop yield, groundwater, glacier retreat, illegal mining: all readable from orbit if someone writes the model.</p></div>
+    <div class="card"><h3>Mathematics itself</h3><p>AI systems now solve olympiad-level problems and help check proofs. Your Class 11 maths is the entry ticket to a field that is being rebuilt in front of you.</p></div>
+    <div class="card"><h3>Frugal science</h3><p>A microscope on a phone. A sensor built for ₹500. AI that squeezes signal out of cheap hardware is an Indian research tradition, and a global export.</p></div>
+  </div>
+  <p class="kicker">Science is becoming "data + physics + model". Bharat has the first two in abundance. The third is your job.</p>
+</section>
+
+<!-- 18 WHO DECIDES -->
+<section class="slide">
+  <div class="eyebrow">Why it comes down to you</div>
+  <p class="quote">Three choices decide what an AI becomes: <b>what data</b> it reads, <b>what tests</b> it is judged by, and <b>which problems</b> its builders think are worth solving.</p>
+  <p class="lead">All three are made by people. If the people are in California, the model learns California. If they are from Roorkee, Ranchi and Rajkot, the model learns Bharat.</p>
+</section>
+
+<!-- 19 WHAT TO STUDY -->
+<section class="slide">
+  <div class="eyebrow">If you want to build it</div>
+  <h2>The syllabus for building AI is <em>boringly old</em>.</h2>
+  <div class="cols">
+    <ul>
+      <li><b>Mathematics.</b> Probability (what you just saw), linear algebra (how a network stores patterns), calculus (how it learns). Your Class 11–12 maths is the foundation, not a hurdle.</li>
+      <li><b>Programming.</b> Python. Write code yourself for two years before letting AI write it for you.</li>
+      <li><b>A domain.</b> Power systems, biology, law, Sanskrit, soil science. AI is a tool; the problem comes from somewhere.</li>
+      <li><b>Language.</b> Your mother tongue is a technical asset now. English is still the language of the papers.</li>
+      <li><b>Writing.</b> Clear writing is clear thinking, and it is how ideas get funded.</li>
+    </ul>
+    <svg viewBox="0 0 520 300" width="100%" role="img" aria-label="Timeline from Class 9 to career">
+      <line x1="40" y1="150" x2="490" y2="150" stroke="#9AA5C4" stroke-width="2"/>
+      <g fill="#F4A300"><circle cx="60" cy="150" r="9"/><circle cx="200" cy="150" r="9"/><circle cx="340" cy="150" r="9"/><circle cx="470" cy="150" r="9"/></g>
+      <g font-size="14" fill="#F7F3EA" text-anchor="middle" font-weight="600">
+        <text x="60" y="125">Class 9–10</text><text x="200" y="125">Class 11–12</text><text x="340" y="125">College</text><text x="470" y="125">Work</text>
+      </g>
+      <g font-size="12" fill="#9AA5C4" text-anchor="middle">
+        <text x="60" y="180">Maths basics,</text><text x="60" y="196">first Python,</text><text x="60" y="212">read a lot</text>
+        <text x="200" y="180">Probability,</text><text x="200" y="196">matrices, one</text><text x="200" y="212">real project</text>
+        <text x="340" y="180">Pick a domain,</text><text x="340" y="196">build for Bharat,</text><text x="340" y="212">publish something</text>
+        <text x="470" y="180">Own the</text><text x="470" y="196">judgement</text><text x="470" y="212">tasks</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- 20 30-DAY CHALLENGE -->
+<section class="slide">
+  <div class="eyebrow">Leave with something to do</div>
+  <h2>A <em>30-day</em> challenge.</h2>
+  <div class="cols3">
+    <div class="card do"><span class="tag do">Week 1</span><h3>Attempt-first</h3><p>Every homework: ten minutes alone before any AI. Keep a count of how many days you managed it.</p></div>
+    <div class="card do"><span class="tag do">Week 2</span><h3>Catch a hallucination</h3><p>Ask any chatbot for three references on a topic you know. Check each. Write down what it invented.</p></div>
+    <div class="card do"><span class="tag do">Week 3</span><h3>Break the model</h3><p>Ask the same question in English and in your mother tongue. Compare. That gap is a research problem.</p></div>
+    <div class="card do"><span class="tag do">Week 4</span><h3>Build the toy</h3><p>Write a 30-line Python program that does what this slide deck did: count word pairs, predict the next word. Send it to us.</p></div>
+  </div>
+</section>
+
+<!-- 21 CLOSE -->
+<section class="slide">
+  <div class="eyebrow">Remember one line</div>
+  <h1>AI predicts the next <em>word</em>.<br>You decide the next <em>decade</em>.</h1>
+  <p class="lead">Questions welcome! </p> 
+  <p class="lead"> Come find us at PSquare Lab, Electrical Engineering, IIT Roorkee · psquare-lab.github.io</p>
+</section>
+
+</div>
+
+<script>
+/* =============== deck navigation =============== */
+const slides=[...document.querySelectorAll('.slide')];let i=0;
+const hooks={};
+const BUILD_SEL='.cols3 > .card, .cols > .card, .journey .stop, .papers .paper, li, .kicker, .draw, .big, .stop';
+function prep(s){ // mark buildable elements once
+  if(s.dataset.prepped)return; s.dataset.prepped=1;
+  if(s.dataset.onshow)return; // pipeline & demo slides manage themselves
+  [...s.querySelectorAll(BUILD_SEL)].forEach(e=>{ if(e.matches('.big'))e=e.parentElement; if(e.parentElement.closest('.build'))return; e.classList.add('build'); });
+}
+function pending(s){return [...s.querySelectorAll('.build:not(.in)')]}
+function built(s){return [...s.querySelectorAll('.build.in')]}
+function updateCounter(){const p=pending(slides[i]).length;document.getElementById('counter').innerHTML=(i+1)+' / '+slides.length+(p?`<span class="remain">· ${p} more</span>`:'')}
+function go(n,full){
+  i=Math.max(0,Math.min(slides.length-1,n));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+  const s=slides[i];prep(s);
+  s.querySelectorAll('.build').forEach(e=>e.classList.toggle('in',!!full));
+  const j=s.querySelector('.journey');if(j)j.classList.toggle('line',!!full);
+  const hk=s.dataset.onshow;if(hk&&hooks[hk])hooks[hk](full);
+  document.getElementById('progress').style.width=((i+1)/slides.length*100)+'%';
+  updateCounter();location.hash=i+1;
+}
+async function next(){
+  const s=slides[i];
+  if(s.dataset.onshow&&hooks[s.dataset.onshow+'Step']){const more=await hooks[s.dataset.onshow+'Step']();if(more)return}
+  const p=pending(s);
+  if(p.length){p[0].classList.add('in');const j=s.querySelector('.journey');if(j&&!pending(s).length)j.classList.add('line');updateCounter();return}
+  go(i+1);
+}
+function prev(){
+  const s=slides[i];const b=built(s);
+  if(!s.dataset.onshow&&b.length){b[b.length-1].classList.remove('in');const j=s.querySelector('.journey');if(j)j.classList.remove('line');updateCounter();return}
+  go(i-1,true);
+}
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='SELECT'||e.target.tagName==='INPUT')return;
+  if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();next()}
+  if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+  if(e.key==='Home')go(0); if(e.key==='End')go(slides.length-1,true);
+  if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+});
+document.querySelector('.nav.prev').onclick=prev;document.querySelector('.nav.next').onclick=next;
+let tx=null;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
+document.addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>60)(dx<0?next():prev());tx=null});
+go(parseInt(location.hash.slice(1))-1||0);
+
+/* =============== tiny language model (trigram with backoff) =============== */
+const corpus=`
+the farmer in roorkee sells wheat in the market every monday .
+the farmer in punjab sells wheat to the government every season .
+the farmer in bihar sells rice in the market every week .
+the student in roorkee studies maths every evening before dinner .
+the student in delhi studies physics every morning before school .
+the student in kota studies chemistry every night before the exam .
+the teacher in roorkee explains the lesson again before the exam .
+the teacher in jaipur explains the problem again in the class .
+the monsoon arrives in kerala in june every year .
+the monsoon arrives in roorkee in july every year .
+the monsoon brings heavy rain to the hills every year .
+the river ganga flows through roorkee to the plains .
+the river ganga flows from the hills to the sea .
+the train from delhi reaches roorkee in four hours .
+the train from haridwar reaches delhi in five hours .
+the bus from roorkee reaches haridwar in one hour .
+the cricket match in the stadium starts at four in the evening .
+the cricket match in the school starts after the lunch break .
+my friend plays cricket in the ground every evening after school .
+my friend plays football in the park every sunday morning .
+my sister reads a book every night before she sleeps .
+my brother reads the newspaper every morning with tea .
+my mother makes tea every morning before the sun rises .
+my father drinks tea every evening after work .
+the shop near the temple sells sweets every day .
+the shop near the station sells tea and samosa all day .
+the engineer in the lab builds a model of the power grid .
+the engineer in the lab trains a model to predict the next word .
+the model predicts the next word from the previous words .
+the model learns the patterns in the text it reads .
+the computer counts the words and guesses the next one .
+the students in the class learn about the model today .
+the students in the hall listen to the professor today .
+the professor in roorkee explains how the model predicts words .
+the professor in delhi explains how the computer learns .
+the exam in march tests maths and physics and chemistry .
+the exam in the school tests the lesson from the book .
+the farmer checks the weather on the phone every morning .
+the farmer asks the phone about the price of wheat today .
+the phone answers in hindi and the farmer understands .
+the doctor in the village sees fifty patients every day .
+the doctor in the city sees the scan and decides the treatment .
+the village near the river grows rice and sugarcane .
+the village near the hills grows apples and potatoes .
+heavy rain in the hills floods the river every monsoon .
+heavy rain in the city floods the roads every monsoon .
+the sun rises over the hills and the farmer starts work .
+the sun sets over the river and the students go home .
+the market in the city sells everything from wheat to phones .
+the government buys wheat from the farmer at a fixed price .
+`.trim().toLowerCase();
+
+const words=corpus.split(/\s+/);
+document.getElementById('nwords').textContent=words.length;
+const tri={},bi={},uni={};
+for(let k=0;k<words.length;k++){
+  uni[words[k]]=(uni[words[k]]||0)+1;
+  if(k>=1){const key=words[k-1];(bi[key]=bi[key]||{});bi[key][words[k]]=(bi[key][words[k]]||0)+1}
+  if(k>=2){const key=words[k-2]+' '+words[k-1];(tri[key]=tri[key]||{});tri[key][words[k]]=(tri[key][words[k]]||0)+1}
+}
+function dist(ctx){ // returns [{w,p}], using longest context that has counts
+  let table=null,src='';
+  if(ctx.length>=2&&tri[ctx[ctx.length-2]+' '+ctx[ctx.length-1]]){table=tri[ctx[ctx.length-2]+' '+ctx[ctx.length-1]];src='last two words'}
+  else if(ctx.length>=1&&bi[ctx[ctx.length-1]]){table=bi[ctx[ctx.length-1]];src='last word only (two-word pattern unseen)'}
+  else{table=uni;src='no context (word frequency only)'}
+  const total=Object.values(table).reduce((a,b)=>a+b,0);
+  return {src,list:Object.entries(table).map(([w,c])=>({w,c,p:c/total})).sort((a,b)=>b.p-a.p)};
+}
+function applyTemp(list,T){ // p_i^(1/T) renormalised; T=1 leaves probabilities unchanged
+  const z=list.map(o=>Math.pow(o.p,1/T));const s=z.reduce((a,b)=>a+b,0);
+  return list.map((o,k)=>({...o,q:z[k]/s}));
+}
+
+
+/* =============== pipeline animation (click-stepped) =============== */
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const P={phase:0,round:0,ctx:[],d:null,pick:null,busy:false};
+const $=id=>document.getElementById(id);
+hooks.pipeline=function(full){
+  P.phase=0;P.round=0;P.ctx=['the','farmer','checks','the','weather'];P.busy=false;
+  $('pnet').innerHTML=Array.from({length:16},()=>'<i></i>').join('');
+  ['pb1','pb2','pb3','pa1','pa2'].forEach(x=>$(x).classList.remove('on'));$('pnet').classList.remove('on');
+  $('ptok').innerHTML=P.ctx.map(w=>`<span class="${full?'on':''}">${w}</span>`).join('');$('pbars').innerHTML='';
+  $('pmsg').textContent='Press → to run one step of the loop.';
+  if(full){P.phase=1;[...$('ptok').children].forEach(s=>s.classList.add('on'))}
+};
+hooks.pipelineStep=async function(){ // returns true if it consumed the click
+  if(P.busy)return true; P.busy=true;
+  try{
+  if(P.phase===0){ // chop
+    $('pb1').classList.add('on');$('pmsg').textContent='Step 1: the sentence is chopped into tokens.';
+    const sp=$('ptok').children;for(let k=0;k<sp.length;k++){await sleep(180);sp[k].classList.add('on')}
+    P.phase=1;return true;
+  }
+  if(P.phase===1){ // score
+    $('pa1').classList.add('on');$('pb2').classList.add('on');$('pnet').classList.add('on');
+    $('pmsg').textContent='Step 2: every candidate next token gets a score. Scores become probabilities.';
+    await sleep(1200);$('pnet').classList.remove('on');$('pa2').classList.add('on');$('pb3').classList.add('on');
+    P.d=dist(P.ctx).list.slice(0,5);
+    $('pbars').innerHTML=P.d.map(o=>`<div class="cand"><span class="w">${o.w}</span><div class="bar"><i style="width:0"></i></div><span class="p">${(o.p*100).toFixed(0)}%</span></div>`).join('');
+    await sleep(60);[...$('pbars').querySelectorAll('.bar i')].forEach((b,k)=>b.style.width=(P.d[k].p*100)+'%');
+    P.phase=2;return true;
+  }
+  if(P.phase===2){ // pick
+    let r=Math.random();P.pick=P.d[0].w;for(const o of P.d){r-=o.p;if(r<=0){P.pick=o.w;break}}
+    const row=[...$('pbars').children].find(c=>c.querySelector('.w').textContent===P.pick);if(row)row.classList.add('pick');
+    $('pmsg').textContent='Step 3: pick one, usually a likely one, and stick it on the end.';
+    await sleep(400);const s=document.createElement('span');s.className='out';s.textContent=P.pick;$('ptok').appendChild(s);P.ctx.push(P.pick);
+    P.phase=3;return true;
+  }
+  if(P.phase===3){ // repeat
+    P.round++;
+    if(P.round>=3){$('pmsg').textContent='That is the whole machine. Everything else is scale and engineering. Press → again to try it yourself.';P.phase=4;return true}
+    ['pb2','pb3','pa1','pa2'].forEach(x=>$(x).classList.remove('on'));$('pbars').innerHTML='';
+    $('ptok').innerHTML=P.ctx.map(w=>`<span class="on">${w}</span>`).join('');
+    $('pmsg').textContent='Same loop again, now with the new word included.';
+    P.phase=1;return true;
+  }
+  return false; // phase 4: let the deck advance
+  }finally{P.busy=false}
+};
+const starts=['the farmer in','the student in','the monsoon','the model','my friend','the train from','heavy rain in','the professor in'];
+const sel=document.getElementById('start');starts.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent='"'+s+' …"';sel.appendChild(o)});
+let ctx=[],running=null;
+const ctxEl=document.getElementById('ctx'),candEl=document.getElementById('cands'),statusEl=document.getElementById('status'),tempEl=document.getElementById('temp');
+tempEl.oninput=()=>{document.getElementById('tempv').textContent=Number(tempEl.value).toFixed(1);render(null)};
+function render(pick){
+  ctxEl.innerHTML=ctx.map((w,k)=>(k===ctx.length-1&&pick!==null&&pick!==undefined)?`<span class="new">${w}</span>`:w).join(' ');
+  const d=dist(ctx);const T=Number(tempEl.value);const list=applyTemp(d.list,T).sort((a,b)=>b.q-a.q).slice(0,6);
+  candEl.innerHTML=list.map(o=>`<div class="cand ${o.w===pick?'pick':''}"><span class="w">${o.w}</span><div class="bar"><i style="width:${(o.q*100).toFixed(1)}%"></i></div><span class="p">${(o.q*100).toFixed(1)}%</span></div>`).join('');
+  requestAnimationFrame(()=>candEl.querySelectorAll('.bar i').forEach(b=>{b.style.width=b.style.width}));
+  statusEl.textContent=`Prediction uses: ${d.src}. ${d.list.length} possible next words seen in training text.`+(ctx[ctx.length-1]==='.'?' Sentence finished.':'');
+}
+let busy=false;
+async function step(){
+  if(busy)return; if(ctx[ctx.length-1]==='.'&&ctx.length>3){stopAuto();return}
+  busy=true;const brain=document.getElementById('brain');
+  const d=dist(ctx);const list=applyTemp(d.list,Number(tempEl.value)).sort((a,b)=>b.q-a.q);
+  let r=Math.random(),pick=list[list.length-1].w;for(const o of list){r-=o.q;if(r<=0){pick=o.w;break}}
+  // 1. think: bars grow from zero
+  brain.classList.add('on');ctxEl.innerHTML=ctx.join(' ')+' <span class="new" style="opacity:.4">▍</span>';
+  const top=list.slice(0,6);
+  candEl.innerHTML=top.map(o=>`<div class="cand" data-w="${o.w}"><span class="w">${o.w}</span><div class="bar"><i style="width:0"></i></div><span class="p">${(o.q*100).toFixed(1)}%</span></div>`).join('');
+  await sleep(40);candEl.querySelectorAll('.cand').forEach((c,k)=>c.querySelector('.bar i').style.width=(top[k].q*100)+'%');
+  await sleep(650);brain.classList.remove('on');
+  // 2. sample: scanner sweeps, slows, lands on the pick (or off-list if a rare word won)
+  const rows=[...candEl.children];const target=rows.findIndex(c=>c.dataset.w===pick);
+  const n=rows.length;let idx=0;const hops=8+ (target>=0?((target-8%n)+n*3)%n:n*2);
+  for(let k=0;k<=hops;k++){rows.forEach(c=>c.classList.remove('scan'));rows[k%n].classList.add('scan');idx=k%n;await sleep(60+Math.pow(k/hops,2.5)*260)}
+  rows.forEach(c=>c.classList.remove('scan'));
+  if(target>=0)rows[target].classList.add('pick');
+  // 3. fly the word into the sentence
+  const src=target>=0?rows[target].querySelector('.w'):candEl;const a=src.getBoundingClientRect(),b=ctxEl.getBoundingClientRect();
+  const f=document.createElement('div');f.className='fly';f.textContent=pick;f.style.left=a.left+'px';f.style.top=a.top+'px';document.body.appendChild(f);
+  await sleep(20);f.style.left=(b.right-120)+'px';f.style.top=(b.bottom-40)+'px';f.style.opacity='0';
+  await sleep(500);f.remove();ctx.push(pick);render(pick);
+  statusEl.textContent+=target<0?' (A rarer word outside the top six was picked: randomness at work.)':'';
+  busy=false; if(ctx.length>14)stopAuto();
+}
+function reset(){stopAuto();ctx=sel.value.split(' ');render(null)}
+function stopAuto(){if(running){clearInterval(running);running=null;document.getElementById('auto').textContent='Auto-run'}}
+document.getElementById('step').onclick=step;
+document.getElementById('reset').onclick=reset;
+sel.onchange=reset;
+document.getElementById('auto').onclick=function(){if(running){stopAuto()}else{this.textContent='Stop';running=setInterval(step,2400)}};
+reset();
+</script>
+</body>
+</html>

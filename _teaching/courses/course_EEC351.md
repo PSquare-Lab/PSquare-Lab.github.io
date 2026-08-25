@@ -70,6 +70,7 @@ nav: false
 
 <h4 class="course-section">Announcements</h4>
 
+- **2026‑08‑25** — **Extra Class PR1 · Probability Review** on **Monday, 31 August 2026, 16:05 – 17:00 @ GB005**. Covers the Probability Review module (row PR1 under Course content); read the [notes](/assets/pdf/EEC351/notes/Probability_Review.pdf) beforehand.
 - **2026‑08‑14** — The **Linear Algebra Review** module is live under Course content (rows LA1–LA8), with readings and interactive demos. You can browse all of our demos via <a href="/assets/pdf/EEC351/2026-27/LA/index.html">explainer hub</a>.
 - **2026‑08‑14** — Lecture schedule updated; see Course information above.
 - **2026‑07‑08** — First class is on **Thursday, 16 July 2026**.

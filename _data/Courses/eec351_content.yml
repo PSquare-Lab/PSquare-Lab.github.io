@@ -136,3 +136,12 @@
     - text: "Petersen & Pedersen, The Matrix Cookbook"
       link: https://www2.imm.dtu.dk/pubdb/edoc/imm3274.pdf
   homework: --
+
+- lecture: [PR1]
+  topic: "Probability Review (Self+Extra Class)"
+  slides: --
+  essential:
+    - text: "Kolter & Do §4.1–4.3"
+      link: /assets/pdf/EEC351/notes/Probability_Review.pdf
+  additional: --
+  homework: --
