@@ -771,6 +771,25 @@ footer.sticky-bottom {
         font-weight: bolder;
       }
 
+      // Preprint / Published badges driven by the `status` bib field
+      .status-published,
+      .status-preprint {
+        color: white;
+      }
+
+      .status-published {
+        background-color: #2e7d32 !important;
+      }
+
+      .status-preprint {
+        background-color: #c25100 !important;
+      }
+
+      .status-badge {
+        margin-left: 0.5rem;
+        vertical-align: middle;
+      }
+
       .author {
         a {
           border-bottom: 1px dashed var(--global-theme-color);

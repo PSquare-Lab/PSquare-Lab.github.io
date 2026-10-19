@@ -19,24 +19,6 @@
   status: current
 
 
-- name: Dhruvi Khandelwal
-  image: dhruvi.jpg
-  category: Summer Interns
-  role: Summer Intern + Undergraduate Research Assistant
-  degree: B.Tech, EE, NIT Kurukshetra
-  url: https://www.linkedin.com/in/dhruvi-khandelwal05/
-  description: Machine Learning for Optimal Power Flow
-  status: current
-
-- name: Tanishq Ahuja
-  image: tanishq.jpeg
-  category: Summer Interns
-  role: SPARK Summer Intern
-  degree: B.Tech, CSE, IIT (BHU) Varanasi
-  url: https://psquare-lab.github.io/Team/
-  description: Prior-Data Fitted Networks
-  status: current
-
 - name: Anurag Basistha
   image: Anurag_Basistha.jpeg
   category: Summer Interns
@@ -56,23 +38,6 @@
   description: Prior-Data Fitted Networks
   status: current
 
-- name: Simardeep Singh
-  image: simar.jpeg
-  category: Undergraduate Researchers
-  role: Undergraduate Research Assistant
-  degree: B.Tech, MM, IIT Roorkee
-  url: https://www.linkedin.com/in/simardeep-singh-58a992291
-  description: Prior-Data Fitted Networks
-  status: current
-
-- name: Ojasva Nema
-  image: ojasva.jpeg
-  category: Undergraduate Researchers
-  role: Undergraduate Research Assistant
-  degree: B.Tech, MM, IIT Roorkee
-  url: https://www.linkedin.com/in/ojasva-nema-ba3415278/
-  description: Prior-Data Fitted Networks
-  status: current
 
 - name: Srijan Tiwari
   image: srijan.jpeg
@@ -138,6 +103,42 @@
 #   status: current
 
 # ------------ Past Members ------------
+
+- name: Dhruvi Khandelwal
+  image: dhruvi.jpg
+  category: Summer Interns
+  role: Summer Intern + Undergraduate Research Assistant
+  degree: B.Tech, EE, NIT Kurukshetra
+  url: https://www.linkedin.com/in/dhruvi-khandelwal05/
+  description: Machine Learning for Optimal Power Flow
+  status: past
+
+- name: Tanishq Ahuja
+  image: tanishq.jpeg
+  category: Summer Interns
+  role: SPARK Summer Intern
+  degree: B.Tech, CSE, IIT (BHU) Varanasi
+  url: https://psquare-lab.github.io/Team/
+  description: Prior-Data Fitted Networks
+  status: past
+
+- name: Simardeep Singh
+  image: simar.jpeg
+  category: Undergraduate Researchers
+  role: Undergraduate Research Assistant
+  degree: B.Tech, MM, IIT Roorkee
+  url: https://www.linkedin.com/in/simardeep-singh-58a992291
+  description: Prior-Data Fitted Networks
+  status: past
+
+- name: Ojasva Nema
+  image: ojasva.jpeg
+  category: Undergraduate Researchers
+  role: Undergraduate Research Assistant
+  degree: B.Tech, MM, IIT Roorkee
+  url: https://www.linkedin.com/in/ojasva-nema-ba3415278/
+  description: Prior-Data Fitted Networks
+  status: past
 
 - name: Naman Meena
   image: naman_meena.jpeg
