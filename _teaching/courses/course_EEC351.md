@@ -70,6 +70,7 @@ nav: false
 
 <h4 class="course-section">Announcements</h4>
 
+- **2026‑10‑19** — An **announced quiz** will be held in the **upcoming two weeks**. **Syllabus:** everything taught so far. The date will be posted here and on Piazza.
 - **2026‑08‑25** — **Extra Class PR1 · Probability Review** on **Monday, 31 August 2026, 16:05 – 17:00 @ GB005**. Covers the Probability Review module (row PR1 under Course content); read the [notes](/assets/pdf/EEC351/notes/Probability_Review.pdf) beforehand.
 - **2026‑08‑14** — The **Linear Algebra Review** module is live under Course content (rows LA1–LA8), with readings and interactive demos. You can browse all of our demos via <a href="/assets/pdf/EEC351/2026-27/LA/index.html">explainer hub</a>.
 - **2026‑08‑14** — Lecture schedule updated; see Course information above.
@@ -103,8 +104,8 @@ nav: false
       <td>{% for num in lec.lecture %}{{ num }}{% unless forloop.last %}, {% endunless %}{% endfor %}</td>
       <td>{{ lec.topic }}</td>
       <td>{% if lec.slides contains "http" or lec.slides contains "/" %}<a href="{{ lec.slides }}">Slides</a>{% else %}{{ lec.slides }}{% endif %}</td>
-      <td>{% if lec.essential %}{% for item in lec.essential %}<span class="cell-item"><a href="{{ item.link }}">{{ item.text }}</a></span>{% unless forloop.last %}<hr class="cell-sep">{% endunless %}{% endfor %}{% else %}--{% endif %}</td>
-      <td>{% if lec.additional %}{% for item in lec.additional %}<span class="cell-item"><a href="{{ item.link }}">{{ item.text }}</a></span>{% unless forloop.last %}<hr class="cell-sep">{% endunless %}{% endfor %}{% else %}--{% endif %}</td>
+      <td>{% if lec.essential %}{% for item in lec.essential %}<span class="cell-item">{% if item.link and item.link != "" %}<a href="{{ item.link }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}</span>{% unless forloop.last %}<hr class="cell-sep">{% endunless %}{% endfor %}{% else %}--{% endif %}</td>
+      <td>{% if lec.additional %}{% for item in lec.additional %}<span class="cell-item">{% if item.link and item.link != "" %}<a href="{{ item.link }}">{{ item.text }}</a>{% else %}{{ item.text }}{% endif %}</span>{% unless forloop.last %}<hr class="cell-sep">{% endunless %}{% endfor %}{% else %}--{% endif %}</td>
       <td>{% if lec.homework contains "https" or lec.homework contains "/" %}<a href="{{ lec.homework }}">HW</a>{% else %}{{ lec.homework }}{% endif %}</td>
     </tr>
     {% endfor %}
