@@ -1,0 +1,25 @@
+# Research areas shown on /publications/.
+# Each bib entry lists its areas by key, space-separated: themes={sdfm aips}.
+# name: tile title · label: lower-case form used in filters and under each paper.
+# Order here is the order of the tiles and filters; `wide: true` gives an area a full-width tile below the others.
+
+- key: sdfm
+  name: Structured-Data Foundation Models
+  label: structured-data FMs
+  description: Prior-data fitted networks and TabPFN-style in-context learners for tabular and physical data.
+
+- key: aips
+  name: AI for Power Systems
+  label: AI for power systems
+  description: Learning-based power flow, OPF proxies and uncertainty quantification for the grid.
+
+- key: l4o
+  name: Learning for Optimization
+  label: learning for optimization
+  description: Learned optimization proxies and surrogates, and language models that generate and tune optimization problems.
+
+- key: other
+  name: Power Systems & Other Works
+  label: power systems & other
+  description: Optimal power flow, stability, flexibility and storage, quantum computing for power flow, and earlier work on electrical machines.
+  wide: true

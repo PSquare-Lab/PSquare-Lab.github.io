@@ -1,0 +1,20 @@
+{%- comment -%}
+  One research-area tile on /publications/. The whole tile toggles the area filter.
+  Param: theme (an entry of _data/publication_themes.yml).
+{%- endcomment -%}
+{%- assign card_theme = include.theme -%}
+<article class="pub-area{% if card_theme.wide %} pub-area-wide{% endif %}" data-theme-card="{{ card_theme.key }}">
+  <div class="pub-area-main">
+    <h3 class="pub-area-name">{{ card_theme.name }}</h3>
+    <p class="pub-area-desc">{{ card_theme.description }}</p>
+  </div>
+  <div class="pub-area-side">
+    <div class="pub-area-recent">
+      <span class="pub-area-recent-label">Recent:</span>
+      {% bibliography --group_by none --template bib_title --query @*[themes~={{card_theme.key}}] --max 2 %}
+    </div>
+    <button type="button" class="pub-theme-toggle" data-theme-filter="{{ card_theme.key }}" aria-pressed="false">
+      <span class="pub-theme-cta" data-idle="show papers ›" data-active="showing below · clear ×">show papers ›</span>
+    </button>
+  </div>
+</article>

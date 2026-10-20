@@ -24,26 +24,26 @@ strong {
   color: var(--global-text-color);
 }
 
-// Site font — Inter, a clean humanist sans (replaces Roboto from MDB/Bootstrap).
+// Site font — Lato, the classic research-group homepage sans (replaces Roboto from MDB/Bootstrap).
 body,
 .navbar,
 button,
 input,
 textarea,
 select {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Verdana, Helvetica, Arial, sans-serif;
 }
 
-// Sharper headings: Inter, tighter tracking, a touch heavier.
+// Headings: same family, plain tracking, bold.
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  letter-spacing: -0.015em;
-  font-weight: 600;
+  font-family: "Lato", Verdana, Helvetica, Arial, sans-serif;
+  letter-spacing: normal;
+  font-weight: 700;
 }
 
 // Unified section heading for every teaching/course page (teal, underlined) — matches the current course.
@@ -771,25 +771,6 @@ footer.sticky-bottom {
         font-weight: bolder;
       }
 
-      // Preprint / Published badges driven by the `status` bib field
-      .status-published,
-      .status-preprint {
-        color: white;
-      }
-
-      .status-published {
-        background-color: #2e7d32 !important;
-      }
-
-      .status-preprint {
-        background-color: #c25100 !important;
-      }
-
-      .status-badge {
-        margin-left: 0.5rem;
-        vertical-align: middle;
-      }
-
       .author {
         a {
           border-bottom: 1px dashed var(--global-theme-color);
@@ -1162,9 +1143,10 @@ nav[data-toggle="toc"] {
   display: none !important;
 }
 
+// Above the fixed navbar (Bootstrap's z-index 1030) so zoomed images are never tucked under it.
 .medium-zoom-overlay,
 .medium-zoom-image--opened {
-  z-index: 999;
+  z-index: 1040;
 }
 
 #toc-sidebar {
