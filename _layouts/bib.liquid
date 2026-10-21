@@ -25,27 +25,26 @@
   <div class="col-auto pub-thumb{% unless entry.preview %} pub-thumb-venue{% endunless %}">
     {% if entry.preview %}
       {%- comment -%}
-        Thumbnail from assets/img/publication_preview/; clicking zooms it (medium-zoom).
-        A same-named high-resolution copy in assets/publication_figures/ is loaded for the zoomed view.
+        Thumbnail from assets/img/publication_preview/, linking to the same-named high-resolution copy in
+        assets/publication_figures/ (or to the thumbnail itself when there is none). On /publications/ the
+        link opens a quick view that shows that image at its own resolution (assets/js/publications-filter.js);
+        elsewhere it simply opens the image.
       {%- endcomment -%}
       {%- if entry.preview contains '://' -%}
         {%- assign preview_src = entry.preview -%}
+        {%- assign preview_full = entry.preview -%}
       {%- else -%}
         {%- assign preview_src = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url -%}
+        {%- capture preview_hd_exists -%}{% file_exists assets/publication_figures/{{ entry.preview }} %}{%- endcapture -%}
+        {%- if preview_hd_exists == 'true' -%}
+          {%- assign preview_full = entry.preview | prepend: '/assets/publication_figures/' | relative_url -%}
+        {%- else -%}
+          {%- assign preview_full = preview_src -%}
+        {%- endif -%}
       {%- endif -%}
-      {%- capture preview_hd_exists -%}{% file_exists assets/publication_figures/{{ entry.preview }} %}{%- endcapture -%}
-      <div class="pub-figure">
-        <img
-          class="preview"
-          src="{{ preview_src }}"
-          alt="Figure from: {{ entry.title | escape }}"
-          loading="lazy"
-          data-zoomable
-          {% if preview_hd_exists == 'true' %}
-            data-zoom-src="{{ entry.preview | prepend: '/assets/publication_figures/' | relative_url }}"
-          {% endif %}
-        >
-      </div>
+      <a class="pub-figure" href="{{ preview_full }}" data-pub-figure aria-label="Enlarge figure from: {{ entry.title | escape }}">
+        <img class="preview" src="{{ preview_src }}" alt="Figure from: {{ entry.title | escape }}" loading="lazy">
+      </a>
     {% else %}
       <div class="pub-venue{% if entry.abbr.size > 10 %} pub-venue-long{% endif %}" aria-hidden="true">
         <span class="pub-venue-name">{{ entry.abbr | default: entry.year }}</span>

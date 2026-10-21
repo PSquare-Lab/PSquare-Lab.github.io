@@ -29,8 +29,8 @@ $pub-highlight-border: #e6dc8c;
     align-items: flex-start;
   }
 
-  // Every figure sits in the same 150x100 frame as the venue boxes. The image keeps its own
-  // aspect ratio inside the frame (no object-fit), so medium-zoom enlarges it without distortion.
+  // Every figure sits in the same 150x100 frame as the venue boxes; the frame is a link that
+  // opens the quick view (see .pub-lightbox below).
   .pub-figure {
     width: 150px;
     height: 100px;
@@ -41,10 +41,16 @@ $pub-highlight-border: #e6dc8c;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: zoom-in;
     transition: border-color 0.15s;
 
     &:hover {
       border-color: var(--global-theme-color);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--global-theme-color);
+      outline-offset: 2px;
     }
 
     .preview {
@@ -489,5 +495,78 @@ $pub-highlight-border: #e6dc8c;
       margin: 0 0 4px;
       font-weight: 700;
     }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Figure quick view (built by assets/js/publications-filter.js and attached to <body>).
+// The high-resolution image is shown at its own size, capped to the window — never
+// stretched from the thumbnail — so it stays sharp.
+// ---------------------------------------------------------------------------
+
+html.pub-lightbox-open {
+  overflow: hidden;
+}
+
+.pub-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1050; // above the fixed navbar (1030)
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 24px 24px;
+  background: rgba(255, 255, 255, 0.985);
+  cursor: zoom-out;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.pub-lightbox-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 100%;
+  cursor: default;
+}
+
+.pub-lightbox-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(1400px, 100%);
+  max-height: calc(100vh - 150px);
+  border: 1px solid #dddddd;
+  background: #ffffff;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+}
+
+.pub-lightbox-caption {
+  max-width: min(900px, 100%);
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #444444;
+}
+
+.pub-lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: #444444;
+  cursor: pointer;
+
+  &:hover {
+    color: #000000;
   }
 }

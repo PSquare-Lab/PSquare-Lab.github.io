@@ -150,4 +150,59 @@
   var fromHash = /^#theme=([\w-]+)$/.exec(window.location.hash);
   if (fromHash && THEME_KEYS.indexOf(fromHash[1]) >= 0) state.theme = fromHash[1];
   render();
+
+  // Figure quick view. Each thumbnail links to its high-resolution figure; show that image in an
+  // overlay at its own resolution (capped to the window) instead of stretching the thumbnail.
+  var lightbox, lightboxImg, lightboxCaption, lightboxClose, lastFocus;
+
+  function buildLightbox() {
+    lightbox = document.createElement("div");
+    lightbox.className = "pub-lightbox";
+    lightbox.hidden = true;
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+    lightbox.setAttribute("aria-label", "Figure");
+    lightbox.innerHTML =
+      '<figure class="pub-lightbox-figure"><img class="pub-lightbox-img" alt="">' +
+      '<figcaption class="pub-lightbox-caption"></figcaption></figure>' +
+      '<button type="button" class="pub-lightbox-close" aria-label="Close figure">&times;</button>';
+    document.body.appendChild(lightbox);
+    lightboxImg = lightbox.querySelector(".pub-lightbox-img");
+    lightboxCaption = lightbox.querySelector(".pub-lightbox-caption");
+    lightboxClose = lightbox.querySelector(".pub-lightbox-close");
+    lightbox.addEventListener("click", function (e) {
+      // Close on the backdrop or the close button; clicks on the figure itself keep it open.
+      if (e.target === lightbox || e.target === lightboxClose) closeLightbox();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
+    });
+  }
+
+  function openLightbox(link) {
+    if (!lightbox) buildLightbox();
+    var thumb = link.querySelector("img");
+    var title = link.closest(".pub-entry").querySelector(".title");
+    lightboxImg.src = link.getAttribute("href");
+    lightboxImg.alt = thumb ? thumb.alt : "";
+    lightboxCaption.textContent = title ? title.textContent.trim() : "";
+    lastFocus = link;
+    lightbox.hidden = false;
+    document.documentElement.classList.add("pub-lightbox-open");
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.hidden = true;
+    lightboxImg.removeAttribute("src");
+    document.documentElement.classList.remove("pub-lightbox-open");
+    if (lastFocus) lastFocus.focus();
+  }
+
+  list.addEventListener("click", function (e) {
+    var link = e.target.closest("[data-pub-figure]");
+    if (!link || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return; // let modified clicks open a tab
+    e.preventDefault();
+    openLightbox(link);
+  });
 })();
