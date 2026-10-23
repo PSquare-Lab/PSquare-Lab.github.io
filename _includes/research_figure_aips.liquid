@@ -1,0 +1,82 @@
+{%- comment -%}
+  Animated figure for AI for Power Systems on /research/: uncertain injections (grey bars) at eight feeder nodes pass
+  through a closed-form GP surrogate, every node's voltage envelope appears at once, and the nodes whose envelope
+  crosses 0.95 p.u. are flagged in orange. Each column lines up with one node. Animations: .rs-* in _sass/_research.scss.
+{%- endcomment -%}
+<figure class="research-fig">
+  <svg
+    viewBox="0 0 360 360"
+    role="img"
+    aria-label="A radial feeder with eight nodes. Grey bars above the nodes flicker to show uncertain loads and solar injections. Their values pass through a closed-form Gaussian-process surrogate box, and below it every node's voltage envelope appears at once. The last two envelopes cross the 0.95 per-unit limit, so those parts and the two matching nodes turn orange"
+  >
+    <text x="30" y="20" font-family="Lato, Helvetica, Arial, sans-serif" font-size="12" fill="#555555">
+      <tspan font-style="italic" font-weight="700" fill="#222222">s</tspan> · uncertain loads &amp; PV
+    </text>
+    <g fill="#9a9a9a">
+      <rect x="54" y="34" width="12" height="44" class="rs-inj" style="animation-duration: 1.3s; animation-delay: -0.2s"></rect>
+      <rect x="94" y="34" width="12" height="44" class="rs-inj" style="animation-duration: 1.9s; animation-delay: -1.1s"></rect>
+      <rect x="134" y="34" width="12" height="44" class="rs-inj" style="animation-duration: 1.1s; animation-delay: -0.6s"></rect>
+      <rect x="174" y="34" width="12" height="44" class="rs-inj" style="animation-duration: 1.6s; animation-delay: -1.4s"></rect>
+      <rect x="214" y="34" width="12" height="44" class="rs-inj" style="animation-duration: 2.1s; animation-delay: -0.3s"></rect>
+      <rect x="254" y="34" width="12" height="44" class="rs-inj" style="animation-duration: 1.4s; animation-delay: -0.9s"></rect>
+      <rect x="294" y="34" width="12" height="44" class="rs-inj" style="animation-duration: 1.8s; animation-delay: -1.6s"></rect>
+      <rect x="334" y="34" width="12" height="44" class="rs-inj" style="animation-duration: 1.2s; animation-delay: -0.5s"></rect>
+    </g>
+    <path d="M60 80V93M100 80V93M140 80V93M180 80V93M220 80V93M260 80V93M300 80V93M340 80V93" stroke="#bbbbbb" stroke-width="1"></path>
+    <rect x="27" y="86" width="6" height="28" fill="#222222"></rect>
+    <path d="M30 100H340" stroke="#222222" stroke-width="2.5"></path>
+    <g fill="#ffffff" stroke="#222222" stroke-width="2">
+      <circle cx="60" cy="100" r="7"></circle><circle cx="100" cy="100" r="7"></circle><circle cx="140" cy="100" r="7"></circle><circle cx="180" cy="100" r="7"></circle>
+      <circle cx="220" cy="100" r="7"></circle><circle cx="260" cy="100" r="7"></circle><circle cx="300" cy="100" r="7"></circle><circle cx="340" cy="100" r="7"></circle>
+    </g>
+    <g class="rs-cycle">
+      <path d="M60 108V124M100 108V124M140 108V124M180 108V124M220 108V124M260 108V124M300 108V124M340 108V124" stroke="#1772d0" stroke-width="1.5" class="rs-in"></path>
+      <rect x="40" y="126" width="310" height="28" stroke="#1772d0" stroke-width="1.5" fill="#ffffff" class="rs-box"></rect>
+      <text x="195" y="145" text-anchor="middle" font-family="Lato, Helvetica, Arial, sans-serif" font-weight="700" font-size="13" fill="#1772d0">
+        V = f(s) · Gaussian-process surrogate
+      </text>
+      <path d="M60 156V170M100 156V170M140 156V170M180 156V170M220 156V170M260 156V170M300 156V170M340 156V170" stroke="#1772d0" stroke-width="1.5" class="rs-out"></path>
+      <path d="M30 174V340" stroke="#cfcfcf" stroke-width="1"></path>
+      <path d="M30 282H352" stroke="#e8590c" stroke-width="1.5" stroke-dasharray="5 4"></path>
+      <text x="26" y="286" text-anchor="end" font-family="Lato, Helvetica, Arial, sans-serif" font-weight="700" font-size="11" fill="#c2410c">0.95</text>
+      <g fill="#cfe0f5">
+        <rect x="53" y="190" width="14" height="12" class="rs-band"></rect>
+        <rect x="93" y="196" width="14" height="18" class="rs-band"></rect>
+        <rect x="133" y="202" width="14" height="24" class="rs-band"></rect>
+        <rect x="173" y="208" width="14" height="30" class="rs-band"></rect>
+        <rect x="213" y="213" width="14" height="38" class="rs-band"></rect>
+        <rect x="253" y="218" width="14" height="46" class="rs-band"></rect>
+        <rect x="293" y="222" width="14" height="66" class="rs-band"></rect>
+        <rect x="333" y="225" width="14" height="76" class="rs-band"></rect>
+      </g>
+      <g class="rs-risk">
+        <svg x="0" y="282" width="360" height="78" viewBox="0 282 360 78">
+          <g fill="#e8590c">
+            <rect x="293" y="222" width="14" height="66" class="rs-band"></rect>
+            <rect x="333" y="225" width="14" height="76" class="rs-band"></rect>
+          </g>
+        </svg>
+      </g>
+      <g class="rs-mean">
+        <path d="M60 196L100 205L140 214L180 223L220 232L260 241L300 255L340 263" fill="none" stroke="#1772d0" stroke-width="1.5"></path>
+        <g fill="#1772d0">
+          <circle cx="60" cy="196" r="3.5"></circle><circle cx="100" cy="205" r="3.5"></circle><circle cx="140" cy="214" r="3.5"></circle><circle cx="180" cy="223" r="3.5"></circle>
+          <circle cx="220" cy="232" r="3.5"></circle><circle cx="260" cy="241" r="3.5"></circle><circle cx="300" cy="255" r="3.5"></circle><circle cx="340" cy="263" r="3.5"></circle>
+        </g>
+      </g>
+      <g class="rs-risk">
+        <circle cx="300" cy="100" r="7" fill="none" stroke="#e8590c" stroke-width="2" class="rs-ring"></circle>
+        <circle cx="340" cy="100" r="7" fill="none" stroke="#e8590c" stroke-width="2" class="rs-ring" style="animation-delay: 0.3s"></circle>
+        <circle cx="300" cy="100" r="7" fill="#e8590c" stroke="#222222" stroke-width="2"></circle>
+        <circle cx="340" cy="100" r="7" fill="#e8590c" stroke="#222222" stroke-width="2"></circle>
+      </g>
+    </g>
+    <text x="30" y="356" font-family="Lato, Helvetica, Arial, sans-serif" font-size="12" fill="#555555">
+      <tspan font-style="italic" font-weight="700" fill="#222222">V</tspan> · voltage envelope at each node
+    </text>
+  </svg>
+  <figcaption>
+    Uncertain loads and PV pass through a closed-form surrogate. Every node’s voltage envelope appears at once, with no Monte Carlo, and nodes
+    that can breach 0.95 p.u. are flagged.
+  </figcaption>
+</figure>

@@ -1,0 +1,29 @@
+{%- comment -%}
+  Animated figure for Learning for Optimization on /research/: from the same start, a learned proxy reaches the optimum
+  in one blue arc while an iterative solver steps there in black. Animations: .rs-* in _sass/_research.scss.
+{%- endcomment -%}
+<figure class="research-fig">
+  <svg
+    viewBox="0 0 360 360"
+    role="img"
+    aria-label="Concentric rings around an optimum: a black staircase creeps inward step by step while a single blue arc reaches the centre at once"
+  >
+    <g fill="none" stroke="#c8c8c8" stroke-width="1.2">
+      <circle cx="236" cy="132" r="18"></circle>
+      <circle cx="236" cy="132" r="44"></circle>
+      <circle cx="236" cy="132" r="70"></circle>
+      <circle cx="236" cy="132" r="96"></circle>
+      <circle cx="236" cy="132" r="122"></circle>
+      <circle cx="236" cy="132" r="148"></circle>
+      <circle cx="236" cy="132" r="174"></circle>
+      <circle cx="236" cy="132" r="200"></circle>
+      <circle cx="236" cy="132" r="226"></circle>
+      <circle cx="236" cy="132" r="252"></circle>
+    </g>
+    <path d="M44 316H104V256H154V206H192V170H214V150H228V138H236V132" fill="none" stroke="#222222" stroke-width="4" stroke-linejoin="miter" class="rs-stair"></path>
+    <path d="M44 316Q70 132 236 132" fill="none" stroke="#1772d0" stroke-width="8" stroke-linecap="round" class="rs-jump"></path>
+    <circle cx="236" cy="132" r="15" fill="#1772d0" class="rs-disk"></circle>
+    <rect x="35" y="307" width="18" height="18" fill="#222222"></rect>
+  </svg>
+  <figcaption>Same start, same optimum. Blue: a learned proxy, one pass. Black: an iterative solver, step by step.</figcaption>
+</figure>

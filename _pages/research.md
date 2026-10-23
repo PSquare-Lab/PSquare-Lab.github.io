@@ -7,63 +7,148 @@ nav: true
 nav_order: 6
 ---
 
-At $$\mathcal{P}^2-$$**LAB**, we explore solutions at the intersection of power systems, optimization, and machine learning to address the challenges of modern energy networks. Our work focuses on developing "thoughtful AI"—physics-inspired methodologies that optimize and secure power system operations and planning under the volatility of decentralized, renewable-heavy grids.
+<!-- _pages/research.md -->
+<!-- One card per research area, in the same order as _data/publication_themes.yml; paper counts come from the bib's themes={...}. -->
+<!-- Animated figures: _includes/research_figure_*.liquid. Styles and animations: _sass/_research.scss. -->
 
----
+<div class="research-page">
+  <p class="research-intro">
+    At P²-LAB we work where power systems, optimization and machine learning meet. Our aim is thoughtful AI: physics-inspired methods that keep
+    grid operation and planning secure as networks turn decentralised and renewable-heavy.
+  </p>
 
-### <span style="color: #ff6600; font-size: 20px;">#1 Foundational Models for EV-Rich Distribution Grids</span>
+  <p class="research-jump">
+    <span class="research-jump-label">Areas:</span>
+    <a href="#sdfm">structured-data FMs</a>
+    <span class="research-jump-sep" aria-hidden="true">/</span>
+    <a href="#aips">AI for power systems</a>
+    <span class="research-jump-sep" aria-hidden="true">/</span>
+    <a href="#l4o">learning for optimization</a>
+    <span class="research-jump-sep" aria-hidden="true">/</span>
+    <a href="#other">power systems &amp; other</a>
+  </p>
 
-Traditional machine learning applications in power systems often suffer from "topology-dependence," requiring expensive retraining whenever the grid structure changes or new charging stations are added. We are shifting this paradigm by developing **Foundational Models for Power Systems** based on **Prior-Data Fitted Networks (PFNs)**. By leveraging a novel **Decoupled-Value Attention (DVA)** mechanism, our models perform **In-Context Learning**, allowing them to solve power flow and security problems for entirely new network configurations instantly, without any gradient updates. 
+  <section id="sdfm" class="research-area">
+    <div class="research-area-head">
+      <h2 class="research-area-name">Structured-Data Foundation Models</h2>
+      <span class="research-area-count">{% bibliography_count --query @*[themes~=sdfm] %} papers</span>
+    </div>
+    <div class="research-area-body">
+      {% include research_figure_sdfm.liquid %}
+      <div class="research-text">
+        <p>
+          Prior-data fitted networks that learn in context. With Decoupled-Value Attention, one pretrained model solves power flow on network
+          configurations it has never seen — no retraining, no gradient updates — and the same idea carries to tabular science beyond the grid.
+        </p>
+        <p class="research-note">Supported by ANRF PMECRG 2025–2028.</p>
+        <div class="research-papers">
+          <span class="research-papers-label">Selected papers</span>
+          <ul>
+            <li>
+              <a href="https://arxiv.org/abs/2509.20950">Decoupled-Value Attention for Prior-Data Fitted Networks: GP Inference for Physical Equations</a>
+              <em class="research-venue">arXiv, 2025</em>
+            </li>
+            <li>
+              <a href="https://arxiv.org/abs/2607.12241">Gradient-Free Topology Adaptation for Power Flow Surrogates via In-Context Whitening</a>
+              <em class="research-venue">arXiv, 2026</em>
+            </li>
+            <li>
+              <a href="https://arxiv.org/abs/2601.21731">Mechanistic Evidence for Spectral Structures in Prior-Data Fitted Networks</a>
+              <em class="research-venue">arXiv, 2026</em>
+            </li>
+          </ul>
+        </div>
+        <a class="research-more" href="{{ '/publications/' | relative_url }}#theme=sdfm">show all papers in this area ›</a>
+      </div>
+    </div>
+  </section>
 
-This foundational approach is the cornerstone of our onging work on **Secure EV-Rich Distribution Grid Operations** (supported by **ANRF PMECRG 2025-2028**). Here, we apply these generalizable surrogates to manage the stochastic volatility of high-penetration EV charging in unbalanced multiphase networks. By extending these models to handle the complexities of distribution grid physics, we aim to provide real-time stability and feasibility assessments for the evolving Indian prosumer landscape.
+  <section id="aips" class="research-area">
+    <div class="research-area-head">
+      <h2 class="research-area-name">AI for Power Systems</h2>
+      <span class="research-area-count">{% bibliography_count --query @*[themes~=aips] %} papers</span>
+    </div>
+    <div class="research-area-body">
+      {% include research_figure_aips.liquid %}
+      <div class="research-text">
+        <p>
+          Gaussian-process surrogates that turn power flow into a closed-form, differentiable map, V = f(s). From it come probabilistic voltage
+          envelopes, contingency screening in seconds and guarantees on voltage risk — without Monte Carlo.
+        </p>
+        <div class="research-papers">
+          <span class="research-papers-label">Selected papers</span>
+          <ul>
+            <li>
+              <a href="https://doi.org/10.1016/j.epsr.2026.113619">Learning Power Flow with Confidence: A Probabilistic Guarantee Framework for Voltage Risk</a>
+              <em class="research-venue">Electric Power Systems Research, 2027</em>
+            </li>
+            <li>
+              <a href="https://doi.org/10.1016/j.apenergy.2025.126995">Gaussian Processes in Power Systems: Techniques, Applications, and Future Works</a>
+              <em class="research-venue">Applied Energy, 2026</em>
+            </li>
+            <li>
+              <a href="https://doi.org/10.1109/TSTE.2021.3116544">A Framework for Analytical Power Flow Solution Using Gaussian Process Learning</a>
+              <em class="research-venue">IEEE Trans. Sustainable Energy, 2022</em>
+            </li>
+          </ul>
+        </div>
+        <a class="research-more" href="{{ '/publications/' | relative_url }}#theme=aips">show all papers in this area ›</a>
+      </div>
+    </div>
+  </section>
 
-<div style="border-top: 1px solid #e0e0e0; margin-top: 15px; padding-top: 10px;">
-  <strong>Related Materials:</strong> 
-  <a href="https://arxiv.org/abs/2509.20950">[Decoupled-Value Attention for PFNs (2025)]</a> | 
-  <a href="/assets/pdf/PFN_NITJ.pdf">[Bayesian Inference via PFNs (NITJ 2025)]</a> | 
-</div>
+  <section id="l4o" class="research-area">
+    <div class="research-area-head">
+      <h2 class="research-area-name">Learning for Optimization</h2>
+      <span class="research-area-count">{% bibliography_count --query @*[themes~=l4o] %} papers</span>
+    </div>
+    <div class="research-area-body">
+      {% include research_figure_l4o.liquid %}
+      <div class="research-text">
+        <p>
+          Learned optimization proxies that return near-optimal, physically feasible dispatch from only a few labelled solves — and language models
+          that write hard MILP instances and tune hyperparameters themselves.
+        </p>
+        <div class="research-papers">
+          <span class="research-papers-label">Selected papers</span>
+          <ul>
+            <li>
+              <a href="https://arxiv.org/abs/2410.03085"
+                >Optimization Proxies using Limited Labeled Data and Training Time — A Semi-Supervised Bayesian Neural Network Approach</a
+              >
+              <em class="research-venue">ICML, 2025</em>
+            </li>
+            <li>
+              <a href="https://arxiv.org/abs/2609.37356">Teaching LLMs to Generate Challenging MILP Instances via Solver Feedback</a>
+              <em class="research-venue">arXiv, 2026</em>
+            </li>
+            <li>
+              <a href="https://openreview.net/forum?id=FMF0oUvNYP">Small LLMs with Expert Blocks Are Good Enough for Hyperparameter Tuning</a>
+              <em class="research-venue">ICLR Workshop, 2026</em>
+            </li>
+          </ul>
+        </div>
+        <a class="research-more" href="{{ '/publications/' | relative_url }}#theme=l4o">show all papers in this area ›</a>
+      </div>
+    </div>
+  </section>
 
----
-
-### <span style="color: #ff6600; font-size: 20px;">#2 Optimal Power Flow (OPF): From Data-Efficiency to AC Feasibility</span>
-
-While Optimal Power Flow (OPF) is the backbone of grid operations, its non-convex nature makes real-time implementation difficult. Our research seeks to bridge the gap between "fast" optimization and "physical" feasibility. We address the data-hunger of modern ML-solvers by using **Semi-Supervised Bayesian Neural Networks** that learn the underlying physical manifold of the grid from limited labeled data. This ensures that our **Optimization Proxies** (as presented at **ICML 2025**) remain accurate even when optimal training samples are scarce.
-
-Beyond just speed, we focus on the **AC Feasibility** of dispatch decisions. This involves developing frameworks that ensure linear approximations (like DCOPF) do not lead to voltage or thermal violations in the actual AC network. This holistic view of optimization extends to the **TSO-DSO interface**, where we use convexification techniques to identify flexibility areas. This allows for the risk-averse integration of prosumers and storage into multimarket environments while ensuring that the physical limits of the grid are never compromised.
-
-<div style="border-top: 1px solid #e0e0e0; margin-top: 15px; padding-top: 10px;">
-  <strong>Related Materials:</strong> 
-  <a href="https://arxiv.org/abs/2410.03085">[Data-Efficient Proxies (ICML 2025)]</a> | 
-  <a href="https://arxiv.org/abs/2511.14725">[AC Feasibility of DCOPF (2025)]</a> | 
-  <a href="https://doi.org/10.1109/TIA.2024.3481350">[Convexified Flexibility Area (IEEE TIA)]</a> | 
-  <a href="https://doi.org/10.1016/j.energy.2024.133422">[Storage Participation (Energy 2024)]</a> |
-  <a href="https://arxiv.org/abs/1911.12001">[Stability Constrained OPF (IEEE TCNS)]</a>
-</div>
-
----
-
-### <span style="color: #ff6600; font-size: 20px;">#3 Closed-form Surrogates & Network Sensitivity Analysis</span>
-
-A core pillar of our work is the **Closed-form Power Flow (CFPF)** framework, which replaces iterative numerical solvers with explicit mathematical expressions: $$V = f(\mathbf{s})$$. By utilizing **Gaussian Processes** with specialized **Vertex-Degree Kernels (VDK)**, we turn the power grid into a differentiable function. This shift from numerical black-boxes to analytical surrogates allows us to scale probabilistic analysis to large-scale networks without the computational cost of traditional Monte Carlo simulations.
-
-Once the grid is represented as a differentiable surrogate, we can perform advanced **Network Sensitivity Analysis**. This enables the **Network-Swipe Active Learning** algorithm to identify "worst-case" contingencies and critical voltage risks in seconds. Furthermore, these analytical forms provide explicit state-sensitivity functions that are instrumental in identifying critical prosumers and establishing privacy-preserving feasibility boundaries for Peer-to-Peer (P2P) energy trading.
-
-<div style="border-top: 1px solid #e0e0e0; margin-top: 15px; padding-top: 10px;">
-  <strong>Related Materials:</strong> 
-  <a href="https://arxiv.org/abs/2308.07867">[VDK for Risk Assessment (2025)]</a> | 
-  <a href="https://arxiv.org/abs/2310.00763">[Multi-Task GP for Contingencies (SEGAN 2025)]</a> | 
-  <a href="https://doi.org/10.1109/TSG.2023.3323080">[Critical Prosumer Identification (IEEE TSG)]</a> | 
-  <a href="https://arxiv.org/abs/2504.21260">[Multiphase Power Flow (PESGM 2025)]</a>|
-  <a href="https://dr.ntu.edu.sg/handle/10356/164950">[PhD Thesis (NTU)]</a>
-</div>
-
----
-
-### <span style="color: #ff6600; font-size: 20px;">#4 Demystifying the Quantum Advantage in Power Systems</span>
-
-Quantum computing offers a theoretical leap for grid problems, yet its practical utility remains a subject of intense scrutiny. We take a **realist’s approach** to this emerging field by investigating the scalability of quantum linear system solvers when applied to the non-linearities of power systems. By comparing fault-tolerant quantum algorithms against state-of-the-art classical sparse solvers, our work identifies the true crossover points where quantum speedups might actually be realized. Rather than following the hype, we aim to scrutinize and advance the boundaries of what is possible, ensuring that quantum research in our domain is grounded in rigorous complexity analysis and classical benchmarking.
-
-<div style="border-top: 1px solid #e0e0e0; margin-top: 15px; padding-top: 10px;">
-  <strong>Related Materials:</strong> 
-  <a href="https://arxiv.org/abs/2402.08617">[Limitations of Quantum Solvers for Power Flow (IEEE TPWRS 2025)]</a> | 
+  <section id="other" class="research-area research-area-wide">
+    {% include research_figure_other.liquid %}
+    <div class="research-wide-main">
+      <h2 class="research-area-name">Power Systems &amp; Other Works</h2>
+      <p>Optimal power flow and AC feasibility, small-signal stability, TSO–DSO flexibility and storage, and a realist’s look at quantum power flow.</p>
+    </div>
+    <div class="research-wide-side">
+      <p>
+        <span>Recent:</span>
+        <a href="https://doi.org/10.1109/TPWRS.2025.3613139">Limitations of Fault-Tolerant Quantum Linear System Solvers for Quantum Power Flow</a>;
+        <a href="https://doi.org/10.1016/j.epsr.2026.113652">Towards AC Feasibility of DCOPF Dispatch</a>;
+        <a href="https://doi.org/10.1109/TIA.2024.3481350">Convexified Flexibility Area Identification at TSO–DSO Interface</a>
+      </p>
+      <a class="research-more" href="{{ '/publications/' | relative_url }}#theme=other"
+        >show all {% bibliography_count --query @*[themes~=other] %} papers ›</a
+      >
+    </div>
+  </section>
 </div>
