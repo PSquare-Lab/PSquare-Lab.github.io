@@ -81,7 +81,11 @@
   .days .opt small { display: block; font-size: 11px; opacity: .8; }
   .times { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px; }
   .hint { color: var(--muted); font-size: 14px; margin: 0; }
-  .summary { margin: 0 0 14px; font-weight: 600; }
+  .summary { margin: 0 0 4px; font-weight: 600; }
+  .mode { margin: 14px 0 8px; font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
+  .mode:first-child { margin-top: 0; }
+  .mode b { color: var(--text); font-weight: 600; }
+  #details .mode { margin: 0 0 14px; }
   label { display: block; font-size: 14px; font-weight: 600; margin: 12px 0 4px; }
   input[type=text], input[type=email] {
     width: 100%; font: inherit; font-size: 16px; color: var(--text); background: var(--bg);
@@ -161,7 +165,7 @@
       else if (k === 'class') el.className = v;
       else el.setAttribute(k, v === true ? '' : v);
     }
-    for (const c of children.flat()) if (c != null && c !== false) el.append(c.nodeType ? c : String(c));
+    for (const c of children.flat(Infinity)) if (c != null && c !== false) el.append(c.nodeType ? c : String(c));
     return el;
   }
 
@@ -179,6 +183,17 @@
     if (!res.ok) throw { code: body.error, message: body.message || 'Something went wrong. Please try again.' };
     return body;
   }
+
+  // How/where a slot's meeting happens (from the Open Slots event; API sends it per slot).
+  function modeOf(iso) {
+    for (const d of (state.data ? state.data.days : [])) {
+      const i = d.slots.indexOf(iso);
+      if (i >= 0) return (d.modes || [])[i] || '';
+    }
+    return '';
+  }
+  const needsPhone = (mode) => /whats\s*app|phone|mobile/i.test(mode || '');
+  const where = (mode) => mode ? h('p', { class: 'mode' }, 'Where: ', h('b', {}, mode)) : null;
 
   const msg = (kind, text) => h('p', { class: 'msg ' + kind, role: kind === 'err' ? 'alert' : 'status' }, text);
 
@@ -278,16 +293,27 @@
       return h('p', { class: 'hint' },
         'No free times in the next 7 days for ' + state.duration + ' minutes. Try a shorter duration, or check back later.');
     }
-    return h('div', { class: 'times', role: 'group', 'aria-label': 'Start time' },
-      day.slots.map((iso) => h('button', {
-        type: 'button', class: 'opt', 'aria-pressed': String(iso === state.start),
-        onclick: () => {
-          state.start = iso;
-          renderBook();
-          const f = document.getElementById('details');
-          if (f) f.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        },
-      }, time(iso))));
+    // Group the day's times by meeting mode (e.g. WhatsApp call / Online / Office).
+    const groups = [];
+    day.slots.forEach((iso, i) => {
+      const mode = (day.modes || [])[i] || '';
+      let g = groups.find((x) => x.mode === mode);
+      if (!g) groups.push((g = { mode, slots: [] }));
+      g.slots.push(iso);
+    });
+    return h('div', {}, groups.map((g) => [
+      where(g.mode),
+      h('div', { class: 'times', role: 'group', 'aria-label': 'Start time' + (g.mode ? ', ' + g.mode : '') },
+        g.slots.map((iso) => h('button', {
+          type: 'button', class: 'opt', 'aria-pressed': String(iso === state.start),
+          onclick: () => {
+            state.start = iso;
+            renderBook();
+            const f = document.getElementById('details');
+            if (f) f.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          },
+        }, time(iso)))),
+    ]));
   }
 
   // Form values: remembered name/email/enrollment (this browser only), plus
@@ -303,6 +329,7 @@
 
   function formView() {
     const end = new Date(new Date(state.start).getTime() + state.duration * 60000).toISOString();
+    const mode = modeOf(state.start);
     const agendaCount = h('span', { class: 'count' }, (draft.agenda || '').length + '/200');
     const agenda = h('input', {
       id: 'f-agenda', name: 'agenda', type: 'text', required: true, maxlength: 200, minlength: 3, value: draft.agenda || '',
@@ -318,7 +345,7 @@
         e.preventDefault();
         const data = Object.fromEntries(new FormData(form));
         try {
-          localStorage.setItem('psq-meet-details', JSON.stringify({ name: data.name, email: data.email, enrollment: data.enrollment }));
+          localStorage.setItem('psq-meet-details', JSON.stringify({ name: data.name, email: data.email, enrollment: data.enrollment, phone: data.phone || draft.phone || '' }));
         } catch (err) { /* private mode */ }
         submit.disabled = true;
         submit.textContent = 'Booking…';
@@ -343,6 +370,9 @@
     },
       field('Name', 'name', { type: 'text', autocomplete: 'name', maxlength: 80, minlength: 2 }),
       field('Email', 'email', { type: 'email', autocomplete: 'email', maxlength: 254, inputmode: 'email', autocapitalize: 'off', spellcheck: 'false' }),
+      needsPhone(mode)
+        ? field('WhatsApp number', 'phone', { type: 'tel', autocomplete: 'tel', inputmode: 'tel', maxlength: 20, placeholder: '+91 98765 43210', pattern: '[+0-9 ()\\-]{7,20}', title: 'Phone number with country code' })
+        : null,
       field('Enrollment number', 'enrollment', { type: 'text', maxlength: 20, autocapitalize: 'characters', autocomplete: 'off', pattern: '[A-Za-z0-9/\\-]+', title: 'Letters and digits only' }),
       h('label', { for: 'f-agenda' }, 'Agenda (one line) ', agendaCount),
       agenda,
@@ -356,6 +386,7 @@
     return h('section', { class: 'card', id: 'details' },
       h('h2', {}, h('span', { class: 'n' }, '4'), 'Your details'),
       h('p', { class: 'summary' }, range(state.start, end) + ' · ' + state.duration + ' min'),
+      where(mode),
       form);
   }
 
@@ -391,7 +422,8 @@
     const status = h('div');
     const details = h('dl', {},
       h('dt', {}, 'When'), h('dd', {}, range(b.start, b.end)),
-      h('dt', {}, 'Length'), h('dd', {}, b.durationMin + ' min'));
+      h('dt', {}, 'Length'), h('dd', {}, b.durationMin + ' min'),
+      b.location ? [h('dt', {}, 'Where'), h('dd', {}, b.location)] : null);
 
     if (!b.cancellable) {
       const text = {
