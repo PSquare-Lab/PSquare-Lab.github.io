@@ -2,8 +2,8 @@
 title: "EEC 351: Fundamentals of AI/ML"
 permalink: /teaching/course_EEC351/
 layout: page
-status: current
-description: "Autumn 2026-27 · Department of Electrical Engineering, IIT Roorkee"
+status: past
+description: "Archived course page — Autumn 2026-27 offering"
 semester: "Autumn 2026-27"
 nav: false
 ---
@@ -52,6 +52,8 @@ nav: false
 .table-no-hover table td .cell-item { display: block; padding: 3px 0; }
 .table-no-hover table td .cell-sep { display: block; width: 36%; border: none; border-top: 2px solid var(--global-divider-color); margin: 4px auto; }
 </style>
+
+> This is the **archived page for the Autumn 2026-27 offering**. The course has concluded; readings, demos and notes below stay available for reference.
 
 <div class="course-hero">
   <a class="quick-link" href="/teaching/course_EEC351_2025/">Previous offering · Autumn 2025-26</a>
@@ -145,5 +147,6 @@ nav: false
 
 <h4 class="course-section">Exam papers</h4>
 
-- Papers for this offering will be posted here after the exams. _TBA._
+- [MTE (Autumn 2026-27)](/assets/pdf/EEC351/2026-27/MTE.pdf)
+- [ETE (Autumn 2026-27)](/assets/pdf/EEC351/2026-27/ETE.pdf)
 - Past papers: see the [Autumn 2025-26 offering](/teaching/course_EEC351_2025/).

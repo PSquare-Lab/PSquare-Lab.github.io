@@ -175,7 +175,7 @@
     - text: "Boyd & Vandenberghe §9.2–9.4 (descent methods, backtracking, steepest descent)"
       link: https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf
     - text: "Strang, MIT 18.065 Lec. 22: Gradient Descent"
-      link: https://distill.pub/2017/momentum/
+      link: https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-22-gradient-descent-downhill-to-a-minimum/
     - text: "Boyd, EE364a slides §9 Unconstrained Minimization"
       link: https://web.stanford.edu/~boyd/cvxbook/bv_cvxslides.pdf
   homework: --
@@ -212,6 +212,25 @@
       link: https://www.microsoft.com/en-us/research/wp-content/uploads/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf
   homework: --
 
+# --- Learning Theory module: Learning From Data (Abu-Mostafa, Magdon-Ismail & Lin), Ch. 1 and Ch. 2 ---
+# The book has no free copy, so it is listed as text; other links are free/open, checked November 2026.
+
+- lecture: [LT1]
+  topic: "Learning From Data Ch. 1, The Learning Problem: problem setup (target, hypothesis set, algorithm); types of learning; is learning feasible? (Hoeffding); error and noise"
+  slides: --
+  essential:
+    - text: "Abu-Mostafa, Magdon-Ismail & Lin, Learning From Data Ch. 1"
+    - text: "Chan, Learning Theory notes §4.1–4.2"
+      link: /assets/pdf/EEC351/notes/LearningTheory.pdf
+  additional:
+    - text: "Caltech CS156 Lec. 1: The Learning Problem (video)"
+      link: https://www.youtube.com/watch?v=mbyG85GZ0PI
+    - text: "Caltech CS156 Lec. 2: Is Learning Feasible? (video)"
+      link: https://www.youtube.com/watch?v=MEG35RDD7RA
+    - text: "Caltech CS156 Lec. 4: Error and Noise (video)"
+      link: https://www.youtube.com/watch?v=L_0efNkdGMc
+  homework: --
+
 # --- Learning Theory: concentration inequalities ---
 # Essential readings are the notes used in Autumn 2025-26 (notes/); additional links are free/open,
 # checked in October 2026.
@@ -228,3 +247,23 @@
     - text: "Duchi, CS229 Supplemental Notes: Hoeffding's Inequality"
       link: https://cs229.stanford.edu/extra-notes/hoeffding.pdf
   homework: /assets/pdf/EEC351/2026-27/HW_Concentration.pdf
+
+- lecture: [LT2]
+  topic: "Learning From Data Ch. 2, Training versus Testing: union bound & growth function; break point & VC dimension; VC generalization bound; bias–variance tradeoff"
+  slides: --
+  essential:
+    - text: "Abu-Mostafa, Magdon-Ismail & Lin, Learning From Data Ch. 2"
+    - text: "Chan, Learning Theory notes §4.3–4.4"
+      link: /assets/pdf/EEC351/notes/LearningTheory.pdf
+  additional:
+    - text: "Caltech CS156 Lec. 5: Training versus Testing (video)"
+      link: https://www.youtube.com/watch?v=SEYAnnLazMU
+    - text: "Caltech CS156 Lec. 6: Theory of Generalization (video)"
+      link: https://www.youtube.com/watch?v=6FWRijsmLtE
+    - text: "Caltech CS156 Lec. 7: The VC Dimension (video)"
+      link: https://www.youtube.com/watch?v=Dc0sr0kdBVI
+    - text: "Caltech CS156 Lec. 8: Bias-Variance Tradeoff (video)"
+      link: https://www.youtube.com/watch?v=zrEyxfl2-a8
+    - text: "Ng, CS229 Lecture Notes: Learning Theory"
+      link: https://cs229.stanford.edu/notes_archive/cs229-notes4.pdf
+  homework: --
