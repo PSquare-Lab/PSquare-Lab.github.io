@@ -18,7 +18,6 @@ on:
 
 permissions:
   contents: read
-  actions: write # only for the keep-alive job
 
 concurrency:
   group: meet-sync
@@ -49,6 +48,8 @@ jobs:
   keepalive:
     if: github.event.schedule == '17 3 * * 1'
     runs-on: ubuntu-latest
+    permissions:
+      actions: write # re-enable this workflow; nothing else
     timeout-minutes: 2
     steps:
       - name: Re-enable this workflow
