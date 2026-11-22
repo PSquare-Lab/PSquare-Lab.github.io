@@ -1,0 +1,57 @@
+# PSquare Meet: every 15 minutes, ask the booking backend (Vercel) to check
+# Apple Calendar for bookings the host deleted, email those students, and mark
+# past bookings completed. Vercel's free plan only allows daily crons, so the
+# schedule lives here. Actions minutes are free in public repos.
+#
+# Needs two repository secrets (Settings → Secrets and variables → Actions):
+#   MEET_SYNC_URL     e.g. https://psquare-meet.vercel.app/api/sync
+#   MEET_CRON_SECRET  same value as CRON_SECRET in Vercel
+# Logs show only counts (no names or emails).
+
+name: PSquare Meet sync
+
+on:
+  schedule:
+    - cron: "*/15 * * * *" # sync
+    - cron: "17 3 * * 1" # weekly keep-alive
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write # only for the keep-alive job
+
+concurrency:
+  group: meet-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.event.schedule != '17 3 * * 1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: POST /api/sync
+        env:
+          SYNC_URL: ${{ secrets.MEET_SYNC_URL }}
+          CRON_SECRET: ${{ secrets.MEET_CRON_SECRET }}
+        run: |
+          if [ -z "$SYNC_URL" ] || [ -z "$CRON_SECRET" ]; then
+            echo "MEET_SYNC_URL / MEET_CRON_SECRET not set yet; skipping."
+            exit 0
+          fi
+          curl --fail-with-body --silent --show-error --retry 2 --retry-delay 15 --max-time 120 \
+            -X POST -H "Authorization: Bearer $CRON_SECRET" "$SYNC_URL"
+          echo
+
+  # GitHub pauses schedules in public repos after 60 days with no commits.
+  # Re-enabling the workflow through the API each week should keep it running;
+  # if GitHub still pauses it, it emails a warning and one click re-enables it.
+  keepalive:
+    if: github.event.schedule == '17 3 * * 1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Re-enable this workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/meet-sync.yml/enable"

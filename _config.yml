@@ -280,6 +280,11 @@ defaults:
       path: "assets"
     values:
       sitemap: false
+  # Unlisted student booking page (PSquare Meet): keep it out of sitemap.xml.
+  - scope:
+      path: "meet"
+    values:
+      sitemap: false
 
 sass:
   style: compressed
@@ -289,7 +294,7 @@ sass:
 # -----------------------------------------------------------------------------
 
 jekyll-minifier:
-  exclude: ["robots.txt", "assets/js/search/*.js"]
+  exclude: ["robots.txt", "assets/js/search/*.js", "meet/index.html"]
   uglifier_args:
     harmony: true
 

@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<title>Book a discussion · PSquare Lab</title>
+<!--
+  PSquare Meet booking page. Static, no secrets. Works only with the full link
+  (…/meet/#k=<access key>). Backend: the psquare-meet repo on Vercel.
+-->
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --text: #15181d;
+    --muted: #5b6270;
+    --line: #e2e5ea;
+    --chip: #f0f2f5;
+    --accent: #1772d0;
+    --accent-ink: #ffffff;
+    --accent-soft: #e7f0fb;
+    --danger: #b42318;
+    --danger-soft: #fdecea;
+    --ok: #1a7f37;
+    --ok-soft: #e8f5ec;
+    --radius: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --card: #171a20;
+      --text: #e8eaee;
+      --muted: #9aa2b1;
+      --line: #2a2f38;
+      --chip: #20242c;
+      --accent: #5aa2f0;
+      --accent-ink: #0b1220;
+      --accent-soft: #16263a;
+      --danger: #f97066;
+      --danger-soft: #3a1b1a;
+      --ok: #4ac26b;
+      --ok-soft: #14291b;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 24px 16px calc(40px + env(safe-area-inset-bottom)); }
+  header { margin-bottom: 16px; }
+  .lab { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  h1 { margin: 2px 0 0; font-size: 26px; line-height: 1.2; }
+  .sub { margin: 4px 0 0; color: var(--muted); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 16px; margin-top: 14px; }
+  .rules { margin: 0; padding: 10px 12px; border-radius: 10px; background: var(--accent-soft); font-size: 14px; }
+  h2 { font-size: 16px; margin: 20px 0 10px; display: flex; align-items: center; gap: 8px; }
+  h2:first-child { margin-top: 0; }
+  h2 .n { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-size: 13px; }
+  h2 small { font-weight: 400; color: var(--muted); }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  .seg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .opt {
+    border: 1px solid var(--line); background: var(--chip); border-radius: 10px; padding: 10px 4px; min-height: 44px;
+    transition: background .15s, border-color .15s;
+  }
+  .opt[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+  .opt:disabled { opacity: .4; cursor: not-allowed; }
+  .opt:focus-visible, .btn:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .days::-webkit-scrollbar { display: none; }
+  .days .opt { flex: 0 0 auto; width: 74px; padding: 8px 4px; scroll-snap-align: start; line-height: 1.25; }
+  .days .opt b { display: block; font-size: 13px; }
+  .days .opt span { display: block; font-size: 15px; }
+  .days .opt small { display: block; font-size: 11px; opacity: .8; }
+  .times { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px; }
+  .hint { color: var(--muted); font-size: 14px; margin: 0; }
+  .summary { margin: 0 0 14px; font-weight: 600; }
+  label { display: block; font-size: 14px; font-weight: 600; margin: 12px 0 4px; }
+  input[type=text], input[type=email] {
+    width: 100%; font: inherit; font-size: 16px; color: var(--text); background: var(--bg);
+    border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; min-height: 44px;
+  }
+  .count { float: right; font-weight: 400; color: var(--muted); font-size: 12px; }
+  .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .btn {
+    display: block; width: 100%; margin-top: 18px; border: 0; border-radius: 10px; padding: 12px; min-height: 48px;
+    background: var(--accent); color: var(--accent-ink); font-weight: 700;
+  }
+  .btn:disabled { opacity: .6; cursor: progress; }
+  .btn.danger { background: var(--danger); color: #fff; }
+  .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--line); }
+  .msg { margin: 12px 0 0; padding: 10px 12px; border-radius: 10px; font-size: 14px; }
+  .msg.err { background: var(--danger-soft); color: var(--danger); }
+  .msg.ok { background: var(--ok-soft); color: var(--ok); }
+  .big { font-size: 18px; font-weight: 700; margin: 0 0 6px; }
+  dl { margin: 12px 0 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 12px; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  .skeleton { height: 44px; border-radius: 10px; background: var(--chip); animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: .5; } }
+  @media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } * { transition: none !important; } }
+  footer { margin-top: 20px; color: var(--muted); font-size: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <p class="lab">PSquare Lab</p>
+    <h1 id="title">Book a discussion</h1>
+    <p class="sub">with Prof. Parikshit Pareek · Dept. of EE, IIT Roorkee</p>
+  </header>
+  <div id="app" aria-live="polite"></div>
+  <footer>All times are India Standard Time (IST).</footer>
+</main>
+
+<script>
+(() => {
+  'use strict';
+
+  // Backend base URL (the Vercel deployment of psquare-meet). Local dev uses the same origin.
+  const API_BASE = /^(localhost|127\.0\.0\.1)$/.test(location.hostname)
+    ? location.origin
+    : 'https://psquare-meet.vercel.app';
+
+  const DURATIONS = [15, 30, 45, 60];
+  const TZ = 'Asia/Kolkata';
+  const app = document.getElementById('app');
+
+  const params = new URLSearchParams(location.hash.slice(1));
+  const query = new URLSearchParams(location.search);
+  const KEY = params.get('k') || '';
+  const CANCEL = params.get('cancel') || query.get('cancel') || '';
+
+  // --- helpers --------------------------------------------------------------
+
+  const fmt = (opts) => new Intl.DateTimeFormat('en-IN', Object.assign({ timeZone: TZ }, opts));
+  const fTime = fmt({ hour: 'numeric', minute: '2-digit', hour12: true });
+  const fWeekday = fmt({ weekday: 'short' });
+  const fDayMonth = fmt({ day: 'numeric', month: 'short' });
+  const fLong = fmt({ weekday: 'long', day: 'numeric', month: 'long' });
+  const norm = (s) => s.replace(/[  ]/g, ' ').replace(/\b(am|pm)\b/i, (m) => m.toUpperCase());
+  const time = (iso) => norm(fTime.format(new Date(iso)));
+  const dayDate = (key) => new Date(key + 'T12:00:00+05:30');
+  const range = (start, end) => fLong.format(new Date(start)) + ', ' + time(start) + ' – ' + time(end) + ' IST';
+
+  function h(tag, attrs, ...children) {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs || {})) {
+      if (v === false || v == null) continue;
+      if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+      else if (k === 'class') el.className = v;
+      else el.setAttribute(k, v === true ? '' : v);
+    }
+    for (const c of children.flat()) if (c != null && c !== false) el.append(c.nodeType ? c : String(c));
+    return el;
+  }
+
+  async function api(path, opts) {
+    const headers = { 'Content-Type': 'application/json' };
+    if (KEY) headers['X-Access-Key'] = KEY;
+    let res;
+    try {
+      res = await fetch(API_BASE + path, Object.assign({ headers, cache: 'no-store' }, opts));
+    } catch (e) {
+      throw { message: 'Could not reach the booking server. Check your connection and try again.' };
+    }
+    let body = {};
+    try { body = await res.json(); } catch (e) { /* ignore */ }
+    if (!res.ok) throw { code: body.error, message: body.message || 'Something went wrong. Please try again.' };
+    return body;
+  }
+
+  const msg = (kind, text) => h('p', { class: 'msg ' + kind, role: kind === 'err' ? 'alert' : 'status' }, text);
+
+  // --- no key ---------------------------------------------------------------
+
+  function renderNoKey() {
+    app.replaceChildren(
+      h('section', { class: 'card' },
+        h('p', { class: 'big' }, 'This link is incomplete'),
+        h('p', { class: 'hint' }, 'Please open the full booking link exactly as it was shared with you (it is long, and ends in a code after “#k=”).'))
+    );
+  }
+
+  // --- booking flow ---------------------------------------------------------
+
+  const state = { duration: 30, data: null, loading: false, error: '', day: null, start: null, cache: {} };
+
+  async function loadSlots(force) {
+    const d = state.duration;
+    state.error = '';
+    if (!force && state.cache[d]) {
+      state.data = state.cache[d];
+    } else {
+      state.loading = true;
+      state.data = null;
+      renderBook();
+      try {
+        state.cache[d] = await api('/api/slots?duration=' + d);
+        if (d !== state.duration) return; // user switched meanwhile
+        state.data = state.cache[d];
+      } catch (e) {
+        state.error = e.message;
+        if (e.code === 'BAD_LINK') return renderNoKey();
+      } finally {
+        state.loading = false;
+      }
+    }
+    const days = state.data ? state.data.days : [];
+    if (!days.some((x) => x.date === state.day && x.slots.length)) {
+      const first = days.find((x) => x.slots.length);
+      state.day = first ? first.date : null;
+    }
+    if (state.start && !(days.find((x) => x.date === state.day) || { slots: [] }).slots.includes(state.start)) {
+      state.start = null;
+    }
+    renderBook();
+  }
+
+  function renderBook() {
+    const old = app.querySelector('#details form');
+    if (old) Object.assign(draft, Object.fromEntries(new FormData(old)));
+    const card = h('section', { class: 'card' },
+      h('p', { class: 'rules' },
+        'One booking at a time, and at most one per week (Mon–Sun). ',
+        h('br'),
+        'An agenda is required. No drop-ins: please book a slot.'),
+
+      h('h2', {}, h('span', { class: 'n' }, '1'), 'How long do you need?'),
+      h('div', { class: 'seg', role: 'group', 'aria-label': 'Duration' },
+        DURATIONS.map((d) => h('button', {
+          type: 'button', class: 'opt', 'aria-pressed': String(d === state.duration),
+          onclick: () => { if (d !== state.duration) { state.duration = d; state.start = null; loadSlots(); } },
+        }, d + ' min'))),
+
+      h('h2', {}, h('span', { class: 'n' }, '2'), 'Pick a day'),
+      daysView(),
+
+      h('h2', {}, h('span', { class: 'n' }, '3'), 'Pick a start time ', h('small', {}, '(IST)')),
+      timesView(),
+      state.error ? msg('err', state.error) : null,
+    );
+    app.replaceChildren(card, state.start ? formView() : null);
+  }
+
+  function daysView() {
+    if (state.loading || !state.data) {
+      if (!state.loading && state.error) return h('p', { class: 'hint' }, 'Days will appear here.');
+      return h('div', { class: 'days' }, [0, 1, 2, 3, 4].map(() => h('div', { class: 'skeleton', style: 'width:74px;height:64px' })));
+    }
+    return h('div', { class: 'days', role: 'group', 'aria-label': 'Day' },
+      state.data.days.map((d) => {
+        const dt = dayDate(d.date);
+        const n = d.slots.length;
+        return h('button', {
+          type: 'button', class: 'opt', disabled: n === 0, 'aria-pressed': String(d.date === state.day),
+          'aria-label': fLong.format(dt) + (n ? ', ' + n + ' times free' : ', no free times'),
+          onclick: () => { state.day = d.date; state.start = null; renderBook(); },
+        }, h('b', {}, fWeekday.format(dt)), h('span', {}, fDayMonth.format(dt)), h('small', {}, n ? n + ' free' : '—'));
+      }));
+  }
+
+  function timesView() {
+    if (state.loading) return h('div', { class: 'times' }, [0, 1, 2, 3, 4, 5].map(() => h('div', { class: 'skeleton' })));
+    if (!state.data) return h('p', { class: 'hint' }, '');
+    const day = state.data.days.find((d) => d.date === state.day);
+    if (!day) {
+      return h('p', { class: 'hint' },
+        'No free times in the next 7 days for ' + state.duration + ' minutes. Try a shorter duration, or check back later.');
+    }
+    return h('div', { class: 'times', role: 'group', 'aria-label': 'Start time' },
+      day.slots.map((iso) => h('button', {
+        type: 'button', class: 'opt', 'aria-pressed': String(iso === state.start),
+        onclick: () => {
+          state.start = iso;
+          renderBook();
+          const f = document.getElementById('details');
+          if (f) f.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        },
+      }, time(iso))));
+  }
+
+  // Form values: remembered name/email/enrollment (this browser only), plus
+  // whatever was typed before the student changed the time.
+  const draft = (() => {
+    try { return JSON.parse(localStorage.getItem('psq-meet-details') || '{}'); } catch (e) { return {}; }
+  })();
+
+  function field(label, name, attrs) {
+    const input = h('input', Object.assign({ id: 'f-' + name, name, required: true, value: draft[name] || '' }, attrs));
+    return [h('label', { for: 'f-' + name }, label), input];
+  }
+
+  function formView() {
+    const end = new Date(new Date(state.start).getTime() + state.duration * 60000).toISOString();
+    const agendaCount = h('span', { class: 'count' }, (draft.agenda || '').length + '/200');
+    const agenda = h('input', {
+      id: 'f-agenda', name: 'agenda', type: 'text', required: true, maxlength: 200, minlength: 3, value: draft.agenda || '',
+      placeholder: 'e.g. Discuss BTP progress and next steps', autocomplete: 'off',
+      oninput: (e) => { agendaCount.textContent = e.target.value.length + '/200'; },
+    });
+    const status = h('div');
+    const submit = h('button', { type: 'submit', class: 'btn' }, 'Confirm booking');
+
+    const form = h('form', {
+      novalidate: false,
+      onsubmit: async (e) => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form));
+        try {
+          localStorage.setItem('psq-meet-details', JSON.stringify({ name: data.name, email: data.email, enrollment: data.enrollment }));
+        } catch (err) { /* private mode */ }
+        submit.disabled = true;
+        submit.textContent = 'Booking…';
+        status.replaceChildren();
+        try {
+          const res = await api('/api/book', {
+            method: 'POST',
+            body: JSON.stringify(Object.assign(data, { start: state.start, duration: state.duration })),
+          });
+          renderDone(res.booking, data);
+        } catch (err) {
+          submit.disabled = false;
+          submit.textContent = 'Confirm booking';
+          status.replaceChildren(msg('err', err.message));
+          if (err.code === 'SLOT_TAKEN') {
+            state.cache = {};
+            state.error = err.message;
+            await loadSlots(true);
+          }
+        }
+      },
+    },
+      field('Name', 'name', { type: 'text', autocomplete: 'name', maxlength: 80, minlength: 2 }),
+      field('Email', 'email', { type: 'email', autocomplete: 'email', maxlength: 254, inputmode: 'email', autocapitalize: 'off', spellcheck: 'false' }),
+      field('Enrollment number', 'enrollment', { type: 'text', maxlength: 20, autocapitalize: 'characters', autocomplete: 'off', pattern: '[A-Za-z0-9/\\-]+', title: 'Letters and digits only' }),
+      h('label', { for: 'f-agenda' }, 'Agenda (one line) ', agendaCount),
+      agenda,
+      h('div', { class: 'hp', 'aria-hidden': 'true' },
+        h('label', { for: 'f-website' }, 'Website'),
+        h('input', { id: 'f-website', name: 'website', type: 'text', tabindex: '-1', autocomplete: 'off' })),
+      submit,
+      status,
+    );
+
+    return h('section', { class: 'card', id: 'details' },
+      h('h2', {}, h('span', { class: 'n' }, '4'), 'Your details'),
+      h('p', { class: 'summary' }, range(state.start, end) + ' · ' + state.duration + ' min'),
+      form);
+  }
+
+  function renderDone(b, data) {
+    document.getElementById('title').textContent = 'You’re booked';
+    app.replaceChildren(
+      h('section', { class: 'card' },
+        h('p', { class: 'big' }, 'Booking confirmed'),
+        h('dl', {},
+          h('dt', {}, 'When'), h('dd', {}, range(b.start, b.end)),
+          h('dt', {}, 'Length'), h('dd', {}, b.durationMin + ' min'),
+          h('dt', {}, 'Where'), h('dd', {}, b.location),
+          h('dt', {}, 'Agenda'), h('dd', {}, data.agenda)),
+        b.emailSent
+          ? msg('ok', 'A confirmation email with a calendar file and a cancel link is on its way to ' + data.email + '. Check spam if it hasn’t arrived in a few minutes.')
+          : msg('ok', 'Your booking is saved. The confirmation email (with the cancel link) is delayed and should arrive within about 15 minutes.'),
+        h('p', { class: 'hint', style: 'margin-top:12px' }, 'If you can’t come, please cancel using the link in that email so someone else can use the slot.'))
+    );
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // --- cancel flow ----------------------------------------------------------
+
+  async function renderCancel() {
+    document.getElementById('title').textContent = 'Cancel a booking';
+    app.replaceChildren(h('section', { class: 'card' }, h('div', { class: 'skeleton' })));
+    let b;
+    try {
+      b = (await api('/api/cancel', { method: 'POST', body: JSON.stringify({ token: CANCEL, action: 'lookup' }) })).booking;
+    } catch (e) {
+      return app.replaceChildren(h('section', { class: 'card' }, msg('err', e.message)));
+    }
+    const status = h('div');
+    const details = h('dl', {},
+      h('dt', {}, 'When'), h('dd', {}, range(b.start, b.end)),
+      h('dt', {}, 'Length'), h('dd', {}, b.durationMin + ' min'));
+
+    if (!b.cancellable) {
+      const text = {
+        cancelled_student: 'This booking is already cancelled.',
+        cancelled_host: 'This booking was cancelled by Prof. Pareek. Check your email for a link to rebook.',
+        completed: 'This booking has already taken place.',
+        active: 'This booking has already started, so it can no longer be cancelled online.',
+      }[b.status];
+      return app.replaceChildren(h('section', { class: 'card' }, h('p', { class: 'big' }, 'Your booking'), details, msg('ok', text)));
+    }
+
+    const btn = h('button', {
+      type: 'button', class: 'btn danger',
+      onclick: async () => {
+        btn.disabled = true;
+        btn.textContent = 'Cancelling…';
+        try {
+          await api('/api/cancel', { method: 'POST', body: JSON.stringify({ token: CANCEL, action: 'cancel' }) });
+          btn.remove();
+          status.replaceChildren(msg('ok', 'Cancelled. The slot is free again, and a confirmation email is on its way.'));
+        } catch (e) {
+          btn.disabled = false;
+          btn.textContent = 'Cancel this booking';
+          status.replaceChildren(msg('err', e.message));
+        }
+      },
+    }, 'Cancel this booking');
+
+    app.replaceChildren(h('section', { class: 'card' },
+      h('p', { class: 'big' }, 'Your booking'), details, btn, status));
+  }
+
+  // --- start ----------------------------------------------------------------
+
+  // A link that differs only after "#" does not reload the page by itself.
+  window.addEventListener('hashchange', () => location.reload());
+
+  if (CANCEL) renderCancel();
+  else if (!KEY) renderNoKey();
+  else loadSlots();
+})();
+</script>
+</body>
+</html>
