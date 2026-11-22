@@ -219,7 +219,7 @@
   const rawHash = location.hash.slice(1);
   const params = new URLSearchParams(rawHash.includes('=') ? rawHash : '');
   const query = new URLSearchParams(location.search);
-  const KEY = params.get('k') || (rawHash && !rawHash.includes('=') ? decodeURIComponent(rawHash) : '');
+  let KEY = params.get('k') || (rawHash && !rawHash.includes('=') ? decodeURIComponent(rawHash) : '');
   const CANCEL = params.get('cancel') || query.get('cancel') || '';
 
   // --- helpers --------------------------------------------------------------
@@ -304,12 +304,53 @@
 
   // --- no key ---------------------------------------------------------------
 
-  function renderNoKey() {
-    app.replaceChildren(
-      h('section', { class: 'card' },
-        h('p', { class: 'big' }, 'This link is incomplete'),
-        h('p', { class: 'hint' }, 'Please open the full booking link exactly as it was shared with you (it ends with a short code after “#”).'))
-    );
+  // Shown when the page is opened without a code (or with an old one):
+  // visitors type the access code they were given, e.g. "Meet4821".
+  function renderNoKey(note) {
+    document.getElementById('title').textContent = 'Book a discussion';
+    const input = h('input', {
+      id: 'f-code', name: 'code', type: 'text', required: true, maxlength: 64,
+      autocomplete: 'off', autocapitalize: 'characters', spellcheck: 'false', placeholder: 'e.g. Meet1234',
+    });
+    const status = h('div', {}, note ? msg('err', note) : null);
+    const btn = h('button', { type: 'submit', class: 'btn' }, 'Continue');
+    const form = h('form', {
+      onsubmit: async (e) => {
+        e.preventDefault();
+        const code = input.value.trim();
+        if (!code) return;
+        btn.disabled = true;
+        btn.textContent = 'Checking…';
+        status.replaceChildren();
+        const prev = KEY;
+        KEY = code;
+        try {
+          const res = await api('/api/access');
+          if (res.kind === 'guest' && !draft.who) draft.who = 'external';
+          try { history.replaceState(null, '', location.pathname + location.search + '#' + encodeURIComponent(code)); } catch (err) { /* ignore */ }
+          state.cache = {};
+          state.data = null;
+          busy.data = null;
+          showView(state.view);
+        } catch (err) {
+          KEY = prev;
+          btn.disabled = false;
+          btn.textContent = 'Continue';
+          status.replaceChildren(msg('err', err.code === 'BAD_LINK' ? 'That code didn’t work. Please check it and try again.' : err.message));
+          input.focus();
+        }
+      },
+    },
+      h('label', { for: 'f-code' }, 'Access code'),
+      input,
+      h('p', { class: 'fhint' }, 'Prof. Pareek shares this code when you ask for a meeting. Students in the lab can use their usual link.'),
+      btn,
+      status);
+    app.replaceChildren(h('section', { class: 'card' },
+      h('p', { class: 'big' }, 'Enter your access code'),
+      h('p', { class: 'hint' }, 'Booking a meeting with Prof. Parikshit Pareek (Dept. of EE, IIT Roorkee) needs a short access code.'),
+      form));
+    setTimeout(() => input.focus(), 50);
   }
 
   // --- booking flow ---------------------------------------------------------
@@ -353,7 +394,7 @@
         state.data = state.cache[d];
       } catch (e) {
         state.error = e.message;
-        if (e.code === 'BAD_LINK') return renderNoKey();
+        if (e.code === 'BAD_LINK') return renderNoKey(KEY ? 'That link or code is no longer valid. Please enter the current code.' : '');
       } finally {
         state.loading = false;
       }
@@ -599,7 +640,7 @@
       busy.error = '';
     } catch (e) {
       busy.error = e.message;
-      if (e.code === 'BAD_LINK') return renderNoKey();
+      if (e.code === 'BAD_LINK') return renderNoKey(KEY ? 'That link or code is no longer valid. Please enter the current code.' : '');
     } finally {
       busy.loading = false;
     }
