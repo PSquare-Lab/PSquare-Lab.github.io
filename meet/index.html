@@ -142,10 +142,11 @@
   .bhead b { font-size: 15px; }
   .bhead span { color: var(--muted); font-size: 14px; }
   .tl { position: relative; height: 14px; border-radius: 7px; background: var(--chip); overflow: hidden; }
-  .seg { position: absolute; top: 0; bottom: 0; }
-  .seg.busy { background: var(--busy); }
-  .seg.open { background: var(--accent); opacity: .5; }
-  .seg.past { background: var(--card); opacity: .65; }
+  /* timeline pieces: own class name (.seg is the duration/who-are-you button row) */
+  .tseg { position: absolute; top: 0; bottom: 0; }
+  .tseg.busy { background: var(--busy); }
+  .tseg.open { background: var(--accent); opacity: .5; }
+  .tseg.past { background: var(--card); opacity: .65; }
   .nowline { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--text); }
   .axis { position: relative; height: 15px; margin-top: 3px; font-size: 11px; color: var(--muted); }
   .axis span { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; }
@@ -665,18 +666,18 @@
     const now = Date.now();
     const isToday = i === 0;
     const segs = [];
-    if (d.allDayBusy) segs.push(h('i', { class: 'seg busy', style: 'left:0;width:100%' }));
+    if (d.allDayBusy) segs.push(h('i', { class: 'tseg busy', style: 'left:0;width:100%' }));
     else {
       for (const [cls, list] of [['open', d.open], ['busy', d.busy]]) {
         for (const [s, e] of list) {
           const a = pct(minutesIST(s, d.date)), b = pct(minutesIST(e, d.date));
-          if (b > a) segs.push(h('i', { class: 'seg ' + cls, style: 'left:' + a + '%;width:' + (b - a) + '%' }));
+          if (b > a) segs.push(h('i', { class: 'tseg ' + cls, style: 'left:' + a + '%;width:' + (b - a) + '%' }));
         }
       }
     }
     if (isToday) {
       const nowPct = pct((now - Date.parse(d.date + 'T00:00:00+05:30')) / 60000);
-      if (nowPct > 0) segs.push(h('i', { class: 'seg past', style: 'left:0;width:' + nowPct + '%' }));
+      if (nowPct > 0) segs.push(h('i', { class: 'tseg past', style: 'left:0;width:' + nowPct + '%' }));
       if (nowPct > 0 && nowPct < 100) segs.push(h('i', { class: 'nowline', style: 'left:calc(' + nowPct + '% - 1px)' }));
     }
 
