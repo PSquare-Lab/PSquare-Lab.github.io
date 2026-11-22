@@ -9,7 +9,7 @@
 <title>Book a discussion · PSquare Lab</title>
 <!--
   PSquare Meet booking page. Static, no secrets. Works only with the full link
-  (…/meet/#<access key>, e.g. #P2ee4719). Backend: the psquare-meet repo on Vercel.
+  (…/meet/#<access key>) or with a typed access code. Backend: the psquare-meet repo on Vercel.
 -->
 <style>
   :root {
@@ -123,6 +123,8 @@
   .group .opt[aria-pressed="true"] { background: var(--k); border-color: var(--k); color: var(--card); }
   .seg2 { grid-template-columns: 1fr 1fr; }
   .fhint { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
+  .check { display: flex; align-items: center; gap: 8px; font-weight: 400; margin-top: 14px; }
+  .check input { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); }
   /* tabs */
   .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; margin-top: 14px; background: var(--chip); border: 1px solid var(--line); border-radius: 12px; }
   .tab { border: 0; background: none; border-radius: 9px; padding: 8px 6px; min-height: 42px; font-weight: 600; color: var(--muted); display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
@@ -221,7 +223,8 @@
   const params = new URLSearchParams(rawHash.includes('=') ? rawHash : '');
   const query = new URLSearchParams(location.search);
   let KEY = params.get('k') || (rawHash && !rawHash.includes('=') ? decodeURIComponent(rawHash) : '');
-  const CANCEL = params.get('cancel') || query.get('cancel') || '';
+  let KIND = ''; // 'student' | 'guest', once known
+  const CANCEL = params.get('cancel') || '';
 
   // --- helpers --------------------------------------------------------------
 
@@ -311,14 +314,14 @@
     document.getElementById('title').textContent = 'Book a discussion';
     const input = h('input', {
       id: 'f-code', name: 'code', type: 'text', required: true, maxlength: 64,
-      autocomplete: 'off', autocapitalize: 'characters', spellcheck: 'false', placeholder: 'e.g. Meet1234',
+      autocomplete: 'off', autocapitalize: 'characters', spellcheck: 'false', placeholder: 'Access code',
     });
     const status = h('div', {}, note ? msg('err', note) : null);
     const btn = h('button', { type: 'submit', class: 'btn' }, 'Continue');
     const form = h('form', {
       onsubmit: async (e) => {
         e.preventDefault();
-        const code = input.value.trim();
+        const code = input.value.replace(/\s+/g, '');
         if (!code) return;
         btn.disabled = true;
         btn.textContent = 'Checking…';
@@ -327,7 +330,8 @@
         KEY = code;
         try {
           const res = await api('/api/access');
-          if (res.kind === 'guest' && !draft.who) draft.who = 'external';
+          KIND = res.kind;
+          if (KIND === 'guest') draft.who = 'external';
           try { history.replaceState(null, '', location.pathname + location.search + '#' + encodeURIComponent(code)); } catch (err) { /* ignore */ }
           state.cache = {};
           state.data = null;
@@ -508,10 +512,17 @@
         }, time(iso)))))));
   }
 
-  // Form values: remembered name/email/enrollment (this browser only), plus
-  // whatever was typed before the student changed the time.
+  // Form values: name/email/enrollment remembered on this device ONLY if the
+  // person ticks "Remember me" (never the phone number), plus whatever was
+  // typed before they changed the time.
+  const STORE = 'psq-meet-details';
   const draft = (() => {
-    try { return JSON.parse(localStorage.getItem('psq-meet-details') || '{}'); } catch (e) { return {}; }
+    try {
+      const d = JSON.parse(localStorage.getItem(STORE) || '{}');
+      if (!d.remember) { localStorage.removeItem(STORE); return {}; } // older saves without consent
+      if ('phone' in d) { delete d.phone; localStorage.setItem(STORE, JSON.stringify(d)); }
+      return d;
+    } catch (e) { return {}; }
   })();
 
   function field(label, name, attrs) {
@@ -522,7 +533,7 @@
   function formView() {
     const end = new Date(new Date(state.start).getTime() + state.duration * 60000).toISOString();
     const mode = modeOf(state.start);
-    const external = draft.who === 'external';
+    const external = KIND === 'guest' || draft.who === 'external';
     const agendaCount = h('span', { class: 'count' }, (draft.agenda || '').length + '/200');
     const agenda = h('input', {
       id: 'f-agenda', name: 'agenda', type: 'text', required: true, maxlength: 200, minlength: 3, value: draft.agenda || '',
@@ -539,11 +550,14 @@
         e.preventDefault();
         const data = Object.fromEntries(new FormData(form));
         try {
-          localStorage.setItem('psq-meet-details', JSON.stringify({
-            who: draft.who || 'iitr', name: data.name, email: data.email,
-            enrollment: data.enrollment || draft.enrollment || '', affiliation: data.affiliation || draft.affiliation || '',
-            phone: data.phone || draft.phone || '',
-          }));
+          if (data.remember) {
+            localStorage.setItem(STORE, JSON.stringify({
+              remember: true, who: draft.who || 'iitr', name: data.name, email: data.email,
+              enrollment: data.enrollment || draft.enrollment || '', affiliation: data.affiliation || draft.affiliation || '',
+            }));
+          } else {
+            localStorage.removeItem(STORE);
+          }
         } catch (err) { /* private mode */ }
         submit.disabled = true;
         submit.textContent = 'Booking…';
@@ -553,7 +567,7 @@
             method: 'POST',
             body: JSON.stringify(Object.assign({}, data, {
               start: state.start, duration: state.duration, external,
-              enrollment: external ? data.affiliation : data.enrollment, affiliation: undefined,
+              enrollment: external ? data.affiliation : data.enrollment, affiliation: undefined, remember: undefined,
             })),
           });
           renderDone(res.booking, data);
@@ -569,14 +583,17 @@
         }
       },
     },
-      h('label', {}, 'You are'),
-      h('div', { class: 'seg seg2', role: 'group', 'aria-label': 'You are' },
-        [['iitr', 'At IIT Roorkee'], ['external', 'From outside IITR']].map(([v, label]) => h('button', {
-          type: 'button', class: 'opt', 'aria-pressed': String((draft.who || 'iitr') === v),
-          onclick: () => { if ((draft.who || 'iitr') !== v) { Object.assign(draft, Object.fromEntries(new FormData(form))); draft.who = v; renderBook(); } },
-        }, label))),
+      KIND === 'guest' ? null : [
+        h('label', {}, 'You are'),
+        h('div', { class: 'seg seg2', role: 'group', 'aria-label': 'You are' },
+          [['iitr', 'At IIT Roorkee'], ['external', 'From outside IITR']].map(([v, label]) => h('button', {
+            type: 'button', class: 'opt', 'aria-pressed': String((draft.who || 'iitr') === v),
+            onclick: () => { if ((draft.who || 'iitr') !== v) { Object.assign(draft, Object.fromEntries(new FormData(form))); draft.who = v; renderBook(); } },
+          }, label))),
+      ],
       field('Name', 'name', { type: 'text', autocomplete: 'name', maxlength: 80, minlength: 2 }),
-      field('Email', 'email', { type: 'email', autocomplete: 'email', maxlength: 254, inputmode: 'email', autocapitalize: 'off', spellcheck: 'false' }),
+      field('Email', 'email', { type: 'email', autocomplete: 'email', maxlength: 254, inputmode: 'email', autocapitalize: 'off', spellcheck: 'false', placeholder: external ? 'you@institute.edu' : 'name@iitr.ac.in' }),
+      external ? null : h('p', { class: 'fhint' }, 'Use your IIT Roorkee email (ending in iitr.ac.in).'),
       needsPhone(mode)
         ? field('WhatsApp number', 'phone', { type: 'tel', autocomplete: 'tel', inputmode: 'tel', maxlength: 20, placeholder: '+91 98765 43210', title: 'Phone number with country code' })
         : null,
@@ -592,7 +609,11 @@
       h('div', { class: 'hp', 'aria-hidden': 'true' },
         h('label', { for: 'f-website' }, 'Website'),
         h('input', { id: 'f-website', name: 'website', type: 'text', tabindex: '-1', autocomplete: 'off' })),
+      h('label', { class: 'check' },
+        h('input', { type: 'checkbox', name: 'remember', value: '1', checked: !!draft.remember }),
+        'Remember my name and email on this device'),
       submit,
+      h('p', { class: 'fhint' }, 'Your details are used only to arrange this meeting and are deleted about 6 months after it.'),
       status,
     );
 
@@ -721,7 +742,9 @@
 
   // Keep the busy view (and its "right now" banner) current while it is open.
   setInterval(() => {
-    if (state.view === 'busy' && document.visibilityState === 'visible') loadBusy(true);
+    if (state.view !== 'busy' || document.visibilityState !== 'visible') return;
+    if (Date.now() - busy.at > 5 * 60000) loadBusy(true);
+    else renderBusy();
   }, 60000);
 
   // --- cancel flow ----------------------------------------------------------
@@ -779,7 +802,14 @@
 
   if (CANCEL) renderCancel();
   else if (!KEY) renderNoKey();
-  else showView(state.view);
+  else {
+    showView(state.view);
+    // Learn whether this is the students' link or the guest code (guests always book as outsiders).
+    api('/api/access').then((r) => {
+      KIND = r.kind;
+      if (KIND === 'guest') { draft.who = 'external'; if (state.view === 'book' && state.start) renderBook(); }
+    }).catch(() => {});
+  }
 })();
 </script>
 </body>
