@@ -9,7 +9,7 @@
 <title>Book a discussion · PSquare Lab</title>
 <!--
   PSquare Meet booking page. Static, no secrets. Works only with the full link
-  (…/meet/#k=<access key>). Backend: the psquare-meet repo on Vercel.
+  (…/meet/#<access key>, e.g. #P2ee4719). Backend: the psquare-meet repo on Vercel.
 -->
 <style>
   :root {
@@ -133,9 +133,12 @@
   const TZ = 'Asia/Kolkata';
   const app = document.getElementById('app');
 
-  const params = new URLSearchParams(location.hash.slice(1));
+  // Links look like …/meet/#P2ee1234 (key alone) or …/meet/#cancel=<token>.
+  // The older …/meet/#k=<key> form still works.
+  const rawHash = location.hash.slice(1);
+  const params = new URLSearchParams(rawHash.includes('=') ? rawHash : '');
   const query = new URLSearchParams(location.search);
-  const KEY = params.get('k') || '';
+  const KEY = params.get('k') || (rawHash && !rawHash.includes('=') ? decodeURIComponent(rawHash) : '');
   const CANCEL = params.get('cancel') || query.get('cancel') || '';
 
   // --- helpers --------------------------------------------------------------
@@ -185,7 +188,7 @@
     app.replaceChildren(
       h('section', { class: 'card' },
         h('p', { class: 'big' }, 'This link is incomplete'),
-        h('p', { class: 'hint' }, 'Please open the full booking link exactly as it was shared with you (it is long, and ends in a code after “#k=”).'))
+        h('p', { class: 'hint' }, 'Please open the full booking link exactly as it was shared with you (it ends with a short code after “#”).'))
     );
   }
 
