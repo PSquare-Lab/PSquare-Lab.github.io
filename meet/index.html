@@ -615,7 +615,7 @@
           h('dt', {}, 'Agenda'), h('dd', {}, data.agenda)),
         b.emailSent
           ? msg('ok', 'A confirmation email with a calendar file and a cancel link is on its way to ' + data.email + '. Check spam if it hasn’t arrived in a few minutes.')
-          : msg('ok', 'Your booking is saved. The confirmation email (with the cancel link) is delayed and should arrive within about 15 minutes.'),
+          : msg('ok', 'Your booking is saved. The confirmation email (with the cancel link) is delayed and should arrive within about 10 minutes.'),
         h('p', { class: 'hint', style: 'margin-top:12px' }, 'If you can’t come, please cancel using the link in that email so someone else can use the slot.'))
     );
     window.scrollTo({ top: 0, behavior: 'smooth' });

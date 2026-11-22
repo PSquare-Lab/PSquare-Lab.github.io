@@ -1,4 +1,4 @@
-# PSquare Meet: every 15 minutes, ask the booking backend (Vercel) to check
+# PSquare Meet: every 6 minutes, ask the booking backend (Vercel) to check
 # Apple Calendar for bookings the host deleted, email those students, and mark
 # past bookings completed. Vercel's free plan only allows daily crons, so the
 # schedule lives here. Actions minutes are free in public repos.
@@ -12,7 +12,7 @@ name: PSquare Meet sync
 
 on:
   schedule:
-    - cron: "*/15 * * * *" # sync
+    - cron: "*/6 * * * *" # sync (GitHub may run it a few minutes late when busy)
     - cron: "17 3 * * 1" # weekly keep-alive
   workflow_dispatch:
 
