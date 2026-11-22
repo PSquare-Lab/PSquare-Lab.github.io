@@ -247,7 +247,7 @@
       timesView(),
       state.error ? msg('err', state.error) : null,
     );
-    app.replaceChildren(card, state.start ? formView() : null);
+    app.replaceChildren(...[card, state.start ? formView() : null].filter(Boolean));
   }
 
   function daysView() {
