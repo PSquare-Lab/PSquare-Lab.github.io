@@ -26,6 +26,13 @@
     --danger-soft: #fdecea;
     --ok: #1a7f37;
     --ok-soft: #e8f5ec;
+    /* meeting modes: call (green), online (blue), in person (amber) */
+    --call: #0f7b4f;
+    --call-soft: #e5f4ec;
+    --online: #3156c8;
+    --online-soft: #eaf0fd;
+    --person: #a8570a;
+    --person-soft: #fcf0e2;
     --radius: 12px;
   }
   @media (prefers-color-scheme: dark) {
@@ -43,6 +50,12 @@
       --danger-soft: #3a1b1a;
       --ok: #4ac26b;
       --ok-soft: #14291b;
+      --call: #4cc38a;
+      --call-soft: #11261c;
+      --online: #8aa8ff;
+      --online-soft: #161f36;
+      --person: #f0a75a;
+      --person-soft: #2b1e10;
     }
   }
   * { box-sizing: border-box; }
@@ -73,21 +86,45 @@
   .opt[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
   .opt:disabled { opacity: .4; cursor: not-allowed; }
   .opt:focus-visible, .btn:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  .days::-webkit-scrollbar { display: none; }
-  .days .opt { flex: 0 0 auto; width: 74px; padding: 8px 4px; scroll-snap-align: start; line-height: 1.25; }
-  .days .opt b { display: block; font-size: 13px; }
-  .days .opt span { display: block; font-size: 15px; }
-  .days .opt small { display: block; font-size: 11px; opacity: .8; }
+  .k-call { --k: var(--call); --k-soft: var(--call-soft); }
+  .k-online { --k: var(--online); --k-soft: var(--online-soft); }
+  .k-person { --k: var(--person); --k-soft: var(--person-soft); }
+  .calhead { margin: -2px 0 8px; font-size: 14px; font-weight: 600; color: var(--muted); }
+  .cal { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+  .cal .wd { text-align: center; font-size: 11px; font-weight: 600; color: var(--muted); padding-bottom: 2px; }
+  .cal .day {
+    min-height: 48px; padding: 5px 0; border-radius: 10px; border: 1px solid var(--line); background: var(--chip);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; line-height: 1;
+  }
+  .cal .day b { font-size: 15px; font-weight: 600; }
+  .cal .day:disabled { background: none; border-color: transparent; color: var(--muted); opacity: .5; cursor: default; }
+  .cal .day.out { opacity: .25; }
+  .cal .day.today b { text-decoration: underline; text-underline-offset: 3px; }
+  .cal .day[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .dots { display: flex; gap: 3px; height: 7px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--k); }
+  .day[aria-pressed="true"] .dot { box-shadow: 0 0 0 1.5px var(--accent-ink); }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 10px 0 0; font-size: 12px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 5px; }
+  .pill {
+    display: inline-flex; align-items: flex-start; gap: 6px; max-width: 100%; padding: 4px 10px; border-radius: 999px;
+    background: var(--k-soft); color: var(--k); font-size: 14px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere;
+  }
+  .pill svg { flex: none; width: 15px; height: 15px; margin-top: 2px; }
+  .pill a { color: inherit; }
+  .group { margin-top: 12px; padding: 10px; border-radius: 12px; background: var(--k-soft); border-left: 4px solid var(--k); }
+  .group:first-child { margin-top: 0; }
+  .group > .pill { padding: 0 2px; margin-bottom: 8px; background: none; }
+  .group .opt { background: var(--card); }
+  .group .opt[aria-pressed="true"] { background: var(--k); border-color: var(--k); color: var(--card); }
+  .seg2 { grid-template-columns: 1fr 1fr; }
+  .fhint { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
   .times { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px; }
   .hint { color: var(--muted); font-size: 14px; margin: 0; }
   .summary { margin: 0 0 4px; font-weight: 600; }
-  .mode { margin: 14px 0 8px; font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
-  .mode:first-child { margin-top: 0; }
-  .mode b { color: var(--text); font-weight: 600; }
-  #details .mode { margin: 0 0 14px; }
+  #details .where { margin: 6px 0 14px; }
   label { display: block; font-size: 14px; font-weight: 600; margin: 12px 0 4px; }
-  input[type=text], input[type=email] {
+  input[type=text], input[type=email], input[type=tel] {
     width: 100%; font: inherit; font-size: 16px; color: var(--text); background: var(--bg);
     border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; min-height: 44px;
   }
@@ -149,12 +186,15 @@
 
   const fmt = (opts) => new Intl.DateTimeFormat('en-IN', Object.assign({ timeZone: TZ }, opts));
   const fTime = fmt({ hour: 'numeric', minute: '2-digit', hour12: true });
-  const fWeekday = fmt({ weekday: 'short' });
-  const fDayMonth = fmt({ day: 'numeric', month: 'short' });
+  const fShortDay = fmt({ weekday: 'short', day: 'numeric', month: 'short' });
+  const fMonth = fmt({ month: 'long', year: 'numeric' });
   const fLong = fmt({ weekday: 'long', day: 'numeric', month: 'long' });
   const norm = (s) => s.replace(/[  ]/g, ' ').replace(/\b(am|pm)\b/i, (m) => m.toUpperCase());
   const time = (iso) => norm(fTime.format(new Date(iso)));
   const dayDate = (key) => new Date(key + 'T12:00:00+05:30');
+  // Calendar-date arithmetic on 'YYYY-MM-DD' keys (IST dates; no time zone involved).
+  const addDays = (key, n) => new Date(Date.parse(key + 'T00:00:00Z') + n * 864e5).toISOString().slice(0, 10);
+  const weekdayIdx = (key) => (new Date(key + 'T00:00:00Z').getUTCDay() + 6) % 7; // Mon = 0
   const range = (start, end) => fLong.format(new Date(start)) + ', ' + time(start) + ' – ' + time(end) + ' IST';
 
   function h(tag, attrs, ...children) {
@@ -193,7 +233,30 @@
     return '';
   }
   const needsPhone = (mode) => /whats\s*app|phone|mobile/i.test(mode || '');
-  const where = (mode) => mode ? h('p', { class: 'mode' }, 'Where: ', h('b', {}, mode)) : null;
+
+  // Colour coding: call (green), online (blue), in person (amber).
+  function modeKind(mode) {
+    const m = mode || '';
+    if (/whats\s*app|phone|mobile/i.test(m)) return 'call';
+    if (/online|meet|zoom|teams|webex|skype|video|virtual|https?:\/\//i.test(m)) return 'online';
+    if (/\bcall\b/i.test(m)) return 'call';
+    return 'person';
+  }
+  const KIND_LABEL = { person: 'In person', online: 'Online', call: 'WhatsApp / phone' };
+  const ICON = {
+    call: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>',
+    online: '<path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/>',
+    person: '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+  };
+  function icon(kind) {
+    const span = document.createElement('span');
+    span.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICON[kind] + '</svg>';
+    return span.firstChild;
+  }
+  // Text with https:// links made clickable (e.g. a Meet link in the mode).
+  const linkify = (text) => text.split(/(https:\/\/[^\s·]+)/).filter(Boolean)
+    .map((part) => /^https:\/\//.test(part) ? h('a', { href: part, target: '_blank', rel: 'noopener noreferrer' }, part) : part);
+  const pill = (mode) => { const k = modeKind(mode); return h('span', { class: 'pill k-' + k }, icon(k), h('span', {}, linkify(mode))); };
 
   const msg = (kind, text) => h('p', { class: 'msg ' + kind, role: kind === 'err' ? 'alert' : 'status' }, text);
 
@@ -261,7 +324,8 @@
       h('h2', {}, h('span', { class: 'n' }, '2'), 'Pick a day'),
       daysView(),
 
-      h('h2', {}, h('span', { class: 'n' }, '3'), 'Pick a start time ', h('small', {}, '(IST)')),
+      h('h2', {}, h('span', { class: 'n' }, '3'), 'Pick a start time ',
+        h('small', {}, (state.day && state.data ? fShortDay.format(dayDate(state.day)) + ' · ' : '') + 'IST')),
       timesView(),
       state.error ? msg('err', state.error) : null,
     );
@@ -271,18 +335,40 @@
   function daysView() {
     if (state.loading || !state.data) {
       if (!state.loading && state.error) return h('p', { class: 'hint' }, 'Days will appear here.');
-      return h('div', { class: 'days' }, [0, 1, 2, 3, 4].map(() => h('div', { class: 'skeleton', style: 'width:74px;height:64px' })));
+      return h('div', { class: 'cal' }, Array.from({ length: 14 }, () => h('div', { class: 'skeleton', style: 'height:48px' })));
     }
-    return h('div', { class: 'days', role: 'group', 'aria-label': 'Day' },
-      state.data.days.map((d) => {
-        const dt = dayDate(d.date);
-        const n = d.slots.length;
-        return h('button', {
-          type: 'button', class: 'opt', disabled: n === 0, 'aria-pressed': String(d.date === state.day),
-          'aria-label': fLong.format(dt) + (n ? ', ' + n + ' times free' : ', no free times'),
-          onclick: () => { state.day = d.date; state.start = null; renderBook(); },
-        }, h('b', {}, fWeekday.format(dt)), h('span', {}, fDayMonth.format(dt)), h('small', {}, n ? n + ' free' : '—'));
-      }));
+    const days = state.data.days;
+    const byDate = new Map(days.map((d) => [d.date, d]));
+    const first = days[0].date;
+    const last = days[days.length - 1].date;
+    // Whole Mon–Sun weeks covering the window, minus leading/trailing weeks with nothing free.
+    const weeks = [];
+    for (let w = addDays(first, -weekdayIdx(first)); w <= last; w = addDays(w, 7)) weeks.push(w);
+    const hasFree = (w) => [0, 1, 2, 3, 4, 5, 6].some((i) => (byDate.get(addDays(w, i)) || { slots: [] }).slots.length);
+    while (weeks.length > 1 && !hasFree(weeks[0])) weeks.shift();
+    while (weeks.length > 1 && !hasFree(weeks[weeks.length - 1])) weeks.pop();
+    const cells = [];
+    for (let k = weeks[0]; k <= addDays(weeks[weeks.length - 1], 6); k = addDays(k, 1)) {
+      const d = byDate.get(k);
+      const n = d ? d.slots.length : 0;
+      const kinds = d ? [...new Set((d.modes || []).map(modeKind))] : [];
+      cells.push(h('button', {
+        type: 'button', class: 'day' + (d ? '' : ' out') + (k === first ? ' today' : ''), disabled: n === 0,
+        'aria-pressed': String(k === state.day),
+        'aria-label': fLong.format(dayDate(k)) + (n ? ', ' + n + ' times free' : ', no free times'),
+        onclick: () => { state.day = k; state.start = null; renderBook(); },
+      }, h('b', {}, String(Number(k.slice(8)))), h('span', { class: 'dots' }, kinds.map((kd) => h('i', { class: 'dot k-' + kd })))));
+    }
+    const m1 = fMonth.format(dayDate(weeks[0] < first ? first : weeks[0]));
+    const m2 = fMonth.format(dayDate(addDays(weeks[weeks.length - 1], 6) > last ? last : addDays(weeks[weeks.length - 1], 6)));
+    const kindsAll = ['person', 'online', 'call'].filter((kd) => days.some((d) => (d.modes || []).some((m) => modeKind(m) === kd)));
+    return h('div', {},
+      h('p', { class: 'calhead' }, m1 === m2 ? m1 : m1.replace(/ \d{4}$/, '') + ' – ' + m2),
+      h('div', { class: 'cal', role: 'group', 'aria-label': 'Day' },
+        ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((w) => h('span', { class: 'wd', 'aria-hidden': 'true' }, w)),
+        cells),
+      kindsAll.length ? h('p', { class: 'legend' },
+        kindsAll.map((kd) => h('span', {}, h('i', { class: 'dot k-' + kd }), KIND_LABEL[kd]))) : null);
   }
 
   function timesView() {
@@ -291,7 +377,7 @@
     const day = state.data.days.find((d) => d.date === state.day);
     if (!day) {
       return h('p', { class: 'hint' },
-        'No free times in the next 7 days for ' + state.duration + ' minutes. Try a shorter duration, or check back later.');
+        'No free times in the next ' + (state.data.days.length - 1) + ' days for ' + state.duration + ' minutes. Try a shorter duration, or check back later.');
     }
     // Group the day's times by meeting mode (e.g. WhatsApp call / Online / Office).
     const groups = [];
@@ -301,8 +387,8 @@
       if (!g) groups.push((g = { mode, slots: [] }));
       g.slots.push(iso);
     });
-    return h('div', {}, groups.map((g) => [
-      where(g.mode),
+    return h('div', {}, groups.map((g) => h('div', { class: 'group k-' + modeKind(g.mode) },
+      g.mode ? pill(g.mode) : null,
       h('div', { class: 'times', role: 'group', 'aria-label': 'Start time' + (g.mode ? ', ' + g.mode : '') },
         g.slots.map((iso) => h('button', {
           type: 'button', class: 'opt', 'aria-pressed': String(iso === state.start),
@@ -312,8 +398,7 @@
             const f = document.getElementById('details');
             if (f) f.scrollIntoView({ behavior: 'smooth', block: 'start' });
           },
-        }, time(iso)))),
-    ]));
+        }, time(iso)))))));
   }
 
   // Form values: remembered name/email/enrollment (this browser only), plus
@@ -330,10 +415,12 @@
   function formView() {
     const end = new Date(new Date(state.start).getTime() + state.duration * 60000).toISOString();
     const mode = modeOf(state.start);
+    const external = draft.who === 'external';
     const agendaCount = h('span', { class: 'count' }, (draft.agenda || '').length + '/200');
     const agenda = h('input', {
       id: 'f-agenda', name: 'agenda', type: 'text', required: true, maxlength: 200, minlength: 3, value: draft.agenda || '',
-      placeholder: 'e.g. Discuss BTP progress and next steps', autocomplete: 'off',
+      placeholder: external ? 'e.g. Discuss a possible collaboration on grid optimisation' : 'e.g. Discuss BTP progress and next steps',
+      autocomplete: 'off',
       oninput: (e) => { agendaCount.textContent = e.target.value.length + '/200'; },
     });
     const status = h('div');
@@ -345,7 +432,11 @@
         e.preventDefault();
         const data = Object.fromEntries(new FormData(form));
         try {
-          localStorage.setItem('psq-meet-details', JSON.stringify({ name: data.name, email: data.email, enrollment: data.enrollment, phone: data.phone || draft.phone || '' }));
+          localStorage.setItem('psq-meet-details', JSON.stringify({
+            who: draft.who || 'iitr', name: data.name, email: data.email,
+            enrollment: data.enrollment || draft.enrollment || '', affiliation: data.affiliation || draft.affiliation || '',
+            phone: data.phone || draft.phone || '',
+          }));
         } catch (err) { /* private mode */ }
         submit.disabled = true;
         submit.textContent = 'Booking…';
@@ -353,7 +444,10 @@
         try {
           const res = await api('/api/book', {
             method: 'POST',
-            body: JSON.stringify(Object.assign(data, { start: state.start, duration: state.duration })),
+            body: JSON.stringify(Object.assign({}, data, {
+              start: state.start, duration: state.duration, external,
+              enrollment: external ? data.affiliation : data.enrollment, affiliation: undefined,
+            })),
           });
           renderDone(res.booking, data);
         } catch (err) {
@@ -368,12 +462,24 @@
         }
       },
     },
+      h('label', {}, 'You are'),
+      h('div', { class: 'seg seg2', role: 'group', 'aria-label': 'You are' },
+        [['iitr', 'At IIT Roorkee'], ['external', 'From outside IITR']].map(([v, label]) => h('button', {
+          type: 'button', class: 'opt', 'aria-pressed': String((draft.who || 'iitr') === v),
+          onclick: () => { if ((draft.who || 'iitr') !== v) { Object.assign(draft, Object.fromEntries(new FormData(form))); draft.who = v; renderBook(); } },
+        }, label))),
       field('Name', 'name', { type: 'text', autocomplete: 'name', maxlength: 80, minlength: 2 }),
       field('Email', 'email', { type: 'email', autocomplete: 'email', maxlength: 254, inputmode: 'email', autocapitalize: 'off', spellcheck: 'false' }),
       needsPhone(mode)
-        ? field('WhatsApp number', 'phone', { type: 'tel', autocomplete: 'tel', inputmode: 'tel', maxlength: 20, placeholder: '+91 98765 43210', pattern: '[+0-9 ()\\-]{7,20}', title: 'Phone number with country code' })
+        ? field('WhatsApp number', 'phone', { type: 'tel', autocomplete: 'tel', inputmode: 'tel', maxlength: 20, placeholder: '+91 98765 43210', title: 'Phone number with country code' })
         : null,
-      field('Enrollment number', 'enrollment', { type: 'text', maxlength: 20, autocapitalize: 'characters', autocomplete: 'off', pattern: '[A-Za-z0-9/\\-]+', title: 'Letters and digits only' }),
+      external ? h('p', { class: 'fhint' }, 'Your institute or work email works best.') : null,
+      external
+        ? [
+            field('Institute / organisation and your role', 'affiliation', { type: 'text', maxlength: 100, minlength: 3, autocomplete: 'organization', placeholder: 'e.g. PhD student, IIT Delhi' }),
+            h('p', { class: 'fhint' }, 'Examples: “Postdoc, NTU Singapore” · “Engineer, Tata Power” · “Assistant Professor, NIT Trichy” · “Final-year B.Tech, DTU”'),
+          ]
+        : field('Enrollment / employee number', 'enrollment', { type: 'text', maxlength: 20, autocapitalize: 'characters', autocomplete: 'off', placeholder: 'e.g. 23116045', title: 'Letters and digits only' }),
       h('label', { for: 'f-agenda' }, 'Agenda (one line) ', agendaCount),
       agenda,
       h('div', { class: 'hp', 'aria-hidden': 'true' },
@@ -386,7 +492,7 @@
     return h('section', { class: 'card', id: 'details' },
       h('h2', {}, h('span', { class: 'n' }, '4'), 'Your details'),
       h('p', { class: 'summary' }, range(state.start, end) + ' · ' + state.duration + ' min'),
-      where(mode),
+      mode ? h('p', { class: 'where' }, pill(mode)) : null,
       form);
   }
 
@@ -398,7 +504,7 @@
         h('dl', {},
           h('dt', {}, 'When'), h('dd', {}, range(b.start, b.end)),
           h('dt', {}, 'Length'), h('dd', {}, b.durationMin + ' min'),
-          h('dt', {}, 'Where'), h('dd', {}, b.location),
+          h('dt', {}, 'Where'), h('dd', {}, b.location ? pill(b.location) : ''),
           h('dt', {}, 'Agenda'), h('dd', {}, data.agenda)),
         b.emailSent
           ? msg('ok', 'A confirmation email with a calendar file and a cancel link is on its way to ' + data.email + '. Check spam if it hasn’t arrived in a few minutes.')
@@ -423,7 +529,7 @@
     const details = h('dl', {},
       h('dt', {}, 'When'), h('dd', {}, range(b.start, b.end)),
       h('dt', {}, 'Length'), h('dd', {}, b.durationMin + ' min'),
-      b.location ? [h('dt', {}, 'Where'), h('dd', {}, b.location)] : null);
+      b.location ? [h('dt', {}, 'Where'), h('dd', {}, pill(b.location))] : null);
 
     if (!b.cancellable) {
       const text = {
